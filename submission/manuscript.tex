@@ -46,6 +46,15 @@
 \newcommand{\needsedit}[1]{\colorbox{orange!40}{#1}}
 \newcommand{\needseditpar}[1]{\textcolor{orange}{\bfseries #1}}
 
+%% \path{} (from the url package, already pulled in by hyperref, but loaded
+%% explicitly so it doesn't depend on hyperref's internals) typesets a
+%% repository-relative file path in typewriter font and -- unlike \texttt{} --
+%% allows LaTeX to break the line at "/" and "_", so long paths in the
+%% Supplementary Material's "Source:" citations don't overflow the column.
+%% Deliberately \path, not \url: these are internal repo paths, not web
+%% URLs, so no hyperlink should be created.
+\usepackage{url}
+
 %% Centered tabularx X column. Used throughout every table in the paper
 %% (main text and appendix) but NOT predefined by mdpi.cls -- the class's
 %% own template shows this exact line commented out immediately above its
@@ -1650,13 +1659,19 @@ All authors have read and agreed to the published version of the manuscript.}
 through Google Earth Engine: ESA WorldCover 2021 v200
 (\texttt{ESA/WorldCover/v200}), Dynamic World
 (\texttt{GOOGLE/DYNAMICWORLD/V1}), and Esri/Impact Observatory 10~m Land Cover
-(\texttt{projects/sat-io/open-datasets/landcover/ESRI\_Global-LULC\_10m\_TS}).
+(\path{projects/sat-io/open-datasets/landcover/ESRI_Global-LULC_10m_TS}).
 The Sentinel-2 Level-2A surface-reflectance archive
 (\texttt{COPERNICUS/S2\_SR\_HARMONIZED}) is likewise public. The 900
 expert-interpreted boundary points, the boundary-aware sampling code, and the
-diagnostic and leave-one-city-out analysis scripts are available from the
-corresponding author on reasonable request and will be deposited at
-\needsedit{\url{https://doi.org/XXXX}} upon publication.} %TODO repository DOI / access terms
+diagnostic and leave-one-city-out analysis scripts are organised as a single
+code-plus-data repository: analysis code in \texttt{scripts/}; the six
+cities' data (original 15{,}000-point pools through the final corrected
+labels) in \texttt{data/cities/}; cross-city reference data (Dynamic
+World/Esri second reference, scene grouping) in
+\texttt{data/shared\_reference/}; script outputs in
+\texttt{data/analysis\_outputs/}; and the inter-annotator blind re-check in
+\texttt{data/interannotator\_recheck/}. This repository will be archived at
+\needsedit{\url{https://doi.org/XXXX}} upon publication.} %TODO repository DOI once minted (structure above is now fixed; only the DOI itself is a placeholder)
 
 \acknowledgments{During the preparation of this manuscript, the authors used a
 large language model (Claude, Anthropic) for LaTeX formatting and
@@ -1772,6 +1787,12 @@ reliability exercise reported in Section~\ref{sec:sampling}.
 \setcounter{table}{0}
 \setcounter{figure}{0}
 
+Unless noted otherwise, every ``Source:'' below is relative to
+\path{docs/results_snapshot/}, the frozen snapshot backing every number in
+this paper. Table~\ref{tab:S5} is the one exception, drawn from the live
+pipeline output in \path{data/analysis_outputs/} instead, because it reports
+a majority-class baseline column added after the snapshot was taken.
+
 \subsection{LOCO Operator: Gate-Sensitivity Sweep (Phase 2b)}\label{app:supp-s1}
 
 Referenced from Section~\ref{sec:results-loco}. The proposed downstream
@@ -1786,7 +1807,7 @@ the $\approx$15,000 city labels rewritten.
 
 \begin{table}[H]
 \caption{Gate sensitivity, six-city mean. Source:
-\texttt{docs/results\_snapshot/loco\_correction\_operator/phase2b\_sweep\_summary.csv}.\label{tab:S1}}
+\path{loco_correction_operator/phase2b_sweep_summary.csv}.\label{tab:S1}}
 \begin{adjustwidth}{-\extralength}{0cm}
 \centering
 \small
@@ -1834,7 +1855,7 @@ standard-deviation terms. \texttt{transfer15} is slightly worse than the full
 roughly 0.02--0.05), so the raw reflectance bands remain useful for the
 transfer despite the radiometric offsets. The main text reports only the
 27-feature operator. Source:
-\texttt{docs/results\_snapshot/loco\_correction\_operator/phase1\_corrector\_transfer.csv}
+\path{loco_correction_operator/phase1_corrector_transfer.csv}
 (\texttt{feature\_set} column: \texttt{all27} vs \texttt{transfer15}).
 
 %% Skip table number 2: "Table S2" (product error-dependence) was promoted
@@ -1861,7 +1882,7 @@ DW $=$ Esri $-$ Human $=$ DW gap under three class schemes, six-city pool
 \caption{Collapsing the class ontology leaves DW $=$ Esri at 0.87--0.92 and
 the gap at 0.34--0.48: the coupling is not an artefact of the three-class
 remap. Source:
-\texttt{docs/results\_snapshot/independence\_diagnostic/S3a\_ontology\_confound.csv}.\label{tab:S3}}
+\path{independence_diagnostic/S3a_ontology_confound.csv}.\label{tab:S3}}
 \begin{adjustwidth}{-\extralength}{0cm}
 \centering
 \small
@@ -1889,7 +1910,7 @@ mixed / complex 0.96), rather than concentrated in the spectrally stable
 classes. If the coupling came from the two products reading the same single
 acquisition it should peak on the easy, stable classes and break down in the
 transition zones; the observed pattern is the reverse. Source:
-\texttt{docs/results\_snapshot/independence\_diagnostic/S3c\_coupling\_by\_scene.csv}.\label{tab:S4}}
+\path{independence_diagnostic/S3c_coupling_by_scene.csv}.\label{tab:S4}}
 \begin{adjustwidth}{-\extralength}{0cm}
 \centering
 \small
@@ -1933,7 +1954,8 @@ alone, since non-built is the majority class pooled across cities).
 with the expert label. Confident firings are predictions with
 $p_{\max} \ge 0.85$ and predicted class $\neq$ WC; firing precision is the
 fraction of those firings that match the expert label. Source:
-\texttt{data/analysis\_outputs/loco\_correction\_operator/phase1\_corrector\_transfer.csv}.\label{tab:S5}}
+\path{data/analysis_outputs/loco_correction_operator/phase1_corrector_transfer.csv}
+(live pipeline output, not the frozen snapshot; see note above).\label{tab:S5}}
 \begin{adjustwidth}{-\extralength}{0cm}
 \centering
 \small
@@ -1960,7 +1982,7 @@ before/after maps (main text Figure~\ref{fig:map_maintext};
 Figures~\ref{fig:map_s1}--\ref{fig:map_s4} below). ``Operator changes'' is the
 number of the $\approx$15,000 stratified city points the gated operator
 ($\tau=0.85$, lowest-decile within-city margin) overwrites relative to raw
-WorldCover. Source: \texttt{docs/results\_snapshot/loco\_correction\_operator/}.\label{tab:S6}}
+WorldCover. Source: \path{loco_correction_operator/}.\label{tab:S6}}
 \centering
 \small
 \begin{tabularx}{0.75\fulllength}{lCC}
@@ -2056,10 +2078,12 @@ $\approx +1$ point is attributable to the RF$\to$MLP classifier change and to
 treating the 150 hand labels as anchors, not to neighbour propagation.
 \end{itemize}
 
-Source: \texttt{docs/results\_snapshot/leak\_diagnostic/}
-(\texttt{leak\_diagnostic.csv}, \texttt{spatial\_block\_results.csv},
-\texttt{spatial\_block\_summary.csv}); generation script
-\texttt{../gee-project2/scripts/spatial\_block\_validation.py}.
+Source: \path{leak_diagnostic/} (\path{leak_diagnostic.csv},
+\path{spatial_block_results.csv}, \path{spatial_block_summary.csv}), the
+frozen output of a one-off diagnostic run. The generating script lived in an
+earlier, non-version-controlled working directory and no longer exists in a
+form that can be republished; the CSVs above are preserved as the record of
+that check.
 
 \subsection{Illustrative Example Chips: WorldCover Boundary Error (C1/C2)}\label{app:supp-s6}
 

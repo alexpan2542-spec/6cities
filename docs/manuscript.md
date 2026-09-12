@@ -2,7 +2,7 @@
 
 > Working manuscript draft for MDPI *Remote Sensing* (research article).
 > Single source of record for framing, decisions and frozen numbers:
-> `docs/Paper_Writing_Plan.md`.
+> `docs/planning/Paper_Writing_Plan.md`.
 > Section 3 drafted 2026-09-07; revised 2026-09-07 after the BAMS-selection
 > reproduction (`scripts/reproduce_bams_selection.py`) and the addition of
 > Hangzhou's Dynamic World / ESRI layers (multi-reference subset now n = 900);

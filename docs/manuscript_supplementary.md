@@ -1,7 +1,7 @@
 # Supplementary Material
 
 > Companion to `docs/manuscript.md` (MDPI *Remote Sensing*). Single source of
-> record for framing and frozen numbers: `docs/Paper_Writing_Plan.md` §4;
+> record for framing and frozen numbers: `docs/planning/Paper_Writing_Plan.md` §4;
 > result snapshots in `docs/results_snapshot/`.
 >
 > Created 2026-09-09 to hold material moved out of the main text: the LOCO
@@ -243,8 +243,10 @@ rectification-and-expansion family; "Prototype Expansion").
   anchors, not to neighbour propagation.
 
 *Source: `docs/results_snapshot/leak_diagnostic/` (`leak_diagnostic.csv`,
-`spatial_block_results.csv`, `spatial_block_summary.csv`); generation script
-`../gee-project2/scripts/spatial_block_validation.py`.*
+`spatial_block_results.csv`, `spatial_block_summary.csv`), the frozen output of
+a one-off diagnostic run. The generating script lived in an earlier,
+non-version-controlled working directory and no longer exists in a form that
+can be republished; the CSVs above are preserved as the record of that check.*
 
 ---
 

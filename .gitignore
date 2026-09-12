@@ -4,3 +4,6 @@
 __pycache__/
 *.pyc
 .DS_Store
+
+# local-only, not for submission/GitHub
+docs/manuscript_zh.txt

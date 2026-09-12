@@ -13,7 +13,7 @@ lower-Yangtze cities
  - 补「三产品各用在何处」小节（澄清逐城目录只有 WC 的困惑）。
 
 （本稿只讲 定位 / 立论 / 贡献 / 呈现顺序。方法与结果细节见
-docs/manuscript.md；所有数字的唯一事实源是 docs/Paper_Writing_Plan.md §4
+docs/manuscript.md；所有数字的唯一事实源是 docs/planning/Paper_Writing_Plan.md §4
 的冻结快照。）
 
 
