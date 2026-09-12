@@ -1,0 +1,28 @@
+{
+  "step": 1,
+  "input": "/Users/alex/Projects/gee-project/data/Wuhan_WC_Samples_15000.csv",
+  "output": "/Users/alex/Projects/gee-project/data2/Wuhan/01_original/Wuhan_WC_Samples_15000.csv",
+  "n_rows": 15000,
+  "columns": [
+    "Original_ID",
+    "system:index",
+    "B11",
+    "B12",
+    "B2",
+    "B3",
+    "B4",
+    "B8",
+    "Class",
+    "MNDWI",
+    "NDBI",
+    "NDVI",
+    "lat",
+    "lon",
+    ".geo"
+  ],
+  "class_counts": {
+    "1": 5000,
+    "2": 5000,
+    "3": 5000
+  }
+}

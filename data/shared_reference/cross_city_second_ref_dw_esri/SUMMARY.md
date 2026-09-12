@@ -1,0 +1,38 @@
+# Cross-city second reference: Human × WC × Dynamic World × ESRI
+
+- Points: BAMS150 × 5 cities
+- Year: 2021
+- DW: GOOGLE/DYNAMICWORLD/V1 label mode
+- ESRI: sat-io ESRI_Global-LULC_10m_TS 2021 mosaic
+- Remap: built=1, non-built=2, water=3 (see config.json)
+
+## All Confidence
+
+    City   n  human_eq_WC  human_eq_DW  human_eq_ESRI  WC_eq_DW  WC_eq_ESRI  human_eq_DW_neq_WC  human_eq_ESRI_neq_WC  human_eq_DW_and_ESRI_neq_WC  among_HneqWC_eq_DW  among_HneqWC_eq_ESRI  n_HneqWC  n_missing_DW  n_missing_ESRI
+   Wuhan 150     0.413333     0.506667       0.500000  0.466667    0.453333            0.293333              0.293333                     0.273333            0.500000              0.500000        88             0               0
+Changsha 150     0.506667     0.433333       0.353333  0.493333    0.473333            0.193333              0.160000                     0.153333            0.391892              0.324324        74             0               0
+Nanchang 150     0.553333     0.400000       0.393333  0.360000    0.453333            0.213333              0.166667                     0.160000            0.477612              0.373134        67             0               0
+   Hefei 150     0.506667     0.393333       0.406667  0.486667    0.526667            0.193333              0.173333                     0.153333            0.391892              0.351351        74             0               0
+ Nanjing 150     0.320000     0.426667       0.433333  0.466667    0.473333            0.300000              0.300000                     0.293333            0.441176              0.441176       102             0               0
+
+## Key question: is Nanjing highest on human≈DW≠WC?
+
+    City  human_eq_DW_neq_WC  human_eq_ESRI_neq_WC  human_eq_WC  human_eq_DW  WC_eq_DW
+ Nanjing            0.300000              0.300000     0.320000     0.426667  0.466667
+   Wuhan            0.293333              0.293333     0.413333     0.506667  0.466667
+Nanchang            0.213333              0.166667     0.553333     0.400000  0.360000
+Changsha            0.193333              0.160000     0.506667     0.433333  0.493333
+   Hefei            0.193333              0.173333     0.506667     0.393333  0.486667
+
+## Confidence=high only
+
+    City  n  human_eq_WC  human_eq_DW  human_eq_ESRI  WC_eq_DW  WC_eq_ESRI  human_eq_DW_neq_WC  human_eq_ESRI_neq_WC  human_eq_DW_and_ESRI_neq_WC  among_HneqWC_eq_DW  among_HneqWC_eq_ESRI  n_HneqWC  n_missing_DW  n_missing_ESRI
+   Wuhan 81     0.123457     0.506173       0.530864  0.407407    0.395062            0.456790              0.469136                     0.444444            0.521127              0.535211        71             0               0
+Changsha 78     0.423077     0.487179       0.384615  0.487179    0.448718            0.256410              0.230769                     0.217949            0.444444              0.400000        45             0               0
+Nanchang 42     0.000000     0.547619       0.500000  0.333333    0.428571            0.547619              0.500000                     0.500000            0.547619              0.500000        42             0               0
+   Hefei 81     0.469136     0.419753       0.395062  0.506173    0.530864            0.222222              0.185185                     0.172840            0.418605              0.348837        43             0               0
+ Nanjing 73     0.383562     0.561644       0.547945  0.438356    0.424658            0.369863              0.369863                     0.369863            0.600000              0.600000        45             0               0
+
+## Verdict
+
+Nanjing human≈DW≠WC = 0.300; highest city = Nanjing (0.300). YES — Nanjing is highest → supports WC isolation under human/DW agreement.

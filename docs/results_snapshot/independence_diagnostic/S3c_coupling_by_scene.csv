@@ -1,0 +1,11 @@
+scene,n,DW=ESRI,Human=DW,gap
+Urban green space,52,0.981,0.135,0.846
+Mixed / complex,25,0.96,0.28,0.68
+Built-up edge / urban fabric,174,0.943,0.828,0.115
+Cropland / paddy transition,16,0.938,0.125,0.812
+Rural settlement / surfaces,41,0.878,0.244,0.634
+Bare land / construction,88,0.852,0.205,0.648
+Paddy / cropland / field,19,0.842,0.316,0.526
+Vegetation / forest edge,130,0.831,0.215,0.615
+Road / road edge,117,0.829,0.427,0.402
+Water / water edge,211,0.829,0.578,0.251

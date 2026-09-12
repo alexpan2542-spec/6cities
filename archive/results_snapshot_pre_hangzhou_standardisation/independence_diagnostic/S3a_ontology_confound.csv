@@ -1,0 +1,4 @@
+scheme,n,Human=DW,Human=ESRI,DW=ESRI,WC=DW,WC=ESRI,gap(DW=ESRI  -  Human=DW)
+3-class (built/non-built/water),900,0.436,0.413,0.87,0.438,0.452,0.434
+2-class (built vs rest),900,0.547,0.522,0.902,0.533,0.529,0.356
+built vs vegetation (water pts dropped),636,0.439,0.415,0.914,0.421,0.426,0.475

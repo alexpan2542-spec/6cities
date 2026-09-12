@@ -1,0 +1,250 @@
+======== Phase B START Sun Aug  9 12:01:10 NZST 2026 ========
+device: cpu seeds: [0, 1, 2, 3, 4] epochs: 80 out: /Users/alex/Projects/gee-project/data2/nanjing_rootcause_v2/phase_b
+Phase B Nanjing: BAMS n=150 high=73 agree/disagree=48/102 (high 28/45); dual_high_pool=106 flip=69.8%
+  [seed=0] Baseline WC_OA=0.9093 BE=280
+  [seed=0] PE_Human_all           K=5  n_seed=150 exp=13  WC_OA=0.9029 BE=306
+  [seed=0] PE_Human_all           K=10 n_seed=150 exp=24  WC_OA=0.8991 BE=317
+  [seed=0] PE_Human_all           K=20 n_seed=150 exp=35  WC_OA=0.8991 BE=319
+  [seed=0] PE_Human_all           K=30 n_seed=150 exp=40  WC_OA=0.9024 BE=308
+  [seed=0] PE_Human_high          K=5  n_seed=73  exp=3   WC_OA=0.9004 BE=318
+  [seed=0] PE_Human_high          K=10 n_seed=73  exp=10  WC_OA=0.9016 BE=309
+  [seed=0] PE_Human_high          K=20 n_seed=73  exp=16  WC_OA=0.9060 BE=298
+  [seed=0] PE_Human_high          K=30 n_seed=73  exp=23  WC_OA=0.9036 BE=309
+  [seed=0] PE_WC_all              K=5  n_seed=150 exp=8   WC_OA=0.9018 BE=313
+  [seed=0] PE_WC_all              K=10 n_seed=150 exp=18  WC_OA=0.8960 BE=339
+  [seed=0] PE_WC_all              K=20 n_seed=150 exp=27  WC_OA=0.9060 BE=293
+  [seed=0] PE_WC_all              K=30 n_seed=150 exp=39  WC_OA=0.9082 BE=288
+  [seed=0] PE_WC_high             K=5  n_seed=73  exp=5   WC_OA=0.9082 BE=287
+  [seed=0] PE_WC_high             K=10 n_seed=73  exp=13  WC_OA=0.9053 BE=292
+  [seed=0] PE_WC_high             K=20 n_seed=73  exp=17  WC_OA=0.9093 BE=280
+  [seed=0] PE_WC_high             K=30 n_seed=73  exp=20  WC_OA=0.9067 BE=291
+  [seed=0] PE_Agree_all           K=5  n_seed=48  exp=4   WC_OA=0.8942 BE=347
+  [seed=0] PE_Agree_all           K=10 n_seed=48  exp=5   WC_OA=0.9051 BE=302
+  [seed=0] PE_Agree_all           K=20 n_seed=48  exp=9   WC_OA=0.9040 BE=298
+  [seed=0] PE_Agree_all           K=30 n_seed=48  exp=14  WC_OA=0.9018 BE=315
+  [seed=0] PE_Disagree_all        K=5  n_seed=102 exp=7   WC_OA=0.9049 BE=298
+  [seed=0] PE_Disagree_all        K=10 n_seed=102 exp=14  WC_OA=0.8989 BE=324
+  [seed=0] PE_Disagree_all        K=20 n_seed=102 exp=22  WC_OA=0.9002 BE=317
+  [seed=0] PE_Disagree_all        K=30 n_seed=102 exp=27  WC_OA=0.9004 BE=317
+  [seed=0] PE_Agree_high          K=5  n_seed=28  exp=4   WC_OA=0.9044 BE=298
+  [seed=0] PE_Agree_high          K=10 n_seed=28  exp=4   WC_OA=0.9009 BE=317
+  [seed=0] PE_Agree_high          K=20 n_seed=28  exp=11  WC_OA=0.9022 BE=310
+  [seed=0] PE_Agree_high          K=30 n_seed=28  exp=15  WC_OA=0.9022 BE=316
+  [seed=0] PE_Disagree_high       K=5  n_seed=45  exp=9   WC_OA=0.8989 BE=321
+  [seed=0] PE_Disagree_high       K=10 n_seed=45  exp=13  WC_OA=0.9078 BE=289
+  [seed=0] PE_Disagree_high       K=20 n_seed=45  exp=21  WC_OA=0.8989 BE=322
+  [seed=0] PE_Disagree_high       K=30 n_seed=45  exp=26  WC_OA=0.9042 BE=302
+  [seed=0] PE_Human_holdout       K=5  n_seed=63  exp=4   WC_OA=0.9053 H_OA=0.5581
+  [seed=0] PE_Human_holdout       K=10 n_seed=63  exp=6   WC_OA=0.9047 H_OA=0.7674
+  [seed=0] PE_Human_holdout       K=20 n_seed=63  exp=16  WC_OA=0.9082 H_OA=0.6744
+  [seed=0] PE_Human_holdout       K=30 n_seed=63  exp=25  WC_OA=0.9042 H_OA=0.6977
+  [seed=0] PE_WC_holdout          K=5  n_seed=63  exp=7   WC_OA=0.9042 H_OA=0.6512
+  [seed=0] PE_WC_holdout          K=10 n_seed=63  exp=9   WC_OA=0.9071 H_OA=0.6744
+  [seed=0] PE_WC_holdout          K=20 n_seed=63  exp=18  WC_OA=0.9013 H_OA=0.6512
+  [seed=0] PE_WC_holdout          K=30 n_seed=63  exp=27  WC_OA=0.9098 H_OA=0.6047
+  [seed=1] Baseline WC_OA=0.9091 BE=284
+  [seed=1] PE_Human_all           K=5  n_seed=150 exp=7   WC_OA=0.9053 BE=294
+  [seed=1] PE_Human_all           K=10 n_seed=150 exp=13  WC_OA=0.9029 BE=304
+  [seed=1] PE_Human_all           K=20 n_seed=150 exp=28  WC_OA=0.9038 BE=306
+  [seed=1] PE_Human_all           K=30 n_seed=150 exp=33  WC_OA=0.9053 BE=302
+  [seed=1] PE_Human_high          K=5  n_seed=73  exp=8   WC_OA=0.9042 BE=300
+  [seed=1] PE_Human_high          K=10 n_seed=73  exp=14  WC_OA=0.9009 BE=308
+  [seed=1] PE_Human_high          K=20 n_seed=73  exp=19  WC_OA=0.9060 BE=287
+  [seed=1] PE_Human_high          K=30 n_seed=73  exp=23  WC_OA=0.8971 BE=313
+  [seed=1] PE_WC_all              K=5  n_seed=150 exp=8   WC_OA=0.9062 BE=291
+  [seed=1] PE_WC_all              K=10 n_seed=150 exp=13  WC_OA=0.9091 BE=284
+  [seed=1] PE_WC_all              K=20 n_seed=150 exp=24  WC_OA=0.9040 BE=309
+  [seed=1] PE_WC_all              K=30 n_seed=150 exp=36  WC_OA=0.9069 BE=291
+  [seed=1] PE_WC_high             K=5  n_seed=73  exp=5   WC_OA=0.9011 BE=306
+  [seed=1] PE_WC_high             K=10 n_seed=73  exp=10  WC_OA=0.9022 BE=315
+  [seed=1] PE_WC_high             K=20 n_seed=73  exp=19  WC_OA=0.9053 BE=296
+  [seed=1] PE_WC_high             K=30 n_seed=73  exp=29  WC_OA=0.9073 BE=281
+  [seed=1] PE_Agree_all           K=5  n_seed=48  exp=5   WC_OA=0.9051 BE=287
+  [seed=1] PE_Agree_all           K=10 n_seed=48  exp=8   WC_OA=0.9082 BE=284
+  [seed=1] PE_Agree_all           K=20 n_seed=48  exp=15  WC_OA=0.9031 BE=304
+  [seed=1] PE_Agree_all           K=30 n_seed=48  exp=19  WC_OA=0.9098 BE=277
+  [seed=1] PE_Disagree_all        K=5  n_seed=102 exp=7   WC_OA=0.9056 BE=292
+  [seed=1] PE_Disagree_all        K=10 n_seed=102 exp=17  WC_OA=0.9038 BE=304
+  [seed=1] PE_Disagree_all        K=20 n_seed=102 exp=21  WC_OA=0.9044 BE=300
+  [seed=1] PE_Disagree_all        K=30 n_seed=102 exp=27  WC_OA=0.9044 BE=293
+  [seed=1] PE_Agree_high          K=5  n_seed=28  exp=1   WC_OA=0.9067 BE=287
+  [seed=1] PE_Agree_high          K=10 n_seed=28  exp=3   WC_OA=0.9060 BE=292
+  [seed=1] PE_Agree_high          K=20 n_seed=28  exp=11  WC_OA=0.9071 BE=290
+  [seed=1] PE_Agree_high          K=30 n_seed=28  exp=23  WC_OA=0.8982 BE=325
+  [seed=1] PE_Disagree_high       K=5  n_seed=45  exp=3   WC_OA=0.9073 BE=290
+  [seed=1] PE_Disagree_high       K=10 n_seed=45  exp=6   WC_OA=0.9047 BE=293
+  [seed=1] PE_Disagree_high       K=20 n_seed=45  exp=10  WC_OA=0.9024 BE=308
+  [seed=1] PE_Disagree_high       K=30 n_seed=45  exp=12  WC_OA=0.9031 BE=305
+  [seed=1] PE_Human_holdout       K=5  n_seed=63  exp=3   WC_OA=0.9053 H_OA=0.5349
+  [seed=1] PE_Human_holdout       K=10 n_seed=63  exp=7   WC_OA=0.9102 H_OA=0.6512
+  [seed=1] PE_Human_holdout       K=20 n_seed=63  exp=20  WC_OA=0.9078 H_OA=0.5814
+  [seed=1] PE_Human_holdout       K=30 n_seed=63  exp=27  WC_OA=0.9044 H_OA=0.4419
+  [seed=1] PE_WC_holdout          K=5  n_seed=63  exp=5   WC_OA=0.9084 H_OA=0.5116
+  [seed=1] PE_WC_holdout          K=10 n_seed=63  exp=8   WC_OA=0.9040 H_OA=0.5581
+  [seed=1] PE_WC_holdout          K=20 n_seed=63  exp=17  WC_OA=0.9080 H_OA=0.5814
+  [seed=1] PE_WC_holdout          K=30 n_seed=63  exp=23  WC_OA=0.9042 H_OA=0.4651
+  [seed=2] Baseline WC_OA=0.9104 BE=282
+  [seed=2] PE_Human_all           K=5  n_seed=150 exp=8   WC_OA=0.9016 BE=310
+  [seed=2] PE_Human_all           K=10 n_seed=150 exp=13  WC_OA=0.9049 BE=300
+  [seed=2] PE_Human_all           K=20 n_seed=150 exp=28  WC_OA=0.9022 BE=310
+  [seed=2] PE_Human_all           K=30 n_seed=150 exp=33  WC_OA=0.9013 BE=313
+  [seed=2] PE_Human_high          K=5  n_seed=73  exp=6   WC_OA=0.9053 BE=290
+  [seed=2] PE_Human_high          K=10 n_seed=73  exp=13  WC_OA=0.9073 BE=288
+  [seed=2] PE_Human_high          K=20 n_seed=73  exp=17  WC_OA=0.8944 BE=339
+  [seed=2] PE_Human_high          K=30 n_seed=73  exp=21  WC_OA=0.9051 BE=297
+  [seed=2] PE_WC_all              K=5  n_seed=150 exp=14  WC_OA=0.9002 BE=315
+  [seed=2] PE_WC_all              K=10 n_seed=150 exp=24  WC_OA=0.9049 BE=296
+  [seed=2] PE_WC_all              K=20 n_seed=150 exp=37  WC_OA=0.9033 BE=299
+  [seed=2] PE_WC_all              K=30 n_seed=150 exp=46  WC_OA=0.8956 BE=339
+  [seed=2] PE_WC_high             K=5  n_seed=73  exp=6   WC_OA=0.9044 BE=295
+  [seed=2] PE_WC_high             K=10 n_seed=73  exp=10  WC_OA=0.8962 BE=332
+  [seed=2] PE_WC_high             K=20 n_seed=73  exp=14  WC_OA=0.9069 BE=285
+  [seed=2] PE_WC_high             K=30 n_seed=73  exp=18  WC_OA=0.9051 BE=298
+  [seed=2] PE_Agree_all           K=5  n_seed=48  exp=6   WC_OA=0.9053 BE=297
+  [seed=2] PE_Agree_all           K=10 n_seed=48  exp=6   WC_OA=0.9040 BE=303
+  [seed=2] PE_Agree_all           K=20 n_seed=48  exp=9   WC_OA=0.9047 BE=302
+  [seed=2] PE_Agree_all           K=30 n_seed=48  exp=15  WC_OA=0.9011 BE=315
+  [seed=2] PE_Disagree_all        K=5  n_seed=102 exp=9   WC_OA=0.9040 BE=300
+  [seed=2] PE_Disagree_all        K=10 n_seed=102 exp=18  WC_OA=0.9018 BE=323
+  [seed=2] PE_Disagree_all        K=20 n_seed=102 exp=27  WC_OA=0.9076 BE=283
+  [seed=2] PE_Disagree_all        K=30 n_seed=102 exp=34  WC_OA=0.9004 BE=311
+  [seed=2] PE_Agree_high          K=5  n_seed=28  exp=2   WC_OA=0.9022 BE=307
+  [seed=2] PE_Agree_high          K=10 n_seed=28  exp=2   WC_OA=0.9000 BE=306
+  [seed=2] PE_Agree_high          K=20 n_seed=28  exp=5   WC_OA=0.9033 BE=304
+  [seed=2] PE_Agree_high          K=30 n_seed=28  exp=7   WC_OA=0.9064 BE=297
+  [seed=2] PE_Disagree_high       K=5  n_seed=45  exp=4   WC_OA=0.9053 BE=296
+  [seed=2] PE_Disagree_high       K=10 n_seed=45  exp=7   WC_OA=0.9060 BE=295
+  [seed=2] PE_Disagree_high       K=20 n_seed=45  exp=9   WC_OA=0.9036 BE=297
+  [seed=2] PE_Disagree_high       K=30 n_seed=45  exp=11  WC_OA=0.9033 BE=303
+  [seed=2] PE_Human_holdout       K=5  n_seed=63  exp=7   WC_OA=0.9047 H_OA=0.6512
+  [seed=2] PE_Human_holdout       K=10 n_seed=63  exp=8   WC_OA=0.9049 H_OA=0.5581
+  [seed=2] PE_Human_holdout       K=20 n_seed=63  exp=18  WC_OA=0.9042 H_OA=0.7442
+  [seed=2] PE_Human_holdout       K=30 n_seed=63  exp=27  WC_OA=0.9056 H_OA=0.5116
+  [seed=2] PE_WC_holdout          K=5  n_seed=63  exp=4   WC_OA=0.9069 H_OA=0.6279
+  [seed=2] PE_WC_holdout          K=10 n_seed=63  exp=7   WC_OA=0.9071 H_OA=0.6047
+  [seed=2] PE_WC_holdout          K=20 n_seed=63  exp=18  WC_OA=0.9082 H_OA=0.6512
+  [seed=2] PE_WC_holdout          K=30 n_seed=63  exp=25  WC_OA=0.9060 H_OA=0.6512
+  [seed=3] Baseline WC_OA=0.9107 BE=278
+  [seed=3] PE_Human_all           K=5  n_seed=150 exp=7   WC_OA=0.9047 BE=295
+  [seed=3] PE_Human_all           K=10 n_seed=150 exp=16  WC_OA=0.9067 BE=284
+  [seed=3] PE_Human_all           K=20 n_seed=150 exp=24  WC_OA=0.9036 BE=301
+  [seed=3] PE_Human_all           K=30 n_seed=150 exp=28  WC_OA=0.9009 BE=310
+  [seed=3] PE_Human_high          K=5  n_seed=73  exp=8   WC_OA=0.9033 BE=308
+  [seed=3] PE_Human_high          K=10 n_seed=73  exp=14  WC_OA=0.9060 BE=292
+  [seed=3] PE_Human_high          K=20 n_seed=73  exp=21  WC_OA=0.9020 BE=302
+  [seed=3] PE_Human_high          K=30 n_seed=73  exp=23  WC_OA=0.8984 BE=332
+  [seed=3] PE_WC_all              K=5  n_seed=150 exp=9   WC_OA=0.9056 BE=300
+  [seed=3] PE_WC_all              K=10 n_seed=150 exp=13  WC_OA=0.9071 BE=287
+  [seed=3] PE_WC_all              K=20 n_seed=150 exp=16  WC_OA=0.9056 BE=301
+  [seed=3] PE_WC_all              K=30 n_seed=150 exp=17  WC_OA=0.9093 BE=286
+  [seed=3] PE_WC_high             K=5  n_seed=73  exp=10  WC_OA=0.9049 BE=304
+  [seed=3] PE_WC_high             K=10 n_seed=73  exp=21  WC_OA=0.9060 BE=294
+  [seed=3] PE_WC_high             K=20 n_seed=73  exp=28  WC_OA=0.9002 BE=317
+  [seed=3] PE_WC_high             K=30 n_seed=73  exp=39  WC_OA=0.8964 BE=335
+  [seed=3] PE_Agree_all           K=5  n_seed=48  exp=6   WC_OA=0.9078 BE=290
+  [seed=3] PE_Agree_all           K=10 n_seed=48  exp=9   WC_OA=0.9069 BE=288
+  [seed=3] PE_Agree_all           K=20 n_seed=48  exp=16  WC_OA=0.9073 BE=280
+  [seed=3] PE_Agree_all           K=30 n_seed=48  exp=20  WC_OA=0.9031 BE=305
+  [seed=3] PE_Disagree_all        K=5  n_seed=102 exp=3   WC_OA=0.9009 BE=314
+  [seed=3] PE_Disagree_all        K=10 n_seed=102 exp=11  WC_OA=0.9024 BE=296
+  [seed=3] PE_Disagree_all        K=20 n_seed=102 exp=26  WC_OA=0.9040 BE=296
+  [seed=3] PE_Disagree_all        K=30 n_seed=102 exp=30  WC_OA=0.9029 BE=307
+  [seed=3] PE_Agree_high          K=5  n_seed=28  exp=2   WC_OA=0.9044 BE=301
+  [seed=3] PE_Agree_high          K=10 n_seed=28  exp=4   WC_OA=0.9060 BE=297
+  [seed=3] PE_Agree_high          K=20 n_seed=28  exp=6   WC_OA=0.9062 BE=294
+  [seed=3] PE_Agree_high          K=30 n_seed=28  exp=10  WC_OA=0.9036 BE=297
+  [seed=3] PE_Disagree_high       K=5  n_seed=45  exp=4   WC_OA=0.8984 BE=329
+  [seed=3] PE_Disagree_high       K=10 n_seed=45  exp=6   WC_OA=0.9076 BE=292
+  [seed=3] PE_Disagree_high       K=20 n_seed=45  exp=10  WC_OA=0.9062 BE=289
+  [seed=3] PE_Disagree_high       K=30 n_seed=45  exp=14  WC_OA=0.9022 BE=295
+  [seed=3] PE_Human_holdout       K=5  n_seed=63  exp=4   WC_OA=0.9093 H_OA=0.6047
+  [seed=3] PE_Human_holdout       K=10 n_seed=63  exp=11  WC_OA=0.9080 H_OA=0.6744
+  [seed=3] PE_Human_holdout       K=20 n_seed=63  exp=22  WC_OA=0.9040 H_OA=0.5814
+  [seed=3] PE_Human_holdout       K=30 n_seed=63  exp=31  WC_OA=0.9062 H_OA=0.7209
+  [seed=3] PE_WC_holdout          K=5  n_seed=63  exp=5   WC_OA=0.9067 H_OA=0.6047
+  [seed=3] PE_WC_holdout          K=10 n_seed=63  exp=10  WC_OA=0.9076 H_OA=0.6512
+  [seed=3] PE_WC_holdout          K=20 n_seed=63  exp=23  WC_OA=0.9109 H_OA=0.5116
+  [seed=3] PE_WC_holdout          K=30 n_seed=63  exp=30  WC_OA=0.9027 H_OA=0.5349
+  [seed=4] Baseline WC_OA=0.9078 BE=291
+  [seed=4] PE_Human_all           K=5  n_seed=150 exp=13  WC_OA=0.9022 BE=312
+  [seed=4] PE_Human_all           K=10 n_seed=150 exp=14  WC_OA=0.9013 BE=310
+  [seed=4] PE_Human_all           K=20 n_seed=150 exp=21  WC_OA=0.9062 BE=292
+  [seed=4] PE_Human_all           K=30 n_seed=150 exp=26  WC_OA=0.9067 BE=288
+  [seed=4] PE_Human_high          K=5  n_seed=73  exp=8   WC_OA=0.9076 BE=288
+  [seed=4] PE_Human_high          K=10 n_seed=73  exp=13  WC_OA=0.9049 BE=295
+  [seed=4] PE_Human_high          K=20 n_seed=73  exp=21  WC_OA=0.9071 BE=284
+  [seed=4] PE_Human_high          K=30 n_seed=73  exp=26  WC_OA=0.9016 BE=312
+  [seed=4] PE_WC_all              K=5  n_seed=150 exp=10  WC_OA=0.9042 BE=303
+  [seed=4] PE_WC_all              K=10 n_seed=150 exp=13  WC_OA=0.9027 BE=309
+  [seed=4] PE_WC_all              K=20 n_seed=150 exp=18  WC_OA=0.9038 BE=293
+  [seed=4] PE_WC_all              K=30 n_seed=150 exp=24  WC_OA=0.9069 BE=283
+  [seed=4] PE_WC_high             K=5  n_seed=73  exp=11  WC_OA=0.9058 BE=306
+  [seed=4] PE_WC_high             K=10 n_seed=73  exp=16  WC_OA=0.9038 BE=305
+  [seed=4] PE_WC_high             K=20 n_seed=73  exp=26  WC_OA=0.9113 BE=277
+  [seed=4] PE_WC_high             K=30 n_seed=73  exp=33  WC_OA=0.9053 BE=301
+  [seed=4] PE_Agree_all           K=5  n_seed=48  exp=6   WC_OA=0.9071 BE=291
+  [seed=4] PE_Agree_all           K=10 n_seed=48  exp=6   WC_OA=0.9071 BE=290
+  [seed=4] PE_Agree_all           K=20 n_seed=48  exp=12  WC_OA=0.9078 BE=281
+  [seed=4] PE_Agree_all           K=30 n_seed=48  exp=14  WC_OA=0.9104 BE=282
+  [seed=4] PE_Disagree_all        K=5  n_seed=102 exp=8   WC_OA=0.9051 BE=303
+  [seed=4] PE_Disagree_all        K=10 n_seed=102 exp=11  WC_OA=0.9073 BE=295
+  [seed=4] PE_Disagree_all        K=20 n_seed=102 exp=19  WC_OA=0.9076 BE=290
+  [seed=4] PE_Disagree_all        K=30 n_seed=102 exp=24  WC_OA=0.8998 BE=324
+  [seed=4] PE_Agree_high          K=5  n_seed=28  exp=0   WC_OA=0.9060 BE=293
+  [seed=4] PE_Agree_high          K=10 n_seed=28  exp=3   WC_OA=0.9080 BE=293
+  [seed=4] PE_Agree_high          K=20 n_seed=28  exp=8   WC_OA=0.9093 BE=281
+  [seed=4] PE_Agree_high          K=30 n_seed=28  exp=11  WC_OA=0.9076 BE=296
+  [seed=4] PE_Disagree_high       K=5  n_seed=45  exp=4   WC_OA=0.9040 BE=301
+  [seed=4] PE_Disagree_high       K=10 n_seed=45  exp=6   WC_OA=0.9042 BE=303
+  [seed=4] PE_Disagree_high       K=20 n_seed=45  exp=8   WC_OA=0.9087 BE=281
+  [seed=4] PE_Disagree_high       K=30 n_seed=45  exp=11  WC_OA=0.9040 BE=303
+  [seed=4] PE_Human_holdout       K=5  n_seed=63  exp=7   WC_OA=0.9024 H_OA=0.6279
+  [seed=4] PE_Human_holdout       K=10 n_seed=63  exp=11  WC_OA=0.9096 H_OA=0.6512
+  [seed=4] PE_Human_holdout       K=20 n_seed=63  exp=16  WC_OA=0.9064 H_OA=0.6279
+  [seed=4] PE_Human_holdout       K=30 n_seed=63  exp=21  WC_OA=0.9107 H_OA=0.5581
+  [seed=4] PE_WC_holdout          K=5  n_seed=63  exp=4   WC_OA=0.9047 H_OA=0.6744
+  [seed=4] PE_WC_holdout          K=10 n_seed=63  exp=10  WC_OA=0.9027 H_OA=0.6279
+  [seed=4] PE_WC_holdout          K=20 n_seed=63  exp=18  WC_OA=0.9018 H_OA=0.6279
+  [seed=4] PE_WC_holdout          K=30 n_seed=63  exp=25  WC_OA=0.9060 H_OA=0.6512
+
+# Nanjing Phase B — Human vs WC seed contrast
+
+- BAMS: n=150, high=73, agree/disagree=48/102
+
+- Dual high pool: n=106, flip_vs_WC=69.8%, holdout=0.4
+
+
+## Mean over seeds
+
+
+Track           Method  n_seed_mean  WC_OA_mean  WC_OA_std    dWC_pp  WC_BE_mean  H_OA_mean     dH_pp  H_BE_mean  n_exp_mean
+   WC         Baseline          0.0    0.909467   0.001039  0.000000       283.0        NaN       NaN        NaN         NaN
+   WC     PE_Human_all        150.0    0.905289   0.001394 -0.417778       294.4        NaN       NaN        NaN        15.0
+   WC    PE_Human_high         73.0    0.906489   0.000603 -0.297778       289.8        NaN       NaN        NaN        16.6
+   WC        PE_WC_all        150.0    0.907689   0.001643 -0.177778       287.4        NaN       NaN        NaN        23.4
+   WC       PE_WC_high         73.0    0.908178   0.001919 -0.128889       283.4        NaN       NaN        NaN        21.4
+   WC     PE_Agree_all         48.0    0.906844   0.002004 -0.262222       286.6        NaN       NaN        NaN        12.4
+   WC  PE_Disagree_all        102.0    0.905911   0.001431 -0.355556       291.8        NaN       NaN        NaN        17.2
+   WC    PE_Agree_high         28.0    0.906622   0.001568 -0.284444       291.4        NaN       NaN        NaN         5.2
+   WC PE_Disagree_high         45.0    0.907200   0.000990 -0.226667       288.8        NaN       NaN        NaN         8.2
+ Dual    Baseline_dual          0.0    0.909467   0.001039  0.000000       283.0   0.665116  0.000000       13.6         NaN
+ Dual PE_Human_holdout         63.0    0.908667   0.002066 -0.080000       282.0   0.609302 -5.581395       16.0        11.2
+ Dual    PE_WC_holdout         63.0    0.908133   0.002189 -0.133333       284.4   0.586047 -7.906977       16.8        12.6
+
+
+## Reading guide
+
+- PE_WC_*: same BAMS positions, seed label = WorldCover (method can lift WC-OA?).
+
+- PE_Human_*: seed label = human (passport-style).
+
+- PE_Agree_* vs PE_Disagree_*: only WC-consistent / conflicting human seeds.
+
+- Dual track: 40% high points held out for Human-OA; never used as seeds.
+
+- H1 supported if PE_WC lifts WC-OA while PE_Human does not, and/or PE_Human lifts Human-OA while WC stays flat; and Disagree hurts WC while Agree helps.
+
+
+Wrote /Users/alex/Projects/gee-project/data2/nanjing_rootcause_v2/phase_b
+EXIT:0
+======== Phase B END Sun Aug  9 12:15:56 NZST 2026 ========

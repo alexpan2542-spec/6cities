@@ -1,0 +1,901 @@
+City,PointID,Original_ID,Human_Class,WC_Class,Scene_raw,Scene_group,Disagree,Confidence
+Wuhan,1,9847,1,2,sb,Built-up edge / urban fabric,1,h
+Wuhan,2,5089,1,2,be,Built-up edge / urban fabric,1,h
+Wuhan,3,9948,3,2,tw,Water / water edge,1,m
+Wuhan,4,5474,1,2,be,Built-up edge / urban fabric,1,h
+Wuhan,5,9953,2,2,ct,Cropland / paddy transition,0,m
+Wuhan,6,6412,1,2,be,Built-up edge / urban fabric,1,h
+Wuhan,7,9192,1,2,be,Built-up edge / urban fabric,1,h
+Wuhan,8,4001,2,1,ub,Urban green space,1,h
+Wuhan,9,12096,3,3,we,Water / water edge,0,m
+Wuhan,10,9912,2,2,re,Road / road edge,0,m
+Wuhan,11,1409,2,1,ub,Urban green space,1,h
+Wuhan,12,7604,1,2,be,Built-up edge / urban fabric,1,h
+Wuhan,13,9476,3,2,we,Water / water edge,1,m
+Wuhan,14,5282,1,2,be,Built-up edge / urban fabric,1,h
+Wuhan,15,4708,2,1,ub,Urban green space,1,h
+Wuhan,16,7342,1,2,be,Built-up edge / urban fabric,1,h
+Wuhan,17,14813,2,3,re,Road / road edge,1,m
+Wuhan,18,5800,2,2,fe,Vegetation / forest edge,0,m
+Wuhan,19,9546,1,2,be,Built-up edge / urban fabric,1,h
+Wuhan,20,6321,1,2,car parking,Built-up edge / urban fabric,1,h
+Wuhan,21,7863,1,2,sb,Built-up edge / urban fabric,1,h
+Wuhan,22,8554,2,2,ce,Cropland / paddy transition,0,m
+Wuhan,23,6530,1,2,be,Built-up edge / urban fabric,1,h
+Wuhan,24,11090,3,3,we,Water / water edge,0,m
+Wuhan,25,6553,2,2,re,Road / road edge,0,m
+Wuhan,26,6212,1,2,sb,Built-up edge / urban fabric,1,h
+Wuhan,27,9165,1,2,air port land,Other / misc,1,h
+Wuhan,28,6773,1,2,be,Built-up edge / urban fabric,1,h
+Wuhan,29,3996,1,1,be,Built-up edge / urban fabric,0,m
+Wuhan,30,7889,1,2,mx,Mixed / complex,1,h
+Wuhan,31,11040,3,3,we,Water / water edge,0,m
+Wuhan,32,2351,2,1,cs,Bare land / construction,1,h
+Wuhan,33,1217,1,1,ub,Urban green space,0,m
+Wuhan,34,2484,2,1,cs,Bare land / construction,1,h
+Wuhan,35,9041,2,2,cs,Bare land / construction,0,m
+Wuhan,36,5586,1,2,sb,Built-up edge / urban fabric,1,h
+Wuhan,37,5765,1,2,re,Road / road edge,1,h
+Wuhan,38,5265,3,2,we,Water / water edge,1,m
+Wuhan,39,13936,2,3,bl,Bare land / construction,1,m
+Wuhan,40,1148,1,1,be,Built-up edge / urban fabric,0,m
+Wuhan,41,5418,1,2,be,Built-up edge / urban fabric,1,h
+Wuhan,42,6636,2,2,bl,Bare land / construction,0,m
+Wuhan,43,9666,2,2,cs,Bare land / construction,0,m
+Wuhan,44,8241,2,2,re,Road / road edge,0,m
+Wuhan,45,9684,1,2,br,Built-up edge / urban fabric,1,h
+Wuhan,46,8894,3,2,we,Water / water edge,1,m
+Wuhan,47,7984,2,2,ce,Cropland / paddy transition,0,m
+Wuhan,48,7445,3,2,we,Water / water edge,1,m
+Wuhan,49,3173,1,1,re,Road / road edge,0,m
+Wuhan,50,9637,2,2,re,Road / road edge,0,m
+Wuhan,51,4587,2,1,re,Road / road edge,1,h
+Wuhan,52,8367,2,2,cs,Bare land / construction,0,m
+Wuhan,53,10636,2,3,re,Road / road edge,1,m
+Wuhan,54,5450,1,2,be,Built-up edge / urban fabric,1,h
+Wuhan,55,7582,2,2,re,Road / road edge,0,m
+Wuhan,56,4596,1,1,square,Other / misc,0,m
+Wuhan,57,10175,3,3,wr,Water / water edge,0,m
+Wuhan,58,5054,1,2,be,Built-up edge / urban fabric,1,h
+Wuhan,59,7452,1,2,re,Road / road edge,1,h
+Wuhan,60,1804,2,1,ub,Urban green space,1,h
+Wuhan,61,9869,2,2,cs,Bare land / construction,0,m
+Wuhan,62,3934,2,1,ub,Urban green space,1,h
+Wuhan,63,10479,3,3,we,Water / water edge,0,m
+Wuhan,64,5286,3,2,we,Water / water edge,1,m
+Wuhan,65,8465,2,2,ce,Cropland / paddy transition,0,m
+Wuhan,66,14403,2,3,ce,Cropland / paddy transition,1,m
+Wuhan,67,2697,2,1,cs,Bare land / construction,1,h
+Wuhan,68,2501,2,1,ub,Urban green space,1,h
+Wuhan,69,7809,2,2,ce,Cropland / paddy transition,0,m
+Wuhan,70,1871,2,1,rs,Rural settlement / surfaces,1,h
+Wuhan,71,8722,2,2,ub,Urban green space,0,m
+Wuhan,72,6186,1,2,sb,Built-up edge / urban fabric,1,h
+Wuhan,73,4549,2,1,mx,Mixed / complex,1,h
+Wuhan,74,7668,2,2,bl,Bare land / construction,0,m
+Wuhan,75,7159,1,2,be,Built-up edge / urban fabric,1,h
+Wuhan,76,9537,2,2,fe,Vegetation / forest edge,0,m
+Wuhan,77,9488,1,2,be,Built-up edge / urban fabric,1,h
+Wuhan,78,2961,1,1,sb,Built-up edge / urban fabric,0,m
+Wuhan,79,2025,2,1,ce,Cropland / paddy transition,1,h
+Wuhan,80,6382,2,2,ub,Urban green space,0,m
+Wuhan,81,2695,2,1,fe,Vegetation / forest edge,1,h
+Wuhan,82,13903,3,3,we,Water / water edge,0,m
+Wuhan,83,865,2,1,ub,Urban green space,1,h
+Wuhan,84,6614,2,2,ub,Urban green space,0,m
+Wuhan,85,9548,2,2,re,Road / road edge,0,m
+Wuhan,86,2602,2,1,mx,Mixed / complex,1,h
+Wuhan,87,6224,2,2,fe,Vegetation / forest edge,0,m
+Wuhan,88,6076,2,2,mx,Mixed / complex,0,m
+Wuhan,89,1793,2,1,re,Road / road edge,1,h
+Wuhan,90,11166,3,3,we,Water / water edge,0,m
+Wuhan,91,7768,2,2,sb,Built-up edge / urban fabric,0,m
+Wuhan,92,442,1,1,bs,Soft boundary / shadow,0,m
+Wuhan,93,3595,1,1,be,Built-up edge / urban fabric,0,m
+Wuhan,94,3828,2,1,ub,Urban green space,1,h
+Wuhan,95,194,2,1,sb,Built-up edge / urban fabric,1,h
+Wuhan,96,2183,1,1,be,Built-up edge / urban fabric,0,m
+Wuhan,97,7451,2,2,re,Road / road edge,0,m
+Wuhan,98,12076,3,3,we,Water / water edge,0,m
+Wuhan,99,3950,2,1,ub,Urban green space,1,h
+Wuhan,100,11211,3,3,pf,Paddy / cropland / field,0,m
+Wuhan,101,8213,1,2,sb,Built-up edge / urban fabric,1,h
+Wuhan,102,6621,1,2,be,Built-up edge / urban fabric,1,h
+Wuhan,103,236,2,1,re,Road / road edge,1,h
+Wuhan,104,5045,2,2,re,Road / road edge,0,m
+Wuhan,105,11100,3,3,we,Water / water edge,0,m
+Wuhan,106,7271,1,2,be,Built-up edge / urban fabric,1,h
+Wuhan,107,7119,1,2,re,Road / road edge,1,h
+Wuhan,108,1326,2,1,fe,Vegetation / forest edge,1,h
+Wuhan,109,6347,2,2,re,Road / road edge,0,m
+Wuhan,110,13501,3,3,we,Water / water edge,0,m
+Wuhan,111,1627,2,1,ub,Urban green space,1,h
+Wuhan,112,378,1,1,be,Built-up edge / urban fabric,0,m
+Wuhan,113,4440,1,1,be,Built-up edge / urban fabric,0,m
+Wuhan,114,2208,2,1,re,Road / road edge,1,h
+Wuhan,115,4374,2,1,re,Road / road edge,1,h
+Wuhan,116,7214,1,2,be,Built-up edge / urban fabric,1,h
+Wuhan,117,9225,1,2,be,Built-up edge / urban fabric,1,h
+Wuhan,118,7484,2,2,re,Road / road edge,0,m
+Wuhan,119,5907,1,2,br,Built-up edge / urban fabric,1,h
+Wuhan,120,11768,2,3,wl,Water / water edge,1,m
+Wuhan,121,13807,3,3,we,Water / water edge,0,m
+Wuhan,122,7793,1,2,sb,Built-up edge / urban fabric,1,h
+Wuhan,123,8123,1,2,spuare,Other / misc,1,h
+Wuhan,124,4607,2,1,ub,Urban green space,1,h
+Wuhan,125,6580,1,2,be,Built-up edge / urban fabric,1,h
+Wuhan,126,7877,2,2,bl,Bare land / construction,0,m
+Wuhan,127,1158,2,1,re,Road / road edge,1,h
+Wuhan,128,8387,1,2,be,Built-up edge / urban fabric,1,h
+Wuhan,129,4399,2,1,re,Road / road edge,1,h
+Wuhan,130,11931,3,3,we,Water / water edge,0,m
+Wuhan,131,6266,2,2,re,Road / road edge,0,m
+Wuhan,132,1032,2,1,re,Road / road edge,1,h
+Wuhan,133,3152,2,1,re,Road / road edge,1,h
+Wuhan,134,5609,2,2,ct,Cropland / paddy transition,0,m
+Wuhan,135,4119,2,1,ct,Cropland / paddy transition,1,h
+Wuhan,136,7264,1,2,be,Built-up edge / urban fabric,1,h
+Wuhan,137,5221,2,2,re,Road / road edge,0,m
+Wuhan,138,13415,2,3,we,Water / water edge,1,m
+Wuhan,139,356,2,1,fe,Vegetation / forest edge,1,h
+Wuhan,140,1228,1,1,ub,Urban green space,0,m
+Wuhan,141,8164,2,2,fe,Vegetation / forest edge,0,m
+Wuhan,142,6480,1,2,sb,Built-up edge / urban fabric,1,h
+Wuhan,143,11377,2,3,re,Road / road edge,1,m
+Wuhan,144,12890,2,3,we,Water / water edge,1,m
+Wuhan,145,5182,2,2,sb,Built-up edge / urban fabric,0,m
+Wuhan,146,7368,2,2,fe,Vegetation / forest edge,0,m
+Wuhan,147,8289,2,2,re,Road / road edge,0,m
+Wuhan,148,2742,2,1,ub,Urban green space,1,h
+Wuhan,149,9555,2,2,mx,Mixed / complex,0,m
+Wuhan,150,6997,1,2,be,Built-up edge / urban fabric,1,h
+Changsha,1,9358,2,2,bl,Bare land / construction,0,m
+Changsha,2,7015,1,2,be,Built-up edge / urban fabric,1,h
+Changsha,3,8825,1,2,be,Built-up edge / urban fabric,1,h
+Changsha,4,6953,1,2,be,Built-up edge / urban fabric,1,h
+Changsha,5,8352,2,2,bl,Bare land / construction,0,m
+Changsha,6,12379,2,3,we,Water / water edge,1,m
+Changsha,7,7845,3,2,tw,Water / water edge,1,m
+Changsha,8,5675,1,2,be,Built-up edge / urban fabric,1,h
+Changsha,9,2399,1,1,be,Built-up edge / urban fabric,0,m
+Changsha,10,4129,2,1,ub,Urban green space,1,h
+Changsha,11,9399,2,2,fe,Vegetation / forest edge,0,m
+Changsha,12,13669,2,3,we,Water / water edge,1,m
+Changsha,13,7646,2,2,sb,Built-up edge / urban fabric,0,m
+Changsha,14,7754,2,2,ub,Urban green space,0,m
+Changsha,15,6066,2,2,we,Water / water edge,0,m
+Changsha,16,7204,2,2,ub,Urban green space,0,m
+Changsha,17,2217,2,1,ub,Urban green space,1,h
+Changsha,18,6490,3,2,we,Water / water edge,1,m
+Changsha,19,7958,2,2,re,Road / road edge,0,m
+Changsha,20,10962,2,3,we,Water / water edge,1,m
+Changsha,21,13421,3,3,we,Water / water edge,0,m
+Changsha,22,1975,2,1,mx,Mixed / complex,1,h
+Changsha,23,9697,1,2,be,Built-up edge / urban fabric,1,h
+Changsha,24,8854,2,2,fe,Vegetation / forest edge,0,m
+Changsha,25,464,2,1,ub,Urban green space,1,h
+Changsha,26,5561,2,2,fe,Vegetation / forest edge,0,m
+Changsha,27,8414,2,2,mx,Mixed / complex,0,m
+Changsha,28,4050,1,1,be,Built-up edge / urban fabric,0,m
+Changsha,29,5441,2,2,fe,Vegetation / forest edge,0,m
+Changsha,30,9532,2,2,fe,Vegetation / forest edge,0,m
+Changsha,31,6003,2,2,ub,Urban green space,0,m
+Changsha,32,6236,3,2,tw,Water / water edge,1,m
+Changsha,33,5268,1,2,be,Built-up edge / urban fabric,1,h
+Changsha,34,9493,2,2,mx,Mixed / complex,0,m
+Changsha,35,2540,2,1,ub,Urban green space,1,h
+Changsha,36,3273,2,1,fe,Vegetation / forest edge,1,h
+Changsha,37,9938,2,2,mx,Mixed / complex,0,m
+Changsha,38,5080,2,2,fe,Vegetation / forest edge,0,m
+Changsha,39,4047,2,1,fe,Vegetation / forest edge,1,h
+Changsha,40,7153,2,2,fe,Vegetation / forest edge,0,m
+Changsha,41,11906,3,3,we,Water / water edge,0,m
+Changsha,42,1926,2,1,fe,Vegetation / forest edge,1,h
+Changsha,43,11141,2,3,we,Water / water edge,1,m
+Changsha,44,1452,2,1,fe,Vegetation / forest edge,1,h
+Changsha,45,1537,2,1,bl,Bare land / construction,1,h
+Changsha,46,5654,1,2,be,Built-up edge / urban fabric,1,h
+Changsha,47,8050,2,2,fe,Vegetation / forest edge,0,m
+Changsha,48,10234,3,3,we,Water / water edge,0,m
+Changsha,49,5127,3,2,we,Water / water edge,1,m
+Changsha,50,7719,2,2,mx,Mixed / complex,0,m
+Changsha,51,7241,2,2,bl,Bare land / construction,0,m
+Changsha,52,6705,2,2,bl,Bare land / construction,0,m
+Changsha,53,10171,3,3,tw,Water / water edge,0,m
+Changsha,54,4048,2,1,re,Road / road edge,1,h
+Changsha,55,282,2,1,ub,Urban green space,1,h
+Changsha,56,9893,1,2,be,Built-up edge / urban fabric,1,h
+Changsha,57,6515,3,2,we,Water / water edge,1,m
+Changsha,58,7626,2,2,fe,Vegetation / forest edge,0,m
+Changsha,59,10360,2,3,fe,Vegetation / forest edge,1,m
+Changsha,60,9661,2,2,fe,Vegetation / forest edge,0,m
+Changsha,61,1013,2,1,ub,Urban green space,1,h
+Changsha,62,6178,2,2,mx,Mixed / complex,0,m
+Changsha,63,13792,3,3,we,Water / water edge,0,m
+Changsha,64,12454,3,3,tw,Water / water edge,0,m
+Changsha,65,2504,2,1,re,Road / road edge,1,h
+Changsha,66,6407,1,2,be,Built-up edge / urban fabric,1,h
+Changsha,67,5804,2,2,fe,Vegetation / forest edge,0,m
+Changsha,68,8239,2,2,fe,Vegetation / forest edge,0,m
+Changsha,69,737,2,1,re,Road / road edge,1,h
+Changsha,70,5000,2,2,mx,Mixed / complex,0,m
+Changsha,71,4271,2,1,ub,Urban green space,1,h
+Changsha,72,1335,2,1,re,Road / road edge,1,h
+Changsha,73,34,2,1,fe,Vegetation / forest edge,1,h
+Changsha,74,3487,2,1,ub,Urban green space,1,h
+Changsha,75,7355,2,2,mx,Mixed / complex,0,m
+Changsha,76,4053,2,1,re,Road / road edge,1,h
+Changsha,77,9271,1,2,be,Built-up edge / urban fabric,1,h
+Changsha,78,10273,2,3,we,Water / water edge,1,m
+Changsha,79,4401,2,1,fe,Vegetation / forest edge,1,h
+Changsha,80,1254,1,1,be,Built-up edge / urban fabric,0,m
+Changsha,81,4370,1,1,be,Built-up edge / urban fabric,0,m
+Changsha,82,6997,2,2,mx,Mixed / complex,0,m
+Changsha,83,9408,2,2,mx,Mixed / complex,0,m
+Changsha,84,1743,3,1,we,Water / water edge,1,m
+Changsha,85,3382,2,1,fe,Vegetation / forest edge,1,h
+Changsha,86,10976,3,3,we,Water / water edge,0,m
+Changsha,87,9321,1,2,be,Built-up edge / urban fabric,1,h
+Changsha,88,6932,2,2,ub,Urban green space,0,m
+Changsha,89,5774,3,2,we,Water / water edge,1,m
+Changsha,90,901,2,1,sb,Built-up edge / urban fabric,1,h
+Changsha,91,6934,2,2,road,Road / road edge,0,m
+Changsha,92,9579,2,2,fe,Vegetation / forest edge,0,m
+Changsha,93,12868,2,3,we,Water / water edge,1,m
+Changsha,94,8258,2,2,bl,Bare land / construction,0,m
+Changsha,95,6223,2,2,fe,Vegetation / forest edge,0,m
+Changsha,96,7827,2,2,fe,Vegetation / forest edge,0,m
+Changsha,97,9432,2,2,fe,Vegetation / forest edge,0,m
+Changsha,98,2609,2,1,fe,Vegetation / forest edge,1,h
+Changsha,99,14914,2,3,bridge,Built-up edge / urban fabric,1,m
+Changsha,100,12286,2,3,we,Water / water edge,1,m
+Changsha,101,13352,2,3,we,Water / water edge,1,m
+Changsha,102,5889,2,2,re,Road / road edge,0,m
+Changsha,103,5768,2,2,bl,Bare land / construction,0,m
+Changsha,104,6204,2,2,bl,Bare land / construction,0,m
+Changsha,105,8426,1,2,be,Built-up edge / urban fabric,1,h
+Changsha,106,5216,2,2,fe,Vegetation / forest edge,0,m
+Changsha,107,5225,3,2,tw,Water / water edge,1,m
+Changsha,108,9574,2,2,fe,Vegetation / forest edge,0,m
+Changsha,109,8708,3,2,we,Water / water edge,1,m
+Changsha,110,5852,3,2,we,Water / water edge,1,m
+Changsha,111,2357,2,1,re,Road / road edge,1,h
+Changsha,112,393,2,1,fe,Vegetation / forest edge,1,h
+Changsha,113,6907,3,2,tw,Water / water edge,1,m
+Changsha,114,1475,2,1,fe,Vegetation / forest edge,1,h
+Changsha,115,5365,2,2,re,Road / road edge,0,m
+Changsha,116,3806,2,1,re,Road / road edge,1,h
+Changsha,117,6599,2,2,ct,Cropland / paddy transition,0,m
+Changsha,118,2658,2,1,ub,Urban green space,1,h
+Changsha,119,1831,2,1,ub,Urban green space,1,h
+Changsha,120,6177,3,2,tw,Water / water edge,1,m
+Changsha,121,10994,3,3,tw,Water / water edge,0,m
+Changsha,122,7871,2,2,we,Water / water edge,0,m
+Changsha,123,7469,3,2,tw,Water / water edge,1,m
+Changsha,124,4886,1,1,be,Built-up edge / urban fabric,0,m
+Changsha,125,1346,2,1,re,Road / road edge,1,h
+Changsha,126,10031,2,3,we,Water / water edge,1,m
+Changsha,127,3354,2,1,ub,Urban green space,1,h
+Changsha,128,853,2,1,fe,Vegetation / forest edge,1,h
+Changsha,129,48,2,1,mx,Mixed / complex,1,h
+Changsha,130,5978,2,2,mx,Mixed / complex,0,m
+Changsha,131,4826,2,1,mx,Mixed / complex,1,h
+Changsha,132,108,2,1,fe,Vegetation / forest edge,1,h
+Changsha,133,14590,3,3,we,Water / water edge,0,m
+Changsha,134,7514,2,2,bs,Soft boundary / shadow,0,m
+Changsha,135,8812,2,2,fe,Vegetation / forest edge,0,m
+Changsha,136,1212,3,1,tw,Water / water edge,1,m
+Changsha,137,12456,2,3,bridge,Built-up edge / urban fabric,1,m
+Changsha,138,5393,2,2,we,Water / water edge,0,m
+Changsha,139,3068,2,1,fe,Vegetation / forest edge,1,h
+Changsha,140,13673,2,3,we,Water / water edge,1,m
+Changsha,141,9368,2,2,fe,Vegetation / forest edge,0,m
+Changsha,142,6642,2,2,bl,Bare land / construction,0,m
+Changsha,143,3106,1,1,be,Built-up edge / urban fabric,0,m
+Changsha,144,8589,2,2,bl,Bare land / construction,0,m
+Changsha,145,9373,3,2,we,Water / water edge,1,m
+Changsha,146,13875,3,3,tw,Water / water edge,0,m
+Changsha,147,3156,1,1,sb,Built-up edge / urban fabric,0,m
+Changsha,148,309,2,1,re,Road / road edge,1,h
+Changsha,149,5410,2,2,sb,Built-up edge / urban fabric,0,m
+Changsha,150,6618,1,2,be,Built-up edge / urban fabric,1,h
+Nanchang,1,5321,1,2,be,Built-up edge / urban fabric,1,h
+Nanchang,2,7389,1,2,be,Built-up edge / urban fabric,1,h
+Nanchang,3,3495,1,1,be,Built-up edge / urban fabric,0,m
+Nanchang,4,7813,1,2,be,Built-up edge / urban fabric,1,h
+Nanchang,5,8776,2,2,fe,Vegetation / forest edge,0,m
+Nanchang,6,8547,1,2,be,Built-up edge / urban fabric,1,h
+Nanchang,7,3625,2,1,ct,Cropland / paddy transition,1,h
+Nanchang,8,9818,2,2,we,Water / water edge,0,m
+Nanchang,9,8320,3,2,sb,Built-up edge / urban fabric,1,m
+Nanchang,10,6723,1,2,sb,Built-up edge / urban fabric,1,h
+Nanchang,11,14189,3,3,we,Water / water edge,0,m
+Nanchang,12,6414,2,2,re,Road / road edge,0,m
+Nanchang,13,7466,3,2,we,Water / water edge,1,m
+Nanchang,14,6441,2,2,re,Road / road edge,0,m
+Nanchang,15,2535,2,1,we,Water / water edge,1,h
+Nanchang,16,5164,2,2,bl,Bare land / construction,0,m
+Nanchang,17,12250,2,3,bl,Bare land / construction,1,m
+Nanchang,18,7016,1,2,be,Built-up edge / urban fabric,1,h
+Nanchang,19,5178,1,2,be,Built-up edge / urban fabric,1,h
+Nanchang,20,9197,2,2,fe,Vegetation / forest edge,0,m
+Nanchang,21,7434,2,2,re,Road / road edge,0,m
+Nanchang,22,10643,2,3,re,Road / road edge,1,m
+Nanchang,23,9094,2,2,cs,Bare land / construction,0,m
+Nanchang,24,9375,1,2,re,Road / road edge,1,h
+Nanchang,25,951,2,1,rs,Rural settlement / surfaces,1,h
+Nanchang,26,13675,3,3,we,Water / water edge,0,m
+Nanchang,27,9005,2,2,bl,Bare land / construction,0,m
+Nanchang,28,8912,3,2,we,Water / water edge,1,m
+Nanchang,29,8289,2,2,bl,Bare land / construction,0,m
+Nanchang,30,12604,2,3,bl,Bare land / construction,1,m
+Nanchang,31,7058,2,2,re,Road / road edge,0,m
+Nanchang,32,8472,2,2,sb,Built-up edge / urban fabric,0,m
+Nanchang,33,8252,1,2,be,Built-up edge / urban fabric,1,h
+Nanchang,34,5201,2,2,bl,Bare land / construction,0,m
+Nanchang,35,7099,1,2,sb,Built-up edge / urban fabric,1,h
+Nanchang,36,1412,2,1,sb,Built-up edge / urban fabric,1,h
+Nanchang,37,5629,2,2,mx,Mixed / complex,0,m
+Nanchang,38,3382,2,1,ub,Urban green space,1,h
+Nanchang,39,9377,2,2,re,Road / road edge,0,m
+Nanchang,40,9968,2,2,re,Road / road edge,0,m
+Nanchang,41,4916,2,1,re,Road / road edge,1,h
+Nanchang,42,8938,1,2,be,Built-up edge / urban fabric,1,h
+Nanchang,43,11865,3,3,we,Water / water edge,0,m
+Nanchang,44,8043,2,2,sb,Built-up edge / urban fabric,0,m
+Nanchang,45,12460,3,3,we,Water / water edge,0,m
+Nanchang,46,5664,2,2,bl,Bare land / construction,0,m
+Nanchang,47,5472,2,2,bl,Bare land / construction,0,m
+Nanchang,48,14541,2,3,bl,Bare land / construction,1,m
+Nanchang,49,7124,3,2,we,Water / water edge,1,m
+Nanchang,50,9217,2,2,bl,Bare land / construction,0,m
+Nanchang,51,9726,2,2,we,Water / water edge,0,m
+Nanchang,52,6224,1,2,sb,Built-up edge / urban fabric,1,h
+Nanchang,53,11133,3,3,tw,Water / water edge,0,m
+Nanchang,54,5432,1,2,sb,Built-up edge / urban fabric,1,h
+Nanchang,55,5166,1,2,urban road,Road / road edge,1,h
+Nanchang,56,7669,3,2,we,Water / water edge,1,m
+Nanchang,57,3030,2,1,ub,Urban green space,1,h
+Nanchang,58,7320,1,2,be,Built-up edge / urban fabric,1,h
+Nanchang,59,4860,2,1,re,Road / road edge,1,h
+Nanchang,60,14984,2,3,bl,Bare land / construction,1,m
+Nanchang,61,2724,1,1,be,Built-up edge / urban fabric,0,m
+Nanchang,62,5742,3,2,we,Water / water edge,1,m
+Nanchang,63,5952,3,2,we,Water / water edge,1,m
+Nanchang,64,6580,2,2,cs,Bare land / construction,0,m
+Nanchang,65,8737,2,2,rs,Rural settlement / surfaces,0,m
+Nanchang,66,10881,2,3,bl,Bare land / construction,1,m
+Nanchang,67,14832,2,3,bl,Bare land / construction,1,m
+Nanchang,68,5702,2,2,re,Road / road edge,0,m
+Nanchang,69,2428,2,1,ub,Urban green space,1,h
+Nanchang,70,4239,2,1,re,Road / road edge,1,h
+Nanchang,71,8007,2,2,ub,Urban green space,0,m
+Nanchang,72,6055,3,2,we,Water / water edge,1,m
+Nanchang,73,4184,2,1,fe,Vegetation / forest edge,1,h
+Nanchang,74,4643,2,1,ub,Urban green space,1,h
+Nanchang,75,8454,2,2,we,Water / water edge,0,m
+Nanchang,76,8178,1,2,sb,Built-up edge / urban fabric,1,h
+Nanchang,77,8761,2,2,mx,Mixed / complex,0,m
+Nanchang,78,120,1,1,be,Built-up edge / urban fabric,0,m
+Nanchang,79,14343,2,3,we,Water / water edge,1,m
+Nanchang,80,6775,1,2,be,Built-up edge / urban fabric,1,h
+Nanchang,81,2960,2,1,re,Road / road edge,1,h
+Nanchang,82,3557,1,1,bs,Soft boundary / shadow,0,m
+Nanchang,83,4648,2,1,re,Road / road edge,1,h
+Nanchang,84,4813,3,1,we,Water / water edge,1,m
+Nanchang,85,104,1,1,be,Built-up edge / urban fabric,0,m
+Nanchang,86,14903,2,3,we,Water / water edge,1,m
+Nanchang,87,1919,2,1,fe,Vegetation / forest edge,1,h
+Nanchang,88,9525,2,2,bl,Bare land / construction,0,m
+Nanchang,89,5458,2,2,we,Water / water edge,0,m
+Nanchang,90,7250,3,2,we,Water / water edge,1,m
+Nanchang,91,14053,2,3,bl,Bare land / construction,1,m
+Nanchang,92,2738,2,1,ub,Urban green space,1,h
+Nanchang,93,6186,2,2,re,Road / road edge,0,m
+Nanchang,94,9834,2,2,rs,Rural settlement / surfaces,0,m
+Nanchang,95,2686,3,1,we,Water / water edge,1,m
+Nanchang,96,393,2,1,fe,Vegetation / forest edge,1,h
+Nanchang,97,4343,2,1,水体边缘,Water / water edge,1,m
+Nanchang,98,8426,1,2,be,Built-up edge / urban fabric,1,h
+Nanchang,99,6303,2,2,we,Water / water edge,0,m
+Nanchang,100,14010,3,3,wr,Water / water edge,0,m
+Nanchang,101,4930,2,1,mx,Mixed / complex,1,h
+Nanchang,102,4402,2,1,fe,Vegetation / forest edge,1,h
+Nanchang,103,5716,2,2,re,Road / road edge,0,m
+Nanchang,104,8498,2,2,rs,Rural settlement / surfaces,0,m
+Nanchang,105,10686,2,3,bl,Bare land / construction,1,m
+Nanchang,106,4508,2,1,veg,Vegetation / forest edge,1,m
+Nanchang,107,6333,2,2,bl,Bare land / construction,0,m
+Nanchang,108,7170,2,2,veg,Vegetation / forest edge,0,m
+Nanchang,109,10890,3,3,wr,Water / water edge,0,m
+Nanchang,110,10319,2,3,we,Water / water edge,1,m
+Nanchang,111,6513,1,2,be,Built-up edge / urban fabric,1,h
+Nanchang,112,6363,2,2,fe,Vegetation / forest edge,0,m
+Nanchang,113,2863,2,1,ub,Urban green space,1,h
+Nanchang,114,9247,2,2,sb,Built-up edge / urban fabric,0,m
+Nanchang,115,6461,1,2,urban road,Road / road edge,1,h
+Nanchang,116,6847,3,2,wr,Water / water edge,1,m
+Nanchang,117,6178,2,2,pf,Paddy / cropland / field,0,m
+Nanchang,118,6430,1,2,be,Built-up edge / urban fabric,1,m
+Nanchang,119,4063,2,1,veg,Vegetation / forest edge,1,m
+Nanchang,120,1708,1,1,be,Built-up edge / urban fabric,0,m
+Nanchang,121,601,2,1,rs,Rural settlement / surfaces,1,h
+Nanchang,122,12774,2,3,bl,Bare land / construction,1,m
+Nanchang,123,8330,2,2,ub,Urban green space,0,m
+Nanchang,124,8899,3,2,we,Water / water edge,1,m
+Nanchang,125,7084,2,2,re,Road / road edge,0,m
+Nanchang,126,10584,3,3,tw,Water / water edge,0,m
+Nanchang,127,2157,2,1,veg,Vegetation / forest edge,1,m
+Nanchang,128,13035,3,3,we,Water / water edge,0,m
+Nanchang,129,6127,2,2,veg,Vegetation / forest edge,0,m
+Nanchang,130,1041,2,1,veg,Vegetation / forest edge,1,m
+Nanchang,131,8745,2,2,mx,Mixed / complex,0,m
+Nanchang,132,6398,2,2,mx,Mixed / complex,0,m
+Nanchang,133,9159,2,2,ub,Urban green space,0,m
+Nanchang,134,4546,2,1,bl,Bare land / construction,1,h
+Nanchang,135,9462,2,2,rs,Rural settlement / surfaces,0,m
+Nanchang,136,14949,2,3,we,Water / water edge,1,m
+Nanchang,137,3553,2,1,veg,Vegetation / forest edge,1,m
+Nanchang,138,8184,1,2,be,Built-up edge / urban fabric,1,m
+Nanchang,139,7364,2,2,rs,Rural settlement / surfaces,0,m
+Nanchang,140,9545,2,2,veg,Vegetation / forest edge,0,m
+Nanchang,141,7616,2,2,we,Water / water edge,0,m
+Nanchang,142,14104,2,3,re,Road / road edge,1,m
+Nanchang,143,5322,2,2,ub,Urban green space,0,m
+Nanchang,144,3185,1,1,bl,Bare land / construction,0,m
+Nanchang,145,7418,2,2,bl,Bare land / construction,0,m
+Nanchang,146,7599,2,2,veg,Vegetation / forest edge,0,m
+Nanchang,147,8946,2,2,bl,Bare land / construction,0,m
+Nanchang,148,5656,3,2,wr,Water / water edge,1,m
+Nanchang,149,13160,2,3,we,Water / water edge,1,m
+Nanchang,150,7619,3,2,wr,Water / water edge,1,m
+Hefei,1,6209,2,2,高亮大棚旁边的绿地,Greenhouse / polytunnel,0,m
+Hefei,2,6315,2,2,高亮大棚旁边的土地,Greenhouse / polytunnel,0,m
+Hefei,3,899,2,1,高亮大棚旁边的土地,Greenhouse / polytunnel,1,h
+Hefei,4,9364,1,2,city road,Road / road edge,1,h
+Hefei,5,6192,2,2,大棚,Greenhouse / polytunnel,0,h
+Hefei,6,6699,1,2,城市路面,Road / road edge,1,h
+Hefei,7,5203,2,2,城市绿地,Vegetation / forest edge,0,h
+Hefei,8,6556,1,2,建筑,Built-up edge / urban fabric,1,h
+Hefei,9,8014,2,2,大棚,Greenhouse / polytunnel,0,h
+Hefei,10,7227,2,2,农村地面,Rural settlement / surfaces,0,m
+Hefei,11,9047,1,2,建筑边缘,Built-up edge / urban fabric,1,h
+Hefei,12,12037,3,3,水体边缘,Water / water edge,0,h
+Hefei,13,6943,1,2,特殊建筑,Built-up edge / urban fabric,1,h
+Hefei,14,9516,2,2,大棚,Greenhouse / polytunnel,0,h
+Hefei,15,6115,2,2,veg,Vegetation / forest edge,0,h
+Hefei,16,7266,2,2,工地,Bare land / construction,0,h
+Hefei,17,92,2,1,公园绿地,Vegetation / forest edge,1,m
+Hefei,18,8713,1,2,特殊建筑,Built-up edge / urban fabric,1,h
+Hefei,19,2551,1,1,建筑,Built-up edge / urban fabric,0,m
+Hefei,20,9196,3,2,水体边缘,Water / water edge,1,h
+Hefei,21,2418,3,1,水体,Water / water edge,1,m
+Hefei,22,5348,2,2,水体边缘,Water / water edge,0,m
+Hefei,23,4182,2,1,城市绿植,Vegetation / forest edge,1,h
+Hefei,24,5698,2,2,工地,Bare land / construction,0,m
+Hefei,25,4251,2,1,城市绿地,Vegetation / forest edge,1,h
+Hefei,26,8877,1,2,农村房屋,Rural settlement / surfaces,1,m
+Hefei,27,9506,2,2,大棚,Greenhouse / polytunnel,0,h
+Hefei,28,5836,1,2,工厂,Built-up edge / urban fabric,1,h
+Hefei,29,3100,2,1,水体边缘,Water / water edge,1,m
+Hefei,30,5675,2,2,农村建筑,Rural settlement / surfaces,0,m
+Hefei,31,7725,2,2,城市绿地,Vegetation / forest edge,0,m
+Hefei,32,5186,2,2,水体边缘,Water / water edge,0,m
+Hefei,33,1341,2,1,路边veg,Vegetation / forest edge,1,h
+Hefei,34,13148,3,3,水体边缘,Water / water edge,0,h
+Hefei,35,3493,1,1,城市建筑绿植,Built-up edge / urban fabric,0,m
+Hefei,36,8820,2,2,水体边缘,Water / water edge,0,m
+Hefei,37,7009,2,2,road边缘veg,Road / road edge,0,h
+Hefei,38,8282,2,2,城市建筑阴影,Built-up edge / urban fabric,0,m
+Hefei,39,160,1,1,car park 和 veg交界,Built-up edge / urban fabric,0,m
+Hefei,40,4794,2,1,veg,Vegetation / forest edge,1,h
+Hefei,41,3140,1,1,high way,Other / misc,0,h
+Hefei,42,11597,3,3,水体,Water / water edge,0,h
+Hefei,43,4496,2,1,农田,Paddy / cropland / field,1,h
+Hefei,44,3600,2,1,veg,Vegetation / forest edge,1,h
+Hefei,45,3827,2,1,路边veg,Vegetation / forest edge,1,m
+Hefei,46,4335,2,1,水体边缘,Water / water edge,1,m
+Hefei,47,8584,2,2,田地,Paddy / cropland / field,0,h
+Hefei,48,103,1,1,农村地面,Rural settlement / surfaces,0,l
+Hefei,49,7092,2,2,水体边缘,Water / water edge,0,m
+Hefei,50,6014,2,2,veg,Vegetation / forest edge,0,h
+Hefei,51,558,2,1,veg,Vegetation / forest edge,1,h
+Hefei,52,4095,1,1,农村孤立房子,Rural settlement / surfaces,0,m
+Hefei,53,3067,2,1,road veg,Road / road edge,1,m
+Hefei,54,9835,2,2,水体边缘,Water / water edge,0,m
+Hefei,55,9013,1,2,城市广场地面,Bare land / construction,1,h
+Hefei,56,4410,2,1,土路 田地,Paddy / cropland / field,1,h
+Hefei,57,2023,2,1,乱地,Bare land / construction,1,h
+Hefei,58,9274,1,2,小区路面,Road / road edge,1,m
+Hefei,59,6428,1,2,公路 veg,Road / road edge,1,m
+Hefei,60,14901,1,3,水体边缘,Water / water edge,1,m
+Hefei,61,4968,2,1,小区veg,Built-up edge / urban fabric,1,h
+Hefei,62,4714,1,1,城市路面,Road / road edge,0,h
+Hefei,63,1857,2,1,土路 田地,Paddy / cropland / field,1,h
+Hefei,64,5887,2,2,田地,Paddy / cropland / field,0,h
+Hefei,65,3230,1,1,城市小区,Built-up edge / urban fabric,0,m
+Hefei,66,1693,2,1,裸土,Bare land / construction,1,m
+Hefei,67,5902,2,2,农村孤立房子,Rural settlement / surfaces,0,m
+Hefei,68,7767,2,2,veg,Vegetation / forest edge,0,m
+Hefei,69,6469,1,2,工厂,Built-up edge / urban fabric,1,h
+Hefei,70,4740,2,1,veg,Vegetation / forest edge,1,m
+Hefei,71,6305,2,2,水体边缘,Water / water edge,0,m
+Hefei,72,8482,1,2,建筑,Built-up edge / urban fabric,1,h
+Hefei,73,10588,2,3,水体边缘,Water / water edge,1,m
+Hefei,74,3019,2,1,veg,Vegetation / forest edge,1,l
+Hefei,75,9197,1,2,高铁站,Road / road edge,1,m
+Hefei,76,2910,1,1,建筑,Built-up edge / urban fabric,0,h
+Hefei,77,1410,2,1,农村孤立建筑,Rural settlement / surfaces,1,m
+Hefei,78,8505,1,2,水泥路面,Road / road edge,1,m
+Hefei,79,545,2,1,veg,Vegetation / forest edge,1,h
+Hefei,80,487,2,1,veg,Vegetation / forest edge,1,h
+Hefei,81,8602,2,2,孤立建筑水体边缘,Rural settlement / surfaces,0,l
+Hefei,82,5015,2,2,农村土路,Rural settlement / surfaces,0,h
+Hefei,83,17,2,1,veg,Vegetation / forest edge,1,h
+Hefei,84,2666,2,1,农田土地,Paddy / cropland / field,1,h
+Hefei,85,9688,2,2,水体旁边的veg,Water / water edge,0,h
+Hefei,86,1869,2,1,农村土路,Rural settlement / surfaces,1,l
+Hefei,87,7925,2,2,田地,Paddy / cropland / field,0,h
+Hefei,88,2717,2,1,veg,Vegetation / forest edge,1,m
+Hefei,89,13362,3,3,水体,Water / water edge,0,m
+Hefei,90,1381,2,1,小区绿植,Built-up edge / urban fabric,1,m
+Hefei,91,1631,1,1,小区地面,Built-up edge / urban fabric,0,m
+Hefei,92,6480,3,2,水体边缘,Water / water edge,1,h
+Hefei,93,8345,2,2,农村土路,Rural settlement / surfaces,0,h
+Hefei,94,7918,2,2,veg,Vegetation / forest edge,0,h
+Hefei,95,4487,2,1,土路,Road / road edge,1,m
+Hefei,96,4572,1,1,railway 边缘,Road / road edge,0,m
+Hefei,97,7643,1,2,建筑,Built-up edge / urban fabric,1,h
+Hefei,98,5579,2,2,农村土路,Rural settlement / surfaces,0,h
+Hefei,99,6730,3,2,水体,Water / water edge,1,m
+Hefei,100,7413,1,2,农村建筑,Rural settlement / surfaces,1,h
+Hefei,101,7131,2,2,农村土路,Rural settlement / surfaces,0,h
+Hefei,102,9019,2,2,大棚,Greenhouse / polytunnel,0,h
+Hefei,103,4380,2,1,农村孤立建筑,Rural settlement / surfaces,1,h
+Hefei,104,10509,3,3,水体,Water / water edge,0,h
+Hefei,105,6173,1,2,小区路面,Road / road edge,1,m
+Hefei,106,8537,1,2,城市路面,Road / road edge,1,m
+Hefei,107,2458,2,1,工地,Bare land / construction,1,l
+Hefei,108,1063,2,1,土路,Road / road edge,1,h
+Hefei,109,1414,2,1,veg,Vegetation / forest edge,1,h
+Hefei,110,5922,2,2,水体边缘veg,Water / water edge,0,h
+Hefei,111,3319,2,1,veg,Vegetation / forest edge,1,h
+Hefei,112,5441,2,2,大棚,Greenhouse / polytunnel,0,h
+Hefei,113,5923,2,2,田地,Paddy / cropland / field,0,m
+Hefei,114,5220,1,2,建筑,Built-up edge / urban fabric,1,m
+Hefei,115,8981,2,2,工地,Bare land / construction,0,h
+Hefei,116,1061,2,1,veg 土路,Road / road edge,1,m
+Hefei,117,8979,2,2,乱地,Bare land / construction,0,h
+Hefei,118,7059,2,2,veg,Vegetation / forest edge,0,m
+Hefei,119,10608,2,3,veg,Vegetation / forest edge,1,m
+Hefei,120,11720,3,3,水体,Water / water edge,0,h
+Hefei,121,4808,2,1,veg,Vegetation / forest edge,1,h
+Hefei,122,7866,2,2,veg,Vegetation / forest edge,0,m
+Hefei,123,9246,2,2,农村地面,Rural settlement / surfaces,0,m
+Hefei,124,1586,1,1,小区地面,Built-up edge / urban fabric,0,m
+Hefei,125,927,1,1,农村建筑,Rural settlement / surfaces,0,h
+Hefei,126,5062,1,2,小区,Built-up edge / urban fabric,1,h
+Hefei,127,3617,2,1,veg,Vegetation / forest edge,1,m
+Hefei,128,3886,2,1,veg,Vegetation / forest edge,1,m
+Hefei,129,824,1,1,小区veg,Built-up edge / urban fabric,0,m
+Hefei,130,5973,1,2,工厂,Built-up edge / urban fabric,1,m
+Hefei,131,2773,2,1,农村地面,Rural settlement / surfaces,1,h
+Hefei,132,2604,2,1,veg,Vegetation / forest edge,1,h
+Hefei,133,4512,1,1,city road,Road / road edge,0,h
+Hefei,134,7358,1,2,urban road,Road / road edge,1,h
+Hefei,135,3118,2,1,农村路面,Rural settlement / surfaces,1,h
+Hefei,136,2862,1,1,城市路面,Road / road edge,0,h
+Hefei,137,2938,2,1,veg,Vegetation / forest edge,1,h
+Hefei,138,5623,2,2,veg,Vegetation / forest edge,0,m
+Hefei,139,2745,1,1,小区,Built-up edge / urban fabric,0,h
+Hefei,140,5379,1,2,水坝建筑,Water / water edge,1,h
+Hefei,141,630,3,1,水体,Water / water edge,1,h
+Hefei,142,9306,2,2,veg,Vegetation / forest edge,0,h
+Hefei,143,10405,3,3,水体,Water / water edge,0,h
+Hefei,144,3557,1,1,房子院子,Rural settlement / surfaces,0,m
+Hefei,145,1905,1,1,小区veg,Built-up edge / urban fabric,0,m
+Hefei,146,6180,2,2,稻田,Paddy / cropland / field,0,h
+Hefei,147,8624,2,2,水体边缘,Water / water edge,0,m
+Hefei,148,8013,2,2,公路边缘,Road / road edge,0,m
+Hefei,149,6535,2,2,veg,Vegetation / forest edge,0,m
+Hefei,150,7218,2,2,工地,Bare land / construction,0,m
+Nanjing,1,6972,1,2,高亮反射建筑边缘,Built-up edge / urban fabric,1,H
+Nanjing,2,9022,1,2,高亮反射建筑边缘,Built-up edge / urban fabric,1,M
+Nanjing,3,6276,1,2,高亮反射建筑边缘,Built-up edge / urban fabric,1,H
+Nanjing,4,7873,1,2,高亮反射建筑边缘,Built-up edge / urban fabric,1,H
+Nanjing,5,710,2,1,建筑旁边的树木,Built-up edge / urban fabric,1,M
+Nanjing,6,9032,1,2,建筑边缘阴影,Built-up edge / urban fabric,1,M
+Nanjing,7,2365,2,1,高反射空地旁边的树木,Bare land / construction,1,H
+Nanjing,8,6813,2,2,复杂地物高反射,Mixed / complex,0,h
+Nanjing,9,7567,1,2,建筑缝隙,Built-up edge / urban fabric,1,h
+Nanjing,10,7450,1,2,建筑边缘,Built-up edge / urban fabric,1,h
+Nanjing,11,9425,1,2,建筑工地,Bare land / construction,1,h
+Nanjing,12,8323,1,2,特殊建筑,Built-up edge / urban fabric,1,h
+Nanjing,13,6442,1,2,城市路面,Road / road edge,1,h
+Nanjing,14,7784,2,2,建筑旁边数据,Built-up edge / urban fabric,0,m
+Nanjing,15,9505,2,2,建筑旁边数据,Built-up edge / urban fabric,0,h
+Nanjing,16,9339,1,2,car park,Built-up edge / urban fabric,1,h
+Nanjing,17,8200,3,2,水体中暴露的地面,Water / water edge,1,l
+Nanjing,18,4317,2,1,树木,Vegetation / forest edge,1,h
+Nanjing,19,9240,1,2,建筑,Built-up edge / urban fabric,1,h
+Nanjing,20,4930,2,1,水体边缘,Water / water edge,1,l
+Nanjing,21,5323,2,2,农村土路,Rural settlement / surfaces,0,h
+Nanjing,22,5300,2,2,水体旁边的树木,Water / water edge,0,m
+Nanjing,23,7847,2,2,水体旁边的树木,Water / water edge,0,m
+Nanjing,24,6318,3,2,浑浊水体,Water / water edge,1,m
+Nanjing,25,9773,1,2,浑浊水体旁边的建筑,Water / water edge,1,m
+Nanjing,26,9678,2,2,农村土路,Rural settlement / surfaces,0,h
+Nanjing,27,5577,3,2,水体和 城市路面边缘,Water / water edge,1,m
+Nanjing,28,8328,2,2,城市road旁边的树木,Road / road edge,0,m
+Nanjing,29,9754,3,2,浑浊水体边缘,Water / water edge,1,l
+Nanjing,30,9205,1,2,城市建筑地面,Built-up edge / urban fabric,1,m
+Nanjing,31,8055,3,2,水体边缘,Water / water edge,1,m
+Nanjing,32,6104,3,2,水体边缘,Water / water edge,1,m
+Nanjing,33,8466,2,2,空地旁边的数据,Bare land / construction,0,m
+Nanjing,34,8083,2,2,建筑旁边的树木,Built-up edge / urban fabric,0,h
+Nanjing,35,12430,1,3,水体旁边的公园地面,Water / water edge,1,m
+Nanjing,36,11670,3,3,水体边缘,Water / water edge,0,h
+Nanjing,37,2484,1,1,小区路面 + 建筑阴影,Road / road edge,0,m
+Nanjing,38,6891,1,2,水体旁边的建筑,Water / water edge,1,m
+Nanjing,39,9562,2,2,road旁边水田,Paddy / cropland / field,0,h
+Nanjing,40,5090,1,2,特殊建筑还有阴影,Built-up edge / urban fabric,1,h
+Nanjing,41,9406,1,2,城市广场地面,Bare land / construction,1,h
+Nanjing,42,10207,1,3,水面上的桥梁,Built-up edge / urban fabric,1,h
+Nanjing,43,4273,2,1,水体边缘,Water / water edge,1,l
+Nanjing,44,3740,2,1,建筑旁边的树木,Built-up edge / urban fabric,1,m
+Nanjing,45,10471,1,3,公园水体旁边的公园路面,Water / water edge,1,m
+Nanjing,46,5184,1,2,工厂的路面,Road / road edge,1,h
+Nanjing,47,3446,2,1,树木,Vegetation / forest edge,1,h
+Nanjing,48,1979,2,1,工地土面旁边的树木,Bare land / construction,1,h
+Nanjing,49,7510,3,2,水体边缘,Water / water edge,1,m
+Nanjing,50,6159,1,2,公园路面,Road / road edge,1,h
+Nanjing,51,6631,2,2,农村房子旁边的菜地,Paddy / cropland / field,0,m
+Nanjing,52,2835,2,1,农村的房子,Rural settlement / surfaces,1,m
+Nanjing,53,5721,1,2,小区的地面,Built-up edge / urban fabric,1,h
+Nanjing,54,9424,2,2,农村房子旁边的菜地,Paddy / cropland / field,0,m
+Nanjing,55,17,2,1,工厂地面旁边树木,Built-up edge / urban fabric,1,m
+Nanjing,56,5140,2,2,绿色房子旁边的树木,Vegetation / forest edge,0,m
+Nanjing,57,13529,2,3,水体的边缘,Water / water edge,1,m
+Nanjing,58,9146,3,2,水体的边缘,Water / water edge,1,m
+Nanjing,59,14192,2,3,水体的边缘,Water / water edge,1,m
+Nanjing,60,2139,2,1,树木中间的城市路面,Road / road edge,1,m
+Nanjing,61,9477,1,2,城市road,Road / road edge,1,m
+Nanjing,62,5445,2,2,建筑旁边的树木,Built-up edge / urban fabric,0,h
+Nanjing,63,9241,2,2,水体旁边的路,Water / water edge,0,m
+Nanjing,64,6402,3,2,树木旁边的水体,Water / water edge,1,m
+Nanjing,65,7097,1,2,白色屋顶,Built-up edge / urban fabric,1,h
+Nanjing,66,6777,2,2,水体的边缘,Water / water edge,0,m
+Nanjing,67,5658,2,2,水体的边缘，有雾,Water / water edge,0,l
+Nanjing,68,7972,1,2,建筑白色屋顶,Built-up edge / urban fabric,1,h
+Nanjing,69,1740,2,1,建筑旁边的树木,Built-up edge / urban fabric,1,m
+Nanjing,70,9359,2,2,农村菜地,Paddy / cropland / field,0,h
+Nanjing,71,1529,1,1,小区建筑和地面,Built-up edge / urban fabric,0,h
+Nanjing,72,1796,3,1,水体,Water / water edge,1,l
+Nanjing,73,6467,2,2,建筑工地,Bare land / construction,0,h
+Nanjing,74,5262,1,2,小区路面和树木中间,Road / road edge,1,m
+Nanjing,75,11134,3,3,公园水体边缘,Water / water edge,0,l
+Nanjing,76,1525,2,1,农村空地和田地边缘,Paddy / cropland / field,1,m
+Nanjing,77,6255,2,2,裸地和土路,Road / road edge,0,h
+Nanjing,78,1785,2,1,建筑工地,Bare land / construction,1,h
+Nanjing,79,5291,1,2,小区建筑边缘,Built-up edge / urban fabric,1,m
+Nanjing,80,8532,1,2,城市小区,Built-up edge / urban fabric,1,h
+Nanjing,81,3712,2,1,土路和树木边缘,Road / road edge,1,h
+Nanjing,82,4904,2,1,工地裸地,Bare land / construction,1,h
+Nanjing,83,5194,1,2,蓝色工厂建筑,Built-up edge / urban fabric,1,h
+Nanjing,84,5775,1,2,城市路面,Road / road edge,1,h
+Nanjing,85,11081,2,3,水体边缘,Water / water edge,1,h
+Nanjing,86,3900,2,1,城市road和树木边缘,Road / road edge,1,m
+Nanjing,87,7639,3,2,水体,Water / water edge,1,h
+Nanjing,88,4058,1,1,工厂建筑,Built-up edge / urban fabric,0,h
+Nanjing,89,3830,2,1,农村土路,Rural settlement / surfaces,1,h
+Nanjing,90,9175,2,2,农村土路,Rural settlement / surfaces,0,h
+Nanjing,91,108,2,1,农村土路,Rural settlement / surfaces,1,h
+Nanjing,92,1243,2,1,road边上的树木,Road / road edge,1,m
+Nanjing,93,11928,3,3,公园水体边缘,Water / water edge,0,h
+Nanjing,94,6424,2,2,复杂工地,Bare land / construction,0,h
+Nanjing,95,3109,2,1,城市特殊地物,Other / misc,1,l
+Nanjing,96,4898,2,1,水体旁边的树木,Water / water edge,1,m
+Nanjing,97,868,1,1,工厂路面,Road / road edge,0,m
+Nanjing,98,6192,1,2,高速路面阴影,Road / road edge,1,l
+Nanjing,99,3184,1,1,小区,Built-up edge / urban fabric,0,h
+Nanjing,100,2929,2,1,树木,Vegetation / forest edge,1,h
+Nanjing,101,7332,1,2,树木旁边的房子,Vegetation / forest edge,1,m
+Nanjing,102,4589,1,1,小区阴影地面,Built-up edge / urban fabric,0,l
+Nanjing,103,8872,2,2,树木,Vegetation / forest edge,0,m
+Nanjing,104,1929,2,1,road旁边的树木,Road / road edge,1,m
+Nanjing,105,11775,2,3,水体边缘,Water / water edge,1,m
+Nanjing,106,981,2,1,田地,Paddy / cropland / field,1,h
+Nanjing,107,2158,2,1,水体边缘,Water / water edge,1,l
+Nanjing,108,8049,1,2,road,Road / road edge,1,h
+Nanjing,109,4658,2,1,树林,Vegetation / forest edge,1,h
+Nanjing,110,3144,2,1,绿化带,Vegetation / forest edge,1,h
+Nanjing,111,8703,2,2,水体边缘,Water / water edge,0,m
+Nanjing,112,6691,2,2,裸土烂地面,Bare land / construction,0,h
+Nanjing,113,2070,2,1,农村破房子和林地,Rural settlement / surfaces,1,m
+Nanjing,114,4905,1,1,建筑,Built-up edge / urban fabric,0,h
+Nanjing,115,1719,2,1,水体边缘的树木,Water / water edge,1,m
+Nanjing,116,6074,3,2,水体边缘,Water / water edge,1,h
+Nanjing,117,5812,2,2,农村院子地面,Rural settlement / surfaces,0,l
+Nanjing,118,4179,2,1,树木,Vegetation / forest edge,1,h
+Nanjing,119,14565,3,3,水体,Water / water edge,0,h
+Nanjing,120,6389,1,2,小区路面,Road / road edge,1,l
+Nanjing,121,10576,2,3,水体边缘裸露地物,Water / water edge,1,m
+Nanjing,122,8995,3,2,浑浊水体边缘,Water / water edge,1,m
+Nanjing,123,8265,1,2,光伏电厂地面,Other / misc,1,h
+Nanjing,124,10624,2,3,水体中的裸露地面,Water / water edge,1,l
+Nanjing,125,9750,1,2,公路,Road / road edge,1,h
+Nanjing,126,3429,1,1,小区,Built-up edge / urban fabric,0,h
+Nanjing,127,7644,1,2,小区路面 + 阴影,Road / road edge,1,m
+Nanjing,128,2051,2,1,公园路面和 树木,Road / road edge,1,m
+Nanjing,129,11832,3,3,水体,Water / water edge,0,h
+Nanjing,130,5255,1,2,road 和树木交界,Road / road edge,1,m
+Nanjing,131,4496,2,1,农村路面和树木,Rural settlement / surfaces,1,h
+Nanjing,132,7007,2,2,农村地物,Rural settlement / surfaces,0,h
+Nanjing,133,2888,1,1,建筑,Built-up edge / urban fabric,0,h
+Nanjing,134,1116,2,1,道路旁边的绿植,Vegetation / forest edge,1,h
+Nanjing,135,9455,2,2,城市绿植,Vegetation / forest edge,0,l
+Nanjing,136,3449,2,1,道路旁边的绿植,Vegetation / forest edge,1,m
+Nanjing,137,161,2,1,城市绿植,Vegetation / forest edge,1,h
+Nanjing,138,13112,1,3,road,Road / road edge,1,m
+Nanjing,139,4916,2,1,农村地面,Rural settlement / surfaces,1,h
+Nanjing,140,5166,2,2,土路,Road / road edge,0,h
+Nanjing,141,13425,2,3,水体边缘,Water / water edge,1,m
+Nanjing,142,888,2,1,城市绿植,Vegetation / forest edge,1,l
+Nanjing,143,3121,2,1,水田,Paddy / cropland / field,1,l
+Nanjing,144,1422,2,1,建筑和林地边缘,Built-up edge / urban fabric,1,m
+Nanjing,145,4511,1,1,体育场,Built-up edge / urban fabric,0,h
+Nanjing,146,6602,2,2,空地杂草,Bare land / construction,0,h
+Nanjing,147,8628,2,2,树木,Vegetation / forest edge,0,m
+Nanjing,148,11303,2,3,水体边缘,Water / water edge,1,m
+Nanjing,149,9681,2,2,农村土路,Rural settlement / surfaces,0,h
+Nanjing,150,4500,2,1,绿植和road,Road / road edge,1,m
+Hangzhou,1,9811,1,2,建筑,Built-up edge / urban fabric,1,h
+Hangzhou,2,8848,1,2,建筑,Built-up edge / urban fabric,1,h
+Hangzhou,3,8387,2,2,mix,Mixed / complex,0,l
+Hangzhou,4,10287,3,3,水体,Water / water edge,0,l
+Hangzhou,5,489,2,1,veg,Vegetation / forest edge,1,h
+Hangzhou,6,11873,3,3,tw,Water / water edge,0,l
+Hangzhou,7,12575,3,3,水体,Water / water edge,0,h
+Hangzhou,8,2071,2,1,veg,Unlabeled,1,h
+Hangzhou,9,12610,3,3,水体,Water / water edge,0,h
+Hangzhou,10,5155,2,2,荒地,Bare land / construction,0,h
+Hangzhou,11,3619,1,1,be,Built-up edge / urban fabric,0,h
+Hangzhou,12,6042,1,2,建筑,Built-up edge / urban fabric,1,h
+Hangzhou,13,4967,1,1,be,Built-up edge / urban fabric,0,h
+Hangzhou,14,8078,2,2,veg,Vegetation / forest edge,0,l
+Hangzhou,15,9118,2,2,土路,Road / road edge,0,m
+Hangzhou,16,1874,2,1,veg,Urban green space,1,h
+Hangzhou,17,9877,2,2,veg,Urban green space,0,m
+Hangzhou,18,2088,2,1,veg,Urban green space,1,m
+Hangzhou,19,10510,3,3,水体,Water / water edge,0,h
+Hangzhou,20,2482,1,1,be,Built-up edge / urban fabric,0,h
+Hangzhou,21,12510,3,3,we,Water / water edge,0,m
+Hangzhou,22,12546,3,3,水体,Water / water edge,0,m
+Hangzhou,23,61,2,1,fe,Vegetation / forest edge,1,m
+Hangzhou,24,12221,3,3,we,Water / water edge,0,m
+Hangzhou,25,13483,3,3,we,Water / water edge,0,m
+Hangzhou,26,9607,1,2,建筑,Built-up edge / urban fabric,1,h
+Hangzhou,27,8717,2,2,veg,Vegetation / forest edge,0,m
+Hangzhou,28,10220,2,3,fe,Vegetation / forest edge,1,m
+Hangzhou,29,9946,2,2,ct,Cropland / paddy transition,0,l
+Hangzhou,30,10523,2,3,水体边缘,Water / water edge,1,m
+Hangzhou,31,12515,3,3,水体,Water / water edge,0,l
+Hangzhou,32,14265,3,3,we,Water / water edge,0,m
+Hangzhou,33,172,1,1,br,Built-up edge / urban fabric,0,h
+Hangzhou,34,10605,3,3,we,Water / water edge,0,m
+Hangzhou,35,8057,3,2,水体,Water / water edge,1,h
+Hangzhou,36,13727,3,3,水体,Water / water edge,0,h
+Hangzhou,37,11702,3,3,tw,Water / water edge,0,l
+Hangzhou,38,6443,1,2,路面,Road / road edge,1,m
+Hangzhou,39,13689,3,3,we,Water / water edge,0,m
+Hangzhou,40,14525,3,3,tw,Water / water edge,0,m
+Hangzhou,41,8591,2,2,fe,Vegetation / forest edge,0,m
+Hangzhou,42,11962,3,3,水体,Water / water edge,0,h
+Hangzhou,43,9226,3,2,we,Water / water edge,1,l
+Hangzhou,44,6825,3,2,tw,Water / water edge,1,l
+Hangzhou,45,10074,3,3,水体,Water / water edge,0,l
+Hangzhou,46,12573,2,3,bl,Bare land / construction,1,m
+Hangzhou,47,9536,1,2,高铁站,Road / road edge,1,h
+Hangzhou,48,13800,3,3,we,Water / water edge,0,m
+Hangzhou,49,8675,2,2,re,Road / road edge,0,m
+Hangzhou,50,400,1,1,be,Built-up edge / urban fabric,0,h
+Hangzhou,51,530,2,1,veg,Unlabeled,1,h
+Hangzhou,52,7518,2,2,veg,Vegetation / forest edge,0,m
+Hangzhou,53,467,2,1,veg,Unlabeled,1,h
+Hangzhou,54,12936,3,3,we,Water / water edge,0,m
+Hangzhou,55,9694,2,2,veg,Vegetation / forest edge,0,h
+Hangzhou,56,3506,2,1,bl,Bare land / construction,1,m
+Hangzhou,57,13199,3,3,水体边缘,Water / water edge,0,m
+Hangzhou,58,13138,2,3,bl,Bare land / construction,1,m
+Hangzhou,59,10173,3,3,we,Water / water edge,0,m
+Hangzhou,60,12060,3,3,水体,Water / water edge,0,m
+Hangzhou,61,7713,1,2,农村路面,Rural settlement / surfaces,1,m
+Hangzhou,62,13801,2,3,bl,Bare land / construction,1,m
+Hangzhou,63,9484,2,2,veg,Vegetation / forest edge,0,m
+Hangzhou,64,1658,2,1,veg,Urban green space,1,h
+Hangzhou,65,14630,3,3,we,Water / water edge,0,m
+Hangzhou,66,11620,2,3,veg,Unlabeled,1,m
+Hangzhou,67,12864,3,3,we,Water / water edge,0,m
+Hangzhou,68,6591,1,2,road,Road / road edge,1,h
+Hangzhou,69,8581,2,2,fe,Unlabeled,0,l
+Hangzhou,70,404,1,1,be,Built-up edge / urban fabric,0,h
+Hangzhou,71,9702,2,2,bl,Bare land / construction,0,m
+Hangzhou,72,10599,3,3,we,Water / water edge,0,m
+Hangzhou,73,12086,3,3,we,Water / water edge,0,m
+Hangzhou,74,7416,2,2,veg,Vegetation / forest edge,0,h
+Hangzhou,75,2003,2,1,veg,Vegetation / forest edge,1,h
+Hangzhou,76,8967,2,2,fe,Vegetation / forest edge,0,m
+Hangzhou,77,11801,3,3,we,Water / water edge,0,l
+Hangzhou,78,6244,3,2,we,Water / water edge,1,h
+Hangzhou,79,10418,3,3,we,Water / water edge,0,h
+Hangzhou,80,13515,3,3,we,Water / water edge,0,m
+Hangzhou,81,6929,2,2,veg,Vegetation / forest edge,0,h
+Hangzhou,82,3348,1,1,be,Built-up edge / urban fabric,0,h
+Hangzhou,83,2972,2,1,veg,Urban green space,1,h
+Hangzhou,84,8228,2,2,bl,Bare land / construction,0,h
+Hangzhou,85,11079,2,3,veg,Unlabeled,1,l
+Hangzhou,86,14733,3,3,水体,Water / water edge,0,h
+Hangzhou,87,13644,3,3,we,Water / water edge,0,m
+Hangzhou,88,5759,3,2,we,Water / water edge,1,l
+Hangzhou,89,719,2,1,土地,Bare land / construction,1,h
+Hangzhou,90,6836,2,2,bl,Bare land / construction,0,m
+Hangzhou,91,6251,3,2,水体,Water / water edge,1,h
+Hangzhou,92,9910,2,2,bl,Bare land / construction,0,m
+Hangzhou,93,2532,2,1,ct,Cropland / paddy transition,1,h
+Hangzhou,94,9633,2,2,ct,Cropland / paddy transition,0,m
+Hangzhou,95,601,1,1,re,Road / road edge,0,h
+Hangzhou,96,10379,2,3,bl,Bare land / construction,1,h
+Hangzhou,97,2657,1,1,be,Built-up edge / urban fabric,0,m
+Hangzhou,98,2795,1,1,be,Built-up edge / urban fabric,0,m
+Hangzhou,99,4,2,1,veg,Vegetation / forest edge,1,h
+Hangzhou,100,622,1,1,be,Built-up edge / urban fabric,0,h
+Hangzhou,101,10026,3,3,we,Water / water edge,0,m
+Hangzhou,102,8262,2,2,bl,Bare land / construction,0,m
+Hangzhou,103,2333,2,1,veg,Vegetation / forest edge,1,h
+Hangzhou,104,7863,1,2,建筑,Built-up edge / urban fabric,1,h
+Hangzhou,105,442,2,1,veg,Unlabeled,1,h
+Hangzhou,106,13655,2,3,水体边缘,Water / water edge,1,l
+Hangzhou,107,7510,3,2,we,Water / water edge,1,m
+Hangzhou,108,12634,3,3,we,Water / water edge,0,m
+Hangzhou,109,9189,2,2,veg,Vegetation / forest edge,0,h
+Hangzhou,110,10077,2,3,fe,Urban green space,1,m
+Hangzhou,111,8092,2,2,bl,Bare land / construction,0,h
+Hangzhou,112,3669,2,1,bl,Bare land / construction,1,h
+Hangzhou,113,9062,3,2,tw,Water / water edge,1,l
+Hangzhou,114,9791,2,2,bl,Bare land / construction,0,m
+Hangzhou,115,9787,2,2,田地,Paddy / cropland / field,0,h
+Hangzhou,116,9796,2,2,veg,Urban green space,0,m
+Hangzhou,117,10416,2,3,veg,Unlabeled,1,h
+Hangzhou,118,6000,2,2,veg,Vegetation / forest edge,0,m
+Hangzhou,119,498,2,1,veg,Vegetation / forest edge,1,h
+Hangzhou,120,14714,2,3,veg,Vegetation / forest edge,1,h
+Hangzhou,121,9058,1,2,road,Road / road edge,1,h
+Hangzhou,122,9613,2,2,bl,Bare land / construction,0,m
+Hangzhou,123,9405,2,2,土路,Road / road edge,0,l
+Hangzhou,124,5841,3,2,we,Water / water edge,1,m
+Hangzhou,125,4961,2,1,veg,Unlabeled,1,h
+Hangzhou,126,10559,3,3,we,Water / water edge,0,m
+Hangzhou,127,4069,2,1,veg,Vegetation / forest edge,1,m
+Hangzhou,128,7896,2,2,废土,Bare land / construction,0,l
+Hangzhou,129,8998,2,2,veg,Urban green space,0,m
+Hangzhou,130,9650,2,2,ct,Cropland / paddy transition,0,m
+Hangzhou,131,9378,1,2,car park,Built-up edge / urban fabric,1,h
+Hangzhou,132,14544,3,3,we,Water / water edge,0,m
+Hangzhou,133,7934,2,2,ct,Cropland / paddy transition,0,m
+Hangzhou,134,13813,3,3,水体,Water / water edge,0,h
+Hangzhou,135,9361,2,2,re,Road / road edge,0,l
+Hangzhou,136,9329,2,2,veg,Urban green space,0,h
+Hangzhou,137,6800,2,2,veg,Vegetation / forest edge,0,h
+Hangzhou,138,8368,2,2,veg,Vegetation / forest edge,0,h
+Hangzhou,139,10151,2,3,bl,Bare land / construction,1,m
+Hangzhou,140,12986,2,3,bl,Bare land / construction,1,m
+Hangzhou,141,4525,2,1,bl,Bare land / construction,1,h
+Hangzhou,142,10357,2,3,bl,Bare land / construction,1,m
+Hangzhou,143,13403,2,3,bl,Bare land / construction,1,m
+Hangzhou,144,7400,1,2,路面,Road / road edge,1,h
+Hangzhou,145,8627,2,2,veg,Vegetation / forest edge,0,h
+Hangzhou,146,583,2,1,bl,Bare land / construction,1,h
+Hangzhou,147,1978,2,1,veg,Urban green space,1,h
+Hangzhou,148,14549,3,3,we,Water / water edge,0,m
+Hangzhou,149,224,2,1,re,Road / road edge,1,m
+Hangzhou,150,7736,2,2,fe,Vegetation / forest edge,0,l

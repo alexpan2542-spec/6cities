@@ -1,0 +1,503 @@
+%% =====================================================================
+%%  Section 3 — Methods
+%%  Drop-in fragment for the official MDPI *Remote Sensing* template
+%%  (\documentclass[remotesensing,article,submit,moreauthors]{Definitions/mdpi})
+%%
+%%  Source: docs/manuscript.md Section 3 (2026-09-09 draft), as transcribed
+%%  into this file on 2026-09-09.
+%%
+%%  2026-09-10 — FULL READABILITY PASS (sentence-level only).
+%%  Writing principle for this manuscript: maximise human readability
+%%  without losing rigour. Edits made here: split long multi-clause
+%%  sentences; cut meta-commentary ("We emphasise that", "A second point
+%%  ... deserves statement here", "Four considerations bound this
+%%  concern" kept only where it heads a genuine enumeration);
+%%  de-nominalise noun-heavy constructions into subject-verb-object;
+%%  pull multi-clause parentheticals into their own sentences.
+%%  NOT changed: any claim, statistic, number, threshold, n-value,
+%%  citation key, equation, cross-reference, defined term (margin,
+%%  BoundaryScore, correction operator, "the operator fires", BAMS150,
+%%  "conditional on that population"), load-bearing qualifier (in-sample,
+%%  conservative lower bound, "does not require the expert label to be
+%%  ground truth", the repeated "not a map-wide accuracy" caveat), or the
+%%  diagnostic(main)/LOCO(supporting) claim hierarchy. Every edit was
+%%  checked for information-equivalence against the 2026-09-09 wording.
+%%
+%%  2026-09-10 (3) -- HANGZHOU STANDARDISED onto the two-stage rule.
+%%  Hangzhou's 150 points were re-selected with the frozen two-stage cut
+%%  (46 carry-over labels + 104 new expert labels,
+%%  scripts/gee_hangzhou_relabel_104.js). All six cities now use ONE
+%%  sampling rule. Removed from 3.1 "Selection": Eq. hzblend, the
+%%  "five of the six cities ... weighted-blend variant" paragraph, and the
+%%  Hangzhou-exclusion robustness sentence (Supplementary S4 / Table S5,
+%%  now also deleted). "For five of the six cities" -> "For all six cities".
+%%  Downstream numbers refreshed (docs/results_snapshot/, snapshot.blend_bak
+%%  keeps the pre-change values); the only qualitative change is that the
+%%  WorldCover-pair error coupling is now weakly positive (Q ~ 0.08-0.14)
+%%  rather than ~0 -- still an order of magnitude below DW/Esri's 0.97.
+%%  See data2/analysis_outputs/hangzhou_standardise/RESULTS_before_after.md.
+%%  Also in 3.1 "Selection": per-city median BAMS150 margin restated as
+%%  0.41-0.47 (all six now two-stage; 0.30 was Hangzhou-blend-specific),
+%%  and the full-pool comparison figure corrected to the actual median
+%%  ~0.95-1.00 (was "0.77-0.91"; per data2/cities/*/02_margin/*.csv).
+%%  Also in 3.2 "Reference layers": dropped the Hangzhou "later pass" /
+%%  "12 of 150 WC version drift" asides -> one sentence, re-sampled WC is a
+%%  cross-check only.
+%%  2026-09-10 (4) -- SCENE STRATIFICATION now covers all six cities. Hangzhou
+%%  scene notes folded in (46 carry-over Chinese notes + 104 codes from the
+%%  re-label, mapped by scripts/hangzhou_scene_rows.py; its 43 vegetation-edge
+%%  points split urban-green vs forest-edge from imagery,
+%%  scripts/gee_hangzhou_veg_subclass.js). T4/S3c are now pooled over the 891
+%%  points with a resolvable scene note (was "five-city, n=750"); every
+%%  "Hangzhou has no scene-code table" / "five-city" call-out removed here and
+%%  in 3.2(d)/(e). The per-city "short codes vs Chinese free text" enumeration
+%%  is gone -> "free-text notes mapped post hoc to a common code table".
+%%
+%%  Readability edits by subsection (all verified information-equivalent):
+%%   - Intro: "First ..." sentence split; semicolon -> sentence in the
+%%     conditional-rate caveat paragraph; caveat text kept verbatim.
+%%   - 3.1 Candidate pool: prefecture/rural-land sentence split into
+%%     three; "resolves ... boundary types" -> "can report ...".
+%%   - 3.1 Inputs to the sampler: 5-clause composite parenthetical
+%%     unpacked into a lead sentence + a recipe sentence.
+%%   - 3.1 Boundary score preamble: semicolon -> sentence.
+%%   - 3.1 enumerate item 1: single sentence split; parenthetical
+%%     "(no neighbourhood terms ...)" promoted to a clause.
+%%   - 3.1 post-enumerate: "We emphasise that ... proposal mechanism to
+%%     isolate spectrally ambiguous zones for annotation" -> "serves only
+%%     to propose spectrally ambiguous pixels for annotation"; role and
+%%     scope claim unchanged; "governs only which pixels" kept verbatim.
+%%   - 3.1 Selection: two long sentences split; "We retain" -> "We keep".
+%%   - 3.1 Expert labelling: rendering clauses split from basemap clause;
+%%     reliability sentence (three colleagues ...) split into two.
+%%   - 3.1 Sampling-induced conditioning: "A second point of conditioning
+%%     deserves statement here" -> "A second kind of conditioning also
+%%     needs stating"; long selection/reference sentence split; "merely
+%%     Sentinel-2 legibility" -> "merely what Sentinel-2 can resolve";
+%%     the four considerations (i)-(iv) kept, two em-dashes -> semicolons.
+%%   - 3.2 Reference layers: colon-list of three products -> three
+%%     sentences; Hangzhou/Wilson details moved to a second paragraph.
+%%   - 3.2 parts (a),(b),(d),(e): meta-phrases trimmed, nominalisations
+%%     reduced, one semicolon -> sentence each; (c) unchanged.
+%%   - 3.3 Design rationale: PRE sentence split; "which removes this
+%%     dependence by construction" -> "This removes the dependence ...".
+%%   - 3.3 Operator: 27-feature parenthetical unpacked; "firing is
+%%     further restricted by a boundary gate" -> "a boundary gate further
+%%     restricts firing"; transfer15 parenthetical de-nominalised.
+%%   - 3.3 Phase 1 / Phase 2: two sentence splits; no content change.
+%%   - 3.4 Fixed downstream classifier / Spatial-block / Reproducibility:
+%%     one semicolon -> sentence each; no content change.
+%%
+%%  Citation keys used below (define in \begin{thebibliography} or refs.bib):
+%%    fao2015gaul, gorelick2017, zanaga2022, brown2022, karra2021,
+%%    venter2022, tong2024pre, wilson1927, landis1977, yule1900
+%%
+%%  Cross-reference labels this fragment DEFINES:
+%%    sec:methods sec:sampling sec:diagnostic sec:loco sec:eval
+%%    eq:margin eq:bscore eq:netbuilt eq:condindep eq:be
+%%  Labels it EXPECTS elsewhere in the manuscript:
+%%    tab:legend_map tab:T1 tab:T2 tab:T3 tab:T4 tab:T5
+%%    tab:S1 tab:S2 tab:S3 tab:S4
+%%    fig:studyarea fig:flowchart fig:fourway fig:confidence
+%%    fig:errordir fig:scene fig:independence
+%%    sec:results-agreement sec:results-confidence sec:results-errordir
+%%    sec:results-scene sec:results-independence sec:results-loco
+%%    sec:results-maps sec:disc-edge sec:disc-scope
+%% =====================================================================
+
+\section{Methods}\label{sec:methods}
+
+The analysis has three stages, summarised in Figure~\ref{fig:flowchart}.
+First, a boundary-aware sampling step (Section~\ref{sec:sampling}) spends a
+small photo-interpretation budget on the pixels where global products are most
+likely to depart from expert judgement; it produces 900 hand-labelled boundary
+points across six cities. Second, a multi-reference agreement diagnostic
+(Section~\ref{sec:diagnostic}) quantifies \emph{how much}, \emph{where}, and
+\emph{in which direction} ESA WorldCover, Dynamic World and Esri Land Cover
+disagree with the expert labels, and tests directly whether consulting a second
+and a third product resolves the disagreement. Third, as a supporting analysis,
+a leave-one-city-out (LOCO) correction operator (Section~\ref{sec:loco}) asks
+whether expert corrections learned on five cities transfer to a sixth city that
+contributes no labels of its own. Section~\ref{sec:eval} states the metrics and
+the leakage controls that apply throughout.
+
+Every agreement and disagreement rate in this paper is computed on the
+boundary-candidate points of Section~\ref{sec:sampling}. Because those points
+are chosen to be the hardest and most error-prone pixels, the rates are
+\textbf{conditional on that population and are not map-wide accuracies} of any
+product. We repeat this qualifier wherever the numbers appear.
+
+\subsection{Boundary-Aware Candidate Sampling}\label{sec:sampling}
+
+\subsubsection*{Candidate pool}
+
+The area of interest for each city is its second-level administrative polygon,
+taken whole, with no built-up or urban mask (FAO GAUL 2015, ADM2---the
+prefecture-level municipality~\citep{fao2015gaul}). ESA WorldCover 2021 v200, at
+10~m~\citep{zanaga2022}, is remapped from its 11 classes to the three target
+classes used throughout: \emph{built-up} (WorldCover class 50); \emph{water} (80
+permanent water, 90 herbaceous wetland, 95 mangrove); and \emph{non-built} (all
+remaining vegetated and bare classes: 10, 20, 30, 40, 60, 70, 100). Within each
+polygon we draw a stratified random sample of 5000 points per remapped
+class---15,000 points per city (Google Earth Engine \texttt{stratifiedSample},
+10~m scale, fixed seed)---so the three classes are balanced before any
+boundary-aware selection.
+
+The pool spans the whole prefecture rather than a built-up envelope, so it
+includes rural land. This is why the scene stratification of
+Section~\ref{sec:diagnostic}(d) can report paddy/cropland, forest-edge and
+rural-settlement boundary types alongside the urban ones. What concentrates the
+900 annotated points onto cover transitions is the boundary-aware step below,
+not a spatial mask.
+
+\subsubsection*{Inputs to the sampler}
+
+Feature values come from a single 2021 Sentinel-2 composite, built from
+\texttt{COPERNICUS/S2\_SR\_HARMONIZED} over the full calendar year: scenes with
+\texttt{CLOUDY\_PIXEL\_PERCENTAGE} $<$ 20 are combined by per-pixel median and
+clipped to the administrative polygon. From this composite we take six
+surface-reflectance bands (B2, B3, B4, B8, B11, B12) and three spectral indices
+(NDVI, NDBI, MNDWI), each as a point value and as a $3 \times 3$ pixel (30~m)
+neighbourhood mean and standard deviation. This is the same composite used for
+the expert labelling described below. All image processing was carried out in
+Google Earth Engine~\citep{gorelick2017}.
+
+\subsubsection*{Boundary score}
+
+Boundary-Aware Margin Sampling (BAMS) combines a classifier-uncertainty signal
+with a local-heterogeneity signal. The exact procedure is reproduced
+deterministically in \texttt{scripts/reproduce\_bams\_selection.py}, which
+regenerates the on-disk point sets that the 900 hand labels are anchored to
+(150/150 match, all six cities).
+
+\begin{enumerate}[leftmargin=*,labelsep=4.5mm]
+\item \emph{Classifier margin.} For each city, a random forest (300 trees, fixed
+  seed) is fitted on all 15,000 candidates, with the remapped WorldCover label
+  as target and the \textbf{nine point-level} spectral features as predictors;
+  no neighbourhood terms enter this model. Class posteriors are read back
+  in-sample, and the margin of a point is
+  %
+  \begin{equation}\label{eq:margin}
+  m = p_{(1)} - p_{(2)},
+  \end{equation}
+  %
+  the gap between its two largest class posteriors. A small $m$ means the
+  spectral signature lies between two classes rather than inside one.
+\item \emph{Local spectral heterogeneity.} BoundaryScore is the raw,
+  unnormalised sum of the $3 \times 3$ neighbourhood standard deviations of the
+  four visible and near-infrared bands,
+  %
+  \begin{equation}\label{eq:bscore}
+  \mathrm{BoundaryScore} = \sigma_{3\times3}(\mathrm{B2}) + \sigma_{3\times3}(\mathrm{B3})
+  + \sigma_{3\times3}(\mathrm{B4}) + \sigma_{3\times3}(\mathrm{B8}).
+  \end{equation}
+  %
+  Large values indicate that the 30~m window straddles a cover transition.
+\end{enumerate}
+
+This random forest serves only to propose spectrally ambiguous pixels for
+annotation; it plays no part in assigning class labels. All 900 boundary
+candidates were labelled independently by expert photo-interpretation, so bias
+in the initial WorldCover training targets governs only \emph{which} pixels are
+examined and does not enter the reference against which the products are
+subsequently scored. The conditioning that this sampling imposes on the reported
+rates is addressed below (``Sampling-induced conditioning'').
+
+\subsubsection*{Selection}
+
+For all six cities, BAMS150 is a two-stage cut: keep the 1000 lowest-margin
+points, then keep the 150 of those with the largest BoundaryScore (ascending
+\texttt{Original\_ID} is the deterministic final tie-break). A plain
+150-smallest-margin set (``Top150'') is generated for reference only and is not
+used anywhere downstream.
+
+This places every city's sample deep in the ambiguous regime: per-city median
+BAMS150 margin 0.41--0.47, against a full-pool median of $\approx$ 0.95--1.00.
+Each diagnostic below is additionally reported per city. Selection yields 150
+points per city, 900 in total.
+
+\subsubsection*{Expert labelling}
+
+The 150 points per city were interpreted one by one in the Google Earth Engine
+Code Editor at roughly 1:2000 zoom, under a single protocol common to all six
+cities. The primary reference was the 2021 Sentinel-2 composite itself, viewed
+both as a true-colour rendering (B4/B3/B2, stretched 0--3000) and as a
+false-colour infrared rendering (B8/B4/B3, stretched 0--4000). A Google
+high-resolution basemap was consulted only as ancillary spatial context---for
+form and edge localisation, when the Sentinel-2 view was insufficient. Because
+that basemap carries no single acquisition date, the 2021 Sentinel-2 composite
+is the temporal anchor of the reference. Each point was assigned the dominant
+cover within its 10~m pixel---\{built-up, non-built, water\}---with a three-level
+confidence tag (high\,/\,medium\,/\,low) and a free-text scene note. This
+produces 900 expert boundary labels, the reference anchor for every analysis
+below. The site-selection rationale is given in Section~2.1 and the annotator
+background in Section~2.4.
+
+Reliability of these single-annotator labels was assessed with an independent
+blind re-labelling exercise. Three colleagues at the same centre (A, B and C;
+Section~2.4), all with operational remote-sensing image-interpretation
+experience, each re-labelled a stratified subsample of 120 points (20 per city,
+proportional to the confidence-tier distribution). They worked without access to
+the original labels, the product outputs, or one another's judgements. Agreement
+with the reference was almost perfect for all three (Cohen's $\kappa = 0.95$,
+0.91, 0.94; \citealp{landis1977}). Mean pairwise exact agreement across the six
+interpreter pairs was 92.67\%, and multi-rater agreement on the 116 points all
+three completed was almost perfect (Fleiss' $\kappa = 0.89$).
+
+\subsubsection*{Sampling-induced conditioning}
+
+BAMS is deliberately non-representative: it concentrates the labelling budget on
+the pixels that are hardest to classify, so every agreement or disagreement rate
+in Section~4 is conditional on this boundary-candidate population and is not a
+map-wide accuracy of WorldCover, Dynamic World or Esri Land Cover (see also
+Section~\ref{sec:results-confidence} and Section~\ref{sec:disc-scope}).
+
+A second kind of conditioning also needs stating. BAMS selects points from
+Sentinel-2 spectra (a WorldCover-trained random forest's margin) and Sentinel-2
+local heterogeneity, and the expert reference is read chiefly from a 2021
+Sentinel-2 composite. Selection and reference therefore share a common
+Sentinel-2 information base, and a reader may ask whether Section~4 measures
+product error or merely what Sentinel-2 can resolve. Four considerations bound
+this concern. (i)~The interpreter integrates spatial configuration, texture,
+context and the false-colour infrared view, and falls back to a sub-metre
+basemap when needed; the reference is not another per-pixel spectral classifier.
+(ii)~Three independent interpreters converge on the same labels from the same
+imagery (Fleiss' $\kappa = 0.89$), so the labels are reproducible rather than
+idiosyncratic noise. (iii)~The disagreement is concentrated in the
+\emph{high-confidence} labels (Section~\ref{sec:results-confidence}) and in
+\emph{interpretable} physical scenes (Section~\ref{sec:results-scene}); noise on
+genuinely ambiguous pixels would not take that shape. (iv)~The sharpest single
+result---the near-lockstep of Dynamic World and Esri errors, Yule's
+$Q \approx 0.97$ (Section~\ref{sec:results-independence})---is a differential
+between product pairs ($Q \approx 0.97$ for the coupled pair against $\le 0.14$
+for the WorldCover pairs); it is robust to an imperfect expert reference, which
+would raise all pairs alike rather than just one. This is revisited in
+Section~\ref{sec:disc-scope}.
+
+\subsection{Multi-Reference Agreement Diagnostic}\label{sec:diagnostic}
+
+\subsubsection*{Reference layers}
+
+Three global 10~m products are compared with the expert labels. ESA WorldCover
+2021 v200 (WC) is a gradient-boosted-tree classifier with a rule-based
+post-process on Sentinel-1/2~\citep{zanaga2022}. Dynamic World (DW) is a
+fully-convolutional semantic-segmentation model that produces
+near-instantaneous per-scene Sentinel-2 predictions; we take the 2021 annual
+label mode~\citep{brown2022}. Esri Land Cover (Esri\,/\,Impact Observatory) is a
+deep segmentation model run on annual Sentinel-2 composites~\citep{karra2021}.
+
+Each product is sampled at the 900 boundary points and remapped to the same
+three classes (Table~\ref{tab:legend_map}). WC, DW and Esri are available for
+all six cities (multi-reference subset $n = 900$). Every WorldCover quantity
+uses the stored 2021 v200 class; an independently re-sampled WorldCover layer is
+kept only as a cross-check and enters no reported number. Binomial proportions
+are reported with Wilson 95\% confidence intervals~\citep{wilson1927}.
+
+The diagnostic has five parts.
+
+\paragraph{(a) Four-way agreement (Table~\ref{tab:T1}, Figure~\ref{fig:fourway}).}
+We compute pairwise agreement rates among \{expert, WC, DW, Esri\}, plus the
+tri-agreement fraction (expert $=$ DW $=$ Esri) and the four-way agreement
+fraction, pooled ($n = 900$) and per city.
+
+\paragraph{(b) Confidence stratification (Table~\ref{tab:T2}, Figure~\ref{fig:confidence}).}
+The expert $\neq$ WC disagreement rate is computed over all labels, over the
+high\,+\,medium subset, and over the high-confidence-only subset, per city and
+pooled. This tests whether the disagreement is merely annotator noise on
+ambiguous pixels: if it were, it should shrink on the high-confidence subset.
+The test has a built-in bias---an annotator may assign ``high'' precisely when a
+WC error is obvious---which we take into account when reading the result
+(Section~\ref{sec:results-confidence}, Section~\ref{sec:disc-scope}).
+
+\paragraph{(c) Direction of the WC error (Table~\ref{tab:T3}, Figure~\ref{fig:errordir}).}
+From the WC $\to$ expert confusion matrix on the boundary points we report the
+conditional error rates $P(\text{expert} = \text{non-built} \mid \text{WC} =
+\text{built})$ and $P(\text{expert} = \text{built} \mid \text{WC} =
+\text{non-built})$, and the net over-\,/\,under-call of built-up,
+%
+\begin{equation}\label{eq:netbuilt}
+\Delta_{\text{built}} = \frac{n(\text{expert} = \text{non-built} \mid \text{WC} = \text{built})
+- n(\text{expert} = \text{built} \mid \text{WC} = \text{non-built})}{n}.
+\end{equation}
+
+\paragraph{(d) Physical scene stratification (Table~\ref{tab:T4}, Figure~\ref{fig:scene}).}
+Each boundary point carries a free-text scene note recorded during annotation.
+Using the annotator-supplied scene-code table, we grouped these notes into
+physical boundary types (built-up edge\,/\,urban fabric; urban green space;
+road\,/\,road edge; water\,/\,water edge; vegetation\,/\,forest edge;
+paddy\,/\,cropland; rural settlement; bare land\,/\,construction), and we report
+the expert $\neq$ WC disagreement rate, with Wilson intervals, for groups with
+$n \ge 15$. This is a keyword-based localisation aid, not a formal stratified
+sample (Section~\ref{sec:disc-scope}). The scene notes are free-text, so
+scene-type contrasts are drawn only in the pooled set. The grouping covers the
+891 boundary points whose note resolves to a single physical boundary type; the
+remaining nine carried no resolvable type and are omitted. The 26 Nanchang
+points that were initially recorded without a scene note---their expert class
+placeholder-filled from WorldCover during annotation---were re-annotated on
+sub-metre imagery by two annotators and assigned an expert class and a scene
+code; 13 of the 26 disagree with WorldCover.
+
+\paragraph{(e) Independence and arbitration test (Section~\ref{sec:results-independence};
+Tables~\ref{tab:S2}--\ref{tab:S3}, Figure~\ref{fig:independence}).}
+Multi-reference arbitration implicitly assumes the references approach the truth
+\emph{independently}, so that agreement between two of them corroborates a
+label. We test that assumption on the $n = 900$ subset. The central contrast
+does not require the expert label to be ground truth.
+
+\begin{itemize}[leftmargin=*]
+\item \emph{S2a---excess agreement.} Observed pairwise agreement is compared
+  with the agreement expected if the two products $A$ and $B$ were conditionally
+  independent given the true class $Y$,
+  %
+  \begin{equation}\label{eq:condindep}
+  P_{\text{indep}}(A = B) = \sum_{j} P(Y = j) \sum_{c} P(A = c \mid Y = j)\,P(B = c \mid Y = j).
+  \end{equation}
+  %
+  The conditional class distributions are estimated in-sample, which biases the
+  expectation \emph{toward} independence, so the reported excess is a
+  conservative lower bound. Uncertainty is a 4000-sample point bootstrap, and a
+  leave-one-city-out range is also reported.
+\item \emph{S2b---error dependence.} With $e_{A} = \mathbf{1}\{A \neq
+  \text{expert}\}$, we compute Yule's $Q$~\citep{yule1900} and Cohen's $\kappa$
+  between each pair of product error indicators, and the ratio of the observed
+  co-error rate to its marginal-independent value. Whether DW errs when Esri
+  errs is a property of the joint error structure of the three products alone.
+\item \emph{S2c---arbitration value.} We evaluate
+  $P(\text{expert} = \ell \mid \text{DW} = \text{Esri} = \ell)$---does product
+  consensus predict the expert label better than a single product?---against the
+  single-product baselines $P(\text{expert} = \text{DW})$ and
+  $P(\text{expert} = \text{Esri})$, and against the consensus of the
+  non-deep-learning pair (WC $=$ DW).
+\item \emph{S3a--c---confound checks.} (S3a)~The ontology is collapsed to two
+  classes (built vs.\ rest), and separately to built-vs-vegetation (water points
+  dropped), and the test is repeated. (S3b)~WorldCover serves as a negative
+  control: it shares the Sentinel-2 input with DW and Esri but not the
+  deep-segmentation model family. (S3c)~The DW $=$ Esri agreement rate is
+  resolved by scene type, to check whether the coupling is concentrated in the
+  transition zones where a shared image date would matter or is instead roughly
+  uniform. The ontology and by-scene tables are in the
+  Supplementary Material (Tables~S3, S4); S3b uses quantities already in
+  Tables~S2a/S2b.
+\end{itemize}
+
+\subsection{LOCO Correction Operator (Supporting Analysis)}\label{sec:loco}
+
+\subsubsection*{Design rationale---why not propagate labels within a city}
+
+A natural way to spend a small boundary-label budget is to propagate the
+labelled points to their spectral neighbours \emph{within the same city}. This
+is the prototype\,/\,pseudo-label rectification-and-expansion family; PRE
+\citep{tong2024pre} is a representative instance, there applied across
+geographically well-separated cities on several continents. We adapted the same
+idea to the much narrower within-city setting and evaluated it (our variant,
+\emph{Prototype Expansion}). In this setting the labelled boundary pixels and
+their unlabelled spectral neighbours are strongly spatially autocorrelated. Once
+the train/test partition was drawn by spatial block, with the evaluation points
+excluded from the neighbour search, the procedure produced no valid expansions;
+the apparent improvement it had shown without spatial partitioning did not
+survive that control (leakage diagnostics in the Supplementary Material).
+
+We therefore do \textbf{not} propagate labels within a city. Instead we define a
+correction operator trained on the labelled points of $N - 1$ cities and
+transferred to a held-out city that contributes no labels of its
+own---leave-one-city-out (LOCO). This removes the dependence by construction.
+The operator is reported as a supporting result, not as the paper's main claim.
+
+\subsubsection*{Operator}
+
+For a held-out city $c$, a random forest (300 trees) is trained on the pooled
+150-point boundary sets of the other five cities. The input is a 27-feature
+vector---the nine point-level spectral features plus their nine $3 \times 3$
+neighbourhood means and nine $3 \times 3$ neighbourhood standard
+deviations---the target is the expert class, and samples are weighted by
+confidence tier (high 1.0, medium 0.6, low 0.3). Applied to city $c$'s 150
+boundary points, it returns a predicted class and its posterior $p_{\max}$ for
+each point. The operator \emph{fires}---overwrites the WorldCover label---only
+where it is both confident and dissenting: $p_{\max} \ge \tau$ ($\tau = 0.85$)
+and predicted class $\neq$ WC class. For the downstream-map experiment
+(Phase~2), a boundary gate further restricts firing: only candidates in the
+lowest decile of within-city margin are eligible. A reduced-feature variant
+(\emph{transfer15}, which drops the raw reflectance bands because they carry
+cross-city radiometric offsets) is reported in Supplementary~S2.
+
+\subsubsection*{Phase 1---operator transfer}
+
+The LOCO operator is applied to the held-out city's 150 boundary points, and its
+predicted class is scored against the expert label, relative to the ``do
+nothing'' baseline (the WC $=$ expert rate). We report operator accuracy, the
+number of confident firings, and their precision against the expert label.
+
+\subsubsection*{Phase 2---downstream map correction}
+
+For each held-out city and each of five spatial-block partition seeds, a
+land-cover random forest is trained on the city's $\approx$ 10,000 non-boundary
+training points under five labelling schemes: (B0)~raw WC labels; (B2)~WC labels
+corrected by the transferred LOCO operator on boundary-gated, confidence-gated
+points---\emph{the proposed method}; (B1)~WC labels corrected by a
+\emph{within-city oracle} operator that does see city $c$'s expert labels, an
+optimistic ceiling; (B3)~the transferred operator applied without the boundary
+gate (ablation); and (B4)~the same number of labels flipped to a random other
+class (control). Each trained classifier is evaluated for overall accuracy and
+Boundary Error on the held-out spatial-block test set (against WC) and on the
+150 expert points (against the expert). A $\tau \times$ margin-quantile
+sensitivity sweep is reported in Supplementary Table~\ref{tab:S1}.
+
+\subsubsection*{Phase 3---multi-reference referee}
+
+The corrected label map is evaluated directly, with no downstream classifier, on
+the 150 held-out points of each city (all six now carry DW and Esri), against
+(i)~the expert label and (ii)~the strict tri-consensus subset expert $=$ DW $=$
+Esri. Of the points the operator changed, we report the fraction moved toward
+the expert label and the fraction moved toward the DW/Esri consensus, with the
+random-flip control and the within-city oracle ceiling for reference.
+
+\subsection{Evaluation Protocol and Leakage Controls}\label{sec:eval}
+
+\subsubsection*{Fixed downstream classifier}
+
+Every baseline and every corrected variant uses the same random forest (300
+trees; scikit-learn defaults otherwise), so no change of classifier
+architecture can be mistaken for a method effect. This is a deliberate
+departure from an earlier version of the pipeline, in which part of the apparent
+gain traced to a random-forest $\to$ MLP swap rather than to the correction
+step.
+
+\subsubsection*{Spatial-block partitioning}
+
+Downstream train/test splits are made by whole spatial cells, not by random
+points. Each city is gridded into $6 \times 6$ cells on latitude/longitude
+quantiles. Whole cells are assigned to the test set until $\approx$ 30\% of
+points are held out, and five partition seeds are used. This keeps a training
+point and a test point from being near-duplicates across the split.
+
+\subsubsection*{Target-city isolation}
+
+For every LOCO result the correction operator never sees the held-out city, and
+the downstream classifier never sees the held-out city's expert labels---its 150
+boundary points are evaluation-only.
+
+\subsubsection*{Controls and uncertainty}
+
+A random-flip variant that changes the same number of labels to a random wrong
+class accompanies every correction result. Binomial proportions use Wilson 95\%
+intervals; the independence statistics (Section~\ref{sec:diagnostic}(e)) use a
+4000-sample point bootstrap and leave-one-city-out ranges.
+
+\subsubsection*{Metrics}
+
+Overall accuracy (OA), Cohen's $\kappa$, and Boundary Error (BE), defined as the
+number of built $\leftrightarrow$ non-built confusions,
+%
+\begin{equation}\label{eq:be}
+\mathrm{BE} = cm[\text{built}, \text{non-built}] + cm[\text{non-built}, \text{built}].
+\end{equation}
+%
+Class codes are 1~$=$~built-up, 2~$=$~non-built, 3~$=$~water.
+
+\subsubsection*{Reproducibility}
+
+All inputs, analysis scripts and frozen result snapshots are listed in the Data
+Availability statement. BAMS point selection is regenerated by
+\texttt{scripts/reproduce\_bams\_selection.py}. The pipeline runs in a fixed
+conda environment with a scikit-learn RandomForest throughout (no GPU or
+neural-network components).

@@ -1,0 +1,14 @@
+{
+  "step": 3,
+  "top_k": 150,
+  "output": "/Users/alex/Projects/gee-project/data2/Wuhan/03_top150/Wuhan_Top150.csv",
+  "margin_range": [
+    0.0,
+    0.08000000000000002
+  ],
+  "class_counts": {
+    "1": 66,
+    "2": 61,
+    "3": 23
+  }
+}

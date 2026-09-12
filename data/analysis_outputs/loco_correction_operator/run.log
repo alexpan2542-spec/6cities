@@ -1,0 +1,311 @@
+[     0s] loading cities ...
+[     0s]   Wuhan     n=15000 n_bams=150 conf={'h': 81, 'm': 65, 'l': 4} wc_vs_human_disagree=0.587
+[     0s]   Hefei     n=15000 n_bams=150 conf={'h': 81, 'm': 64, 'l': 5} wc_vs_human_disagree=0.493
+[     0s]   Nanchang  n=15000 n_bams=150 conf={'m': 108, 'h': 42} wc_vs_human_disagree=0.540
+[     0s]   Nanjing   n=15000 n_bams=150 conf={'m': 60, 'h': 73, 'l': 17} wc_vs_human_disagree=0.680
+[     0s]   Changsha  n=15000 n_bams=150 conf={'l': 41, 'h': 78, 'm': 31} wc_vs_human_disagree=0.493
+[     0s]   Hangzhou  n=15000 n_bams=150 conf={'h': 64, 'm': 66, 'l': 20} wc_vs_human_disagree=0.407
+[     0s] ========================================================================
+[     0s] PHASE 1  corrector transfer (leave-one-city-out)
+[     0s] ========================================================================
+[     1s] [P1|all27] held=Wuhan     WC=0.413 MAJ=0.533 OP=0.713 HYB=0.480 fires= 18 fire_prec=0.778
+[     1s] [P1|all27] held=Hefei     WC=0.507 MAJ=0.627 OP=0.673 HYB=0.573 fires= 28 fire_prec=0.679
+[     1s] [P1|all27] held=Nanchang  WC=0.460 MAJ=0.647 OP=0.727 HYB=0.507 fires= 11 fire_prec=0.818
+[     1s] [P1|all27] held=Nanjing   WC=0.320 MAJ=0.547 OP=0.740 HYB=0.407 fires= 15 fire_prec=0.933
+[     2s] [P1|all27] held=Changsha  WC=0.507 MAJ=0.553 OP=0.747 HYB=0.593 fires= 18 fire_prec=0.833
+[     2s] [P1|all27] held=Hangzhou  WC=0.593 MAJ=0.533 OP=0.753 HYB=0.653 fires= 11 fire_prec=0.909
+[     2s] [P1|transfer15] held=Wuhan     WC=0.413 MAJ=0.533 OP=0.673 HYB=0.493 fires= 18 fire_prec=0.833
+[     2s] [P1|transfer15] held=Hefei     WC=0.507 MAJ=0.627 OP=0.620 HYB=0.607 fires= 25 fire_prec=0.800
+[     2s] [P1|transfer15] held=Nanchang  WC=0.460 MAJ=0.647 OP=0.687 HYB=0.520 fires= 15 fire_prec=0.800
+[     3s] [P1|transfer15] held=Nanjing   WC=0.320 MAJ=0.547 OP=0.720 HYB=0.387 fires= 14 fire_prec=0.857
+[     3s] [P1|transfer15] held=Changsha  WC=0.507 MAJ=0.553 OP=0.707 HYB=0.580 fires= 14 fire_prec=0.857
+[     3s] [P1|transfer15] held=Hangzhou  WC=0.593 MAJ=0.533 OP=0.727 HYB=0.640 fires=  9 fire_prec=0.889
+[     3s] ========================================================================
+[     3s] PHASE 2  downstream (TIGHTENED: tau=0.85, q=0.1)
+[     3s] ========================================================================
+[     4s] [P2|Wuhan    |s0] B0_baseline       n_corr=   0 WC_OA=0.9136 WC_BE=263 Hum_OA=0.4533 Hum_BE= 64
+[     5s] [P2|Wuhan    |s0] B1_local_oracle   n_corr=  15 WC_OA=0.9127 WC_BE=271 Hum_OA=0.4667 Hum_BE= 62
+[     6s] [P2|Wuhan    |s0] B2_loco_gated     n_corr=  19 WC_OA=0.9129 WC_BE=269 Hum_OA=0.4667 Hum_BE= 62
+[     7s] [P2|Wuhan    |s0] B3_loco_ungated   n_corr=  52 WC_OA=0.9118 WC_BE=272 Hum_OA=0.4867 Hum_BE= 61
+[     7s] [P2|Wuhan    |s0] B4_random_flip    n_corr=  19 WC_OA=0.9140 WC_BE=263 Hum_OA=0.4733 Hum_BE= 63
+[     8s] [P2|Wuhan    |s1] B0_baseline       n_corr=   0 WC_OA=0.9229 WC_BE=222 Hum_OA=0.4267 Hum_BE= 69
+[     9s] [P2|Wuhan    |s1] B1_local_oracle   n_corr=  28 WC_OA=0.9223 WC_BE=231 Hum_OA=0.4400 Hum_BE= 67
+[    10s] [P2|Wuhan    |s1] B2_loco_gated     n_corr=  14 WC_OA=0.9238 WC_BE=222 Hum_OA=0.4267 Hum_BE= 68
+[    11s] [P2|Wuhan    |s1] B3_loco_ungated   n_corr=  58 WC_OA=0.9212 WC_BE=233 Hum_OA=0.4600 Hum_BE= 64
+[    12s] [P2|Wuhan    |s1] B4_random_flip    n_corr=  14 WC_OA=0.9225 WC_BE=224 Hum_OA=0.4400 Hum_BE= 67
+[    13s] [P2|Wuhan    |s2] B0_baseline       n_corr=   0 WC_OA=0.9191 WC_BE=267 Hum_OA=0.4267 Hum_BE= 68
+[    14s] [P2|Wuhan    |s2] B1_local_oracle   n_corr=  22 WC_OA=0.9185 WC_BE=274 Hum_OA=0.4800 Hum_BE= 60
+[    14s] [P2|Wuhan    |s2] B2_loco_gated     n_corr=  14 WC_OA=0.9189 WC_BE=271 Hum_OA=0.4533 Hum_BE= 64
+[    15s] [P2|Wuhan    |s2] B3_loco_ungated   n_corr=  46 WC_OA=0.9187 WC_BE=272 Hum_OA=0.4733 Hum_BE= 61
+[    16s] [P2|Wuhan    |s2] B4_random_flip    n_corr=  14 WC_OA=0.9185 WC_BE=268 Hum_OA=0.4333 Hum_BE= 67
+[    17s] [P2|Wuhan    |s3] B0_baseline       n_corr=   0 WC_OA=0.9219 WC_BE=251 Hum_OA=0.4333 Hum_BE= 67
+[    18s] [P2|Wuhan    |s3] B1_local_oracle   n_corr=  27 WC_OA=0.9203 WC_BE=255 Hum_OA=0.4600 Hum_BE= 63
+[    19s] [P2|Wuhan    |s3] B2_loco_gated     n_corr=  16 WC_OA=0.9201 WC_BE=255 Hum_OA=0.4533 Hum_BE= 65
+[    20s] [P2|Wuhan    |s3] B3_loco_ungated   n_corr=  53 WC_OA=0.9190 WC_BE=258 Hum_OA=0.4467 Hum_BE= 65
+[    20s] [P2|Wuhan    |s3] B4_random_flip    n_corr=  16 WC_OA=0.9214 WC_BE=250 Hum_OA=0.4333 Hum_BE= 68
+[    21s] [P2|Wuhan    |s4] B0_baseline       n_corr=   0 WC_OA=0.9145 WC_BE=265 Hum_OA=0.4533 Hum_BE= 65
+[    22s] [P2|Wuhan    |s4] B1_local_oracle   n_corr=  19 WC_OA=0.9154 WC_BE=261 Hum_OA=0.4667 Hum_BE= 63
+[    23s] [P2|Wuhan    |s4] B2_loco_gated     n_corr=  18 WC_OA=0.9162 WC_BE=256 Hum_OA=0.4667 Hum_BE= 63
+[    24s] [P2|Wuhan    |s4] B3_loco_ungated   n_corr=  55 WC_OA=0.9156 WC_BE=262 Hum_OA=0.4867 Hum_BE= 61
+[    25s] [P2|Wuhan    |s4] B4_random_flip    n_corr=  18 WC_OA=0.9160 WC_BE=256 Hum_OA=0.4533 Hum_BE= 66
+[    26s] [P2|Hefei    |s0] B0_baseline       n_corr=   0 WC_OA=0.9312 WC_BE=241 Hum_OA=0.3933 Hum_BE= 81
+[    27s] [P2|Hefei    |s0] B1_local_oracle   n_corr=  13 WC_OA=0.9312 WC_BE=241 Hum_OA=0.4000 Hum_BE= 80
+[    27s] [P2|Hefei    |s0] B2_loco_gated     n_corr=  53 WC_OA=0.9312 WC_BE=243 Hum_OA=0.4267 Hum_BE= 76
+[    28s] [P2|Hefei    |s0] B3_loco_ungated   n_corr= 104 WC_OA=0.9283 WC_BE=255 Hum_OA=0.4533 Hum_BE= 73
+[    29s] [P2|Hefei    |s0] B4_random_flip    n_corr=  53 WC_OA=0.9321 WC_BE=236 Hum_OA=0.4000 Hum_BE= 78
+[    30s] [P2|Hefei    |s1] B0_baseline       n_corr=   0 WC_OA=0.9391 WC_BE=237 Hum_OA=0.4000 Hum_BE= 77
+[    31s] [P2|Hefei    |s1] B1_local_oracle   n_corr=  11 WC_OA=0.9412 WC_BE=227 Hum_OA=0.4133 Hum_BE= 76
+[    31s] [P2|Hefei    |s1] B2_loco_gated     n_corr=  47 WC_OA=0.9385 WC_BE=241 Hum_OA=0.4067 Hum_BE= 76
+[    32s] [P2|Hefei    |s1] B3_loco_ungated   n_corr=  95 WC_OA=0.9378 WC_BE=244 Hum_OA=0.4400 Hum_BE= 73
+[    33s] [P2|Hefei    |s1] B4_random_flip    n_corr=  47 WC_OA=0.9408 WC_BE=232 Hum_OA=0.4133 Hum_BE= 76
+[    34s] [P2|Hefei    |s2] B0_baseline       n_corr=   0 WC_OA=0.9337 WC_BE=263 Hum_OA=0.3733 Hum_BE= 81
+[    35s] [P2|Hefei    |s2] B1_local_oracle   n_corr=   8 WC_OA=0.9350 WC_BE=258 Hum_OA=0.3933 Hum_BE= 78
+[    36s] [P2|Hefei    |s2] B2_loco_gated     n_corr=  42 WC_OA=0.9337 WC_BE=264 Hum_OA=0.4133 Hum_BE= 76
+[    36s] [P2|Hefei    |s2] B3_loco_ungated   n_corr=  94 WC_OA=0.9303 WC_BE=281 Hum_OA=0.4067 Hum_BE= 77
+[    37s] [P2|Hefei    |s2] B4_random_flip    n_corr=  42 WC_OA=0.9339 WC_BE=266 Hum_OA=0.3867 Hum_BE= 79
+[    38s] [P2|Hefei    |s3] B0_baseline       n_corr=   0 WC_OA=0.9326 WC_BE=289 Hum_OA=0.4267 Hum_BE= 74
+[    39s] [P2|Hefei    |s3] B1_local_oracle   n_corr=  10 WC_OA=0.9324 WC_BE=291 Hum_OA=0.4400 Hum_BE= 73
+[    39s] [P2|Hefei    |s3] B2_loco_gated     n_corr=  41 WC_OA=0.9324 WC_BE=289 Hum_OA=0.4533 Hum_BE= 71
+[    40s] [P2|Hefei    |s3] B3_loco_ungated   n_corr=  85 WC_OA=0.9297 WC_BE=303 Hum_OA=0.4467 Hum_BE= 70
+[    41s] [P2|Hefei    |s3] B4_random_flip    n_corr=  41 WC_OA=0.9341 WC_BE=285 Hum_OA=0.4267 Hum_BE= 75
+[    42s] [P2|Hefei    |s4] B0_baseline       n_corr=   0 WC_OA=0.9405 WC_BE=219 Hum_OA=0.4067 Hum_BE= 79
+[    43s] [P2|Hefei    |s4] B1_local_oracle   n_corr=  11 WC_OA=0.9393 WC_BE=224 Hum_OA=0.4267 Hum_BE= 75
+[    44s] [P2|Hefei    |s4] B2_loco_gated     n_corr=  50 WC_OA=0.9369 WC_BE=235 Hum_OA=0.4267 Hum_BE= 75
+[    44s] [P2|Hefei    |s4] B3_loco_ungated   n_corr= 103 WC_OA=0.9371 WC_BE=235 Hum_OA=0.4400 Hum_BE= 72
+[    45s] [P2|Hefei    |s4] B4_random_flip    n_corr=  50 WC_OA=0.9378 WC_BE=232 Hum_OA=0.4133 Hum_BE= 77
+[    46s] [P2|Nanchang |s0] B0_baseline       n_corr=   0 WC_OA=0.9018 WC_BE=204 Hum_OA=0.2933 Hum_BE= 81
+[    47s] [P2|Nanchang |s0] B1_local_oracle   n_corr=  43 WC_OA=0.9044 WC_BE=198 Hum_OA=0.3133 Hum_BE= 77
+[    48s] [P2|Nanchang |s0] B2_loco_gated     n_corr=  22 WC_OA=0.9047 WC_BE=194 Hum_OA=0.3067 Hum_BE= 79
+[    49s] [P2|Nanchang |s0] B3_loco_ungated   n_corr=  45 WC_OA=0.9029 WC_BE=197 Hum_OA=0.2867 Hum_BE= 81
+[    50s] [P2|Nanchang |s0] B4_random_flip    n_corr=  22 WC_OA=0.9029 WC_BE=201 Hum_OA=0.2867 Hum_BE= 83
+[    51s] [P2|Nanchang |s1] B0_baseline       n_corr=   0 WC_OA=0.9009 WC_BE=206 Hum_OA=0.3000 Hum_BE= 80
+[    52s] [P2|Nanchang |s1] B1_local_oracle   n_corr=  41 WC_OA=0.9029 WC_BE=199 Hum_OA=0.3200 Hum_BE= 77
+[    53s] [P2|Nanchang |s1] B2_loco_gated     n_corr=  22 WC_OA=0.9015 WC_BE=203 Hum_OA=0.3133 Hum_BE= 78
+[    54s] [P2|Nanchang |s1] B3_loco_ungated   n_corr=  50 WC_OA=0.9023 WC_BE=198 Hum_OA=0.3133 Hum_BE= 77
+[    55s] [P2|Nanchang |s1] B4_random_flip    n_corr=  22 WC_OA=0.9025 WC_BE=199 Hum_OA=0.3000 Hum_BE= 80
+[    56s] [P2|Nanchang |s2] B0_baseline       n_corr=   0 WC_OA=0.8859 WC_BE=181 Hum_OA=0.2733 Hum_BE= 84
+[    57s] [P2|Nanchang |s2] B1_local_oracle   n_corr=  42 WC_OA=0.8851 WC_BE=183 Hum_OA=0.3267 Hum_BE= 75
+[    58s] [P2|Nanchang |s2] B2_loco_gated     n_corr=  23 WC_OA=0.8845 WC_BE=186 Hum_OA=0.3000 Hum_BE= 80
+[    59s] [P2|Nanchang |s2] B3_loco_ungated   n_corr=  48 WC_OA=0.8838 WC_BE=187 Hum_OA=0.3133 Hum_BE= 77
+[    60s] [P2|Nanchang |s2] B4_random_flip    n_corr=  23 WC_OA=0.8851 WC_BE=183 Hum_OA=0.2667 Hum_BE= 84
+[    61s] [P2|Nanchang |s3] B0_baseline       n_corr=   0 WC_OA=0.9111 WC_BE=210 Hum_OA=0.2800 Hum_BE= 83
+[    62s] [P2|Nanchang |s3] B1_local_oracle   n_corr=  36 WC_OA=0.9113 WC_BE=204 Hum_OA=0.3200 Hum_BE= 77
+[    63s] [P2|Nanchang |s3] B2_loco_gated     n_corr=  20 WC_OA=0.9108 WC_BE=205 Hum_OA=0.3067 Hum_BE= 80
+[    64s] [P2|Nanchang |s3] B3_loco_ungated   n_corr=  38 WC_OA=0.9104 WC_BE=208 Hum_OA=0.3200 Hum_BE= 78
+[    65s] [P2|Nanchang |s3] B4_random_flip    n_corr=  20 WC_OA=0.9106 WC_BE=208 Hum_OA=0.2867 Hum_BE= 82
+[    66s] [P2|Nanchang |s4] B0_baseline       n_corr=   0 WC_OA=0.9183 WC_BE=240 Hum_OA=0.2533 Hum_BE= 87
+[    67s] [P2|Nanchang |s4] B1_local_oracle   n_corr=  39 WC_OA=0.9183 WC_BE=244 Hum_OA=0.3000 Hum_BE= 79
+[    68s] [P2|Nanchang |s4] B2_loco_gated     n_corr=  18 WC_OA=0.9207 WC_BE=235 Hum_OA=0.2733 Hum_BE= 84
+[    69s] [P2|Nanchang |s4] B3_loco_ungated   n_corr=  45 WC_OA=0.9198 WC_BE=237 Hum_OA=0.3000 Hum_BE= 79
+[    70s] [P2|Nanchang |s4] B4_random_flip    n_corr=  18 WC_OA=0.9159 WC_BE=251 Hum_OA=0.2733 Hum_BE= 84
+[    71s] [P2|Nanjing  |s0] B0_baseline       n_corr=   0 WC_OA=0.9099 WC_BE=336 Hum_OA=0.4667 Hum_BE= 65
+[    72s] [P2|Nanjing  |s0] B1_local_oracle   n_corr= 127 WC_OA=0.9022 WC_BE=375 Hum_OA=0.5933 Hum_BE= 47
+[    72s] [P2|Nanjing  |s0] B2_loco_gated     n_corr=   6 WC_OA=0.9095 WC_BE=336 Hum_OA=0.4667 Hum_BE= 66
+[    73s] [P2|Nanjing  |s0] B3_loco_ungated   n_corr=  24 WC_OA=0.9080 WC_BE=344 Hum_OA=0.5200 Hum_BE= 59
+[    74s] [P2|Nanjing  |s0] B4_random_flip    n_corr=   6 WC_OA=0.9087 WC_BE=340 Hum_OA=0.4867 Hum_BE= 63
+[    75s] [P2|Nanjing  |s1] B0_baseline       n_corr=   0 WC_OA=0.9198 WC_BE=311 Hum_OA=0.4667 Hum_BE= 65
+[    76s] [P2|Nanjing  |s1] B1_local_oracle   n_corr= 120 WC_OA=0.9140 WC_BE=340 Hum_OA=0.5800 Hum_BE= 49
+[    77s] [P2|Nanjing  |s1] B2_loco_gated     n_corr=  12 WC_OA=0.9198 WC_BE=312 Hum_OA=0.4800 Hum_BE= 63
+[    78s] [P2|Nanjing  |s1] B3_loco_ungated   n_corr=  28 WC_OA=0.9184 WC_BE=313 Hum_OA=0.4733 Hum_BE= 64
+[    78s] [P2|Nanjing  |s1] B4_random_flip    n_corr=  12 WC_OA=0.9223 WC_BE=301 Hum_OA=0.4733 Hum_BE= 64
+[    80s] [P2|Nanjing  |s2] B0_baseline       n_corr=   0 WC_OA=0.9230 WC_BE=274 Hum_OA=0.4933 Hum_BE= 60
+[    80s] [P2|Nanjing  |s2] B1_local_oracle   n_corr= 126 WC_OA=0.9200 WC_BE=288 Hum_OA=0.6000 Hum_BE= 46
+[    81s] [P2|Nanjing  |s2] B2_loco_gated     n_corr=  10 WC_OA=0.9237 WC_BE=270 Hum_OA=0.4867 Hum_BE= 61
+[    82s] [P2|Nanjing  |s2] B3_loco_ungated   n_corr=  29 WC_OA=0.9247 WC_BE=270 Hum_OA=0.5133 Hum_BE= 59
+[    83s] [P2|Nanjing  |s2] B4_random_flip    n_corr=  10 WC_OA=0.9224 WC_BE=279 Hum_OA=0.5000 Hum_BE= 61
+[    84s] [P2|Nanjing  |s3] B0_baseline       n_corr=   0 WC_OA=0.9107 WC_BE=351 Hum_OA=0.4733 Hum_BE= 63
+[    85s] [P2|Nanjing  |s3] B1_local_oracle   n_corr= 107 WC_OA=0.9072 WC_BE=366 Hum_OA=0.5600 Hum_BE= 50
+[    86s] [P2|Nanjing  |s3] B2_loco_gated     n_corr=   9 WC_OA=0.9109 WC_BE=350 Hum_OA=0.4667 Hum_BE= 64
+[    87s] [P2|Nanjing  |s3] B3_loco_ungated   n_corr=  26 WC_OA=0.9117 WC_BE=348 Hum_OA=0.4933 Hum_BE= 60
+[    87s] [P2|Nanjing  |s3] B4_random_flip    n_corr=   9 WC_OA=0.9099 WC_BE=352 Hum_OA=0.4600 Hum_BE= 65
+[    88s] [P2|Nanjing  |s4] B0_baseline       n_corr=   0 WC_OA=0.9093 WC_BE=337 Hum_OA=0.4800 Hum_BE= 63
+[    89s] [P2|Nanjing  |s4] B1_local_oracle   n_corr= 129 WC_OA=0.9048 WC_BE=364 Hum_OA=0.5667 Hum_BE= 51
+[    90s] [P2|Nanjing  |s4] B2_loco_gated     n_corr=   9 WC_OA=0.9119 WC_BE=330 Hum_OA=0.4667 Hum_BE= 66
+[    91s] [P2|Nanjing  |s4] B3_loco_ungated   n_corr=  25 WC_OA=0.9130 WC_BE=330 Hum_OA=0.5333 Hum_BE= 56
+[    92s] [P2|Nanjing  |s4] B4_random_flip    n_corr=   9 WC_OA=0.9106 WC_BE=334 Hum_OA=0.4733 Hum_BE= 65
+[    93s] [P2|Changsha |s0] B0_baseline       n_corr=   0 WC_OA=0.9333 WC_BE=234 Hum_OA=0.3733 Hum_BE= 72
+[    94s] [P2|Changsha |s0] B1_local_oracle   n_corr=  36 WC_OA=0.9318 WC_BE=238 Hum_OA=0.4000 Hum_BE= 69
+[    95s] [P2|Changsha |s0] B2_loco_gated     n_corr=  39 WC_OA=0.9327 WC_BE=240 Hum_OA=0.3867 Hum_BE= 69
+[    96s] [P2|Changsha |s0] B3_loco_ungated   n_corr=  95 WC_OA=0.9307 WC_BE=248 Hum_OA=0.4533 Hum_BE= 58
+[    97s] [P2|Changsha |s0] B4_random_flip    n_corr=  39 WC_OA=0.9327 WC_BE=237 Hum_OA=0.3667 Hum_BE= 71
+[    98s] [P2|Changsha |s1] B0_baseline       n_corr=   0 WC_OA=0.9422 WC_BE=235 Hum_OA=0.3600 Hum_BE= 71
+[    98s] [P2|Changsha |s1] B1_local_oracle   n_corr=  30 WC_OA=0.9426 WC_BE=231 Hum_OA=0.3733 Hum_BE= 70
+[    99s] [P2|Changsha |s1] B2_loco_gated     n_corr=  31 WC_OA=0.9440 WC_BE=225 Hum_OA=0.3667 Hum_BE= 71
+[   100s] [P2|Changsha |s1] B3_loco_ungated   n_corr=  81 WC_OA=0.9415 WC_BE=238 Hum_OA=0.4333 Hum_BE= 61
+[   101s] [P2|Changsha |s1] B4_random_flip    n_corr=  31 WC_OA=0.9432 WC_BE=232 Hum_OA=0.3600 Hum_BE= 71
+[   102s] [P2|Changsha |s2] B0_baseline       n_corr=   0 WC_OA=0.9335 WC_BE=217 Hum_OA=0.3467 Hum_BE= 69
+[   103s] [P2|Changsha |s2] B1_local_oracle   n_corr=  36 WC_OA=0.9327 WC_BE=218 Hum_OA=0.3800 Hum_BE= 66
+[   103s] [P2|Changsha |s2] B2_loco_gated     n_corr=  39 WC_OA=0.9323 WC_BE=223 Hum_OA=0.3600 Hum_BE= 67
+[   104s] [P2|Changsha |s2] B3_loco_ungated   n_corr=  90 WC_OA=0.9298 WC_BE=235 Hum_OA=0.4733 Hum_BE= 51
+[   105s] [P2|Changsha |s2] B4_random_flip    n_corr=  39 WC_OA=0.9335 WC_BE=217 Hum_OA=0.3533 Hum_BE= 69
+[   106s] [P2|Changsha |s3] B0_baseline       n_corr=   0 WC_OA=0.9356 WC_BE=277 Hum_OA=0.3333 Hum_BE= 77
+[   107s] [P2|Changsha |s3] B1_local_oracle   n_corr=  28 WC_OA=0.9360 WC_BE=277 Hum_OA=0.3800 Hum_BE= 72
+[   108s] [P2|Changsha |s3] B2_loco_gated     n_corr=  33 WC_OA=0.9350 WC_BE=280 Hum_OA=0.3667 Hum_BE= 72
+[   109s] [P2|Changsha |s3] B3_loco_ungated   n_corr=  84 WC_OA=0.9352 WC_BE=278 Hum_OA=0.4400 Hum_BE= 61
+[   109s] [P2|Changsha |s3] B4_random_flip    n_corr=  33 WC_OA=0.9346 WC_BE=281 Hum_OA=0.3467 Hum_BE= 76
+[   110s] [P2|Changsha |s4] B0_baseline       n_corr=   0 WC_OA=0.9384 WC_BE=225 Hum_OA=0.3667 Hum_BE= 71
+[   111s] [P2|Changsha |s4] B1_local_oracle   n_corr=  30 WC_OA=0.9388 WC_BE=222 Hum_OA=0.3733 Hum_BE= 72
+[   112s] [P2|Changsha |s4] B2_loco_gated     n_corr=  34 WC_OA=0.9381 WC_BE=224 Hum_OA=0.3667 Hum_BE= 72
+[   113s] [P2|Changsha |s4] B3_loco_ungated   n_corr=  86 WC_OA=0.9373 WC_BE=228 Hum_OA=0.4400 Hum_BE= 62
+[   114s] [P2|Changsha |s4] B4_random_flip    n_corr=  34 WC_OA=0.9377 WC_BE=229 Hum_OA=0.3533 Hum_BE= 74
+[   115s] [P2|Hangzhou |s0] B0_baseline       n_corr=   0 WC_OA=0.9632 WC_BE=134 Hum_OA=0.2933 Hum_BE= 64
+[   116s] [P2|Hangzhou |s0] B1_local_oracle   n_corr=  92 WC_OA=0.9605 WC_BE=147 Hum_OA=0.3667 Hum_BE= 53
+[   117s] [P2|Hangzhou |s0] B2_loco_gated     n_corr=  13 WC_OA=0.9634 WC_BE=133 Hum_OA=0.3200 Hum_BE= 60
+[   118s] [P2|Hangzhou |s0] B3_loco_ungated   n_corr=  16 WC_OA=0.9632 WC_BE=133 Hum_OA=0.3267 Hum_BE= 59
+[   118s] [P2|Hangzhou |s0] B4_random_flip    n_corr=  13 WC_OA=0.9628 WC_BE=134 Hum_OA=0.2933 Hum_BE= 64
+[   119s] [P2|Hangzhou |s1] B0_baseline       n_corr=   0 WC_OA=0.9536 WC_BE=183 Hum_OA=0.3067 Hum_BE= 64
+[   120s] [P2|Hangzhou |s1] B1_local_oracle   n_corr=  98 WC_OA=0.9517 WC_BE=193 Hum_OA=0.3867 Hum_BE= 54
+[   121s] [P2|Hangzhou |s1] B2_loco_gated     n_corr=  10 WC_OA=0.9547 WC_BE=179 Hum_OA=0.3133 Hum_BE= 63
+[   122s] [P2|Hangzhou |s1] B3_loco_ungated   n_corr=  10 WC_OA=0.9547 WC_BE=179 Hum_OA=0.3133 Hum_BE= 63
+[   122s] [P2|Hangzhou |s1] B4_random_flip    n_corr=  10 WC_OA=0.9534 WC_BE=183 Hum_OA=0.2933 Hum_BE= 66
+[   123s] [P2|Hangzhou |s2] B0_baseline       n_corr=   0 WC_OA=0.9770 WC_BE= 74 Hum_OA=0.3067 Hum_BE= 66
+[   124s] [P2|Hangzhou |s2] B1_local_oracle   n_corr= 103 WC_OA=0.9745 WC_BE= 85 Hum_OA=0.3867 Hum_BE= 54
+[   125s] [P2|Hangzhou |s2] B2_loco_gated     n_corr=  14 WC_OA=0.9762 WC_BE= 77 Hum_OA=0.3333 Hum_BE= 62
+[   126s] [P2|Hangzhou |s2] B3_loco_ungated   n_corr=  20 WC_OA=0.9760 WC_BE= 79 Hum_OA=0.3467 Hum_BE= 60
+[   127s] [P2|Hangzhou |s2] B4_random_flip    n_corr=  14 WC_OA=0.9772 WC_BE= 73 Hum_OA=0.3133 Hum_BE= 67
+[   128s] [P2|Hangzhou |s3] B0_baseline       n_corr=   0 WC_OA=0.9469 WC_BE=156 Hum_OA=0.3000 Hum_BE= 64
+[   129s] [P2|Hangzhou |s3] B1_local_oracle   n_corr= 111 WC_OA=0.9434 WC_BE=173 Hum_OA=0.4000 Hum_BE= 50
+[   130s] [P2|Hangzhou |s3] B2_loco_gated     n_corr=  13 WC_OA=0.9476 WC_BE=153 Hum_OA=0.3133 Hum_BE= 62
+[   130s] [P2|Hangzhou |s3] B3_loco_ungated   n_corr=  16 WC_OA=0.9456 WC_BE=161 Hum_OA=0.3133 Hum_BE= 60
+[   131s] [P2|Hangzhou |s3] B4_random_flip    n_corr=  13 WC_OA=0.9471 WC_BE=154 Hum_OA=0.3000 Hum_BE= 65
+[   132s] [P2|Hangzhou |s4] B0_baseline       n_corr=   0 WC_OA=0.9727 WC_BE= 94 Hum_OA=0.2800 Hum_BE= 66
+[   133s] [P2|Hangzhou |s4] B1_local_oracle   n_corr= 104 WC_OA=0.9701 WC_BE=109 Hum_OA=0.3533 Hum_BE= 55
+[   134s] [P2|Hangzhou |s4] B2_loco_gated     n_corr=  13 WC_OA=0.9721 WC_BE= 98 Hum_OA=0.2933 Hum_BE= 63
+[   135s] [P2|Hangzhou |s4] B3_loco_ungated   n_corr=  19 WC_OA=0.9720 WC_BE= 99 Hum_OA=0.3067 Hum_BE= 62
+[   136s] [P2|Hangzhou |s4] B4_random_flip    n_corr=  13 WC_OA=0.9716 WC_BE= 97 Hum_OA=0.2800 Hum_BE= 67
+[   136s] ========================================================================
+[   136s] PHASE 2b  gate sensitivity sweep
+[   136s] ========================================================================
+[   193s]   Wuhan swept
+[   245s]   Hefei swept
+[   307s]   Nanchang swept
+[   364s]   Nanjing swept
+[   420s]   Changsha swept
+[   476s]   Hangzhou swept
+[   476s] ========================================================================
+[   476s] PHASE 3  multi-reference referee (DW + ESRI, 6 cities)
+[   476s] ========================================================================
+[   477s] [P3|Wuhan    ] LOCO changed 18/150  OA_vs_Human 0.413->0.480  tri-consensus n=70
+[   477s] [P3|Hefei    ] LOCO changed 28/150  OA_vs_Human 0.507->0.573  tri-consensus n=49
+[   478s] [P3|Nanchang ] LOCO changed 11/150  OA_vs_Human 0.460->0.507  tri-consensus n=44
+[   478s] [P3|Nanjing  ] LOCO changed 15/150  OA_vs_Human 0.320->0.407  tri-consensus n=60
+[   478s] [P3|Changsha ] LOCO changed 18/150  OA_vs_Human 0.507->0.593  tri-consensus n=50
+[   479s] [P3|Hangzhou ] LOCO changed 11/150  OA_vs_Human 0.593->0.653  tri-consensus n=69
+[   479s] 
+PHASE 1
+feature_set held_out  n_test  wc_vs_human_acc  majority_baseline_acc  majority_baseline_class  operator_acc  hybrid_acc  operator_acc_boundary  n_operator_fires  fire_precision_vs_human
+      all27    Wuhan     150         0.413333               0.533333                        1      0.713333    0.480000               0.741935                18                 0.777778
+      all27    Hefei     150         0.506667               0.626667                        1      0.673333    0.573333               0.681481                28                 0.678571
+      all27 Nanchang     150         0.460000               0.646667                        1      0.726667    0.506667               0.809091                11                 0.818182
+      all27  Nanjing     150         0.320000               0.546667                        1      0.740000    0.406667               0.775000                15                 0.933333
+      all27 Changsha     150         0.506667               0.553333                        1      0.746667    0.593333               0.785047                18                 0.833333
+      all27 Hangzhou     150         0.593333               0.533333                        1      0.753333    0.653333               0.770115                11                 0.909091
+ transfer15    Wuhan     150         0.413333               0.533333                        1      0.673333    0.493333               0.701613                18                 0.833333
+ transfer15    Hefei     150         0.506667               0.626667                        1      0.620000    0.606667               0.629630                25                 0.800000
+ transfer15 Nanchang     150         0.460000               0.646667                        1      0.686667    0.520000               0.745455                15                 0.800000
+ transfer15  Nanjing     150         0.320000               0.546667                        1      0.720000    0.386667               0.775000                14                 0.857143
+ transfer15 Changsha     150         0.506667               0.553333                        1      0.706667    0.580000               0.766355                14                 0.857143
+ transfer15 Hangzhou     150         0.593333               0.533333                        1      0.726667    0.640000               0.770115                 9                 0.888889
+[   479s] 
+PHASE 2 by city
+held_out          method    WC_OA  WC_BE  Human_OA  Human_BE  n_corrected
+Changsha     B0_baseline 0.936576  237.6  0.356000      72.0          0.0
+Changsha B1_local_oracle 0.936360  237.2  0.381333      69.8         32.0
+Changsha   B2_loco_gated 0.936424  238.4  0.369333      70.2         35.2
+Changsha B3_loco_ungated 0.934884  245.4  0.448000      58.6         87.2
+Changsha  B4_random_flip 0.936323  239.2  0.356000      72.2         35.2
+Hangzhou     B0_baseline 0.962691  128.2  0.297333      64.8          0.0
+Hangzhou B1_local_oracle 0.960009  141.4  0.378667      53.2        101.6
+Hangzhou   B2_loco_gated 0.962810  128.0  0.314667      62.0         12.6
+Hangzhou B3_loco_ungated 0.962294  130.2  0.321333      60.8         16.2
+Hangzhou  B4_random_flip 0.962436  128.2  0.296000      65.8         12.6
+   Hefei     B0_baseline 0.935402  249.8  0.400000      78.4          0.0
+   Hefei B1_local_oracle 0.935834  248.2  0.414667      76.4         10.6
+   Hefei   B2_loco_gated 0.934522  254.4  0.425333      74.8         46.6
+   Hefei B3_loco_ungated 0.932664  263.6  0.437333      73.0         96.2
+   Hefei  B4_random_flip 0.935721  250.2  0.408000      77.0         46.6
+Nanchang     B0_baseline 0.903606  208.2  0.280000      83.0          0.0
+Nanchang B1_local_oracle 0.904411  205.6  0.316000      77.0         40.2
+Nanchang   B2_loco_gated 0.904449  204.6  0.300000      80.2         21.0
+Nanchang B3_loco_ungated 0.903864  205.4  0.306667      78.4         45.2
+Nanchang  B4_random_flip 0.903404  208.4  0.282667      82.6         21.0
+ Nanjing     B0_baseline 0.914551  321.8  0.476000      63.2          0.0
+ Nanjing B1_local_oracle 0.909646  346.6  0.580000      48.6        121.8
+ Nanjing   B2_loco_gated 0.915147  319.6  0.473333      64.0          9.2
+ Nanjing B3_loco_ungated 0.915157  321.0  0.506667      59.6         26.4
+ Nanjing  B4_random_flip 0.914776  321.2  0.478667      63.6          9.2
+   Wuhan     B0_baseline 0.918407  253.6  0.438667      66.6          0.0
+   Wuhan B1_local_oracle 0.917838  258.4  0.462667      63.0         22.2
+   Wuhan   B2_loco_gated 0.918394  254.6  0.453333      64.4         16.2
+   Wuhan B3_loco_ungated 0.917271  259.4  0.470667      62.4         52.8
+   Wuhan  B4_random_flip 0.918495  252.2  0.446667      66.2         16.2
+[   479s] 
+PHASE 2 overall
+                 WC_OA_mean  WC_OA_std  WC_BE_mean  Human_OA_mean  Human_OA_std  Human_BE_mean  n_corrected_mean
+method                                                                                                          
+B0_baseline        0.928539   0.020827  233.200000       0.374667      0.073602      71.333333          0.000000
+B1_local_oracle    0.927350   0.020715  239.566667       0.422222      0.085686      64.666667         54.733333
+B2_loco_gated      0.928624   0.020598  233.266667       0.389333      0.068718      69.266667         23.466667
+B3_loco_ungated    0.927689   0.020554  237.500000       0.415111      0.077784      65.466667         54.000000
+B4_random_flip     0.928526   0.020716  233.233333       0.378000      0.075367      71.233333         23.466667
+[   479s] 
+PHASE 2b sweep
+ tau    q  n_corrected  Human_OA  Human_BE    WC_OA
+0.70 0.05    88.933333  0.404444 67.166667 0.926788
+0.70 0.10   186.233333  0.454222 59.933333 0.923273
+0.70 0.20   344.700000  0.515556 51.100000 0.913180
+0.80 0.05    27.933333  0.384667 69.900000 0.928205
+0.80 0.10    60.233333  0.408444 66.566667 0.927555
+0.80 0.20   112.100000  0.448889 60.800000 0.924743
+0.85 0.05     9.400000  0.379111 70.633333 0.928606
+0.85 0.10    23.466667  0.389333 69.266667 0.928624
+0.85 0.20    41.366667  0.404667 67.066667 0.928324
+0.90 0.05     1.233333  0.374667 71.300000 0.928662
+0.90 0.10     4.600000  0.379333 70.800000 0.928796
+0.90 0.20     8.133333  0.381556 70.333333 0.928787
+[   479s] 
+PHASE 3 reference divergence
+    city   n  WC=Human  DW=Human  ESRI=Human  DW=ESRI  tri_consensus_frac  WC=tri_consensus
+   Wuhan 150  0.413333  0.506667    0.500000 0.906667            0.466667          0.414286
+   Hefei 150  0.506667  0.393333    0.406667 0.833333            0.326667          0.530612
+Nanchang 150  0.460000  0.386667    0.360000 0.813333            0.293333          0.386364
+ Nanjing 150  0.320000  0.426667    0.433333 0.926667            0.400000          0.266667
+Changsha 150  0.506667  0.433333    0.353333 0.866667            0.333333          0.540000
+Hangzhou 150  0.593333  0.526667    0.480000 0.900000            0.460000          0.739130
+[   479s] 
+PHASE 3 referee eval (by city)
+    city                method  n_changed  OA_vs_Human  BE_vs_Human  OA_vs_tri_consensus  n_tri_consensus  changed_toward_Human_frac  changed_toward_DWESRI_frac
+   Wuhan                WC_raw          0     0.413333           75             0.414286               70                        NaN                         NaN
+   Wuhan        LOCO_corrected         18     0.480000           65             0.428571               70                   0.777778                    0.235294
+   Wuhan local_oracle(ceiling)         61     0.820000           15             0.800000               70                   1.000000                    0.482143
+   Wuhan           random_flip         18     0.413333           67             0.414286               70                   0.222222                    0.187500
+   Hefei                WC_raw          0     0.506667           66             0.530612               49                        NaN                         NaN
+   Hefei        LOCO_corrected         28     0.573333           57             0.530612               49                   0.678571                    0.291667
+   Hefei local_oracle(ceiling)         43     0.793333           26             0.734694               49                   1.000000                    0.263158
+   Hefei           random_flip         28     0.426667           63             0.448980               49                   0.142857                    0.190476
+Nanchang                WC_raw          0     0.460000           50             0.386364               44                        NaN                         NaN
+Nanchang        LOCO_corrected         11     0.506667           43             0.409091               44                   0.818182                    0.222222
+Nanchang local_oracle(ceiling)         51     0.800000           11             0.750000               44                   1.000000                    0.372093
+Nanchang           random_flip         11     0.480000           47             0.409091               44                   0.545455                    0.222222
+ Nanjing                WC_raw          0     0.320000           77             0.266667               60                        NaN                         NaN
+ Nanjing        LOCO_corrected         15     0.406667           64             0.350000               60                   0.933333                    0.400000
+ Nanjing local_oracle(ceiling)         61     0.726667           22             0.683333               60                   1.000000                    0.416667
+ Nanjing           random_flip         15     0.320000           68             0.283333               60                   0.400000                    0.230769
+Changsha                WC_raw          0     0.506667           45             0.540000               50                        NaN                         NaN
+Changsha        LOCO_corrected         18     0.593333           34             0.560000               50                   0.833333                    0.176471
+Changsha local_oracle(ceiling)         47     0.820000           12             0.780000               50                   1.000000                    0.300000
+Changsha           random_flip         18     0.533333           35             0.580000               50                   0.500000                    0.176471
+Hangzhou                WC_raw          0     0.593333           36             0.739130               69                        NaN                         NaN
+Hangzhou        LOCO_corrected         11     0.653333           29             0.797101               69                   0.909091                    0.500000
+Hangzhou local_oracle(ceiling)         43     0.880000            7             0.927536               69                   1.000000                    0.351351
+Hangzhou           random_flip         11     0.560000           35             0.710145               69                   0.181818                    0.222222
+[   479s] 
+PHASE 3 referee summary
+                       OA_vs_Human  BE_vs_Human  OA_vs_tri_consensus  changed_toward_Human_frac  changed_toward_DWESRI_frac  n_changed
+method                                                                                                                                
+WC_raw                    0.466667    58.166667             0.479510                        NaN                         NaN   0.000000
+LOCO_corrected            0.535556    48.666667             0.512563                   0.825048                    0.304276  16.833333
+local_oracle(ceiling)     0.806667    15.500000             0.779261                   1.000000                    0.364235  51.000000
+random_flip               0.455556    52.500000             0.474306                   0.332059                    0.204943  16.833333
+[   479s] 
+done in 479s -> /Users/alex/Projects/gee-project/data2/analysis_outputs/loco_correction_operator

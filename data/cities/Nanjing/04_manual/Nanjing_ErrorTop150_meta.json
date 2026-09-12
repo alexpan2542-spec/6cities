@@ -1,0 +1,20 @@
+{
+  "n": 150,
+  "method": "RF OOB errors on train split; exclude BAMS150\u222aRound2",
+  "rf_oob_score": 0.912952380952381,
+  "n_oob_errors_train": 915,
+  "n_pool_after_exclude": 809,
+  "error_type_counts": {
+    "C2_to_C1": 70,
+    "C2_to_C3": 45,
+    "C1_to_C2": 35
+  },
+  "overlap_bams": 0,
+  "overlap_r2": 0,
+  "overlap_test_split": 0,
+  "quotas": {
+    "C2_to_C1": 55,
+    "C2_to_C3": 45,
+    "C1_to_C2": 35
+  }
+}

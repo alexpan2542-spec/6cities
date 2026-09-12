@@ -1,0 +1,21 @@
+{
+  "city": "Nanjing",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "epochs": 80,
+  "out_dir": "/Users/alex/Projects/gee-project/data2/nanjing_rootcause_v2/phase_d",
+  "k_list": [
+    5,
+    10,
+    20,
+    30
+  ],
+  "n_high": 73,
+  "n_human_disagree_wc": 45,
+  "disagree_rate": 0.6164383561643836
+}

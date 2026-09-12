@@ -1,0 +1,25 @@
+==================================================
+CITY: Nanjing
+==================================================
+
+Labels Changed: 36
+
+Original + Pixel OA:
+0.889778
+
+Margin Corrected + Pixel OA:
+0.888889
+
+Pixel Improvement:
+-0.000889
+
+Original + 3x3 OA:
+0.900444
+
+Margin Corrected + 3x3 OA:
+0.917111
+
+3x3 Improvement:
++0.016667
+
+==================================================

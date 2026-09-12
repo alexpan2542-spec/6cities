@@ -1,0 +1,69 @@
+==================================================
+CITY: Nanjing
+==================================================
+
+MARGIN150
+
+Correct: 114
+Wrong: 36
+Accuracy: 0.760000
+ErrorRate: 0.240000
+
+LabelsChanged: 36
+
+Original + Pixel OA
+0.891111
+
+Margin Corrected + Pixel OA
+0.888889
+
+Pixel Gain
+-0.002222
+
+Original + 3x3 OA
+0.903111
+
+Margin Corrected + 3x3 OA
+0.918000
+
+3x3 Gain
++0.014889
+
+--------------------------------------------------
+
+BAMS150
+
+Correct: 81
+Wrong: 69
+Accuracy: 0.540000
+ErrorRate: 0.460000
+
+LabelsChanged: 69
+
+Original + Pixel OA
+0.891111
+
+BAMS Corrected + Pixel OA
+0.891111
+
+Pixel Gain
++0.000000
+
+Original + 3x3 OA
+0.903111
+
+BAMS Corrected + 3x3 OA
+0.910000
+
+3x3 Gain
++0.006889
+
+--------------------------------------------------
+
+Best Pixel Model
+Original (0.891111)
+
+Best 3x3 Model
+Margin (0.918000)
+
+==================================================

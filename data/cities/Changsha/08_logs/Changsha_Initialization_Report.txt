@@ -1,0 +1,8 @@
+Changsha initialization
+=======================
+- original rows: 15000
+- original columns: ['Original_ID', 'system:index', 'B11', 'B12', 'B2', 'B3', 'B4', 'B8', 'Class', 'MNDWI', 'NDBI', 'NDVI', 'lat', 'lon', '.geo']
+- Original_ID unique: True
+- Original_ID range: 0 to 14999
+- saved: data2/Changsha/01_original/Changsha_WC_Samples_15000.csv
+- 3x3 file missing

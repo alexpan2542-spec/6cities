@@ -1,0 +1,7 @@
+condition,n,P(expert agrees),lift_vs_prior
+(baseline) P(expert == DW),900,0.446,
+(baseline) P(expert == ESRI),900,0.422,
+(baseline) P(expert == WC),900,0.467,
+DW == ESRI  -> P(expert == that label),787,"0.435 [0.40,0.47]",+0.181  (prior 0.25)
+DW == ESRI == WC -> P(expert == that label),391,"0.425 [0.38,0.47]",+0.167  (prior 0.26)
+WC == DW  -> P(expert == that label),436,"0.450 [0.40,0.50]",+0.177  (prior 0.27)

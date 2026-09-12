@@ -1,0 +1,17 @@
+City,CheckID,Annotator,Ref_Class,My_Class,Ref_Scene,My_Scene
+Changsha,CH20,A,3,2.0,水体,水体边缘
+Changsha,CH12,A,1,2.0,路面,路面
+Changsha,CH20,B,3,2.0,水体,水体边缘
+Changsha,CH04,B,2,,veg,
+Changsha,CH20,C,3,2.0,水体,水体边缘
+Hangzhou,HA13,B,3,2.0,水体边缘, water edge
+Hangzhou,HA18,B,3,,水体,
+Hangzhou,HA04,B,1,,小区,
+Hangzhou,HA09,C,3,2.0,水体,veg
+Hefei,HE14,B,2,3.0,水体边缘,water edge
+Hefei,HE03,B,1,2.0,小区,veg
+Nanchang,NA08,A,3,2.0,we,water edge
+Nanchang,NA13,C,3,2.0,we,water edge
+Nanjing,NA11,B,3,2.0,水体和 城市路面边缘,water edge
+Nanjing,NA12,C,2,3.0,水体边缘,water
+Nanjing,NA07,C,1,,白色屋顶,

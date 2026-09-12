@@ -1,0 +1,32 @@
+Hefei Preparation Report
+========================
+
+Files Generated
+- data2/Hefei/02_margin/Hefei_MarginScores.csv
+- data2/Hefei/03_top150/Hefei_Top150.csv
+- data2/Hefei/04_manual/Hefei_Top150_Manual.csv
+- data2/Hefei/03_top150/Hefei_BAMS150.csv
+- data2/Hefei/04_manual/Hefei_BAMS150_Manual.csv
+
+Counts
+- Rows in MarginScores: 15000
+- Rows in Top150: 150
+- Rows in BAMS150: 150
+
+Overlap
+- Overlap count between Hefei_Top150 and Hefei_BAMS150: 24
+- Overlap Original_ID sample (first 20): [1341, 4380, 5062, 5220, 5623, 6428, 6469, 6556, 6943, 7059, 7218, 7227, 7413, 7643, 7725, 8584, 8602, 8713, 9013, 9197]
+
+Summary Metrics
+- Margin150 margin mean: 0.279200
+- BAMS150 margin mean: 0.446867
+- Margin150 count: 150
+- BAMS150 count: 150
+
+Verification
+- Original rows: 15000
+- Original has Original_ID: True
+- 3x3 rows: 15000
+- 3x3 unique Original_ID: 15000
+- Merge rows: 15000
+- Merge unique Original_ID: 15000

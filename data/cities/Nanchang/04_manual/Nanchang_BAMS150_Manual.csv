@@ -1,0 +1,151 @@
+PointID,Original_ID,Human_Class,Scene,Confidence,Notes
+1,5321,1,be,h,WC_Class=2
+2,7389,1,be,h,WC_Class=2
+3,3495,1,be,m,WC_Class=1
+4,7813,1,be,h,WC_Class=2
+5,8776,2,fe,m,WC_Class=2
+6,8547,1,be,h,WC_Class=2
+7,3625,2,ct,h,WC_Class=1
+8,9818,2,we,m,WC_Class=2
+9,8320,3,sb,m,WC_Class=2
+10,6723,1,sb,h,WC_Class=2
+11,14189,3,we,m,WC_Class=3
+12,6414,2,re,m,WC_Class=2
+13,7466,3,we,m,WC_Class=2
+14,6441,2,re,m,WC_Class=2
+15,2535,2,we,h,WC_Class=1
+16,5164,2,bl,m,WC_Class=2
+17,12250,2,bl,m,WC_Class=3
+18,7016,1,be,h,WC_Class=2
+19,5178,1,be,h,WC_Class=2
+20,9197,2,fe,m,WC_Class=2
+21,7434,2,re,m,WC_Class=2
+22,10643,2,re,m,WC_Class=3
+23,9094,2,cs,m,WC_Class=2
+24,9375,1,re,h,WC_Class=2
+25,951,2,rs,h,WC_Class=1
+26,13675,3,we,m,WC_Class=3
+27,9005,2,bl,m,WC_Class=2
+28,8912,3,we,m,WC_Class=2
+29,8289,2,bl,m,WC_Class=2
+30,12604,2,bl,m,WC_Class=3
+31,7058,2,re,m,WC_Class=2
+32,8472,2,sb,m,WC_Class=2
+33,8252,1,be,h,WC_Class=2
+34,5201,2,bl,m,WC_Class=2
+35,7099,1,sb,h,WC_Class=2
+36,1412,2,sb,h,WC_Class=1
+37,5629,2,mx,m,WC_Class=2
+38,3382,2,ub,h,WC_Class=1
+39,9377,2,re,m,WC_Class=2
+40,9968,2,re,m,WC_Class=2
+41,4916,2,re,h,WC_Class=1
+42,8938,1,be,h,WC_Class=2
+43,11865,3,we,m,WC_Class=3
+44,8043,2,sb,m,WC_Class=2
+45,12460,3,we,m,WC_Class=3
+46,5664,2,bl,m,WC_Class=2
+47,5472,2,bl,m,WC_Class=2
+48,14541,2,bl,m,WC_Class=3
+49,7124,3,we,m,WC_Class=2
+50,9217,2,bl,m,WC_Class=2
+51,9726,2,we,m,WC_Class=2
+52,6224,1,sb,h,WC_Class=2
+53,11133,3,tw,m,WC_Class=3
+54,5432,1,sb,h,WC_Class=2
+55,5166,1,urban road,h,WC_Class=2
+56,7669,3,we,m,WC_Class=2
+57,3030,2,ub,h,WC_Class=1
+58,7320,1,be,h,WC_Class=2
+59,4860,2,re,h,WC_Class=1
+60,14984,2,bl,m,WC_Class=3
+61,2724,1,be,m,WC_Class=1
+62,5742,3,we,m,WC_Class=2
+63,5952,3,we,m,WC_Class=2
+64,6580,2,cs,m,WC_Class=2
+65,8737,2,rs,m,WC_Class=2
+66,10881,2,bl,m,WC_Class=3
+67,14832,2,bl,m,WC_Class=3
+68,5702,2,re,m,WC_Class=2
+69,2428,2,ub,h,WC_Class=1
+70,4239,2,re,h,WC_Class=1
+71,8007,2,ub,m,WC_Class=2
+72,6055,3,we,m,WC_Class=2
+73,4184,2,fe,h,WC_Class=1
+74,4643,2,ub,h,WC_Class=1
+75,8454,2,we,m,WC_Class=2
+76,8178,1,sb,h,WC_Class=2
+77,8761,2,mx,m,WC_Class=2
+78,120,1,be,m,WC_Class=1
+79,14343,2,we,m,WC_Class=3
+80,6775,1,be,h,WC_Class=2
+81,2960,2,re,h,WC_Class=1
+82,3557,1,bs,m,WC_Class=1
+83,4648,2,re,h,WC_Class=1
+84,4813,3,we,m,WC_Class=1
+85,104,1,be,m,WC_Class=1
+86,14903,2,we,m,WC_Class=3
+87,1919,2,fe,h,WC_Class=1
+88,9525,2,bl,m,WC_Class=2
+89,5458,2,we,m,WC_Class=2
+90,7250,3,we,m,WC_Class=2
+91,14053,2,bl,m,WC_Class=3
+92,2738,2,ub,h,WC_Class=1
+93,6186,2,re,m,WC_Class=2
+94,9834,2,rs,m,WC_Class=2
+95,2686,3,we,m,WC_Class=1
+96,393,2,fe,h,WC_Class=1
+97,4343,2,水体边缘,m,"WC_Class=1; corrected 2026-09-06 after interannotator recheck (A/B/C unanimous non-built/water-edge), was Human_Class=1 Scene=be"
+98,8426,1,be,h,WC_Class=2
+99,6303,2,we,m,WC_Class=2
+100,14010,3,wr,m,"WC_Class=3; scene added 2026-09-08 from imagery (was blank-scene WC placeholder)"
+101,4930,2,mx,h,WC_Class=1
+102,4402,2,fe,h,WC_Class=1
+103,5716,2,re,m,WC_Class=2
+104,8498,2,rs,m,WC_Class=2
+105,10686,2,bl,m,WC_Class=3
+106,4508,2,veg,m,"WC_Class=1; re-annotated 2026-09-08 from imagery (was blank-scene WC placeholder, Human_Class=1)"
+107,6333,2,bl,m,"WC_Class=2; scene added 2026-09-08 from imagery (was blank-scene WC placeholder)"
+108,7170,2,veg,m,"WC_Class=2; scene added 2026-09-08 from imagery (was blank-scene WC placeholder)"
+109,10890,3,wr,m,"WC_Class=3; scene added 2026-09-08 from imagery (was blank-scene WC placeholder)"
+110,10319,2,we,m,"WC_Class=3; re-annotated 2026-09-08 from imagery (was blank-scene WC placeholder, Human_Class=3)"
+111,6513,1,be,h,WC_Class=2
+112,6363,2,fe,m,WC_Class=2
+113,2863,2,ub,h,WC_Class=1
+114,9247,2,sb,m,WC_Class=2
+115,6461,1,urban road,h,WC_Class=2
+116,6847,3,wr,m,"WC_Class=2; re-annotated 2026-09-08 from imagery (was blank-scene WC placeholder, Human_Class=2)"
+117,6178,2,pf,m,"WC_Class=2; scene added 2026-09-08 from imagery (was blank-scene WC placeholder)"
+118,6430,1,be,m,"WC_Class=2; re-annotated 2026-09-08 from imagery (was blank-scene WC placeholder, Human_Class=2)"
+119,4063,2,veg,m,"WC_Class=1; re-annotated 2026-09-08 from imagery (was blank-scene WC placeholder, Human_Class=1)"
+120,1708,1,be,m,"WC_Class=1; scene added 2026-09-08 from imagery (was blank-scene WC placeholder; 2 of 3 passes built/be)"
+121,601,2,rs,h,WC_Class=1
+122,12774,2,bl,m,WC_Class=3
+123,8330,2,ub,m,WC_Class=2
+124,8899,3,we,m,WC_Class=2
+125,7084,2,re,m,WC_Class=2
+126,10584,3,tw,m,"WC_Class=3; scene added 2026-09-08 from imagery (was blank-scene WC placeholder)"
+127,2157,2,veg,m,"WC_Class=1; re-annotated 2026-09-08 from imagery (was blank-scene WC placeholder, Human_Class=1)"
+128,13035,3,we,m,"WC_Class=3; scene added 2026-09-08 from imagery (was blank-scene WC placeholder)"
+129,6127,2,veg,m,"WC_Class=2; scene added 2026-09-08 from imagery (was blank-scene WC placeholder)"
+130,1041,2,veg,m,"WC_Class=1; re-annotated 2026-09-08 from imagery (was blank-scene WC placeholder, Human_Class=1)"
+131,8745,2,mx,m,WC_Class=2
+132,6398,2,mx,m,WC_Class=2
+133,9159,2,ub,m,WC_Class=2
+134,4546,2,bl,h,WC_Class=1
+135,9462,2,rs,m,WC_Class=2
+136,14949,2,we,m,"WC_Class=3; re-annotated 2026-09-08 from imagery (was blank-scene WC placeholder, Human_Class=3)"
+137,3553,2,veg,m,"WC_Class=1; re-annotated 2026-09-08 from imagery (was blank-scene WC placeholder, Human_Class=1)"
+138,8184,1,be,m,"WC_Class=2; re-annotated 2026-09-08 from imagery (was blank-scene WC placeholder, Human_Class=2; large-building interior)"
+139,7364,2,rs,m,"WC_Class=2; scene added 2026-09-08 from imagery (was blank-scene WC placeholder)"
+140,9545,2,veg,m,"WC_Class=2; scene added 2026-09-08 from imagery (was blank-scene WC placeholder)"
+141,7616,2,we,m,WC_Class=2
+142,14104,2,re,m,WC_Class=3
+143,5322,2,ub,m,WC_Class=2
+144,3185,1,bl,m,WC_Class=1
+145,7418,2,bl,m,WC_Class=2
+146,7599,2,veg,m,"WC_Class=2; scene added 2026-09-08 from imagery (was blank-scene WC placeholder)"
+147,8946,2,bl,m,"WC_Class=2; scene added 2026-09-08 from imagery (was blank-scene WC placeholder)"
+148,5656,3,wr,m,"WC_Class=2; re-annotated 2026-09-08 from imagery (was blank-scene WC placeholder, Human_Class=2)"
+149,13160,2,we,m,"WC_Class=3; re-annotated 2026-09-08 from imagery (was blank-scene WC placeholder, Human_Class=3)"
+150,7619,3,wr,m,"WC_Class=2; re-annotated 2026-09-08 from imagery (was blank-scene WC placeholder, Human_Class=2)"

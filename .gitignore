@@ -1,0 +1,6 @@
+.python_pkgs/
+.cache/
+.mplconfig/
+__pycache__/
+*.pyc
+.DS_Store

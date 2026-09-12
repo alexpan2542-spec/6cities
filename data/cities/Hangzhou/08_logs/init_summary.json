@@ -1,0 +1,19 @@
+{
+  "city": "Hangzhou",
+  "aoi": "FAO/GAUL/2015/level2 Hangzhou, Zhejiang Sheng",
+  "area_km2": 16669.55292953629,
+  "year": 2021,
+  "n_samples": 15000,
+  "class_counts": {
+    "1": 5000,
+    "2": 5000,
+    "3": 5000
+  },
+  "rf_n_estimators": 300,
+  "bams_formula": "0.7*norm(1-margin)+0.3*norm(B2+B3+B4+B8 stdDev)",
+  "manual": "/Users/alex/Projects/gee-project/data2/Hangzhou/04_manual/Hangzhou_BAMS150_Manual.csv",
+  "bams": "/Users/alex/Projects/gee-project/data2/Hangzhou/03_top150/Hangzhou_BAMS150.csv",
+  "assets": {
+    "pts": "projects/healthy-area-463312-i4/assets/Hangzhou_class_pts_15k"
+  }
+}

@@ -1,0 +1,644 @@
+%% =====================================================================
+%%  Section 4 — Results  (figures embedded)
+%%  Drop-in fragment for the official MDPI *Remote Sensing* template
+%%  (\documentclass[remotesensing,article,submit,moreauthors]{Definitions/mdpi})
+%%
+%%  Transcribed from docs/manuscript.md Section 4 (2026-09-09 draft).
+%%  Two editorial choices for consistency with the Section 3 fragment
+%%  (docs/manuscript_sec3.tex):
+%%    - product name written "Esri" throughout (draft alternates "ESRI");
+%%    - "expert" used in running text, "H" kept only inside table headers
+%%      where column width forces the abbreviation (defined in each caption).
+%%
+%%  2026-09-10 -- ALL NUMBERS REFRESHED for the Hangzhou two-stage
+%%  standardisation (see manuscript_sec3.tex header and
+%%  data2/analysis_outputs/hangzhou_standardise/RESULTS_before_after.md).
+%%  Only Hangzhou's 150 points changed; the other five cities are identical.
+%%  Qualitative changes: (1) the WorldCover-pair error coupling is now
+%%  weakly positive (Yule's Q ~ 0.08 / 0.14) rather than ~0, still an order
+%%  of magnitude below DW/Esri's 0.97 -- the "Q ~ 0 for WC pairs" wording is
+%%  replaced by "Q <= 0.14 vs 0.97" throughout S2b / S3 / the summary;
+%%  (2) LOCO (supporting) got more conservative -- far fewer downstream
+%%  firings, same "within between-seed noise" conclusion.
+%%  Sources: docs/results_snapshot/{diagnostic_analysis,independence_diagnostic,
+%%  loco_correction_operator}/ (refreshed 2026-09-10).
+%%
+%%  Citation keys used below (define in \begin{thebibliography} or refs.bib):
+%%    yuan2026   (Yuan, S.; Liu, X.; Li, Y.; Hu, Y.; Huang, C. 2026,
+%%               "Systematic underestimation of urban green space by global
+%%               land cover products", Urban Forestry & Urban Greening,
+%%               DOI 10.1016/j.ufug.2026.129299)
+%%  Keys introduced in Section 3 and only cross-referenced here (NOT re-cited):
+%%    zanaga2022 brown2022 karra2021 wilson1927 yule1900 landis1977
+%%
+%%  Cross-reference labels this fragment DEFINES:
+%%    sec:results
+%%    sec:results-agreement sec:results-confidence sec:results-errordir
+%%    sec:results-scene sec:results-independence sec:results-loco
+%%    sec:results-maps
+%%    tab:T1 tab:T2 tab:T3 tab:T4 tab:T5 tab:S2 tab:phase3 tab:maps
+%%    fig:fourway fig:confidence fig:errordir fig:scene fig:independence
+%%    fig:map_nanjing fig:map_changsha
+%%  Labels it EXPECTS elsewhere in the manuscript:
+%%    sec:methods sec:sampling sec:diagnostic sec:loco sec:eval
+%%    eq:netbuilt eq:condindep eq:be
+%%    tab:legend_map tab:S1 tab:S3 tab:S4
+%%    fig:map_s1 fig:map_s2 fig:map_s3 fig:map_s4   (Supplementary maps S1--S4)
+%%    app:recheck
+%%    sec:disc-arbitrate sec:disc-mechanism sec:disc-edge sec:disc-loco
+%%    sec:disc-scope
+%%
+%%  ---------------------------------------------------------------------
+%%  FIGURES — image files expected on Overleaf (upload to a  figures/  folder;
+%%  if you uploaded them flat at project root, delete the "figures/" prefix
+%%  in every \includegraphics below). PDF preferred where present, else PNG.
+%%    fig:fourway      figures/Figure3_fourway_agreement
+%%    fig:confidence   figures/Figure4_confidence_tiers
+%%    fig:errordir     figures/Figure5_error_direction
+%%    fig:scene        figures/Figure6_scene_localisation
+%%    fig:independence figures/Figure7_conditional_independence   (full width)
+%%    fig:map_nanjing  figures/Figure8_map_Nanjing               (full width)
+%%    fig:map_changsha figures/Figure9_map_Changsha              (full width)
+%%  The three full-width figures use the MDPI \extralength / \fulllength
+%%  macros, which the mdpi class already defines — no extra preamble needed
+%%  (graphicx is loaded by the class). Panel letters in the captions (a/b/c,
+%%  A/B/C) assume the multi-panel layouts in the current PNGs; adjust the
+%%  caption wording if a panel is dropped or reordered.
+%%  NOTE ON SUPPLEMENT: tab:S2 (independence panels a/b/c) is printed in the
+%%  main text per the draft; tab:S1, tab:S3, tab:S4 and the four extra
+%%  before/after maps (Figures S1--S4) live in the Supplementary Material.
+%% =====================================================================
+
+\section{Results}\label{sec:results}
+
+All rates below are computed on the 900 boundary-candidate points of
+Section~\ref{sec:sampling}. Because BAMS deliberately concentrates the labelling
+budget on the most spectrally ambiguous pixels of each city, these are
+\textbf{conditional rates on that population, not map-wide accuracies} of ESA
+WorldCover, Dynamic World or Esri Land Cover; the qualifier is not repeated at
+every number but applies throughout. Sections~\ref{sec:results-agreement}--\ref{sec:results-independence}
+report the multi-reference diagnostic: how much the three products depart from
+the expert labels (Section~\ref{sec:results-agreement}), whether that departure
+is annotator noise (Section~\ref{sec:results-confidence}), which direction the
+WorldCover error runs (Section~\ref{sec:results-errordir}), which physical
+boundary types it concentrates in (Section~\ref{sec:results-scene}), and whether
+a second and third product supply independent corroboration
+(Section~\ref{sec:results-independence}). Sections~\ref{sec:results-loco}
+and~\ref{sec:results-maps} report the supporting LOCO correction operator and
+the before/after maps. Class codes are 1~$=$~built-up, 2~$=$~non-built,
+3~$=$~water.
+
+\subsection{Multi-Reference Agreement at the Boundary}\label{sec:results-agreement}
+
+Table~\ref{tab:T1} and Figure~\ref{fig:fourway} give the pairwise agreement
+rates among \{expert, WC, DW, Esri\} on the boundary candidates, pooled
+($n = 900$) and per city.
+
+\begin{table}[H]
+\caption{Four-way agreement on the boundary candidates. ``H'' $=$ expert label.
+Pooled expert $=$ WC is 0.47, Wilson 95\% CI [0.43, 0.50]. Per-city $n = 150$.\label{tab:T1}}
+\begin{adjustwidth}{-\extralength}{0cm}
+\footnotesize
+\begin{tabularx}{\fulllength}{lCCCCCCCCC}
+\toprule
+\textbf{City} & \textbf{\textit{n}} & \textbf{H\,$=$\,WC} & \textbf{H\,$=$\,DW}
+& \textbf{H\,$=$\,Esri} & \textbf{WC\,$=$\,DW} & \textbf{WC\,$=$\,Esri}
+& \textbf{DW\,$=$\,Esri} & \textbf{H\,$=$\,DW\,$=$\,Esri} & \textbf{All four}\\
+\midrule
+Wuhan     & 150 & 0.41 & 0.51 & 0.50 & 0.47 & 0.45 & 0.91 & 0.47 & 0.19\\
+Hefei     & 150 & 0.51 & 0.39 & 0.41 & 0.49 & 0.53 & 0.83 & 0.33 & 0.17\\
+Nanchang  & 150 & 0.46 & 0.39 & 0.36 & 0.36 & 0.45 & 0.81 & 0.29 & 0.11\\
+Nanjing   & 150 & 0.32 & 0.43 & 0.43 & 0.47 & 0.47 & 0.93 & 0.40 & 0.11\\
+Changsha  & 150 & 0.51 & 0.43 & 0.35 & 0.49 & 0.47 & 0.87 & 0.33 & 0.18\\
+Hangzhou  & 150 & 0.59 & 0.53 & 0.48 & 0.63 & 0.60 & 0.90 & 0.46 & 0.34\\
+\midrule
+\textbf{Pooled} & \textbf{900} & \textbf{0.47} & \textbf{0.45} & \textbf{0.42}
+& \textbf{0.48} & \textbf{0.50} & \textbf{0.87} & \textbf{0.38} & \textbf{0.18}\\
+\bottomrule
+\end{tabularx}
+\end{adjustwidth}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{figures/Figure3_fourway_agreement}
+\caption{Pairwise agreement on the 900 boundary candidates among the expert
+labels, ESA WorldCover (WC), Dynamic World (DW) and Esri Land Cover, pooled
+($n = 900$) and by city ($n = 150$ each). Only the DW\,$=$\,Esri agreement
+(pooled 0.87) is consistently high; every expert--product agreement stays near
+0.42--0.47, and the unanimous four-way rate is 0.18. Values correspond to
+Table~\ref{tab:T1}.\label{fig:fourway}}
+\end{figure}
+
+The one rate that is high everywhere is DW $=$ Esri: 0.81 to 0.93 across all six
+cities, pooled 0.87---against an expert $=$ DW of only 0.45. The two products
+that agree closely with each other do not agree with the expert, and neither
+does the third: pooled, expert $=$ WC is 0.47 [0.43, 0.50], expert $=$ DW 0.45,
+expert $=$ Esri 0.42. Substituting one product for another does not help---the
+cross-product rates WC $=$ DW (0.48) and WC $=$ Esri (0.50) sit barely above the
+product-versus-expert rates and nowhere near a level that would resolve the
+boundary. The four sources coincide unanimously on only 18\% of boundary
+candidates; on the remaining $\approx$ 82\% at least one dissents, and the
+largest internally consistent subset---expert, DW and Esri all
+agreeing---covers just 38\%. Consulting a second and a third global product
+therefore does not arbitrate the urban boundary: outside that 38\% there is no
+reference majority to appeal to.
+
+The per-city expert $=$ WC rate ranges from 0.32 in Nanjing (the lowest of the
+six) to 0.59 in Hangzhou, with Wuhan at 0.41, Nanchang at 0.46, and Hefei and
+Changsha at 0.51. Whether the DW $=$ Esri agreement is independent
+corroboration---and therefore usable for arbitration---is tested directly in
+Section~\ref{sec:results-independence}.
+
+\subsection{Confidence Stratification}\label{sec:results-confidence}
+
+If the expert--WC disagreement were annotator noise on inherently ambiguous
+pixels, it should shrink when the analysis is restricted to the labels the
+annotator marked ``high'' confidence. Table~\ref{tab:T2} and
+Figure~\ref{fig:confidence} show the opposite.
+
+\begin{table}[H]
+\caption{Expert $\neq$ WC disagreement rate by expert confidence tier. Pooled
+high-only rate 0.67, Wilson 95\% CI [0.62, 0.71].\label{tab:T2}}
+\begin{adjustwidth}{-\extralength}{0cm}
+\small
+\begin{tabularx}{\fulllength}{lCCCCCCC}
+\toprule
+\textbf{Stratum} & \textbf{Pooled} & \textbf{Wuhan} & \textbf{Hefei}
+& \textbf{Nanchang} & \textbf{Nanjing} & \textbf{Changsha} & \textbf{Hangzhou}\\
+\midrule
+All labels     & 0.53 ($n = 900$) & 0.59 & 0.49 & 0.54 & 0.68 & 0.49 & 0.41\\
+High\,+\,medium & 0.55 ($n = 813$) & 0.58 & 0.49 & 0.54 & 0.68 & 0.57 & 0.42\\
+High only      & \textbf{0.67 ($n = 419$)} & 0.88 & 0.53 & 1.00 ($n = 42$) & 0.62 & 0.58 & 0.55\\
+\bottomrule
+\end{tabularx}
+\end{adjustwidth}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{figures/Figure4_confidence_tiers}
+\caption{Expert $\neq$ WC disagreement rate by expert confidence tier (all
+labels; high\,+\,medium; high-only), pooled and by city. The pooled rate rises
+from 0.53 to 0.67 on the high-confidence subset rather than falling---the
+opposite of what an annotator-noise explanation predicts---with the steepest
+rises in Wuhan (0.59\,$\to$\,0.88) and Nanchang (42/42 high-confidence labels
+disagreeing). Values correspond to Table~\ref{tab:T2}.\label{fig:confidence}}
+\end{figure}
+
+The pooled expert $\neq$ WC rate rises from 0.53 over all labels to 0.67
+[0.62, 0.71] on the high-confidence subset. The rise holds in five of six
+cities and is steep in two: Wuhan 0.59 $\to$ 0.88, and Nanchang, where all 42
+high-confidence boundary labels disagree with WorldCover. Nanjing is the sole
+exception, easing from 0.68 to 0.62, and it starts from the highest all-label
+rate of the six. Where the expert is most certain, WorldCover is not closer to
+the expert but further from it.
+
+This test carries a known upward bias (Section~\ref{sec:diagnostic}(b)): an
+annotator may reserve the ``high'' tag precisely for cases where a WC error is
+visually unambiguous, so the high-only rate is better read as an upper bound on
+how systematic the disagreement is than as an unbiased estimate. Even so, two
+observations do not follow from that selection effect alone. First, the result
+still refutes the ``noise on ambiguous pixels'' reading---noise would not
+concentrate on the confident calls. Second, the magnitude in Nanchang (42/42)
+and Wuhan (0.88) is larger than a labelling-confidence artefact would plausibly
+produce. The sampling-induced conditioning of this subset is examined further
+in Section~\ref{sec:disc-scope}.
+
+A targeted check addresses the same concern from the other side. From the high-confidence expert $\neq$ WorldCover subset (281 points; the
+count before the Hangzhou re-labelling was 293), we drew 30---five per city, in
+decreasing BAMS classifier margin---and had them
+re-classified by an analyst who had taken no part in the original labelling,
+working from sub-metre satellite imagery and the 2021 Sentinel-2 composite,
+blind to both the expert label and the WorldCover label
+(Appendix~\ref{app:recheck}). The re-classification reproduced the original
+expert label on 29 of the 30 points and matched the WorldCover label on none;
+the one exception was a mixed water/vegetation edge pixel the second analyst
+could not resolve. This removes the same-analyst circularity in reading these
+high-confidence disagreements as WorldCover error rather than annotator
+error---with the caveat that the second analyst shared the imagery sources, so
+this is an independent judgement, not a fully independent measurement.
+
+\subsection{Direction of the WorldCover Error}\label{sec:results-errordir}
+
+Table~\ref{tab:T3} is the pooled WC $\to$ expert confusion matrix on the 900
+boundary points; Figure~\ref{fig:errordir} shows it per city.
+
+\begin{table}[H]
+\caption{WC $\to$ expert confusion on the boundary candidates (counts), six
+cities pooled. Rows are the WorldCover class, columns the expert class.\label{tab:T3}}
+\begin{tabularx}{\textwidth}{lCCCC}
+\toprule
+\textbf{WC label} & \textbf{expert $=$ built} & \textbf{expert $=$ non-built}
+& \textbf{expert $=$ water} & \textbf{row \textit{n}}\\
+\midrule
+WC $=$ built     & 72  & 197 & 10 & 279\\
+WC $=$ non-built & 152 & 262 & 57 & 471\\
+WC $=$ water     & 7   & 57  & 86 & 150\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{figures/Figure5_error_direction}
+\caption{Direction of the WorldCover boundary error, by city. Conditional error
+rates $P(\text{expert} = \text{non-built} \mid \text{WC} = \text{built})$ and
+$P(\text{expert} = \text{built} \mid \text{WC} = \text{non-built})$ on the
+boundary candidates, alongside the net over-/under-call of built-up
+$\Delta_{\text{built}}$ (Equation~\eqref{eq:netbuilt}). Once WorldCover commits
+to ``built-up'' at a boundary candidate the expert reads vegetation between 0.60
+and 0.79 of the time in every one of the six cities, while the aggregate net
+call ($\Delta_{\text{built}} = 0.05$) is close to symmetric. The pooled counts
+are Table~\ref{tab:T3}.\label{fig:errordir}}
+\end{figure}
+
+Derived from the matrix: $P(\text{expert} = \text{non-built} \mid \text{WC} =
+\text{built}) = 0.71$, $P(\text{expert} = \text{built} \mid \text{WC} =
+\text{non-built}) = 0.32$, and the net over-call of built-up (Equation~\eqref{eq:netbuilt}),
+$\Delta_{\text{built}} = (197 - 152)/900 = 45/900 = 0.05$. In aggregate the
+boundary error is close to symmetric---WorldCover is not simply over- or
+under-painting built-up along the edge---but it is conditionally asymmetric:
+once WorldCover commits to ``built-up'' at a boundary candidate, roughly seven
+times in ten the expert reads vegetation. The non-built\,$\mid$\,built rate is
+between 0.60 and 0.79 in every one of the six cities. This one-directional
+signal---a WC ``built-up'' call at the boundary is untrustworthy in a specific,
+predictable way---is what the correction operator of
+Section~\ref{sec:results-loco} exploits.
+
+\subsection{Physical Scene Stratification}\label{sec:results-scene}
+
+Each boundary point carries a free-text scene note recorded during annotation
+(Section~\ref{sec:diagnostic}(d)). Notes were grouped into physical boundary
+types using the annotator's scene-code table, and the expert $\neq$ WC rate
+computed per group for groups with $n \ge 15$. The grouping covers the 891
+boundary points that carry a resolvable physical-scene note (all 900 less nine
+whose note did not resolve to a single boundary type), and includes the 26
+Nanchang points that were re-annotated from imagery after an annotation
+placeholder was found (Section~\ref{sec:diagnostic}(d)). Results are in
+Table~\ref{tab:T4} and Figure~\ref{fig:scene}.
+
+\begin{table}[H]
+\caption{Expert $\neq$ WC disagreement by physical boundary type, pooled over
+the 891 boundary points with a resolvable scene note, groups with $n \ge 15$.\label{tab:T4}}
+\begin{tabularx}{\textwidth}{lCCC}
+\toprule
+\textbf{Scene group} & \textbf{\textit{n}} & \textbf{Expert $\neq$ WC}
+& \textbf{Wilson 95\% CI}\\
+\midrule
+Urban green space              & 52  & 67.3\% & [54, 78]\\
+Built-up edge / urban fabric   & 174 & 66.1\% & [59, 73]\\
+Road / road edge               & 117 & 62.4\% & [53, 71]\\
+Vegetation / forest edge       & 130 & 52.3\% & [44, 61]\\
+Water / water edge             & 211 & 50.2\% & [44, 57]\\
+Bare land / construction       & 88  & 43.2\% & [33, 54]\\
+Rural settlement / surfaces    & 41  & 41.5\% & [28, 57]\\
+Paddy / cropland / field       & 19  & 36.8\% & [19, 59]\\
+Cropland / paddy transition    & 16  & 31.2\% & [14, 56]\\
+Mixed / complex                & 25  & 28.0\% & [14, 48]\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{figures/Figure6_scene_localisation}
+\caption{Expert $\neq$ WC disagreement rate by physical boundary type, pooled
+over the 891 boundary points with a resolvable scene note, groups with
+$n \ge 15$, with Wilson 95\% confidence intervals. Disagreement peaks where
+built-up meets vegetation---urban green space 67.3\% and built-up edge / urban
+fabric 66.1\%, the two highest---and is lowest on the more spectrally separable
+classes (bare land / construction 43.2\%, rural settlement 41.5\%). Values
+correspond to Table~\ref{tab:T4}.\label{fig:scene}}
+\end{figure}
+
+Disagreement is highest exactly where built-up meets vegetation. Urban green
+space (67.3\%) and the built-up edge itself (66.1\%) are the two highest groups,
+both well above bare land / construction (43.2\%) and rural settlement (41.5\%),
+where the cover classes are more spectrally separable. That urban green
+space---parks, street trees, campus and residential greenery embedded in the
+built matrix---disagrees as often as the built-up edge is consistent with the
+documented tendency of global products
+to absorb intra-urban vegetation into the built class
+(Section~\ref{sec:disc-edge};~\citealp{yuan2026}), and is reported here as a
+finding in its own right, not only a category in the table.
+
+Two caveats from Section~\ref{sec:diagnostic}(d) apply. The grouping is a
+keyword-based localisation aid, not a formal stratified sample, so the rates
+locate the disagreement rather than estimate a population quantity. And the
+scene notes were free-text---a mix of short codes and Chinese, mapped post hoc
+to a common code table---so scene-type contrasts are drawn only in the pooled
+set, never city against city (Section~\ref{sec:disc-scope}).
+
+\subsection{Independence and Arbitration}\label{sec:results-independence}
+
+Multi-reference arbitration assumes the references approach the truth
+\emph{independently}, so that agreement between two of them corroborates a
+label. Section~\ref{sec:results-agreement} showed DW and Esri agreeing with each
+other far more (0.87) than either agrees with the expert ($\approx$ 0.43). This
+section tests whether that mutual agreement is independent corroboration. All
+statistics are on the $n = 900$ subset unless noted; the central contrast (S2b)
+does not require the expert label to be ground truth. Figure~\ref{fig:independence}
+summarises.
+
+\paragraph{S2a---excess agreement (Table~\ref{tab:S2}a).}
+Observed pairwise agreement is compared with the agreement expected if the two
+products were conditionally independent given the true class
+(Equation~\eqref{eq:condindep}).
+
+\begin{table}[H]
+\caption{Independence and arbitration test on the $n = 900$ subset.
+(\textbf{a})~Excess pairwise agreement over the conditional-independence
+expectation. (\textbf{b})~Dependence of the product error indicators
+$e_A = \mathbf{1}\{A \neq \text{expert}\}$: co-error rate, Yule's $Q$ and
+Cohen's $\kappa$. (\textbf{c})~Arbitration value---whether product consensus
+predicts the expert label better than a single product.\label{tab:S2}}
+\begin{adjustwidth}{-\extralength}{0cm}
+\small
+\textbf{(a) Excess agreement}\\[2pt]
+\begin{tabularx}{\fulllength}{lCCCCC}
+\toprule
+\textbf{Pair} & \textbf{Observed} & \textbf{Expected if cond. indep.}
+& \textbf{Excess} & \textbf{Bootstrap 95\% CI} & \textbf{LOCO range}\\
+\midrule
+DW $=$ Esri & 0.87 & 0.62 & \textbf{$+$0.26} & [0.23, 0.29] & [0.24, 0.27]\\
+WC $=$ DW   & 0.48 & 0.36 & $+$0.13 & [0.10, 0.15] & [0.11, 0.14]\\
+WC $=$ Esri & 0.50 & 0.35 & $+$0.14 & [0.12, 0.17] & [0.13, 0.15]\\
+\bottomrule
+\end{tabularx}
+\\[8pt]
+\textbf{(b) Error dependence}\\[2pt]
+\begin{tabularx}{\fulllength}{lCCCCC}
+\toprule
+\textbf{Error pair} & \textbf{Error rate A / B}
+& \textbf{Co-error obs / indep (ratio)} & \textbf{Yule's \textit{Q} [95\% CI]}
+& \textbf{$\kappa$(errors)} & \textbf{Same wrong class $\mid$ both wrong}\\
+\midrule
+DW, Esri & 0.55 / 0.58 & 0.51 / 0.32 ($\times$ 1.60) & \textbf{0.97} [0.96, 0.98] & 0.78 & 0.97\\
+WC, DW   & 0.53 / 0.55 & 0.31 / 0.30 ($\times$ 1.03) & \textbf{$+$0.08} [$-$0.05, 0.21] & 0.04 & 0.87\\
+WC, Esri & 0.53 / 0.58 & 0.33 / 0.31 ($\times$ 1.06) & \textbf{$+$0.14} [0.01, 0.27] & 0.07 & 0.87\\
+\bottomrule
+\end{tabularx}
+\\[8pt]
+\textbf{(c) Arbitration value}\\[2pt]
+\begin{tabularx}{\fulllength}{lCCX}
+\toprule
+\textbf{Condition} & \textbf{\textit{n}} & \textbf{P(expert $=$ that label)}
+& \textbf{Note}\\
+\midrule
+Baseline $P(\text{expert} = \text{DW})$   & 900 & 0.45 & ---\\
+Baseline $P(\text{expert} = \text{Esri})$ & 900 & 0.42 & ---\\
+DW $=$ Esri $\to$          & 787 & 0.44 [0.40, 0.47] & 87\% of points\\
+DW $=$ Esri $=$ WC $\to$   & 391 & 0.43 [0.38, 0.47] & adding WC does not help\\
+WC $=$ DW $\to$            & 436 & 0.45 [0.40, 0.50] & ---\\
+\bottomrule
+\end{tabularx}
+\end{adjustwidth}
+\end{table}
+
+\begin{figure}[H]
+\begin{adjustwidth}{-\extralength}{0cm}
+\centering
+\includegraphics[width=\fulllength]{figures/Figure7_conditional_independence}
+\end{adjustwidth}
+\caption{Independence and arbitration test on the $n = 900$ subset.
+(\textbf{a})~observed pairwise agreement against the conditional-independence
+expectation (excess agreement); (\textbf{b})~dependence of the product error
+indicators $e_A = \mathbf{1}\{A \neq \text{expert}\}$---co-error rate, Yule's
+$Q$ and Cohen's $\kappa$, with 95\% intervals; (\textbf{c})~probability that the
+expert label matches a product consensus, against the single-product baselines.
+DW and Esri errors are strongly coupled (Yule's $Q \approx 0.97$; same wrong
+class 97\% of the time) while WorldCover's errors are at most weakly coupled to
+either ($Q \le 0.14$), and consensus adds nothing over a single product
+(panel c). Values correspond to Table~\ref{tab:S2}.\label{fig:independence}}
+\end{figure}
+
+DW and Esri agree 0.26 more often than conditional independence allows---about
+twice the excess of either WorldCover pair ($+$0.13, $+$0.14). Because the
+conditional class distributions are estimated in-sample, the expected value is
+biased \emph{toward} independence, so $+$0.26 is a conservative lower bound
+(Section~\ref{sec:diagnostic}(e)).
+
+\paragraph{S2b---error dependence (Table~\ref{tab:S2}b).}
+With $e_A = \mathbf{1}\{A \neq \text{expert}\}$, we compute the co-error rate,
+Yule's $Q$~\citep{yule1900} and Cohen's $\kappa$ between each pair of product
+error indicators.
+
+This is the sharpest result of the diagnostic. DW and Esri err on 55\% and 58\%
+of boundary candidates and co-err on 51\%, against 32\% expected if their errors
+were independent; Yule's $Q$ between their error indicators is 0.97
+[0.96, 0.98], and when both err they select the same wrong class 97\% of the
+time. For the WorldCover pairs $Q$ is an order of magnitude smaller---$+$0.08
+[$-$0.05, 0.21] for WC, DW and $+$0.14 [0.01, 0.27] for WC, Esri, against 0.97,
+with $\kappa$(errors) of 0.04 and 0.07 against 0.78. The WC, DW interval still
+spans zero; WC, Esri is marginally positive but nowhere near the DW/Esri
+coupling. WorldCover's errors are at most weakly coupled to the two
+deep-segmentation products; those two err together. This is a differential
+between the product pairs: a noisy or biased expert reference would inflate the
+apparent error correlation of all three pairs alike, not just one, so the
+contrast is robust to an imperfect expert rather than merely independent of it.
+(The ``same wrong class $\mid$ both wrong'' column is high for the WorldCover
+pairs too, $\approx$ 0.87, because with three classes two products that both err
+on a boundary point usually land in the same built\,$\leftrightarrow$\,non-built
+confusion; the pairs are separated by $Q$ and $\kappa$, not by this column.)
+
+\paragraph{S2c---arbitration value (Table~\ref{tab:S2}c).}
+Does product consensus predict the expert label better than a single product?
+
+On the 787 boundary points (87\% of the subset) where DW $=$ Esri, the expert
+agrees with that shared label 0.44 of the time---indistinguishable from the 0.45
+base rate of simply following DW. Requiring WorldCover to join the consensus
+does not raise it. Product consensus carries essentially no additional
+information about the expert label; the nominal ``$+$0.18 lift'' over the class
+prior is just the 0.25 prior probability of the agreed-on class.
+
+\paragraph{S3---confound checks.}
+\emph{(a) Ontology (Supplementary Table~\ref{tab:S3}).} Collapsing the three
+classes to built-vs-rest, or to built-vs-vegetation with water points dropped,
+leaves DW $=$ Esri at 0.90--0.92 and the (DW $=$ Esri)\,$-$\,(expert $=$ DW) gap
+at 0.34--0.48; the coupling is not an artefact of the three-class remap.
+\emph{(b) Shared imagery.} WorldCover ingests the same Sentinel-2 input as DW
+and Esri but shares neither the deep-segmentation model family nor its
+point-label lineage; its excess agreement is about half that of DW $=$ Esri and
+its error $Q$ stays an order of magnitude smaller ($\le 0.14$ vs 0.97), so
+shared imagery alone does not generate the coupling.
+\emph{(c) Acquisition date (Supplementary Table~\ref{tab:S4}).} The DW $=$ Esri
+rate is high in every scene type (0.83--0.98) and is \emph{highest} in the
+hardest transition zones---urban green space $\approx$ 0.98, mixed / complex
+$\approx$ 0.96---rather than concentrated in the spectrally stable classes,
+which is the reverse of the pattern a shared single-scene acquisition would
+produce.
+
+Taken together: the independence assumption behind multi-reference arbitration
+fails on urban boundary pixels. DW and Esri do not supply a second and third
+independent opinion; their errors move together (Yule's $Q \approx 0.97$) while
+WorldCover's error is at most weakly coupled to either ($Q \le 0.14$), so their
+agreement is correlated error, and it adds nothing to a single product's ability
+to predict the expert label. Ontology, shared Sentinel-2 input and acquisition timing are
+ruled out as cheap explanations. \emph{Why} the two are coupled---a shared
+deep-segmentation model family is the least speculative reading, with a shared
+training-label lineage a further, less testable possibility---is taken up in
+Section~\ref{sec:disc-mechanism}; the statistical result here does not depend on
+it.
+
+\subsection{LOCO Correction Operator (Supporting Analysis)}\label{sec:results-loco}
+
+The operator is trained on five cities' boundary points and applied to the
+held-out sixth, which contributes no labels of its own (Section~\ref{sec:loco}).
+Results are reported honestly as a supporting analysis, not as the paper's main
+claim.
+
+\paragraph{Phase 1---operator transfer (Table~\ref{tab:T5}).}
+
+\begin{table}[H]
+\caption{LOCO operator transfer (27-feature model). ``Do nothing'' baseline is
+the WC-versus-expert agreement on the held-out city's 150 boundary points.
+Confident firing: $p_{\max} \ge 0.85$ and predicted class $\neq$ WC.\label{tab:T5}}
+\begin{tabularx}{\textwidth}{lCCCC}
+\toprule
+\textbf{Held-out city} & \textbf{WC $\leftrightarrow$ expert}
+& \textbf{Operator $\leftrightarrow$ expert}
+& \textbf{Confident firings ($\tau = 0.85$)}
+& \textbf{Firing precision vs expert}\\
+\midrule
+Wuhan    & 0.41 & 0.71 & 18 & 0.78\\
+Hefei    & 0.51 & 0.67 & 28 & 0.68\\
+Nanchang & 0.46 & 0.73 & 11 & 0.82\\
+Nanjing  & 0.32 & 0.74 & 15 & 0.93\\
+Changsha & 0.51 & 0.75 & 18 & 0.83\\
+Hangzhou & 0.59 & 0.75 & 11 & 0.91\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The transferred operator predicts the held-out city's expert labels at 0.67 to
+0.75, against a ``do nothing'' WC-versus-expert baseline of 0.32 to 0.59---a
+gain in every city. Confident firings ($p_{\max} \ge 0.85$ and predicted class
+$\neq$ WC) number from 11 in Nanchang and Hangzhou to 28 in Hefei; their
+precision against the expert ranges from 0.68 (Hefei) to 0.93 (Nanjing), with
+Nanchang at 0.82. (A reduced-feature variant, \texttt{transfer15}, is slightly
+worse in every city; Supplementary~S2.) Nanjing shows the largest transfer gain
+(0.32 $\to$ 0.74) and high firing precision (14/15); it is at once the city with
+the lowest raw WC-versus-expert agreement and the one with the most headroom for
+the operator to recover---both stated as diagnostic facts, not as a corrected
+failure case.
+
+\paragraph{Phase 2---downstream map correction.}
+Feeding the corrected labels into the fixed land-cover random forest
+(Section~\ref{sec:eval}) moves the six-city mean overall accuracy against the
+150 expert points from 0.375 (raw WC) to only 0.389 (proposed gated operator),
+against 0.422 for the within-city oracle ceiling and 0.378 for the random-flip
+control---a $+$1.5-point shift, inside the between-seed standard deviation
+(0.07). A $\tau \times$ margin-quantile gate-sensitivity sweep (Supplementary
+Table~\ref{tab:S1}) shows why: reaching $+$14 points of downstream expert-OA
+would require loosening the confidence threshold to $\tau = 0.70$ and rewriting
+$\approx$ 345 of 15,000 labels, at a cost of $\approx$ 1.5 points of WC-OA, and
+at safe thresholds ($\tau \ge 0.85$) the downstream effect is within noise. A
+few dozen boundary-label corrections do not move a random forest trained on
+$\approx$ 10,000 points---the downstream classifier is the wrong instrument for
+this signal, which is why Phase~3 evaluates the label map directly.
+
+\paragraph{Phase 3---multi-reference referee (Table~\ref{tab:phase3}).}
+The corrected label map is scored directly on the 150 held-out points of each
+city, with no downstream classifier, against the expert label and against the
+strict tri-consensus subset (expert $=$ DW $=$ Esri).
+
+\begin{table}[H]
+\caption{Label-map referee, six-city mean. BE $=$ Boundary Error
+(Equation~\eqref{eq:be}). ``Changes'' are points the operator overwrote relative
+to raw WC.\label{tab:phase3}}
+\begin{adjustwidth}{-\extralength}{0cm}
+\small
+\begin{tabularx}{\fulllength}{lCCCCCC}
+\toprule
+\textbf{Label map} & \textbf{OA vs expert} & \textbf{OA vs tri-consensus}
+& \textbf{BE vs expert} & \textbf{Changes $\to$ expert}
+& \textbf{Changes $\to$ DW $=$ Esri} & \textbf{Changes / city}\\
+\midrule
+WC raw                       & 0.47 & 0.48 & 58 & ---  & ---  & 0\\
+LOCO corrected ($\tau = 0.85$) & \textbf{0.54} & 0.51 & 49 & \textbf{0.83} & 0.30 & 17\\
+Random-flip control          & 0.46 & 0.47 & 53 & 0.33 & 0.20 & 17\\
+Within-city oracle (ceiling) & 0.81 & 0.78 & 16 & 1.00 & 0.36 & 51\\
+\bottomrule
+\end{tabularx}
+\end{adjustwidth}
+\end{table}
+
+Of the $\approx$ 17 points per city the operator changes, 83\% move toward the
+expert label, against 33\% for the same number of random flips---the signal is
+real, not noise. In aggregate the effect is nonetheless modest: $+$7 points of
+OA against the expert, $\approx$ 3 points against the tri-consensus subset, and
+BE against the expert falls from 58 to 49. That recovers about one-fifth of the
+within-city oracle's OA gain ($\approx +7$ points out of $\approx +34$, on a
+150-point base). Per city the pattern tracks Phase~1: Nanjing 0.32 $\to$ 0.41
+(14 of 15 changes toward the expert), Changsha 0.51 $\to$ 0.59, and Hangzhou
+0.59 $\to$ 0.65, where 11 points change---matching its 11 confident firings.
+This supporting analysis is discussed in Section~\ref{sec:disc-loco}.
+
+\subsection{Before/After Correction Maps}\label{sec:results-maps}
+
+Figure~\ref{fig:map_nanjing} (Nanjing) and Figure~\ref{fig:map_changsha}
+(Changsha) show, for each city, (A)~the raw WorldCover class map over the 15,000
+city points; (B)~the LOCO-corrected map with the operator's changed points
+circled; and (C)~the 150 expert boundary points coloured by
+expert $=$ WC\,/\,expert $\neq$ WC over a faded backdrop. The gate is identical
+to Section~\ref{sec:results-loco} and Table~\ref{tab:T5} ($\tau = 0.85$,
+lowest-decile within-city margin). Maps for the other four cities are in
+Figures~S1--S4.
+
+\begin{figure}[H]
+\begin{adjustwidth}{-\extralength}{0cm}
+\centering
+\includegraphics[width=\fulllength]{figures/Figure8_map_Nanjing}
+\end{adjustwidth}
+\caption{Before/after correction map, Nanjing. (\textbf{A})~raw WorldCover
+three-class map over the 15,000 city points; (\textbf{B})~LOCO-corrected map,
+operator-changed points circled; (\textbf{C})~the 150 expert boundary points
+coloured by expert\,$=$\,WC vs.\ expert\,$\neq$\,WC over a faded backdrop. Gate
+as in Section~\ref{sec:results-loco} ($\tau = 0.85$, lowest-decile within-city
+margin): 28 operator changes, 102 of 150 expert\,$\neq$\,WC points
+(Table~\ref{tab:maps}). Changes and disagreements cluster along the built-up
+edge and the river margins.\label{fig:map_nanjing}}
+\end{figure}
+
+\begin{figure}[H]
+\begin{adjustwidth}{-\extralength}{0cm}
+\centering
+\includegraphics[width=\fulllength]{figures/Figure9_map_Changsha}
+\end{adjustwidth}
+\caption{Before/after correction map, Changsha, panels as in
+Figure~\ref{fig:map_nanjing}. Gate $\tau = 0.85$, lowest-decile within-city
+margin: 63 operator changes, 74 of 150 expert\,$\neq$\,WC points
+(Table~\ref{tab:maps}). As in Nanjing the corrections track the built-up edge
+and the water margins rather than scattering across the
+map.\label{fig:map_changsha}}
+\end{figure}
+
+\begin{table}[H]
+\caption{Operator changes and expert $\neq$ WC counts per city, with figure
+placement.\label{tab:maps}}
+\begin{tabularx}{\textwidth}{lCCC}
+\toprule
+\textbf{City} & \textbf{Operator changes (of 15,000)}
+& \textbf{Expert $\neq$ WC (of 150)} & \textbf{Placement}\\
+\midrule
+Nanjing  & 28  & 102 & Main text\\
+Changsha & 63  & 74  & Main text\\
+Wuhan    & 35  & 88  & Supplementary\\
+Hefei    & 91  & 74  & Supplementary\\
+Nanchang & 38  & 81  & Supplementary\\
+Hangzhou & 30  & 61  & Supplementary\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+In every city the operator's changes and the expert $\neq$ WC points cluster
+along the built-up edge and the river and water margins rather than scattering
+across the map. Hangzhou and Nanjing change the fewest points (30 and 28),
+consistent with their sparse Phase~3 corrections. This spatial
+concentration is qualitative evidence that BAMS sampling placed the labelling
+budget on genuine boundary zones (Section~\ref{sec:disc-scope}); it does not by
+itself establish that the disagreement rate there exceeds what random sampling
+would give. Nanjing appears in the main text as the city with the lowest
+WC-versus-expert agreement and the largest operator transfer gain---two overlaid
+diagnostic facts, not a reversed failure case.

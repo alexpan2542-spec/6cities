@@ -1,0 +1,42 @@
+metric,6-city (n=900),5-city (n=750),delta (5-6)
+n,900.0,750.0,-150.0
+T1 human=WC,0.457,0.441,-0.015
+T1 human=DW,0.436,0.429,-0.006
+T1 human=ESRI,0.413,0.411,-0.003
+T1 DW=ESRI,0.87,0.869,-0.001
+"T1 tri(H,DW,ESRI)",0.37,0.364,-0.006
+T1 all4_agree,0.156,0.153,-0.002
+T2 WC-disagree all,0.543,0.559,0.015
+T2 WC-disagree high+med,0.563,0.57,0.006
+T2 WC-disagree high-only,0.672,0.693,0.021
+T2 n_high,436.0,355.0,-81.0
+T3b P(expert=non-built | WC=built),0.711,0.709,-0.002
+T3b P(expert=built | WC=non-built),0.331,0.341,0.01
+T3b net_built_over_call,0.02,0.044,0.024
+S2a DW=ESRI observed,0.87,0.869,-0.001
+S2a DW=ESRI expected_ci,0.615,0.626,0.011
+S2a DW=ESRI excess,0.255,0.243,-0.011
+S2a WC=DW observed,0.438,0.455,0.017
+S2a WC=DW expected_ci,0.33,0.343,0.013
+S2a WC=DW excess,0.108,0.112,0.004
+S2a WC=ESRI observed,0.452,0.476,0.024
+S2a WC=ESRI expected_ci,0.328,0.343,0.014
+S2a WC=ESRI excess,0.124,0.133,0.009
+"S2b DW,ESRI Yule Q",0.971,0.969,-0.002
+"S2b DW,ESRI co_error_ratio",1.574,1.558,-0.016
+"S2b DW,ESRI kappa_err",0.777,0.77,-0.007
+"S2b WC,DW Yule Q",-0.091,-0.045,0.046
+"S2b WC,DW co_error_ratio",0.964,0.983,0.019
+"S2b WC,DW kappa_err",-0.045,-0.022,0.023
+"S2b WC,ESRI Yule Q",-0.036,0.045,0.081
+"S2b WC,ESRI co_error_ratio",0.986,1.016,0.03
+"S2b WC,ESRI kappa_err",-0.018,0.022,0.04
+S2c baseline P(expert=DW),0.436,0.429,-0.006
+S2c baseline P(expert=ESRI),0.413,0.411,-0.003
+S2c DW==ESRI -> P(expert agrees),0.425,0.419,-0.007
+S2c DW==ESRI lift_vs_prior,0.162,0.154,-0.008
+S2c WC==DW -> P(expert agrees),0.429,0.405,-0.024
+S2c WC==DW lift_vs_prior,0.145,0.121,-0.023
+S3a 2class DW=ESRI,0.902,0.905,0.003
+S3a 2class Human=DW,0.547,0.544,-0.003
+S3a 2class gap(DW=ESRI - Human=DW),0.356,0.361,0.006

@@ -1,0 +1,40 @@
+Nanchang Preparation Report
+============================
+
+STEP 1 VERIFY
+- Original exists: True
+- 3x3 exists: True
+- Original rows: 15000
+- 3x3 rows: 15000
+- Original_ID unique (original): 15000
+- Original_ID unique (3x3): 15000
+- Original_ID range (original): 0..14999
+- Original_ID range (3x3): 0..14999
+- Missing IDs (original): 0
+- Missing IDs (3x3): 0
+
+COUNTS
+- Rows in Original: 15000
+- Rows in MarginScores: 15000
+- Rows in Top150: 150
+- Rows in BAMS150: 150
+- Unique Original_ID in MarginScores: 15000
+
+MARGIN STATS (all 15000)
+- Margin mean: 0.888408
+- Margin min: 0.156667
+- Margin max: 1.000000
+
+TOP150 / BAMS150
+- Top150 margin mean: 0.264978
+- BAMS150 margin mean: 0.414089
+- BAMS150 BoundaryScore mean: 1208.166926
+- Overlap Top150 ∩ BAMS150: 17
+- Overlap Original_ID sample (first 20): [2535, 2738, 2960, 4184, 4643, 6127, 7418, 7619, 8498, 8737, 8745, 8938, 8946, 9375, 11133, 14189, 14343]
+
+FILES
+- data2/Nanchang/02_margin/Nanchang_MarginScores.csv
+- data2/Nanchang/03_top150/Nanchang_Top150.csv
+- data2/Nanchang/04_manual/Nanchang_Top150_Manual.csv
+- data2/Nanchang/03_top150/Nanchang_BAMS150.csv
+- data2/Nanchang/04_manual/Nanchang_BAMS150_Manual.csv

@@ -1,0 +1,81 @@
+{
+  "generated_utc": "2026-09-10T07:26:57+00:00",
+  "script": "scripts/reproduce_bams_selection.py",
+  "python": "3.11.15",
+  "sklearn": "1.9.0",
+  "sklearn_expected": "1.9.0",
+  "rf_params": {
+    "n_estimators": 300,
+    "random_state": 42,
+    "n_jobs": -1
+  },
+  "spectral_features": [
+    "B2",
+    "B3",
+    "B4",
+    "B8",
+    "B11",
+    "B12",
+    "NDVI",
+    "NDBI",
+    "MNDWI"
+  ],
+  "boundary_std_cols": [
+    "B2_stdDev",
+    "B3_stdDev",
+    "B4_stdDev",
+    "B8_stdDev"
+  ],
+  "stage1_keep": 1000,
+  "n_select": 150,
+  "selection_rule": {
+    "Wuhan": "two_stage",
+    "Hefei": "two_stage",
+    "Nanchang": "two_stage",
+    "Nanjing": "two_stage",
+    "Changsha": "two_stage",
+    "Hangzhou": "two_stage"
+  },
+  "blend_weights": {
+    "margin": 0.7,
+    "boundary": 0.3
+  },
+  "in_place": true,
+  "results": [
+    {
+      "city": "Hangzhou",
+      "rule": "two_stage",
+      "margin_max_abs_delta": 1.1102230246251565e-16,
+      "margin_rows_compared": 15000,
+      "bams150_match": 46,
+      "bams150_only_new": [
+        61,
+        172,
+        224,
+        400,
+        404,
+        442,
+        467,
+        489,
+        530,
+        583
+      ],
+      "bams150_only_old": [
+        57,
+        85,
+        175,
+        220,
+        355,
+        438,
+        460,
+        726,
+        825,
+        861
+      ],
+      "top150_match": 150,
+      "top150_only_new": [],
+      "top150_only_old": [],
+      "bams150_ok": false
+    }
+  ]
+}

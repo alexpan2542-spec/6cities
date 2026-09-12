@@ -1,0 +1,4 @@
+pair,err_rate_A,err_rate_B,co_error_obs,co_error_if_indep,co_error_ratio,yules_Q,yules_Q_CI,kappa_err,n_both_wrong,P(same wrong label | both wrong)
+"DW,ESRI errors",0.564,0.587,0.521,0.331,1.57,0.971,"[0.96,0.98]",0.777,469,0.959
+"WC,DW errors",0.543,0.564,0.296,0.307,0.96,-0.091,"[-0.22,0.04]",-0.045,266,0.846
+"WC,ESRI errors",0.543,0.587,0.314,0.319,0.99,-0.036,"[-0.17,0.09]",-0.018,283,0.852

@@ -1,0 +1,288 @@
+论文立论与贡献 —— 征求意见稿（第 3 版，定稿骨架）
+==========================================================
+整理日期：2026-09-09
+目标期刊：MDPI Remote Sensing（research article）
+工作标题：Cross-product agreement does not arbitrate the reference label at
+the urban built-up/vegetation boundary: a multi-reference diagnostic for six
+lower-Yangtze cities
+
+第 3 版改动（本轮讨论定稿）：
+ - 顶部加「一句话脊梁」——问题 / 发现 / 意义三句，作为全文主骨架；
+ - C1 与 C2 从两个平行贡献改为「一个贡献、两级陈述」（操作结论 → 机制）；
+ - 贡献清单重编号（原 C3–C6 → 现 C2–C5）；
+ - 补「三产品各用在何处」小节（澄清逐城目录只有 WC 的困惑）。
+
+（本稿只讲 定位 / 立论 / 贡献 / 呈现顺序。方法与结果细节见
+docs/manuscript.md；所有数字的唯一事实源是 docs/Paper_Writing_Plan.md §4
+的冻结快照。）
+
+
+〇、一句话脊梁（全文主骨架）
+==========================================================
+问题
+  Can agreement among global land-cover products be treated as evidence of
+  correctness — i.e., can products arbitrate truth?
+
+发现
+  At the urban built-up/vegetation boundary, they cannot: consulting a second
+  and third product yields no arbitration gain (consensus predicts the expert
+  label no better than a single product). The mechanism is a measurable error
+  coupling — Dynamic World and Esri err together (Yule's Q ≈ 0.97), while
+  WorldCover errs independently (Q ≈ 0) — so their agreement is correlated
+  error, not independent corroboration.
+
+意义
+  Cross-product consensus should not be used by itself as a pseudo-reference
+  or high-confidence label source at the urban boundary.
+
+--- 三个绑定条件（改写时不许丢）---------------------------
+1. 「相关错误」永远带 DW–ESRI 主语，不写成笼统 "cross-product"；WC 独立出错
+   (Q≈0) 这半句要跟着——否则一句 "but WorldCover errs independently" 能顶回来。
+2. 存在性 register：不用 "often"，用 "in these six cities / can fail"；n=6 只
+   证反例存在，不估全球比例。
+3. 「发现」层内部是两级：操作结论（加产品零仲裁增益）→ 机制（错误耦合）。
+   不是两个平行发现。
+
+--- 写作定位（register 锚点，成文全程保持）----------------
+这是一篇「日常工作中注意到的一个小发现，作者花苦力把它验证扎实」的诊断性论
+文。不往上够（不写成惊天动地的大发现 / 全球性结论），也不往下缩（不自我贬
+低成一条 note）。
+ - Remote Sensing 认的门槛：方法站得住、scope 交代诚实、可复现、有一个说得
+   清的增量——本文四项都占。发现的量级不是门槛。
+ - 那些验证工作（900 手标点、盲标复核 29/30、独立性诊断、防泄漏控制）是把
+   「观察」变成「证据」的正当主体，不是凑工作量。写作时正面呈现，不弱化。
+ - 「创新」在检验的角度（仲裁假设 + 错误耦合），不在「产品不准」这个观察本
+   身。全程从检验角度起笔；一旦从「产品不准」起笔就会被读成 trivial。
+ - 语气：平实、诚实、有分寸。不用 "significant" / "novel" / "for the first
+   time" 这类词撑场面；让方法和数字自己说话。
+
+
+一、总体定位
+==========================================================
+本文不写成、也不按以下任一类来审：
+ - 产品比较论文（“哪个产品最好”）
+ - 新方法论文（新主动学习 / 新采样算法）
+ - 新迁移学习论文（新 domain adaptation / 新校正框架）
+
+本文写成：**针对遥感社区一个被广泛默认、却很少被直接检验的方法学假设的诊
+断性研究。**
+
+产品比较、边界采样、跨城迁移在文中都出现，但它们是**手段**，不是卖点。
+
+注意分寸：正文确有严谨的产品对比内容（一致性表、逐城、逐类偏差）——“不是产
+品比较论文”指的是**问题**不是“谁最好”，不是说内容里没有比较。
+
+
+二、立论
+==========================================================
+核心问题（只有一个）：
+  多个全球土地覆被产品彼此一致，是否意味着更接近真值？即产品之间能否互相仲
+  裁真值（arbitrate truth）？
+
+核心结论（只有一句）：
+  在城市 built-up/vegetation 边界上，这个假设失效——加第二、第三个产品没有
+  仲裁增益；其机制是 **DW 与 ESRI 的错误耦合**（Yule's Q ≈ 0.97），而 WC 独
+  立出错（Q ≈ 0），所以这种一致是相关错误，不是独立印证。
+
+register：有界域内、可重复、可解释的存在性/证伪结果。不声称全球普遍；一个刻
+画清楚的反例，足以说明这个假设不能被无条件使用。
+
+
+三、针对的问题与文献缺口
+==========================================================
+1. 全球 10 m 产品（ESA WorldCover / Google-WRI Dynamic World / Esri Land
+   Cover）整体精度报在 70–90%，但那是全图平均，掩盖了公认薄弱区：建成区与植
+   被的过渡带（混合像元、光谱相似、类定义不一致）。城市内部绿地（公园、行道
+   树、居住区/校园绿化）常被并入建成类。
+
+2. 数据稀缺时的常见应对：同时用多个产品，一致的像元被当作可靠——合成加权
+   consensus 图层、当精度评价的伪参考、当新分类的高置信训练/验证样本（弱监
+   督）。
+
+3. 现有产品对比文献报告的是“产品离参考数据多远（平均）”，没有回答：
+   (a) 专门在边界像元上，把有限人工预算精准花在难点上；
+   (b) 产品之间的相互一致，是“独立印证”还是“共享的相关错误”；
+   (c) 因此“查第二、第三个产品能不能仲裁”这个操作本身是否成立。
+   本文补这三点合起来（此前未被合起来做过；措辞用 "has not been examined
+   directly"，不用 "first"）。
+
+
+四、数据与方法（一段话）
+==========================================================
+6 城（武汉、合肥、南昌、南京、长沙、杭州），每城以 FAO GAUL 2015 地级市全
+市域为范围，用 2021 年 Sentinel-2 年度中值合成。边界感知采样（BAMS：RF 分
+类间隔 + 3×3 局部光谱标准差，两阶段筛选）把每城 15000 个分层候选点收缩到
+150 个最难的建成/植被过渡点，共 900 点，由具备本区遥感地物判读经验的专家逐
+点手标（主判据 2021 S2 真彩+假彩，亚米底图仅作辅助；记 H/M/L 置信度与场景
+码）。在这 900 点上做：多参考一致性诊断（四方一致 / 置信度分层 / WC 误差方
+向 / 场景交叉 + Wilson CI）+ 条件独立性 / 联合错误结构检验 + 留一城（LOCO）
+校正算子作支撑分析。
+
+强制限定语（贯穿全文）：所有一致率/分歧率都是**边界候选点上的条件量，不是
+任何产品的全图精度**。
+
+--- 三个产品各用在何处（避免混淆）------------------------
+用了三个产品，全 6 城 n=900：
+ · ESA WorldCover v200 (WC)  —— ①驱动 BAMS 采样（remap 3 类→分层撒点）
+   ②三个参考产品之一。出现在全文所有环节。
+ · Dynamic World (DW)  —— 第二参考。`GOOGLE/DYNAMICWORLD/V1` 2021 `.mode()`。
+ · Esri Land Cover (ESRI)  —— 第三参考。`sat-io ESRI_Global-LULC_10m_TS` 2021。
+
+DW/ESRI 的数据在单独文件
+`data/shared_reference/cross_city_second_ref_dw_esri/all_cities_BAMS150_second_ref.csv`
+（900 行；取数脚本 `archive/pe_era_scripts/cross_city_second_ref_dw_esri.py` +
+`data/gee_shp/Hangzhou_second_ref_DW_ESRI.js`），**不在** `data/cities/{城市}/`
+逐城目录里——逐城目录只有 WC。
+
+DW/ESRI 只进：T1 四方一致 + §4.5 独立性诊断（S2a/S2b/S2c/S3）+ LOCO Phase 3。
+T2（置信度）/ T3（误差方向）/ T4（场景）是 Human vs WC 单参考。
+分析代码：`scripts/diagnostic_analysis.py` `load_dwesri()`、
+`scripts/independence_diagnostic.py`（整节靠 DW/ESRI）、
+`scripts/loco_correction_operator.py`。
+
+
+五、核心发现（按呈现顺序重排）
+==========================================================
+先讲“产品互相像却都不像专家”，把最耐挑刺的结果放前面，一致率表放最后。
+
+(1) 唯一处处高的一致是 DW=ESRI：6 城 0.81–0.93，合计 0.87；而 Human=DW 只
+    有 0.44。互相像的两个产品，都不像专家。
+
+(2) 这种一致不是独立印证——错误指示变量的 Yule's Q = 0.97（两个 WorldCover
+    配对 Q ≈ 0，CI 跨 0）。即“WC 独立地错，DW 与 ESRI 一起错”。
+    · 为什么先放这条：它是一个**差分对比**（一个配对 0.97 vs 另两个 ≈ 0），
+      不可能由“专家只是噪声参考”造成——专家噪声会等量抬高所有配对的表观错
+      误相关。所以它对“样本被挑成难点”和“专家不完美”都稳健。措辞要精确：
+      是“对不完美专家稳健”，不是字面上“完全没用到专家”（错误指示仍需一个
+      参考来定义）。
+
+(3) 加产品没有实际仲裁增益：产品共识对专家标签的预测力（仲裁 PPV）0.43 ≈ 单
+    产品基准 0.44。四方全一致只占 16%；最大自洽子集（专家+DW+ESRI 同时一致）
+    只覆盖 37%——剩下的点没有“参考多数”可诉诸。
+    · 补充统计：DW=ESRI 超出条件独立期望 +0.25（WC 配对只 +0.11–0.12；+0.25
+      是保守下界）。
+
+(4) 最后才报一致率：Human=WC 0.46（Wilson 95% CI 0.42–0.49）、Human=DW
+    0.44、Human=ESRI 0.41；WC=DW 0.44、WC=ESRI 0.45（换产品替代也不涨）。
+    逐城 Human=WC 0.32（南京，最低）–0.53（杭州）。
+
+(5) 误差有方向、不是随机噪声：一旦 WC 判“建成”，专家读作植被约 7/10
+    （P(expert=non-built | WC=built)=0.69，6 城都在 0.60–0.79）。分歧最大的
+    场景是“建成区边缘”和“城市内部绿地”，并列 69.0%，远高于裸地/施工地面
+    （38.5%）。含义：consensus filtering 会**系统性低估**城市植被覆盖，方向
+    在 6 城一致。
+
+(6) 标注可信度防守（与“产品不匹配专家”的结论并排出现，不放到最后）：
+    · 三判读员一致性 Fleiss κ = 0.89；
+    · 一位未参与原标注、且对专家/WC 标签双盲的第二判读员，对 30 个高置信
+      expert≠WC 点重分类，29/30 命中原专家标签，0/30 命中 WC。
+    · 去掉了“高置信分歧其实是标注员错”的同人循环论证。
+
+(7) LOCO（支撑，非卖点）：五城训练、迁移到不出任何标签的第六城，预测专家边
+    界标签 0.67–0.75，对照“什么都不做”0.32–0.53，每城都涨；作标签图裁判时
+    改动的点 83% 朝专家方向（随机翻转同样多点只 29%）。但影响适度：只追回
+    “同城内 oracle”所能缩小精度差的约 1/5，安全阈值下对 ~10000 点训练的下
+    游分类器影响落在随机种子噪声内。含义本身是诊断结论——**分歧里有可迁移
+    的结构信息，但下游影响有界**。
+
+
+六、贡献陈述（收窄后）
+==========================================================
+C1（核心贡献 —— 发现 + 机制，两级陈述，算一条）
+  直接检验并回答一个此前未被正面检验的方法学问题：
+  “全球土地覆被产品之间能否互相仲裁真值？”
+  (a) 操作层结论：在城市建成区/植被边界上，跨产品一致**不能可靠仲裁真值**
+      ——加产品零仲裁增益（仲裁 PPV 0.43 ≈ 单产品 0.44）。
+  (b) 机制层结论（实测，非推测）：这一失效对应于一个可测的错误耦合——**DW
+      与 ESRI 一起错**（错误 Yule's Q ≈ 0.97），而 **WC 独立出错**（Q ≈ 0）；
+      因此产品一致不是独立印证。
+  更深的“为什么耦合”（共享深度分割方法族 / 训练语料谱系 / 预处理）作为并列
+  的解释**假设**放进 Discussion，明说“证实需产品内部信息、非公开 → future
+  work”，不下“同一批训练数据”这种无法证实的强断言。
+
+C2（实际影响）
+  错误具有方向性，不是随机噪声：P(expert=non-built | WC=built) = 0.69。
+  含义：consensus filtering 可能**系统性低估**城市植被覆盖，而非仅增加随机
+  误差。
+
+C3（采样协议 —— 降级表述，不作重大方法贡献）
+  BAMS 写成 “a practical boundary-focused diagnostic sampling protocol”：小
+  预算、聚焦难点、可复现（`scripts/reproduce_bams_selection.py`，150/150 复
+  现）。**不**强调新主动学习方法 / 新采样算法，不进 active learning 文献比较
+  战场。保留一段对“为何不是挑最难点作弊”的简短防守：全程限定语 + 差分 Q 结
+  果对采样难度免疫。
+
+C4（支撑分析 —— 不作论文卖点）
+  LOCO 保留但只作 supporting evidence，证明的是“分歧中存在结构化且可迁移的
+  信息”。**不**包装成新校正框架 / 新 domain adaptation 方法。
+
+C5（方法学警示）
+  跨产品一致不应被单独视为：伪参考（pseudo-reference）/ 高置信标签 / 质量过
+  滤器。现有弱监督流程里的光谱/时相安全阀，设计上抓不住“在被组合的产品之
+  间相关存在的错误”。
+
+
+七、结果呈现顺序建议（写作时的操作说明）
+==========================================================
+Abstract / Introduction 末段 / Discussion：彻底按第五节 (1)→(2)→(3)→(4)…
+的顺序走——先“互相像却都不像专家”，再“一致是相关错误（Q）”，再“加产品零
+增益（PPV）”，最后才报一致率。
+
+Results 正文：一致性表（T1）位置不必整体前移（会让读者觉得“还没看到全貌就
+先下结论”）；改动量小的做法是把 §4.1 那段的**首句**换成“处处高的唯一一致
+是 DW=ESRI 0.87，而 Human=DW 只有 0.44”（这句现在已在段落靠后）。
+
+防“挑最难点”的反驳靠两点，不是靠换顺序：
+ (a) 全文“边界候选点上的条件量，非全图精度”限定语；
+ (b) 差分 Q 结果（0.97 vs ≈0）对样本难度和专家不完美都免疫。
+
+
+八、存在性论证原则（反复强调）
+==========================================================
+本文不估计全球流行度（prevalence），而是检验“仲裁假设是否可被视为普遍有
+效”。因此 n=6 城不用于泛化全球比例，只用于证明“明确、可重复、可解释的反例
+存在”。
+
+建议英文表述：
+“We do not estimate how common arbitration failure is globally. We test
+whether the arbitration assumption can be treated as universally valid.”
+
+
+九、Abstract / Introduction 末段建议措辞
+==========================================================
+不写：
+“This study compares three global land-cover products.”
+
+改成：
+“This study does not primarily ask which product performs best. Instead, it
+tests whether agreement among global land-cover products provides independent
+evidence of correctness. Using 900 expert-interpreted urban boundary samples
+from six cities, we show that this assumption can fail because agreement may
+reflect correlated errors rather than independent corroboration.”
+
+一句话投稿定位：
+“We do not ask which product is best. We ask whether agreement among products
+can be treated as evidence of correctness. Our results suggest that, at urban
+built-up/vegetation boundaries, the answer is often no.”
+
+
+十、scope 与局限（诚实边界）
+==========================================================
+- 一个国家、一种气候、一类城市形态、单一传感器（Sentinel-2 时代 10 m 产
+  品）；6 城是存在性刻画，不是流行度估计。
+- 长江中下游**不**当“简单区域”写——水稻/水产/湿地碎斑本身是较难的 LULC 场
+  景；选它是因为监测需求具体、参考标注能按同一标准做到位。
+- 采样与参考共享 S2 信息基：已用 4 点防守（判读整合空间/纹理/上下文/假彩红
+  外 + 亚米底图；三判读员 κ=0.89；分歧集中在高置信标签与可解释物理场景，不
+  是光谱噪声的形状；最锋利的结果 DW/ESRI 错误耦合 Q=0.97 对不完美专家稳
+  健）。
+- 置信度分层是有偏样本、场景分组不是正式分层抽样——都在“审稿人会问”里写了
+  答复。
+- LOCO 影响适度，已如实报告，不加强、不包装成方法贡献。
+
+
+十一、一句话 take-home message
+==========================================================
+Consensus is not evidence of correctness when errors are correlated —— as they
+are, at the urban built-up/vegetation boundary, for two of these three
+products. 分歧本身是有方向、有结构、可跨城迁移的信息。

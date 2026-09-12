@@ -1,0 +1,169 @@
+======== Phase C START Sun Aug  9 12:33:27 NZST 2026 ========
+device: cpu seeds: [0, 1, 2, 3, 4] epochs: 80 out: /Users/alex/Projects/gee-project/data2/nanjing_rootcause_v2/phase_c
+Phase C Nanjing: BAMS=150 high=73 budget=150
+  [seed=0] Baseline_RF OA=0.9056 BE=298
+  [seed=0] Baseline_MLP OA=0.9093 BE=280
+  [seed=0] PE_BAMS_Human_high     K=5  n_seed=73  exp=3   OA=0.9004 BE=318
+  [seed=0] PE_BAMS_Human_high     K=10 n_seed=73  exp=10  OA=0.9016 BE=309
+  [seed=0] PE_BAMS_Human_high     K=20 n_seed=73  exp=16  OA=0.9060 BE=298
+  [seed=0] PE_BAMS_Human_high     K=30 n_seed=73  exp=23  OA=0.9036 BE=309
+  [seed=0] PE_BAMS_WC_all         K=5  n_seed=150 exp=8   OA=0.9018 BE=313
+  [seed=0] PE_BAMS_WC_all         K=10 n_seed=150 exp=18  OA=0.8960 BE=339
+  [seed=0] PE_BAMS_WC_all         K=20 n_seed=150 exp=27  OA=0.9060 BE=293
+  [seed=0] PE_BAMS_WC_all         K=30 n_seed=150 exp=39  OA=0.9082 BE=288
+  [seed=0] PE_BAMS_WC_high        K=5  n_seed=73  exp=5   OA=0.9082 BE=287
+  [seed=0] PE_BAMS_WC_high        K=10 n_seed=73  exp=13  OA=0.9053 BE=292
+  [seed=0] PE_BAMS_WC_high        K=20 n_seed=73  exp=17  OA=0.9093 BE=280
+  [seed=0] PE_BAMS_WC_high        K=30 n_seed=73  exp=20  OA=0.9067 BE=291
+  [seed=0] PE_Random150_WC        K=5  n_seed=150 exp=7   OA=0.8971 BE=330
+  [seed=0] PE_Random150_WC        K=10 n_seed=150 exp=11  OA=0.8967 BE=327
+  [seed=0] PE_Random150_WC        K=20 n_seed=150 exp=20  OA=0.9064 BE=289
+  [seed=0] PE_Random150_WC        K=30 n_seed=150 exp=27  OA=0.8998 BE=309
+  [seed=0] PE_Margin150_WC        K=5  n_seed=150 exp=16  OA=0.9016 BE=316
+  [seed=0] PE_Margin150_WC        K=10 n_seed=150 exp=27  OA=0.9047 BE=302
+  [seed=0] PE_Margin150_WC        K=20 n_seed=150 exp=43  OA=0.9038 BE=312
+  [seed=0] PE_Margin150_WC        K=30 n_seed=150 exp=49  OA=0.9071 BE=295
+  [seed=0] PE_Easy150_WC          K=5  n_seed=150 exp=0   OA=0.9051 BE=305
+  [seed=0] PE_Easy150_WC          K=10 n_seed=150 exp=0   OA=0.9011 BE=311
+  [seed=0] PE_Easy150_WC          K=20 n_seed=150 exp=0   OA=0.9004 BE=319
+  [seed=0] PE_Easy150_WC          K=30 n_seed=150 exp=0   OA=0.9080 BE=277
+  [seed=1] Baseline_RF OA=0.9022 BE=308
+  [seed=1] Baseline_MLP OA=0.9091 BE=284
+  [seed=1] PE_BAMS_Human_high     K=5  n_seed=73  exp=8   OA=0.9042 BE=300
+  [seed=1] PE_BAMS_Human_high     K=10 n_seed=73  exp=14  OA=0.9009 BE=308
+  [seed=1] PE_BAMS_Human_high     K=20 n_seed=73  exp=19  OA=0.9060 BE=287
+  [seed=1] PE_BAMS_Human_high     K=30 n_seed=73  exp=23  OA=0.8971 BE=313
+  [seed=1] PE_BAMS_WC_all         K=5  n_seed=150 exp=8   OA=0.9062 BE=291
+  [seed=1] PE_BAMS_WC_all         K=10 n_seed=150 exp=13  OA=0.9091 BE=284
+  [seed=1] PE_BAMS_WC_all         K=20 n_seed=150 exp=24  OA=0.9040 BE=309
+  [seed=1] PE_BAMS_WC_all         K=30 n_seed=150 exp=36  OA=0.9069 BE=291
+  [seed=1] PE_BAMS_WC_high        K=5  n_seed=73  exp=5   OA=0.9011 BE=306
+  [seed=1] PE_BAMS_WC_high        K=10 n_seed=73  exp=10  OA=0.9022 BE=315
+  [seed=1] PE_BAMS_WC_high        K=20 n_seed=73  exp=19  OA=0.9053 BE=296
+  [seed=1] PE_BAMS_WC_high        K=30 n_seed=73  exp=29  OA=0.9073 BE=281
+  [seed=1] PE_Random150_WC        K=5  n_seed=150 exp=5   OA=0.9029 BE=299
+  [seed=1] PE_Random150_WC        K=10 n_seed=150 exp=12  OA=0.8944 BE=332
+  [seed=1] PE_Random150_WC        K=20 n_seed=150 exp=24  OA=0.9049 BE=302
+  [seed=1] PE_Random150_WC        K=30 n_seed=150 exp=34  OA=0.9071 BE=285
+  [seed=1] PE_Margin150_WC        K=5  n_seed=150 exp=17  OA=0.9093 BE=285
+  [seed=1] PE_Margin150_WC        K=10 n_seed=150 exp=26  OA=0.9071 BE=292
+  [seed=1] PE_Margin150_WC        K=20 n_seed=150 exp=38  OA=0.9024 BE=298
+  [seed=1] PE_Margin150_WC        K=30 n_seed=150 exp=48  OA=0.9049 BE=302
+  [seed=1] PE_Easy150_WC          K=5  n_seed=150 exp=0   OA=0.8978 BE=322
+  [seed=1] PE_Easy150_WC          K=10 n_seed=150 exp=0   OA=0.9069 BE=295
+  [seed=1] PE_Easy150_WC          K=20 n_seed=150 exp=0   OA=0.9016 BE=316
+  [seed=1] PE_Easy150_WC          K=30 n_seed=150 exp=0   OA=0.8944 BE=339
+  [seed=2] Baseline_RF OA=0.9042 BE=299
+  [seed=2] Baseline_MLP OA=0.9104 BE=282
+  [seed=2] PE_BAMS_Human_high     K=5  n_seed=73  exp=6   OA=0.9053 BE=290
+  [seed=2] PE_BAMS_Human_high     K=10 n_seed=73  exp=13  OA=0.9073 BE=288
+  [seed=2] PE_BAMS_Human_high     K=20 n_seed=73  exp=17  OA=0.8944 BE=339
+  [seed=2] PE_BAMS_Human_high     K=30 n_seed=73  exp=21  OA=0.9051 BE=297
+  [seed=2] PE_BAMS_WC_all         K=5  n_seed=150 exp=14  OA=0.9002 BE=315
+  [seed=2] PE_BAMS_WC_all         K=10 n_seed=150 exp=24  OA=0.9049 BE=296
+  [seed=2] PE_BAMS_WC_all         K=20 n_seed=150 exp=37  OA=0.9033 BE=299
+  [seed=2] PE_BAMS_WC_all         K=30 n_seed=150 exp=46  OA=0.8956 BE=339
+  [seed=2] PE_BAMS_WC_high        K=5  n_seed=73  exp=6   OA=0.9044 BE=295
+  [seed=2] PE_BAMS_WC_high        K=10 n_seed=73  exp=10  OA=0.8962 BE=332
+  [seed=2] PE_BAMS_WC_high        K=20 n_seed=73  exp=14  OA=0.9069 BE=285
+  [seed=2] PE_BAMS_WC_high        K=30 n_seed=73  exp=18  OA=0.9051 BE=298
+  [seed=2] PE_Random150_WC        K=5  n_seed=150 exp=4   OA=0.9069 BE=289
+  [seed=2] PE_Random150_WC        K=10 n_seed=150 exp=11  OA=0.9098 BE=276
+  [seed=2] PE_Random150_WC        K=20 n_seed=150 exp=26  OA=0.9071 BE=284
+  [seed=2] PE_Random150_WC        K=30 n_seed=150 exp=32  OA=0.8998 BE=311
+  [seed=2] PE_Margin150_WC        K=5  n_seed=150 exp=18  OA=0.9013 BE=317
+  [seed=2] PE_Margin150_WC        K=10 n_seed=150 exp=33  OA=0.9044 BE=302
+  [seed=2] PE_Margin150_WC        K=20 n_seed=150 exp=48  OA=0.9056 BE=289
+  [seed=2] PE_Margin150_WC        K=30 n_seed=150 exp=60  OA=0.9089 BE=291
+  [seed=2] PE_Easy150_WC          K=5  n_seed=150 exp=0   OA=0.9042 BE=302
+  [seed=2] PE_Easy150_WC          K=10 n_seed=150 exp=0   OA=0.9022 BE=315
+  [seed=2] PE_Easy150_WC          K=20 n_seed=150 exp=1   OA=0.9047 BE=291
+  [seed=2] PE_Easy150_WC          K=30 n_seed=150 exp=1   OA=0.9062 BE=298
+  [seed=3] Baseline_RF OA=0.9033 BE=304
+  [seed=3] Baseline_MLP OA=0.9107 BE=278
+  [seed=3] PE_BAMS_Human_high     K=5  n_seed=73  exp=8   OA=0.9033 BE=308
+  [seed=3] PE_BAMS_Human_high     K=10 n_seed=73  exp=14  OA=0.9060 BE=292
+  [seed=3] PE_BAMS_Human_high     K=20 n_seed=73  exp=21  OA=0.9020 BE=302
+  [seed=3] PE_BAMS_Human_high     K=30 n_seed=73  exp=23  OA=0.8984 BE=332
+  [seed=3] PE_BAMS_WC_all         K=5  n_seed=150 exp=9   OA=0.9056 BE=300
+  [seed=3] PE_BAMS_WC_all         K=10 n_seed=150 exp=13  OA=0.9071 BE=287
+  [seed=3] PE_BAMS_WC_all         K=20 n_seed=150 exp=16  OA=0.9056 BE=301
+  [seed=3] PE_BAMS_WC_all         K=30 n_seed=150 exp=17  OA=0.9093 BE=286
+  [seed=3] PE_BAMS_WC_high        K=5  n_seed=73  exp=10  OA=0.9049 BE=304
+  [seed=3] PE_BAMS_WC_high        K=10 n_seed=73  exp=21  OA=0.9060 BE=294
+  [seed=3] PE_BAMS_WC_high        K=20 n_seed=73  exp=28  OA=0.9002 BE=317
+  [seed=3] PE_BAMS_WC_high        K=30 n_seed=73  exp=39  OA=0.8964 BE=335
+  [seed=3] PE_Random150_WC        K=5  n_seed=150 exp=4   OA=0.9011 BE=312
+  [seed=3] PE_Random150_WC        K=10 n_seed=150 exp=8   OA=0.9096 BE=277
+  [seed=3] PE_Random150_WC        K=20 n_seed=150 exp=14  OA=0.9067 BE=291
+  [seed=3] PE_Random150_WC        K=30 n_seed=150 exp=19  OA=0.9080 BE=296
+  [seed=3] PE_Margin150_WC        K=5  n_seed=150 exp=22  OA=0.9082 BE=292
+  [seed=3] PE_Margin150_WC        K=10 n_seed=150 exp=32  OA=0.9062 BE=297
+  [seed=3] PE_Margin150_WC        K=20 n_seed=150 exp=42  OA=0.8987 BE=328
+  [seed=3] PE_Margin150_WC        K=30 n_seed=150 exp=49  OA=0.9102 BE=287
+  [seed=3] PE_Easy150_WC          K=5  n_seed=150 exp=0   OA=0.9053 BE=298
+  [seed=3] PE_Easy150_WC          K=10 n_seed=150 exp=0   OA=0.9033 BE=308
+  [seed=3] PE_Easy150_WC          K=20 n_seed=150 exp=0   OA=0.9029 BE=302
+  [seed=3] PE_Easy150_WC          K=30 n_seed=150 exp=0   OA=0.9038 BE=304
+  [seed=4] Baseline_RF OA=0.9004 BE=312
+  [seed=4] Baseline_MLP OA=0.9078 BE=291
+  [seed=4] PE_BAMS_Human_high     K=5  n_seed=73  exp=8   OA=0.9076 BE=288
+  [seed=4] PE_BAMS_Human_high     K=10 n_seed=73  exp=13  OA=0.9049 BE=295
+  [seed=4] PE_BAMS_Human_high     K=20 n_seed=73  exp=21  OA=0.9071 BE=284
+  [seed=4] PE_BAMS_Human_high     K=30 n_seed=73  exp=26  OA=0.9016 BE=312
+  [seed=4] PE_BAMS_WC_all         K=5  n_seed=150 exp=10  OA=0.9042 BE=303
+  [seed=4] PE_BAMS_WC_all         K=10 n_seed=150 exp=13  OA=0.9027 BE=309
+  [seed=4] PE_BAMS_WC_all         K=20 n_seed=150 exp=18  OA=0.9038 BE=293
+  [seed=4] PE_BAMS_WC_all         K=30 n_seed=150 exp=24  OA=0.9069 BE=283
+  [seed=4] PE_BAMS_WC_high        K=5  n_seed=73  exp=11  OA=0.9058 BE=306
+  [seed=4] PE_BAMS_WC_high        K=10 n_seed=73  exp=16  OA=0.9038 BE=305
+  [seed=4] PE_BAMS_WC_high        K=20 n_seed=73  exp=26  OA=0.9113 BE=277
+  [seed=4] PE_BAMS_WC_high        K=30 n_seed=73  exp=33  OA=0.9053 BE=301
+  [seed=4] PE_Random150_WC        K=5  n_seed=150 exp=1   OA=0.9089 BE=280
+  [seed=4] PE_Random150_WC        K=10 n_seed=150 exp=6   OA=0.9064 BE=288
+  [seed=4] PE_Random150_WC        K=20 n_seed=150 exp=14  OA=0.9073 BE=292
+  [seed=4] PE_Random150_WC        K=30 n_seed=150 exp=21  OA=0.9091 BE=288
+  [seed=4] PE_Margin150_WC        K=5  n_seed=150 exp=20  OA=0.9087 BE=277
+  [seed=4] PE_Margin150_WC        K=10 n_seed=150 exp=33  OA=0.9100 BE=285
+  [seed=4] PE_Margin150_WC        K=20 n_seed=150 exp=42  OA=0.9116 BE=267
+  [seed=4] PE_Margin150_WC        K=30 n_seed=150 exp=50  OA=0.9093 BE=283
+  [seed=4] PE_Easy150_WC          K=5  n_seed=150 exp=0   OA=0.9069 BE=293
+  [seed=4] PE_Easy150_WC          K=10 n_seed=150 exp=0   OA=0.9024 BE=314
+  [seed=4] PE_Easy150_WC          K=20 n_seed=150 exp=0   OA=0.9036 BE=288
+  [seed=4] PE_Easy150_WC          K=30 n_seed=150 exp=0   OA=0.9040 BE=304
+
+# Nanjing Phase C — sampling contrast (H2)
+
+- BAMS n=150 high=73; budget=150
+
+- All PE_*_WC use WorldCover labels on the selected positions.
+
+- PE_BAMS_Human_high is the passport reference only.
+
+
+## Mean over seeds
+
+
+            Method  OA_mean   OA_std  dOA_vs_RF_pp  dOA_vs_MLP_pp  BE_mean  dBE_vs_RF  dBE_vs_MLP  n_seed_mean  n_exp_mean
+       Baseline_RF 0.903156 0.001741      0.000000      -0.631111    304.2        0.0        21.2          0.0         NaN
+      Baseline_MLP 0.909467 0.001039      0.631111       0.000000    283.0      -21.2         0.0          0.0         NaN
+PE_BAMS_Human_high 0.906489 0.000603      0.333333      -0.297778    289.8      -14.4         6.8         73.0        16.6
+    PE_BAMS_WC_all 0.907689 0.001643      0.453333      -0.177778    287.4      -16.8         4.4        150.0        23.4
+   PE_BAMS_WC_high 0.908178 0.001919      0.502222      -0.128889    283.4      -20.8         0.4         73.0        21.4
+   PE_Random150_WC 0.908356 0.001338      0.520000      -0.111111    281.4      -22.8        -1.6        150.0        14.8
+   PE_Margin150_WC 0.908756 0.002157      0.560000      -0.071111    284.6      -19.6         1.6        150.0        41.0
+     PE_Easy150_WC 0.905689 0.001581      0.253333      -0.377778    289.8      -14.4         6.8        150.0         0.2
+
+
+## Reading guide
+
+- H2 (BAMS locations toxic): Random_WC / Easy_WC ≫ BAMS_WC.
+
+- City-hard / PE weak: all WC samplers stuck near ~0–0.5 pp vs RF.
+
+- Margin≈BAMS: uncertainty sampling same regime as BAMS.
+
+
+Wrote /Users/alex/Projects/gee-project/data2/nanjing_rootcause_v2/phase_c
+EXIT:0
+======== Phase C END Sun Aug  9 12:42:50 NZST 2026 ========

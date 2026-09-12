@@ -1,0 +1,91 @@
+
+======================================================================
+T1 four-way agreement
+======================================================================
+    city   n  human=WC human=WC_CI  human=DW  human=ESRI  WC=DW  WC=ESRI  DW=ESRI  tri(H,DW,ESRI)_agree  all4_agree  n_dwesri
+   Wuhan 150     0.413 [0.34,0.49]     0.507       0.500  0.467    0.453    0.907                 0.467       0.193       150
+   Hefei 150     0.507 [0.43,0.59]     0.393       0.407  0.487    0.527    0.833                 0.327       0.173       150
+Nanchang 150     0.460 [0.38,0.54]     0.387       0.360  0.360    0.453    0.813                 0.293       0.113       150
+ Nanjing 150     0.320 [0.25,0.40]     0.427       0.433  0.467    0.473    0.927                 0.400       0.107       150
+Changsha 150     0.507 [0.43,0.59]     0.433       0.353  0.493    0.473    0.867                 0.333       0.180       150
+Hangzhou 150     0.533 [0.45,0.61]     0.467       0.427  0.353    0.333    0.873                 0.400       0.167       150
+  ALL(6) 900     0.457 [0.42,0.49]     0.436       0.413  0.438    0.452    0.870                 0.370       0.156       900
+
+======================================================================
+T2 confidence-stratified WC<->Human
+======================================================================
+    city  all_n  all_WC_disagree      all_CI  high_n  high_WC_disagree     high_CI  high+med_n  high+med_WC_disagree high+med_CI
+   Wuhan    150            0.587 [0.51,0.66]      81             0.877 [0.79,0.93]         146                 0.582 [0.50,0.66]
+   Hefei    150            0.493 [0.41,0.57]      81             0.531 [0.42,0.64]         145                 0.490 [0.41,0.57]
+Nanchang    150            0.540 [0.46,0.62]      42             1.000 [0.92,1.00]         150                 0.540 [0.46,0.62]
+ Nanjing    150            0.680 [0.60,0.75]      73             0.616 [0.50,0.72]         133                 0.677 [0.59,0.75]
+Changsha    150            0.493 [0.41,0.57]      78             0.577 [0.47,0.68]         109                 0.569 [0.48,0.66]
+Hangzhou    150            0.467 [0.39,0.55]      81             0.580 [0.47,0.68]         123                 0.528 [0.44,0.61]
+  ALL(6)    900            0.543 [0.51,0.58]     436             0.672 [0.63,0.71]         806                 0.563 [0.53,0.60]
+
+======================================================================
+T3a WC->Human confusion (boundary points)
+======================================================================
+         row     city  built  non-built  water
+    WC=built    Wuhan     11         34      0
+WC=non-built    Wuhan     41         38      5
+    WC=water    Wuhan      0          8     13
+    WC=built    Hefei     19         42      2
+WC=non-built    Hefei     24         50      3
+    WC=water    Hefei      1          2      7
+    WC=built Nanchang      7         28      2
+WC=non-built Nanchang     22         53     13
+    WC=water Nanchang      0         16      9
+    WC=built  Nanjing     10         41      1
+WC=non-built  Nanjing     36         33     12
+    WC=water  Nanjing      4          8      5
+    WC=built Changsha     14         28      5
+WC=non-built Changsha     17         48     15
+    WC=water Changsha      2          7     14
+    WC=built Hangzhou      3         14      2
+WC=non-built Hangzhou     29         57     14
+    WC=water Hangzhou      3          8     20
+    WC=built   ALL(6)     64        187     12
+WC=non-built   ALL(6)    169        279     62
+    WC=water   ALL(6)     10         49     68
+
+======================================================================
+T3b direction of WC error
+======================================================================
+    city   n  n_WC=built  P(expert=non-built | WC=built)  P(expert=water | WC=built)  n_WC=non-built  P(expert=built | WC=non-built)  P(expert=water | WC=non-built)  net_built_over_call
+   Wuhan 150          45                           0.756                       0.000              84                           0.488                           0.060               -0.047
+   Hefei 150          63                           0.667                       0.032              77                           0.312                           0.039                0.120
+Nanchang 150          37                           0.757                       0.054              88                           0.250                           0.148                0.040
+ Nanjing 150          52                           0.788                       0.019              81                           0.444                           0.148                0.033
+Changsha 150          47                           0.596                       0.106              80                           0.212                           0.188                0.073
+Hangzhou 150          19                           0.737                       0.105             100                           0.290                           0.140               -0.100
+  ALL(6) 900         263                           0.711                       0.046             510                           0.331                           0.122                0.020
+
+======================================================================
+T4 scene x disagreement (pooled)
+======================================================================
+                 Scene_group   n  n_disagree  disagree_pct    CI95
+Built-up edge / urban fabric 158         109          69.0 [61,76]
+           Urban green space  42          29          69.0 [54,81]
+                Other / misc   6           4          66.7 [30,90]
+            Road / road edge 106          67          63.2 [54,72]
+          Water / water edge 162          95          58.6 [51,66]
+    Vegetation / forest edge 106          59          55.7 [46,65]
+ Rural settlement / surfaces  40          16          40.0 [26,55]
+    Paddy / cropland / field  18           7          38.9 [20,61]
+    Bare land / construction  65          25          38.5 [28,51]
+ Cropland / paddy transition  11           4          36.4 [15,65]
+             Mixed / complex  24           7          29.2 [15,49]
+     Greenhouse / polytunnel   9           1          11.1  [2,44]
+      Soft boundary / shadow   3           0           0.0  [0,56]
+
+======================================================================
+T5 LOCO operator digest
+======================================================================
+held_out  wc_vs_human_acc  operator_acc  n_operator_fires  fire_precision_vs_human  OA_vs_Human  changed_toward_Human_frac  n_changed
+   Wuhan         0.413333      0.733333                19                 0.736842     0.473333                   0.736842         19
+   Hefei         0.506667      0.666667                32                 0.687500     0.586667                   0.687500         32
+Nanchang         0.460000      0.740000                11                 0.818182     0.506667                   0.818182         11
+ Nanjing         0.320000      0.753333                16                 0.875000     0.400000                   0.875000         16
+Changsha         0.506667      0.733333                20                 0.850000     0.606667                   0.850000         20
+Hangzhou         0.533333      0.686667                 4                 1.000000     0.560000                   1.000000          4

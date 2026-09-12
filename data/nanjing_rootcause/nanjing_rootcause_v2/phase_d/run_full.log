@@ -1,0 +1,221 @@
+======== Phase D START Sun Aug  9 13:11:26 NZST 2026 ========
+device: cpu seeds: [0, 1, 2, 3, 4] epochs: 80 out: /Users/alex/Projects/gee-project/data2/nanjing_rootcause_v2/phase_d
+Phase D: high seeds=73, human≠WC=45 (61.6%)
+  [seed=0] Baseline_RF OA=0.9056 BE=298
+  [seed=0] Baseline_MLP OA=0.9093 BE=280
+  [seed=0] BAMS_Human_high  SeedsOnly n_seed=73 OA=0.9051 BE=293
+  [seed=0] BAMS_Human_high/PE_std       K=5  exp=3   (agreeWC=0/3) OA=0.9004 BE=318
+  [seed=0] BAMS_Human_high/PE_std       K=10 exp=10  (agreeWC=4/10) OA=0.9016 BE=309
+  [seed=0] BAMS_Human_high/PE_std       K=20 exp=16  (agreeWC=9/16) OA=0.9060 BE=298
+  [seed=0] BAMS_Human_high/PE_std       K=30 exp=23  (agreeWC=13/23) OA=0.9036 BE=309
+  [seed=0] BAMS_Human_high/PE_tight     K=5  exp=2   (agreeWC=0/2) OA=0.9027 BE=298
+  [seed=0] BAMS_Human_high/PE_tight     K=10 exp=5   (agreeWC=1/5) OA=0.9071 BE=292
+  [seed=0] BAMS_Human_high/PE_tight     K=20 exp=8   (agreeWC=3/8) OA=0.8996 BE=314
+  [seed=0] BAMS_Human_high/PE_tight     K=30 exp=9   (agreeWC=4/9) OA=0.9087 BE=286
+  [seed=0] BAMS_Human_high/PE_nolimit   K=5  exp=100 (agreeWC=53/100) OA=0.9000 BE=315
+  [seed=0] BAMS_Human_high/PE_nolimit   K=10 exp=199 (agreeWC=112/199) OA=0.9049 BE=302
+  [seed=0] BAMS_Human_high/PE_nolimit   K=20 exp=348 (agreeWC=196/348) OA=0.8982 BE=326
+  [seed=0] BAMS_Human_high/PE_nolimit   K=30 exp=489 (agreeWC=280/489) OA=0.9018 BE=301
+  [seed=0] BAMS_Human_high/PE_expAgreeWC K=5  exp=0   (agreeWC=0/3) OA=0.8989 BE=323
+  [seed=0] BAMS_Human_high/PE_expAgreeWC K=10 exp=4   (agreeWC=4/10) OA=0.9036 BE=305
+  [seed=0] BAMS_Human_high/PE_expAgreeWC K=20 exp=9   (agreeWC=9/16) OA=0.9040 BE=308
+  [seed=0] BAMS_Human_high/PE_expAgreeWC K=30 exp=13  (agreeWC=13/23) OA=0.8940 BE=334
+  [seed=0] BAMS_WC_high     SeedsOnly n_seed=73 OA=0.9069 BE=292
+  [seed=0] BAMS_WC_high/PE_std          K=5  exp=5   (agreeWC=4/5) OA=0.9082 BE=287
+  [seed=0] BAMS_WC_high/PE_std          K=10 exp=13  (agreeWC=9/13) OA=0.9053 BE=292
+  [seed=0] BAMS_WC_high/PE_std          K=20 exp=17  (agreeWC=10/17) OA=0.9093 BE=280
+  [seed=0] BAMS_WC_high/PE_std          K=30 exp=20  (agreeWC=11/20) OA=0.9067 BE=291
+  [seed=0] BAMS_WC_high/PE_tight        K=5  exp=1   (agreeWC=1/1) OA=0.8980 BE=330
+  [seed=0] BAMS_WC_high/PE_tight        K=10 exp=5   (agreeWC=3/5) OA=0.9049 BE=301
+  [seed=0] BAMS_WC_high/PE_tight        K=20 exp=7   (agreeWC=3/7) OA=0.9073 BE=289
+  [seed=0] BAMS_WC_high/PE_tight        K=30 exp=7   (agreeWC=3/7) OA=0.9000 BE=311
+  [seed=0] BAMS_WC_high/PE_nolimit      K=5  exp=100 (agreeWC=39/100) OA=0.9053 BE=302
+  [seed=0] BAMS_WC_high/PE_nolimit      K=10 exp=199 (agreeWC=74/199) OA=0.9051 BE=300
+  [seed=0] BAMS_WC_high/PE_nolimit      K=20 exp=348 (agreeWC=126/348) OA=0.8891 BE=370
+  [seed=0] BAMS_WC_high/PE_nolimit      K=30 exp=489 (agreeWC=176/489) OA=0.8969 BE=317
+  [seed=0] BAMS_WC_high/PE_expAgreeWC   K=5  exp=4   (agreeWC=4/5) OA=0.8958 BE=339
+  [seed=0] BAMS_WC_high/PE_expAgreeWC   K=10 exp=9   (agreeWC=9/13) OA=0.9031 BE=307
+  [seed=0] BAMS_WC_high/PE_expAgreeWC   K=20 exp=10  (agreeWC=10/17) OA=0.9024 BE=303
+  [seed=0] BAMS_WC_high/PE_expAgreeWC   K=30 exp=11  (agreeWC=11/20) OA=0.9036 BE=304
+  [seed=1] Baseline_RF OA=0.9022 BE=308
+  [seed=1] Baseline_MLP OA=0.9091 BE=284
+  [seed=1] BAMS_Human_high  SeedsOnly n_seed=73 OA=0.9100 BE=279
+  [seed=1] BAMS_Human_high/PE_std       K=5  exp=8   (agreeWC=1/8) OA=0.9042 BE=300
+  [seed=1] BAMS_Human_high/PE_std       K=10 exp=14  (agreeWC=7/14) OA=0.9009 BE=308
+  [seed=1] BAMS_Human_high/PE_std       K=20 exp=19  (agreeWC=10/19) OA=0.9060 BE=287
+  [seed=1] BAMS_Human_high/PE_std       K=30 exp=23  (agreeWC=13/23) OA=0.8971 BE=313
+  [seed=1] BAMS_Human_high/PE_tight     K=5  exp=2   (agreeWC=0/2) OA=0.9040 BE=302
+  [seed=1] BAMS_Human_high/PE_tight     K=10 exp=5   (agreeWC=3/5) OA=0.9042 BE=299
+  [seed=1] BAMS_Human_high/PE_tight     K=20 exp=6   (agreeWC=4/6) OA=0.8978 BE=319
+  [seed=1] BAMS_Human_high/PE_tight     K=30 exp=6   (agreeWC=4/6) OA=0.9058 BE=292
+  [seed=1] BAMS_Human_high/PE_nolimit   K=5  exp=100 (agreeWC=53/100) OA=0.9040 BE=283
+  [seed=1] BAMS_Human_high/PE_nolimit   K=10 exp=199 (agreeWC=112/199) OA=0.9082 BE=285
+  [seed=1] BAMS_Human_high/PE_nolimit   K=20 exp=348 (agreeWC=196/348) OA=0.9071 BE=287
+  [seed=1] BAMS_Human_high/PE_nolimit   K=30 exp=489 (agreeWC=280/489) OA=0.9073 BE=286
+  [seed=1] BAMS_Human_high/PE_expAgreeWC K=5  exp=1   (agreeWC=1/8) OA=0.9020 BE=311
+  [seed=1] BAMS_Human_high/PE_expAgreeWC K=10 exp=7   (agreeWC=7/14) OA=0.9044 BE=296
+  [seed=1] BAMS_Human_high/PE_expAgreeWC K=20 exp=10  (agreeWC=10/19) OA=0.9042 BE=297
+  [seed=1] BAMS_Human_high/PE_expAgreeWC K=30 exp=13  (agreeWC=13/23) OA=0.9062 BE=288
+  [seed=1] BAMS_WC_high     SeedsOnly n_seed=73 OA=0.9078 BE=294
+  [seed=1] BAMS_WC_high/PE_std          K=5  exp=5   (agreeWC=4/5) OA=0.9011 BE=306
+  [seed=1] BAMS_WC_high/PE_std          K=10 exp=10  (agreeWC=5/10) OA=0.9022 BE=315
+  [seed=1] BAMS_WC_high/PE_std          K=20 exp=19  (agreeWC=8/19) OA=0.9053 BE=296
+  [seed=1] BAMS_WC_high/PE_std          K=30 exp=29  (agreeWC=13/29) OA=0.9073 BE=281
+  [seed=1] BAMS_WC_high/PE_tight        K=5  exp=1   (agreeWC=1/1) OA=0.9049 BE=297
+  [seed=1] BAMS_WC_high/PE_tight        K=10 exp=3   (agreeWC=2/3) OA=0.9096 BE=285
+  [seed=1] BAMS_WC_high/PE_tight        K=20 exp=6   (agreeWC=3/6) OA=0.8944 BE=349
+  [seed=1] BAMS_WC_high/PE_tight        K=30 exp=7   (agreeWC=3/7) OA=0.9013 BE=304
+  [seed=1] BAMS_WC_high/PE_nolimit      K=5  exp=100 (agreeWC=39/100) OA=0.9024 BE=301
+  [seed=1] BAMS_WC_high/PE_nolimit      K=10 exp=199 (agreeWC=74/199) OA=0.9080 BE=292
+  [seed=1] BAMS_WC_high/PE_nolimit      K=20 exp=348 (agreeWC=126/348) OA=0.9038 BE=305
+  [seed=1] BAMS_WC_high/PE_nolimit      K=30 exp=489 (agreeWC=176/489) OA=0.9053 BE=300
+  [seed=1] BAMS_WC_high/PE_expAgreeWC   K=5  exp=4   (agreeWC=4/5) OA=0.9018 BE=306
+  [seed=1] BAMS_WC_high/PE_expAgreeWC   K=10 exp=5   (agreeWC=5/10) OA=0.9058 BE=291
+  [seed=1] BAMS_WC_high/PE_expAgreeWC   K=20 exp=8   (agreeWC=8/19) OA=0.9069 BE=286
+  [seed=1] BAMS_WC_high/PE_expAgreeWC   K=30 exp=13  (agreeWC=13/29) OA=0.9098 BE=283
+  [seed=2] Baseline_RF OA=0.9042 BE=299
+  [seed=2] Baseline_MLP OA=0.9104 BE=282
+  [seed=2] BAMS_Human_high  SeedsOnly n_seed=73 OA=0.8976 BE=329
+  [seed=2] BAMS_Human_high/PE_std       K=5  exp=6   (agreeWC=2/6) OA=0.9053 BE=290
+  [seed=2] BAMS_Human_high/PE_std       K=10 exp=13  (agreeWC=8/13) OA=0.9073 BE=288
+  [seed=2] BAMS_Human_high/PE_std       K=20 exp=17  (agreeWC=11/17) OA=0.8944 BE=339
+  [seed=2] BAMS_Human_high/PE_std       K=30 exp=21  (agreeWC=11/21) OA=0.9051 BE=297
+  [seed=2] BAMS_Human_high/PE_tight     K=5  exp=2   (agreeWC=2/2) OA=0.9071 BE=281
+  [seed=2] BAMS_Human_high/PE_tight     K=10 exp=5   (agreeWC=4/5) OA=0.9067 BE=293
+  [seed=2] BAMS_Human_high/PE_tight     K=20 exp=7   (agreeWC=6/7) OA=0.9044 BE=302
+  [seed=2] BAMS_Human_high/PE_tight     K=30 exp=9   (agreeWC=7/9) OA=0.8998 BE=321
+  [seed=2] BAMS_Human_high/PE_nolimit   K=5  exp=100 (agreeWC=53/100) OA=0.8998 BE=310
+  [seed=2] BAMS_Human_high/PE_nolimit   K=10 exp=199 (agreeWC=112/199) OA=0.9009 BE=311
+  [seed=2] BAMS_Human_high/PE_nolimit   K=20 exp=348 (agreeWC=196/348) OA=0.9018 BE=309
+  [seed=2] BAMS_Human_high/PE_nolimit   K=30 exp=489 (agreeWC=280/489) OA=0.9076 BE=283
+  [seed=2] BAMS_Human_high/PE_expAgreeWC K=5  exp=2   (agreeWC=2/6) OA=0.9071 BE=281
+  [seed=2] BAMS_Human_high/PE_expAgreeWC K=10 exp=8   (agreeWC=8/13) OA=0.9033 BE=305
+  [seed=2] BAMS_Human_high/PE_expAgreeWC K=20 exp=11  (agreeWC=11/17) OA=0.9082 BE=278
+  [seed=2] BAMS_Human_high/PE_expAgreeWC K=30 exp=11  (agreeWC=11/21) OA=0.8998 BE=319
+  [seed=2] BAMS_WC_high     SeedsOnly n_seed=73 OA=0.9044 BE=303
+  [seed=2] BAMS_WC_high/PE_std          K=5  exp=6   (agreeWC=4/6) OA=0.9044 BE=295
+  [seed=2] BAMS_WC_high/PE_std          K=10 exp=10  (agreeWC=5/10) OA=0.8962 BE=332
+  [seed=2] BAMS_WC_high/PE_std          K=20 exp=14  (agreeWC=5/14) OA=0.9069 BE=285
+  [seed=2] BAMS_WC_high/PE_std          K=30 exp=18  (agreeWC=8/18) OA=0.9051 BE=298
+  [seed=2] BAMS_WC_high/PE_tight        K=5  exp=1   (agreeWC=0/1) OA=0.9044 BE=302
+  [seed=2] BAMS_WC_high/PE_tight        K=10 exp=1   (agreeWC=0/1) OA=0.9058 BE=294
+  [seed=2] BAMS_WC_high/PE_tight        K=20 exp=2   (agreeWC=0/2) OA=0.9093 BE=276
+  [seed=2] BAMS_WC_high/PE_tight        K=30 exp=4   (agreeWC=1/4) OA=0.9024 BE=310
+  [seed=2] BAMS_WC_high/PE_nolimit      K=5  exp=100 (agreeWC=39/100) OA=0.9024 BE=303
+  [seed=2] BAMS_WC_high/PE_nolimit      K=10 exp=199 (agreeWC=74/199) OA=0.9024 BE=311
+  [seed=2] BAMS_WC_high/PE_nolimit      K=20 exp=348 (agreeWC=126/348) OA=0.9029 BE=306
+  [seed=2] BAMS_WC_high/PE_nolimit      K=30 exp=489 (agreeWC=176/489) OA=0.9056 BE=299
+  [seed=2] BAMS_WC_high/PE_expAgreeWC   K=5  exp=4   (agreeWC=4/6) OA=0.9058 BE=291
+  [seed=2] BAMS_WC_high/PE_expAgreeWC   K=10 exp=5   (agreeWC=5/10) OA=0.9056 BE=294
+  [seed=2] BAMS_WC_high/PE_expAgreeWC   K=20 exp=5   (agreeWC=5/14) OA=0.9071 BE=292
+  [seed=2] BAMS_WC_high/PE_expAgreeWC   K=30 exp=8   (agreeWC=8/18) OA=0.8967 BE=328
+  [seed=3] Baseline_RF OA=0.9033 BE=304
+  [seed=3] Baseline_MLP OA=0.9107 BE=278
+  [seed=3] BAMS_Human_high  SeedsOnly n_seed=73 OA=0.9051 BE=293
+  [seed=3] BAMS_Human_high/PE_std       K=5  exp=8   (agreeWC=2/8) OA=0.9033 BE=308
+  [seed=3] BAMS_Human_high/PE_std       K=10 exp=14  (agreeWC=7/14) OA=0.9060 BE=292
+  [seed=3] BAMS_Human_high/PE_std       K=20 exp=21  (agreeWC=9/21) OA=0.9020 BE=302
+  [seed=3] BAMS_Human_high/PE_std       K=30 exp=23  (agreeWC=12/23) OA=0.8984 BE=332
+  [seed=3] BAMS_Human_high/PE_tight     K=5  exp=2   (agreeWC=1/2) OA=0.9060 BE=294
+  [seed=3] BAMS_Human_high/PE_tight     K=10 exp=4   (agreeWC=3/4) OA=0.9080 BE=291
+  [seed=3] BAMS_Human_high/PE_tight     K=20 exp=6   (agreeWC=4/6) OA=0.9042 BE=300
+  [seed=3] BAMS_Human_high/PE_tight     K=30 exp=8   (agreeWC=6/8) OA=0.9009 BE=314
+  [seed=3] BAMS_Human_high/PE_nolimit   K=5  exp=100 (agreeWC=53/100) OA=0.9024 BE=309
+  [seed=3] BAMS_Human_high/PE_nolimit   K=10 exp=199 (agreeWC=112/199) OA=0.9033 BE=288
+  [seed=3] BAMS_Human_high/PE_nolimit   K=20 exp=348 (agreeWC=196/348) OA=0.9042 BE=305
+  [seed=3] BAMS_Human_high/PE_nolimit   K=30 exp=489 (agreeWC=280/489) OA=0.8978 BE=329
+  [seed=3] BAMS_Human_high/PE_expAgreeWC K=5  exp=2   (agreeWC=2/8) OA=0.9058 BE=296
+  [seed=3] BAMS_Human_high/PE_expAgreeWC K=10 exp=7   (agreeWC=7/14) OA=0.9040 BE=294
+  [seed=3] BAMS_Human_high/PE_expAgreeWC K=20 exp=9   (agreeWC=9/21) OA=0.9060 BE=294
+  [seed=3] BAMS_Human_high/PE_expAgreeWC K=30 exp=12  (agreeWC=12/23) OA=0.9022 BE=308
+  [seed=3] BAMS_WC_high     SeedsOnly n_seed=73 OA=0.9078 BE=289
+  [seed=3] BAMS_WC_high/PE_std          K=5  exp=10  (agreeWC=5/10) OA=0.9049 BE=304
+  [seed=3] BAMS_WC_high/PE_std          K=10 exp=21  (agreeWC=7/21) OA=0.9060 BE=294
+  [seed=3] BAMS_WC_high/PE_std          K=20 exp=28  (agreeWC=9/28) OA=0.9002 BE=317
+  [seed=3] BAMS_WC_high/PE_std          K=30 exp=39  (agreeWC=16/39) OA=0.8964 BE=335
+  [seed=3] BAMS_WC_high/PE_tight        K=5  exp=3   (agreeWC=1/3) OA=0.9018 BE=318
+  [seed=3] BAMS_WC_high/PE_tight        K=10 exp=6   (agreeWC=1/6) OA=0.9031 BE=310
+  [seed=3] BAMS_WC_high/PE_tight        K=20 exp=10  (agreeWC=3/10) OA=0.9011 BE=317
+  [seed=3] BAMS_WC_high/PE_tight        K=30 exp=13  (agreeWC=4/13) OA=0.9071 BE=296
+  [seed=3] BAMS_WC_high/PE_nolimit      K=5  exp=100 (agreeWC=39/100) OA=0.8998 BE=321
+  [seed=3] BAMS_WC_high/PE_nolimit      K=10 exp=199 (agreeWC=74/199) OA=0.9024 BE=294
+  [seed=3] BAMS_WC_high/PE_nolimit      K=20 exp=348 (agreeWC=126/348) OA=0.9042 BE=302
+  [seed=3] BAMS_WC_high/PE_nolimit      K=30 exp=489 (agreeWC=176/489) OA=0.8982 BE=328
+  [seed=3] BAMS_WC_high/PE_expAgreeWC   K=5  exp=5   (agreeWC=5/10) OA=0.9042 BE=302
+  [seed=3] BAMS_WC_high/PE_expAgreeWC   K=10 exp=7   (agreeWC=7/21) OA=0.9091 BE=288
+  [seed=3] BAMS_WC_high/PE_expAgreeWC   K=20 exp=9   (agreeWC=9/28) OA=0.9071 BE=293
+  [seed=3] BAMS_WC_high/PE_expAgreeWC   K=30 exp=16  (agreeWC=16/39) OA=0.8987 BE=320
+  [seed=4] Baseline_RF OA=0.9004 BE=312
+  [seed=4] Baseline_MLP OA=0.9078 BE=291
+  [seed=4] BAMS_Human_high  SeedsOnly n_seed=73 OA=0.8996 BE=322
+  [seed=4] BAMS_Human_high/PE_std       K=5  exp=8   (agreeWC=4/8) OA=0.9076 BE=288
+  [seed=4] BAMS_Human_high/PE_std       K=10 exp=13  (agreeWC=7/13) OA=0.9049 BE=295
+  [seed=4] BAMS_Human_high/PE_std       K=20 exp=21  (agreeWC=9/21) OA=0.9071 BE=284
+  [seed=4] BAMS_Human_high/PE_std       K=30 exp=26  (agreeWC=11/26) OA=0.9016 BE=312
+  [seed=4] BAMS_Human_high/PE_tight     K=5  exp=3   (agreeWC=2/3) OA=0.9064 BE=297
+  [seed=4] BAMS_Human_high/PE_tight     K=10 exp=4   (agreeWC=3/4) OA=0.8987 BE=328
+  [seed=4] BAMS_Human_high/PE_tight     K=20 exp=10  (agreeWC=4/10) OA=0.9082 BE=285
+  [seed=4] BAMS_Human_high/PE_tight     K=30 exp=10  (agreeWC=3/10) OA=0.9073 BE=289
+  [seed=4] BAMS_Human_high/PE_nolimit   K=5  exp=100 (agreeWC=53/100) OA=0.9056 BE=296
+  [seed=4] BAMS_Human_high/PE_nolimit   K=10 exp=199 (agreeWC=112/199) OA=0.9024 BE=312
+  [seed=4] BAMS_Human_high/PE_nolimit   K=20 exp=348 (agreeWC=196/348) OA=0.8998 BE=308
+  [seed=4] BAMS_Human_high/PE_nolimit   K=30 exp=489 (agreeWC=280/489) OA=0.9062 BE=297
+  [seed=4] BAMS_Human_high/PE_expAgreeWC K=5  exp=4   (agreeWC=4/8) OA=0.9071 BE=292
+  [seed=4] BAMS_Human_high/PE_expAgreeWC K=10 exp=7   (agreeWC=7/13) OA=0.9069 BE=294
+  [seed=4] BAMS_Human_high/PE_expAgreeWC K=20 exp=9   (agreeWC=9/21) OA=0.8987 BE=310
+  [seed=4] BAMS_Human_high/PE_expAgreeWC K=30 exp=11  (agreeWC=11/26) OA=0.9093 BE=286
+  [seed=4] BAMS_WC_high     SeedsOnly n_seed=73 OA=0.8987 BE=329
+  [seed=4] BAMS_WC_high/PE_std          K=5  exp=11  (agreeWC=5/11) OA=0.9058 BE=306
+  [seed=4] BAMS_WC_high/PE_std          K=10 exp=16  (agreeWC=7/16) OA=0.9038 BE=305
+  [seed=4] BAMS_WC_high/PE_std          K=20 exp=26  (agreeWC=8/26) OA=0.9113 BE=277
+  [seed=4] BAMS_WC_high/PE_std          K=30 exp=33  (agreeWC=13/33) OA=0.9053 BE=301
+  [seed=4] BAMS_WC_high/PE_tight        K=5  exp=6   (agreeWC=3/6) OA=0.9022 BE=318
+  [seed=4] BAMS_WC_high/PE_tight        K=10 exp=8   (agreeWC=4/8) OA=0.9051 BE=303
+  [seed=4] BAMS_WC_high/PE_tight        K=20 exp=9   (agreeWC=4/9) OA=0.9002 BE=303
+  [seed=4] BAMS_WC_high/PE_tight        K=30 exp=11  (agreeWC=5/11) OA=0.9024 BE=309
+  [seed=4] BAMS_WC_high/PE_nolimit      K=5  exp=100 (agreeWC=39/100) OA=0.9033 BE=306
+  [seed=4] BAMS_WC_high/PE_nolimit      K=10 exp=199 (agreeWC=74/199) OA=0.9040 BE=309
+  [seed=4] BAMS_WC_high/PE_nolimit      K=20 exp=348 (agreeWC=126/348) OA=0.8969 BE=322
+  [seed=4] BAMS_WC_high/PE_nolimit      K=30 exp=489 (agreeWC=176/489) OA=0.9040 BE=307
+  [seed=4] BAMS_WC_high/PE_expAgreeWC   K=5  exp=5   (agreeWC=5/11) OA=0.9069 BE=293
+  [seed=4] BAMS_WC_high/PE_expAgreeWC   K=10 exp=7   (agreeWC=7/16) OA=0.9036 BE=310
+  [seed=4] BAMS_WC_high/PE_expAgreeWC   K=20 exp=8   (agreeWC=8/26) OA=0.9064 BE=288
+  [seed=4] BAMS_WC_high/PE_expAgreeWC   K=30 exp=13  (agreeWC=13/33) OA=0.9051 BE=300
+
+# Nanjing Phase D — expansion ablation (H3)
+
+- High seeds n=73; human≠WC=45 (61.6%)
+
+
+## Mean over seeds (main methods)
+
+
+           Pack        Method  OA_mean   OA_std  dOA_vs_RF_pp  dOA_vs_MLP_pp  BE_mean  dBE_vs_RF  n_seed_mean  n_exp_mean  agree_frac_mean
+              —   Baseline_RF 0.903156 0.001741      0.000000      -0.631111    304.2        0.0          0.0         NaN              NaN
+              —  Baseline_MLP 0.909467 0.001039      0.631111       0.000000    283.0      -21.2          0.0         NaN              NaN
+BAMS_Human_high     SeedsOnly 0.903467 0.004435      0.031111      -0.600000    303.2       -1.0         73.0         0.0              NaN
+BAMS_Human_high        PE_std 0.906489 0.000603      0.333333      -0.297778    289.8      -14.4         73.0        16.6         0.526554
+BAMS_Human_high      PE_tight 0.907556 0.001023      0.440000      -0.191111    287.0      -17.2         73.0         6.2         0.652222
+BAMS_Human_high    PE_nolimit 0.904444 0.001973      0.128889      -0.502222    290.2      -14.0         73.0       275.4         0.553602
+BAMS_Human_high PE_expAgreeWC 0.906667 0.001993      0.351111      -0.280000    290.2      -14.0         73.0         9.6         0.492785
+   BAMS_WC_high     SeedsOnly 0.905111 0.003446      0.195556      -0.435556    301.4       -2.8         73.0         0.0              NaN
+   BAMS_WC_high        PE_std 0.908178 0.001919      0.502222      -0.128889    283.4      -20.8         73.0        21.4         0.406936
+   BAMS_WC_high      PE_tight 0.907689 0.001631      0.453333      -0.177778    289.8      -14.4         73.0         6.6         0.380586
+   BAMS_WC_high    PE_nolimit 0.904889 0.001927      0.173333      -0.457778    298.2       -6.0         73.0       237.2         0.373099
+   BAMS_WC_high PE_expAgreeWC 0.906711 0.002620      0.355556      -0.275556    290.6      -13.6         73.0         8.4         0.468841
+
+
+## Reading guide
+
+- SeedsOnly ≥ PE_std → expansion wasted.
+
+- SeedsOnly ≫ PE_std → expansion amplifies noise.
+
+- PE_expAgreeWC best → conflict amplification in expanded labels.
+
+- PE_tight vs PE_nolimit → margin gate usefulness.
+
+
+Wrote /Users/alex/Projects/gee-project/data2/nanjing_rootcause_v2/phase_d
+EXIT:0
+======== Phase D END Sun Aug  9 13:23:35 NZST 2026 ========

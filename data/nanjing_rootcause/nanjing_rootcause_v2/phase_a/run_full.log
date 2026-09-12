@@ -1,0 +1,162 @@
+======== Phase A START Sun Aug  9 11:44:44 NZST 2026 ========
+device: cpu seeds: [0, 1, 2, 3, 4] epochs: 80 out: /Users/alex/Projects/gee-project/data2/nanjing_rootcause_v2/phase_a
+Nanjing relabel: n_changed_vs_bk=29; conf={'high': 73, 'med': 60, 'low': 17}; seeds high=73 hm=133 all=150
+  [seed=0] Baseline             OA=0.9056 BE=298
+  [seed=0] BAMS150_old          OA=0.8991 BE=321
+  [seed=0] BAMS150_new          OA=0.9009 BE=318
+  [seed=0] BAMS150_new_high     OA=0.9029 BE=309
+  [seed=0] BAMS150_new_hm       OA=0.9000 BE=320
+  [seed=0] PE_old K=5  exp=16  OA=0.8953 BE=337
+  [seed=0] PE_old K=10 exp=22  OA=0.9007 BE=312
+  [seed=0] PE_old K=20 exp=36  OA=0.9062 BE=290
+  [seed=0] PE_old K=30 exp=47  OA=0.9060 BE=295
+  [seed=0] PE_old               OA=0.9062 BE=290 K=20 exp=36
+  [seed=0] PE_new K=5  exp=13  OA=0.9029 BE=306
+  [seed=0] PE_new K=10 exp=24  OA=0.8991 BE=317
+  [seed=0] PE_new K=20 exp=35  OA=0.8991 BE=319
+  [seed=0] PE_new K=30 exp=40  OA=0.9024 BE=308
+  [seed=0] PE_new               OA=0.9029 BE=306 K=5 exp=13
+  [seed=0] PE_new_high K=5  exp=3   OA=0.9004 BE=318
+  [seed=0] PE_new_high K=10 exp=10  OA=0.9016 BE=309
+  [seed=0] PE_new_high K=20 exp=16  OA=0.9060 BE=298
+  [seed=0] PE_new_high K=30 exp=23  OA=0.9036 BE=309
+  [seed=0] PE_new_high          OA=0.9060 BE=298 K=20 exp=16
+  [seed=0] PE_new_hm K=5  exp=10  OA=0.9007 BE=312
+  [seed=0] PE_new_hm K=10 exp=15  OA=0.9007 BE=316
+  [seed=0] PE_new_hm K=20 exp=25  OA=0.9011 BE=321
+  [seed=0] PE_new_hm K=30 exp=31  OA=0.8993 BE=322
+  [seed=0] PE_new_hm            OA=0.9007 BE=312 K=5 exp=10
+  [seed=1] Baseline             OA=0.9022 BE=308
+  [seed=1] BAMS150_old          OA=0.9009 BE=313
+  [seed=1] BAMS150_new          OA=0.9007 BE=317
+  [seed=1] BAMS150_new_high     OA=0.9027 BE=305
+  [seed=1] BAMS150_new_hm       OA=0.9011 BE=313
+  [seed=1] PE_old K=5  exp=8   OA=0.9038 BE=295
+  [seed=1] PE_old K=10 exp=15  OA=0.9036 BE=305
+  [seed=1] PE_old K=20 exp=30  OA=0.8987 BE=322
+  [seed=1] PE_old K=30 exp=36  OA=0.9053 BE=302
+  [seed=1] PE_old               OA=0.9038 BE=295 K=5 exp=8
+  [seed=1] PE_new K=5  exp=7   OA=0.9053 BE=294
+  [seed=1] PE_new K=10 exp=13  OA=0.9029 BE=304
+  [seed=1] PE_new K=20 exp=28  OA=0.9038 BE=306
+  [seed=1] PE_new K=30 exp=33  OA=0.9053 BE=302
+  [seed=1] PE_new               OA=0.9053 BE=294 K=5 exp=7
+  [seed=1] PE_new_high K=5  exp=8   OA=0.9042 BE=300
+  [seed=1] PE_new_high K=10 exp=14  OA=0.9009 BE=308
+  [seed=1] PE_new_high K=20 exp=19  OA=0.9060 BE=287
+  [seed=1] PE_new_high K=30 exp=23  OA=0.8971 BE=313
+  [seed=1] PE_new_high          OA=0.9060 BE=287 K=20 exp=19
+  [seed=1] PE_new_hm K=5  exp=9   OA=0.9049 BE=296
+  [seed=1] PE_new_hm K=10 exp=12  OA=0.9022 BE=312
+  [seed=1] PE_new_hm K=20 exp=21  OA=0.9064 BE=293
+  [seed=1] PE_new_hm K=30 exp=25  OA=0.9051 BE=291
+  [seed=1] PE_new_hm            OA=0.9051 BE=291 K=30 exp=25
+  [seed=2] Baseline             OA=0.9042 BE=299
+  [seed=2] BAMS150_old          OA=0.9011 BE=314
+  [seed=2] BAMS150_new          OA=0.9013 BE=314
+  [seed=2] BAMS150_new_high     OA=0.9024 BE=308
+  [seed=2] BAMS150_new_hm       OA=0.9009 BE=315
+  [seed=2] PE_old K=5  exp=11  OA=0.8978 BE=308
+  [seed=2] PE_old K=10 exp=20  OA=0.9067 BE=284
+  [seed=2] PE_old K=20 exp=30  OA=0.9062 BE=290
+  [seed=2] PE_old K=30 exp=37  OA=0.9049 BE=294
+  [seed=2] PE_old               OA=0.9067 BE=284 K=10 exp=20
+  [seed=2] PE_new K=5  exp=8   OA=0.9016 BE=310
+  [seed=2] PE_new K=10 exp=13  OA=0.9049 BE=300
+  [seed=2] PE_new K=20 exp=28  OA=0.9022 BE=310
+  [seed=2] PE_new K=30 exp=33  OA=0.9013 BE=313
+  [seed=2] PE_new               OA=0.9049 BE=300 K=10 exp=13
+  [seed=2] PE_new_high K=5  exp=6   OA=0.9053 BE=290
+  [seed=2] PE_new_high K=10 exp=13  OA=0.9073 BE=288
+  [seed=2] PE_new_high K=20 exp=17  OA=0.8944 BE=339
+  [seed=2] PE_new_high K=30 exp=21  OA=0.9051 BE=297
+  [seed=2] PE_new_high          OA=0.9073 BE=288 K=10 exp=13
+  [seed=2] PE_new_hm K=5  exp=11  OA=0.8978 BE=322
+  [seed=2] PE_new_hm K=10 exp=21  OA=0.8936 BE=348
+  [seed=2] PE_new_hm K=20 exp=29  OA=0.9036 BE=297
+  [seed=2] PE_new_hm K=30 exp=33  OA=0.8989 BE=322
+  [seed=2] PE_new_hm            OA=0.9036 BE=297 K=20 exp=29
+  [seed=3] Baseline             OA=0.9033 BE=304
+  [seed=3] BAMS150_old          OA=0.9024 BE=306
+  [seed=3] BAMS150_new          OA=0.9016 BE=309
+  [seed=3] BAMS150_new_high     OA=0.9016 BE=313
+  [seed=3] BAMS150_new_hm       OA=0.9013 BE=310
+  [seed=3] PE_old K=5  exp=6   OA=0.9060 BE=295
+  [seed=3] PE_old K=10 exp=12  OA=0.9069 BE=287
+  [seed=3] PE_old K=20 exp=17  OA=0.9053 BE=294
+  [seed=3] PE_old K=30 exp=21  OA=0.8980 BE=315
+  [seed=3] PE_old               OA=0.9069 BE=287 K=10 exp=12
+  [seed=3] PE_new K=5  exp=7   OA=0.9047 BE=295
+  [seed=3] PE_new K=10 exp=16  OA=0.9067 BE=284
+  [seed=3] PE_new K=20 exp=24  OA=0.9036 BE=301
+  [seed=3] PE_new K=30 exp=28  OA=0.9009 BE=310
+  [seed=3] PE_new               OA=0.9067 BE=284 K=10 exp=16
+  [seed=3] PE_new_high K=5  exp=8   OA=0.9033 BE=308
+  [seed=3] PE_new_high K=10 exp=14  OA=0.9060 BE=292
+  [seed=3] PE_new_high K=20 exp=21  OA=0.9020 BE=302
+  [seed=3] PE_new_high K=30 exp=23  OA=0.8984 BE=332
+  [seed=3] PE_new_high          OA=0.9060 BE=292 K=10 exp=14
+  [seed=3] PE_new_hm K=5  exp=12  OA=0.9067 BE=289
+  [seed=3] PE_new_hm K=10 exp=21  OA=0.9076 BE=286
+  [seed=3] PE_new_hm K=20 exp=29  OA=0.8973 BE=329
+  [seed=3] PE_new_hm K=30 exp=35  OA=0.9016 BE=307
+  [seed=3] PE_new_hm            OA=0.9076 BE=286 K=10 exp=21
+  [seed=4] Baseline             OA=0.9004 BE=312
+  [seed=4] BAMS150_old          OA=0.8987 BE=323
+  [seed=4] BAMS150_new          OA=0.9007 BE=316
+  [seed=4] BAMS150_new_high     OA=0.9024 BE=310
+  [seed=4] BAMS150_new_hm       OA=0.9002 BE=319
+  [seed=4] PE_old K=5  exp=9   OA=0.8980 BE=323
+  [seed=4] PE_old K=10 exp=16  OA=0.9076 BE=292
+  [seed=4] PE_old K=20 exp=23  OA=0.9100 BE=275
+  [seed=4] PE_old K=30 exp=29  OA=0.9062 BE=295
+  [seed=4] PE_old               OA=0.9100 BE=275 K=20 exp=23
+  [seed=4] PE_new K=5  exp=13  OA=0.9022 BE=312
+  [seed=4] PE_new K=10 exp=14  OA=0.9013 BE=310
+  [seed=4] PE_new K=20 exp=21  OA=0.9062 BE=292
+  [seed=4] PE_new K=30 exp=26  OA=0.9067 BE=288
+  [seed=4] PE_new               OA=0.9067 BE=288 K=30 exp=26
+  [seed=4] PE_new_high K=5  exp=8   OA=0.9076 BE=288
+  [seed=4] PE_new_high K=10 exp=13  OA=0.9049 BE=295
+  [seed=4] PE_new_high K=20 exp=21  OA=0.9071 BE=284
+  [seed=4] PE_new_high K=30 exp=26  OA=0.9016 BE=312
+  [seed=4] PE_new_high          OA=0.9071 BE=284 K=20 exp=21
+  [seed=4] PE_new_hm K=5  exp=9   OA=0.9042 BE=303
+  [seed=4] PE_new_hm K=10 exp=13  OA=0.9036 BE=299
+  [seed=4] PE_new_hm K=20 exp=22  OA=0.9073 BE=286
+  [seed=4] PE_new_hm K=30 exp=26  OA=0.9058 BE=300
+  [seed=4] PE_new_hm            OA=0.9073 BE=286 K=20 exp=22
+
+# Nanjing re-labeled BAMS150 / PE experiment
+
+- Human_Class changed vs backup: 29
+
+- Confidence counts: {'high': 73, 'med': 60, 'low': 17}
+
+
+## Mean over seeds
+
+          Method  Mean_OA   Std_OA  Mean_BE    Std_BE  Mean_n_seed  Mean_n_exp  dOA_vs_Base_pp
+        Baseline 0.903156 0.001946    304.2  5.932959          NaN         NaN        0.000000
+     BAMS150_old 0.900444 0.001548    315.4  6.804410          NaN         NaN       -0.271111
+     BAMS150_new 0.901022 0.000404    314.8  3.563706          NaN         NaN       -0.213333
+BAMS150_new_high 0.902400 0.000507    309.0  2.915476          NaN         NaN       -0.075556
+  BAMS150_new_hm 0.900711 0.000575    315.4  4.159327          NaN         NaN       -0.244444
+          PE_old 0.906711 0.002219    286.2  7.463243        150.0        19.8        0.355556
+          PE_new 0.905289 0.001559    294.4  8.876936        150.0        15.0        0.213333
+     PE_new_high 0.906489 0.000674    289.8  5.403702         73.0        16.6        0.333333
+       PE_new_hm 0.904844 0.002861    294.4 10.830512        133.0        21.4        0.168889
+
+
+## Reading guide
+
+- BAMS150_new_high: only Confidence=high overwrites WC; low/med keep WC on those points
+
+- BAMS150_new_hm: high+med overwrite; low keep WC
+
+- PE_* uses corresponding seed set for prototype expansion
+
+
+Wrote /Users/alex/Projects/gee-project/data2/nanjing_rootcause_v2/phase_a
+EXIT:0
+======== Phase A END Sun Aug  9 11:51:14 NZST 2026 ========

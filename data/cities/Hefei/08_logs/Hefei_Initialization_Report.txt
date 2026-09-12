@@ -1,0 +1,61 @@
+Hefei Initialization Report
+============================
+
+Folder Tree
+data2/Hefei/
+  01_original/
+    Hefei_WC_Samples_15000.csv
+  02_margin/
+  03_top150/
+  04_manual/
+  05_corrected/
+  06_3x3/
+    Hefei_3x3_Features.csv
+  07_results/
+  08_logs/
+
+Files Found (exact expected names)
+- Hefei_WC_Samples_15000.csv: data2/Hefei/01_original/Hefei_WC_Samples_15000.csv
+- Hefei_3x3_Features.csv: data2/Hefei/06_3x3/Hefei_3x3_Features.csv
+
+Other Existing Hefei Files Found
+- data/Hefei_3x3_Features.csv
+- data/Hefei_WC_Samples_15000.csv
+- data/Hefei_Weight_Experiment.csv
+- data/Hefei_scene.csv
+- data/Hefei_top100.csv
+- data/Hefei_top100_corrected.csv
+- notebook/04_hefei.ipynb
+- notebook/Hefei_3x3_FeatureImportance.csv
+- notebook/Hefei_Corrected_3x3_Importance.csv
+- notebook/Hefei_Top100_Rebuilt.csv
+
+Missing Files
+- Hefei_Top150.csv
+- Hefei_Top150_Manual.csv
+- Hefei_BAMS150.csv
+- Hefei_BAMS150_Manual.csv
+
+Sample Counts
+- Hefei_WC_Samples_15000.csv: 15000
+- Hefei_3x3_Features.csv: 15000
+
+Column Names
+- Hefei_WC_Samples_15000.csv: ['system:index', 'B11', 'B12', 'B2', 'B3', 'B4', 'B8', 'Class', 'MNDWI', 'NDBI', 'NDVI', 'lat', 'lon', '.geo']
+- Hefei_3x3_Features.csv: ['system:index', 'B11_mean', 'B11_stdDev', 'B12_mean', 'B12_stdDev', 'B2_mean', 'B2_stdDev', 'B3_mean', 'B3_stdDev', 'B4_mean', 'B4_stdDev', 'B8_mean', 'B8_stdDev', 'Class', 'MNDWI_mean', 'MNDWI_stdDev', 'NDBI_mean', 'NDBI_stdDev', 'NDVI_mean', 'NDVI_stdDev', '.geo']
+
+Verification
+- Hefei_WC_Samples_15000.csv: rows=15000, approx15000=True, missing_required_columns=['Original_ID']
+- Hefei_3x3_Features.csv: rows=15000, has_Original_ID=False, has_Class=True, mean_cols=9, stdDev_cols=9
+
+Readiness Status
+- Margin150: NOT READY
+- BAMS150: NOT READY
+- Pixel RF: READY
+- 3x3 RF: NOT READY
+- Overall: Hefei NOT READY
+
+What is Missing / Blocking
+- Hefei_WC_Samples_15000.csv issue: rows=15000, approx15000=True, missing_required_columns=['Original_ID']
+- Hefei_3x3_Features.csv issue: rows=15000, has_Original_ID=False, has_Class=True, mean_cols=9, stdDev_cols=9
+- Missing expected files: Hefei_Top150.csv, Hefei_Top150_Manual.csv, Hefei_BAMS150.csv, Hefei_BAMS150_Manual.csv

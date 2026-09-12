@@ -1,0 +1,29 @@
+{
+  "city": "Nanjing",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "epochs": 80,
+  "methods": [
+    "Baseline",
+    "BAMS150_old",
+    "BAMS150_new",
+    "BAMS150_new_high",
+    "BAMS150_new_hm",
+    "PE_old",
+    "PE_new",
+    "PE_new_high",
+    "PE_new_hm"
+  ],
+  "out_dir": "/Users/alex/Projects/gee-project/data2/nanjing_rootcause_v2/phase_a",
+  "n_changed": 29,
+  "conf_counts": {
+    "high": 73,
+    "med": 60,
+    "low": 17
+  }
+}

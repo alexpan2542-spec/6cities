@@ -1,0 +1,4 @@
+pair,observed_agree,expected_if_cond_indep,excess,excess_boot_CI,excess_LOCO_range
+DW=ESRI,0.87,0.615,0.255,"[0.22,0.28]","[0.24,0.27]"
+WC=DW,0.438,0.33,0.108,"[0.08,0.13]","[0.10,0.11]"
+WC=ESRI,0.452,0.328,0.124,"[0.10,0.15]","[0.11,0.13]"

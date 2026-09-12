@@ -1,0 +1,40 @@
+Scene_group,metric,Wuhan,Changsha,Nanchang,Hefei,Nanjing,ALL
+Bare land / construction,n,11.0,10.0,22.0,9.0,11.0,63.0
+Bare land / construction,disagree,4.0,1.0,10.0,4.0,6.0,25.0
+Bare land / construction,disagree_pct,36.4,10.0,45.5,44.4,54.5,39.7
+Built-up edge / urban fabric,n,44.0,25.0,26.0,24.0,36.0,155.0
+Built-up edge / urban fabric,disagree,35.0,16.0,19.0,13.0,24.0,107.0
+Built-up edge / urban fabric,disagree_pct,79.5,64.0,73.1,54.2,66.7,69.0
+Cropland / paddy transition,n,9.0,1.0,1.0,0.0,0.0,11.0
+Cropland / paddy transition,disagree,3.0,0.0,1.0,0.0,0.0,4.0
+Cropland / paddy transition,disagree_pct,33.3,0.0,100.0,,,36.4
+Greenhouse / polytunnel,n,0.0,0.0,0.0,9.0,0.0,9.0
+Greenhouse / polytunnel,disagree,0.0,0.0,0.0,1.0,0.0,1.0
+Greenhouse / polytunnel,disagree_pct,,,,11.1,,11.1
+Mixed / complex,n,5.0,13.0,5.0,0.0,1.0,24.0
+Mixed / complex,disagree,3.0,3.0,1.0,0.0,0.0,7.0
+Mixed / complex,disagree_pct,60.0,23.1,20.0,,0.0,29.2
+Other / misc,n,3.0,0.0,0.0,1.0,2.0,6.0
+Other / misc,disagree,2.0,0.0,0.0,0.0,2.0,4.0
+Other / misc,disagree_pct,66.7,,,0.0,100.0,66.7
+Paddy / cropland / field,n,1.0,0.0,0.0,9.0,7.0,17.0
+Paddy / cropland / field,disagree,0.0,0.0,0.0,4.0,3.0,7.0
+Paddy / cropland / field,disagree_pct,0.0,,,44.4,42.9,41.2
+Road / road edge,n,29.0,13.0,20.0,19.0,25.0,106.0
+Road / road edge,disagree,15.0,9.0,10.0,13.0,20.0,67.0
+Road / road edge,disagree_pct,51.7,69.2,50.0,68.4,80.0,63.2
+Rural settlement / surfaces,n,1.0,0.0,6.0,20.0,12.0,39.0
+Rural settlement / surfaces,disagree,1.0,0.0,2.0,7.0,6.0,16.0
+Rural settlement / surfaces,disagree_pct,100.0,,33.3,35.0,50.0,41.0
+Soft boundary / shadow,n,1.0,1.0,1.0,0.0,0.0,3.0
+Soft boundary / shadow,disagree,0.0,0.0,0.0,0.0,0.0,0.0
+Soft boundary / shadow,disagree_pct,0.0,0.0,0.0,,,0.0
+Urban green space,n,17.0,15.0,10.0,0.0,0.0,42.0
+Urban green space,disagree,12.0,11.0,6.0,0.0,0.0,29.0
+Urban green space,disagree_pct,70.6,73.3,60.0,,,69.0
+Vegetation / forest edge,n,8.0,34.0,7.0,33.0,15.0,97.0
+Vegetation / forest edge,disagree,3.0,14.0,4.0,22.0,11.0,54.0
+Vegetation / forest edge,disagree_pct,37.5,41.2,57.1,66.7,73.3,55.7
+Water / water edge,n,21.0,38.0,26.0,26.0,41.0,152.0
+Water / water edge,disagree,9.0,25.0,15.0,10.0,30.0,89.0
+Water / water edge,disagree_pct,42.9,65.8,57.7,38.5,73.2,58.6

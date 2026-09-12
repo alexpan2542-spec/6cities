@@ -1,0 +1,63 @@
+INDEPENDENCE DIAGNOSTIC  --  data2/independence_diagnostic/
+anchor: BAMS150 boundary points, 6 cities with DW+ESRI, n=900
+classes: 0 built / 1 non-built / 2 water
+
+==========================================================================
+S2a  observed vs expected-if-conditionally-independent agreement
+     (truth proxied by expert label; 6 cities, n=900)
+==========================================================================
+   pair  observed_agree  expected_if_cond_indep  excess excess_boot_CI excess_LOCO_range
+DW=ESRI           0.870                   0.615   0.255    [0.22,0.28]       [0.24,0.27]
+  WC=DW           0.438                   0.330   0.108    [0.08,0.13]       [0.10,0.11]
+WC=ESRI           0.452                   0.328   0.124    [0.10,0.15]       [0.11,0.13]
+
+==========================================================================
+S2b  dependence between product errors (vs expert)
+     co_error_ratio = observed / (marginal-independent); Q,kappa on error indicators
+==========================================================================
+          pair  err_rate_A  err_rate_B  co_error_obs  co_error_if_indep  co_error_ratio  yules_Q   yules_Q_CI  kappa_err  n_both_wrong  P(same wrong label | both wrong)
+DW,ESRI errors       0.564       0.587         0.521              0.331            1.57    0.971  [0.96,0.98]      0.777           469                             0.959
+  WC,DW errors       0.543       0.564         0.296              0.307            0.96   -0.091 [-0.22,0.04]     -0.045           266                             0.846
+WC,ESRI errors       0.543       0.587         0.314              0.319            0.99   -0.036 [-0.17,0.09]     -0.018           283                             0.852
+
+==========================================================================
+S2c  does product consensus predict the expert label?
+     lift_vs_prior = P(expert agrees) - prior prob. of the agreed class
+==========================================================================
+                                  condition   n  P(expert agrees)        lift_vs_prior
+                 (baseline) P(expert == DW) 900             0.436                     
+               (baseline) P(expert == ESRI) 900             0.413                     
+                 (baseline) P(expert == WC) 900             0.457                     
+     DW == ESRI  -> P(expert == that label) 783 0.425 [0.39,0.46] +0.162  (prior 0.26)
+DW == ESRI == WC -> P(expert == that label) 350 0.400 [0.35,0.45] +0.133  (prior 0.27)
+       WC == DW  -> P(expert == that label) 394 0.429 [0.38,0.48] +0.145  (prior 0.28)
+
+==========================================================================
+S3a  ontology confound: collapse to coarser schemes, re-test
+==========================================================================
+                                 scheme   n  Human=DW  Human=ESRI  DW=ESRI  WC=DW  WC=ESRI  gap(DW=ESRI  -  Human=DW)
+        3-class (built/non-built/water) 900     0.436       0.413    0.870  0.438    0.452                      0.434
+                2-class (built vs rest) 900     0.547       0.522    0.902  0.533    0.529                      0.356
+built vs vegetation (water pts dropped) 636     0.439       0.415    0.914  0.421    0.426                      0.475
+
+==========================================================================
+S3b  WorldCover as negative control (shared S2 input, different model family)
+==========================================================================
+   pair                                          shares_with  observed_agree  expected_if_cond_indep  excess excess_boot_CI
+DW=ESRI  deep semantic seg + shared point-label lineage (S2)           0.870                   0.615   0.255    [0.22,0.28]
+  WC=DW   WC = boosted-tree + rules (S2); DW = deep seg (S2)           0.438                   0.330   0.108    [0.08,0.13]
+WC=ESRI WC = boosted-tree + rules (S2); ESRI = deep seg (S2)           0.452                   0.328   0.124    [0.10,0.15]
+
+==========================================================================
+S3c  is the DW=ESRI coupling uniform across scene types?
+==========================================================================
+                       scene   n  DW=ESRI  Human=DW   gap
+           Urban green space  42    0.976     0.167 0.810
+             Mixed / complex  24    0.958     0.292 0.667
+Built-up edge / urban fabric 158    0.937     0.810 0.127
+ Rural settlement / surfaces  40    0.875     0.225 0.650
+    Bare land / construction  65    0.846     0.231 0.615
+    Vegetation / forest edge 106    0.840     0.160 0.679
+    Paddy / cropland / field  18    0.833     0.333 0.500
+          Water / water edge 162    0.821     0.500 0.321
+            Road / road edge 106    0.811     0.425 0.387

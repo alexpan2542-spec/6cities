@@ -1,0 +1,141 @@
+snapshot taken 2026-09-03 09:37
+sources:
+  data2/diagnostic_analysis/  <- scripts/diagnostic_analysis.py
+  data2/loco_correction_operator/  <- scripts/loco_correction_operator.py
+  leak_diagnostic/  <- ../gee-project2/scripts/spatial_block_validation.py
+
+appended 2026-09-06:
+  data2/independence_diagnostic/  <- scripts/independence_diagnostic.py
+    S2a excess-agreement / S2b error-dependence (Yule Q) / S2c arbitration PPV
+    S3a ontology / S3b WC negative control / S3c coupling-by-scene
+  figures/Fig_diag_independence.png
+
+appended 2026-09-06 (2):
+  T1/T2/T3a/T3b refreshed after correcting one mislabelled point (Nanchang
+  Original_ID=4343, Human_Class 1->2, found via inter-annotator recheck,
+  see Paper_Writing_Plan.md §6.8). All changes are in the 3rd decimal place;
+  every 2-decimal figure quoted in Paper_Writing_Plan.md §4 is unchanged after
+  rounding. T4 (reads a separate frozen scene-grouping file, not yet updated —
+  pending §6.3 cleanup) and T5/LOCO (no retrain in this script) unaffected.
+  independence_diagnostic/ unaffected (all 6 CSVs byte-identical after rerun).
+
+appended 2026-09-06 (3):
+  T4 refreshed after correcting scene-code mapping errors found via the
+  original code table (Paper_Writing_Plan.md §1.2 decision log 2026-09-06,
+  §6.3). SB/BS were swapped (SB=Special Building was mislabeled "soft
+  boundary/shadow"; real "soft boundary/shadow" is BS, n=3, now below the
+  n>=15 reporting threshold and dropped from the table). UB=Urban Green
+  Space was mislabeled "Built-up edge" (42 pts) -> split into its own new
+  "Urban green space" category. BR/WR/PF codes reclassified per the
+  authoritative code table. "Unlabeled" (26 Nanchang pts missing Scene
+  text, all Human=WC agreements) now explicitly excluded in
+  diagnostic_analysis.py's table_scene() rather than left in the reported
+  table. Headline finding unchanged (Built-up edge still #1, ~69%), but
+  "Soft boundary / shadow" as a headline category is invalid and must not
+  be used in the write-up; "Urban green space" is a new, real finding
+  (42 pts, 69.0%, ties for #1).
+
+appended 2026-09-07:
+  Hangzhou's DW + ESRI added. GEE re-sample (figures/gee_shp/
+  Hangzhou_second_ref_DW_ESRI.js -> scripts/add_hangzhou_second_ref.py)
+  pulled Dynamic World (2021 annual label mode) and ESRI/IO 2021 at
+  Hangzhou's 150 BAMS points; all_cities_BAMS150_second_ref.csv 750 -> 900
+  rows, 6 cities. The multi-reference subset is now n = 900, not 750.
+  diagnostic_analysis.py + independence_diagnostic.py: CITIES5 gate removed
+  (all 6 cities carry DW+ESRI); T1 "ALL(5 w/ DW+ESRI)" row dropped, "ALL(6)"
+  now computes DW/ESRI stats on n=900. independence S3c coupling-by-scene
+  now drops points with no scene group (5-city, no "Unlabeled" bucket),
+  matching how T4 is handled.
+  REFRESHED here: diagnostic_analysis/T1 + SUMMARY, independence_diagnostic/
+  all 6 CSVs + SUMMARY, figures/Fig_diag_fourway.png + Fig_diag_independence.png.
+  T2/T3a/T3b/T4/T5 byte-identical (never used DW/ESRI). loco_/leak_ untouched.
+  Every 2-decimal headline in Paper_Writing_Plan.md 4.1 / 4.1b holds:
+    DW=ESRI 0.87 (was 0.87); Human=WC pooled 0.47; Human=DW 0.44;
+    Human=ESRI 0.42; tri-agree 0.37; four-way 0.16.
+    S2a DW=ESRI excess +0.25 [0.22,0.28] (was +0.24 [0.21,0.27]) -- still a
+    conservative lower bound, ~2x the WC pairs (+0.11 / +0.12).
+    S2b Yule's Q: DW,ESRI 0.97 [0.96,0.98]; WC,DW -0.09 and WC,ESRI -0.03,
+    both CIs still spanning 0 (WC errs independently, DW & ESRI err together).
+    S2c arbitration PPV: P(expert|DW=ESRI) 0.43 ~ unconditional 0.44 (n=783,
+    87% of points) -- arbitration still carries ~0 extra info about truth.
+    S3a / S3c confounds still ruled out.
+  Hangzhou itself (n=150): Human=WC 0.53, Human=DW 0.47, Human=ESRI 0.43,
+  DW=ESRI 0.87 -- the DW/ESRI coupling holds even in the city with the
+  highest WC agreement.
+  NOTE: Hangzhou's freshly-sampled WC_ee disagrees with its stored WC class
+  on 12/150 pts (WorldCover version drift; other 5 cities 0.3%). No reported
+  number uses WC_ee -- carried cross-check column only. Scene stratification
+  (T4, independence S3c) stays 5-city: Hangzhou has no scene-code table.
+
+appended 2026-09-07 (2):
+  loco_correction_operator.py: DWESRI_CITIES extended to all 6 cities
+  (Hangzhou's DW/ESRI now exist). Phase 3 (multi-reference referee) is now
+  leave-one-city-out over 6 cities, operator trained on the other 5; Phase 1
+  and Phase 2/2b iterate CITIES and were already 6-city. Re-ran
+  loco_correction_operator.py + diagnostic_analysis.py; REFRESHED here:
+  loco_correction_operator/ (all CSVs + txt + run.log),
+  diagnostic_analysis/T5_operator_digest.csv + SUMMARY.txt.
+  Phase 1 all27 shifted slightly vs the Sep-3 frozen set -- this is the
+  Nanchang NA02 (Original_ID 4343) relabel from the inter-annotator recheck
+  (Human_Class 1->2, done 2026-09-06) propagating through the cross-city
+  operator, NOT the DWESRI change. Changes are small:
+    operator_acc: Wuhan .72 / Hefei .66 / Nanchang .68 / Nanjing .753 /
+    Changsha .74 / Hangzhou .713 (was .727 Nanjing, .673 Nanchang, .707 HZ).
+  Phase 3 summary (6-city mean, was 5-city):
+    WC_raw            OA_vs_Human 0.471 (was 0.460)
+    LOCO_corrected    OA_vs_Human 0.517 (was 0.491); BE 51.8 (was 56.8);
+                      changed_toward_Human 0.79 (was 0.72);
+                      changed_toward_DWESRI 0.41 (was 0.29); n_changed 13.3
+    local_oracle      OA_vs_Human 0.796 (was 0.80)
+    random_flip       OA_vs_Human 0.462; changed_toward_Human 0.30 (was 0.34)
+  Hangzhou Phase 3: operator changes only 3/150 pts, all 3 toward the expert
+    (and all 3 also toward DW=ESRI); OA_vs_Human 0.533 -> 0.553. Consistent
+    with Phase 1 fires=3 and the sparse-correction pattern of Fig_diag_map_Hangzhou.
+  Phase 2/2b: essentially unchanged (only the NA02 relabel moves them; e.g.
+    tau0.70/q0.20 -> 465 pts, Human_OA 0.509, WC_OA 0.907).
+  diagnostic_analysis/T1-T4 byte-identical (NA02 was already in the Sep-7
+  Hangzhou snapshot); independence_diagnostic untouched (separate script).
+
+appended 2026-09-09:
+  FULL REFRESH of diagnostic_analysis/, independence_diagnostic/,
+  loco_correction_operator/ and figures/Fig_diag_*.png from a clean re-run
+  (gee conda env) of diagnostic_analysis.py + independence_diagnostic.py +
+  loco_correction_operator.py. Fig_diag_map_*.png copied from the 2026-09-08
+  make_correction_maps.py run (already post-relabel).
+  Reason: the previous freeze (2026-09-07 22:01) pre-dated the 2026-09-08
+  Nanchang "scene-26" re-labelling (13 of 26 placeholder rows given real
+  Human_Class + Scene; Paper_Writing_Plan.md §6.3). That relabel had been
+  applied to the live data and to manuscript.md but the snapshot was never
+  regenerated. Re-runs are deterministic (seed 42) and nothing in the inputs
+  changed after 2026-09-08 22:50, so this snapshot == the current data.
+  What moved vs the 2026-09-07 freeze (all 2-decimal headlines hold except
+  where noted):
+    T1  Nanchang Human=WC 0.547 -> 0.46; pooled Human=WC 0.471 -> 0.457;
+        pooled tri 0.373 -> 0.37; pooled all-4 0.162 -> 0.156.
+        DW=ESRI 0.87 unchanged.
+    T2  Nanchang all-tier WC-disagree 0.453 -> 0.54; pooled 0.529 -> 0.543;
+        high-only pooled 0.672 unchanged.
+    T3  P(expert=non-built | WC=built) pooled 0.692 -> 0.711; Nanchang
+        0.622 -> 0.757; net_built_over_call 0.017 -> 0.02; T3a WC=built row
+        70/181/12 -> 64/187/12.  <-- manuscript §4.3 / §5.3 updated to match.
+    T4  Built-up edge n 155 -> 158 (disagree % 69.0 unchanged); small-n groups
+        reshuffled, all n>=15 headline groups stable.
+    S2/S3 independence: DW=ESRI excess +0.25, Yule's Q 0.97 (WC pairs ~0),
+        arbitration PPV 0.43 ~ 0.44 base -- all unchanged at 2 decimals.
+        S3a 2-class DW=ESRI 0.902, built-vs-veg 0.914.
+    LOCO Phase 1: Nanchang operator-acc 0.68 -> 0.74 (Nanchang labels changed);
+        Phase 3 six-city mean: WC_raw OA_vs_Human 0.471 -> 0.457;
+        LOCO_corrected 0.517 -> 0.522, changed_toward_Human 0.79 -> 0.83,
+        n_changed/city 13.3 -> 17, oracle 0.796 -> 0.789.
+        Phase 2 mean: B0 0.400 -> 0.397, B2_loco_gated 0.414 -> 0.421.
+  manuscript.md §4.3, §4.4 (n=158), §4.6 Phase 2, §5.3 updated 2026-09-09 to
+  match; manuscript_supplementary.md S1 (phase2b) + S3/S4 regenerated from
+  these CSVs.
+
+appended 2026-09-09 (2):
+  Fig_diag_map_*.png (all 6) regenerated by a clean make_correction_maps.py
+  re-run and copied here. Per-city operator-change / expert!=WC counts
+  reproduce the 2026-09-08 values exactly (Wuhan 112/88, Hefei 229/74,
+  Nanchang 126/81, Nanjing 94/102, Changsha 181/74, Hangzhou 30/70) -- the
+  2026-09-09 LOCO re-run did not move them. manuscript.md §4.7 table already
+  matched; §4.7 prose fixed (Hangzhou "21"->"30", "3"->"4" confident firings).

@@ -1,0 +1,8 @@
+city,n,n_WC=built,P(expert=non-built | WC=built),P(expert=water | WC=built),n_WC=non-built,P(expert=built | WC=non-built),P(expert=water | WC=non-built),net_built_over_call
+Wuhan,150,45,0.756,0.0,84,0.488,0.06,-0.047
+Hefei,150,63,0.667,0.032,77,0.312,0.039,0.12
+Nanchang,150,37,0.757,0.054,88,0.25,0.148,0.04
+Nanjing,150,52,0.788,0.019,81,0.444,0.148,0.033
+Changsha,150,47,0.596,0.106,80,0.212,0.188,0.073
+Hangzhou,150,19,0.737,0.105,100,0.29,0.14,-0.1
+ALL(6),900,263,0.711,0.046,510,0.331,0.122,0.02

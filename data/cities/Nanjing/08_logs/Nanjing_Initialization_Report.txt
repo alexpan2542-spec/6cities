@@ -1,0 +1,37 @@
+Nanjing Initialization Report
+=============================
+
+Folder Tree
+data2/Nanjing/
+  01_original/
+    Nanjing_WC_Samples_15000.csv
+  02_margin/
+  03_top150/
+  04_manual/
+  05_corrected/
+  06_3x3/
+    Nanjing_3x3_Features.csv
+  07_results/
+  08_logs/
+
+Files
+- original src: data/Nanjing_WC_Samples_15000.csv
+- original dst: data2/Nanjing/01_original/Nanjing_WC_Samples_15000.csv
+- 3x3 src: data/Nanjing_3x3_Features.csv
+- 3x3 dst: data2/Nanjing/06_3x3/Nanjing_3x3_Features.csv
+
+Original
+- rows: 15000
+- columns: ['system:index', 'B11', 'B12', 'B2', 'B3', 'B4', 'B8', 'Class', 'MNDWI', 'NDBI', 'NDVI', 'Original_ID', 'lat', 'lon', '.geo']
+- Original_ID unique: True
+- Original_ID range: 0..14999
+
+3x3
+- rows: 15000
+- columns: ['system:index', 'Original_ID', 'B11_mean', 'B11_stdDev', 'B12_mean', 'B12_stdDev', 'B2_mean', 'B2_stdDev', 'B3_mean', 'B3_stdDev', 'B4_mean', 'B4_stdDev', 'B8_mean', 'B8_stdDev', 'Class', 'MNDWI_mean', 'MNDWI_stdDev', 'NDBI_mean', 'NDBI_stdDev', 'NDVI_mean', 'NDVI_stdDev', '.geo']
+- Original_ID unique: True
+- Original_ID range: 0..14999
+- mean cols: 9
+- stdDev cols: 9
+
+Status: Nanjing READY for Margin150 / BAMS150 preparation
