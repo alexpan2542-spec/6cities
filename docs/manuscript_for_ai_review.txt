@@ -1275,7 +1275,7 @@ web-verified against Crossref during the 2026-09-11 review pass).
    products and time-series Sentinel-2 images. *GISci. Remote Sens.*
    **2024**, *61*, 2352957. https://doi.org/10.1080/15481603.2024.2352957.
 7. Wang, Y.; Xu, Y.; Xu, X.; Jiang, X.; Mo, Y.; Cui, H.; Zhu, S.; Wu, H.
-   Evaluation of six global high-resolution land cover products over China.
+   Evaluation of six global high-resolution global land cover products over China.
    *Int. J. Digit. Earth* **2024**, *17*, 2301673.
    https://doi.org/10.1080/17538947.2023.2301673.
 8. Chakraborty, T.C.; Venter, Z.S.; Demuzere, M.; Zhan, W.; Gao, J.; Zhao, L.;
@@ -1289,13 +1289,13 @@ web-verified against Crossref during the 2026-09-11 review pass).
     X.; Yang, N.; Sun, H.; et al. Effects of Urbanization on Landscape
     Patterns in the Middle Reaches of the Yangtze River Region. *Land*
     **2021**, *10*, 1025. https://doi.org/10.3390/land10101025.
-11. Liao, S.; Wang, W.; Wang, C.; Ji, R.; Cui, A.; Chen, D.; Zhang, X. Land Use
-    and Land Cover Change Assessment and Predictions in Flood Detention Areas
+11. Liao, S.; Wang, W.; Wang, C.; Ji, R.; Cui, A.; Chen, D.; Zhang, X.; Chen, N.
+    Land Use and Land Cover Change Assessment and Predictions in Flood Detention Areas
     of Yangtze River Basin Based on AIF-HOM-PLUS Model. *Remote Sens.*
     **2025**, *17*, 1857. https://doi.org/10.3390/rs17111857.
 12. Yu, S.; Yang, L.; Song, Z.; Li, W.; Ye, Y.; Liu, B. Measurement of Land
     Ecological Security in the Middle and Lower Reaches of the Yangtze River
-    Based on the PSR Model. *Sustainability* **2023**, *15*, 14098.
+    Base on the PSR Model. *Sustainability* **2023**, *15*, 14098.
     https://doi.org/10.3390/su151914098.
 13. Tong, C.; Jin, Y.; Liang, B.; Ye, Y.; Bao, H. A Comprehensive Framework
     for Monitoring and Providing Early Warning of Resource and Environmental
@@ -1329,7 +1329,7 @@ web-verified against Crossref during the 2026-09-11 review pass).
     use land cover mapping. *Sci. Data* **2022**, *9*, 251.
     https://doi.org/10.1038/s41597-022-01307-4.
 20. Karra, K.; Kontgis, C.; Statman-Weil, Z.; Mazzariello, J.C.; Mathis, M.;
-    Brumby, S.P. Global land use / land cover with Sentinel-2 and deep
+    Brumby, S.P. Global land use / land cover with Sentinel 2 and deep
     learning. In *Proceedings of the IGARSS 2021 IEEE International
     Geoscience and Remote Sensing Symposium*, Brussels, Belgium, 11–16 July
     2021; pp. 4704–4707. https://doi.org/10.1109/IGARSS47720.2021.9553499.

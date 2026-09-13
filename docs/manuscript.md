@@ -1305,7 +1305,7 @@ exercise reported in Section 3.1.
   10.1080/15481603.2024.2352957. (weighted-majority-vote fusion → training
   samples; used in §1 para 2, §1.1 "labels from existing maps", §5.1)
 - **Wang et al., 2024b** = Y. Wang, Y. Xu, X. Xu, et al., "Evaluation of six
-  global high-resolution land cover products over China," *Int. J. Digital
+  global high-resolution global land cover products over China," *Int. J. Digital
   Earth* 17(1), 2301673. DOI 10.1080/17538947.2023.2301673. ("consistency
   lower than accuracy"; used in §1.1 "product inter-comparison")
 - Tuanmu and Jetz, 2014 — *Global Ecology and Biogeography* 23(9), 1031–1045.

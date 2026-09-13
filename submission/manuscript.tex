@@ -2221,6 +2221,25 @@ publication.} %TODO replace once repo DOI is set (see \dataavailability)
 %%  confirmed correct (all 6 authors, vol 19, article no. 2633840 match) --
 %%  marker removed, no content change. No remaining %VERIFY markers in this
 %%  bibliography.
+%%
+%%  2026-09-13 -- full re-check of all 23 entries against Crossref API (and
+%%  DataCite for the Zenodo DOI); every DOI resolves and every author list,
+%%  volume, and page/article number matches. Three entries had titles
+%%  silently "corrected" away from the publisher's actual (slightly awkward)
+%%  title text; restored to match the DOI record verbatim: (7) wang2024b:
+%%  "high-resolution land cover products" -> "high-resolution global land
+%%  cover products" (repeated "global" is in the published title, confirmed
+%%  independently via Semantic Scholar). (8) yu2023: "...Yangtze River Based
+%%  on the PSR Model" -> "...Yangtze River Base on the PSR Model" (published
+%%  title omits the "d"; confirmed via Semantic Scholar). (9) karra2021:
+%%  "Sentinel-2" -> "Sentinel 2" (no hyphen in the published title). Also
+%%  (10) liao2025: author list was missing the 8th/last author, Chen, N.
+%%  (Nengcheng Chen) -- added. fao2015gaul has no DOI (data citation); its
+%%  catalog URL returned HTTP 502 on 2026-09-13 (checked 3x) -- likely a
+%%  transient FAO server issue, not a dead link, but worth a final check
+%%  before submission. landis1977/wilson1927/yule1900 have no DOIs listed
+%%  (pre-DOI-era papers, MDPI style allows this) but content was cross-checked
+%%  against Crossref search and is correct. No other discrepancies found.
 %% =====================================================================
 
 \reftitle{References}
@@ -2268,7 +2287,7 @@ and time-series Sentinel-2 images. \textit{GISci. Remote Sens.}
 
 \bibitem[Wang et al.(2024b)]{wang2024b}
 Wang, Y.; Xu, Y.; Xu, X.; Jiang, X.; Mo, Y.; Cui, H.; Zhu, S.; Wu, H.
-Evaluation of six global high-resolution land cover products over China.
+Evaluation of six global high-resolution global land cover products over China.
 \textit{Int. J. Digit. Earth} \textbf{2024}, \textit{17}, 2301673.
 \href{https://doi.org/10.1080/17538947.2023.2301673}{https://doi.org/10.1080/17538947.2023.2301673}.
 
@@ -2292,7 +2311,7 @@ Yangtze River Region. \textit{Land} \textbf{2021}, \textit{10}, 1025.
 \href{https://doi.org/10.3390/land10101025}{https://doi.org/10.3390/land10101025}.
 
 \bibitem[Liao et al.(2025)]{liao2025}
-Liao, S.; Wang, W.; Wang, C.; Ji, R.; Cui, A.; Chen, D.; Zhang, X.
+Liao, S.; Wang, W.; Wang, C.; Ji, R.; Cui, A.; Chen, D.; Zhang, X.; Chen, N.
 Land Use and Land Cover Change Assessment and Predictions in Flood Detention
 Areas of Yangtze River Basin Based on AIF-HOM-PLUS Model. \textit{Remote Sens.}
 \textbf{2025}, \textit{17}, 1857.
@@ -2301,7 +2320,7 @@ Areas of Yangtze River Basin Based on AIF-HOM-PLUS Model. \textit{Remote Sens.}
 \bibitem[Yu et al.(2023)]{yu2023}
 Yu, S.; Yang, L.; Song, Z.; Li, W.; Ye, Y.; Liu, B.
 Measurement of Land Ecological Security in the Middle and Lower Reaches of the
-Yangtze River Based on the PSR Model. \textit{Sustainability} \textbf{2023},
+Yangtze River Base on the PSR Model. \textit{Sustainability} \textbf{2023},
 \textit{15}, 14098.
 \href{https://doi.org/10.3390/su151914098}{https://doi.org/10.3390/su151914098}.
 
@@ -2354,7 +2373,7 @@ cover mapping. \textit{Sci. Data} \textbf{2022}, \textit{9}, 251.
 
 \bibitem[Karra et al.(2021)]{karra2021}
 Karra, K.; Kontgis, C.; Statman-Weil, Z.; Mazzariello, J.C.; Mathis, M.;
-Brumby, S.P. Global land use / land cover with Sentinel-2 and deep learning. In
+Brumby, S.P. Global land use / land cover with Sentinel 2 and deep learning. In
 Proceedings of the IGARSS 2021 IEEE International Geoscience and Remote Sensing
 Symposium, Brussels, Belgium, 11--16 July 2021; pp. 4704--4707.
 \href{https://doi.org/10.1109/IGARSS47720.2021.9553499}{https://doi.org/10.1109/IGARSS47720.2021.9553499}.
