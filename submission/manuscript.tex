@@ -233,9 +233,26 @@ leave-one-city-out operator), so it can instead be used to target expert review.
 %%  body/intro.tex  --  Section 1 (Introduction + Related Work)
 %%  Drop-in fragment; compiles only inside the MDPI Remote Sensing template.
 %%
+%%  2026-09-13 -- contribution list collapsed from five to four. Former C4
+%%  (leave-one-city-out check, previously its own numbered item reading as a
+%%  method/process -- "a leave-one-city-out correction operator showing...")
+%%  folded into C2 as a robustness clause ("the pattern is not a single-city
+%%  artifact, since a leave-one-city-out check reproduces the same signal...").
+%%  Former C5 renumbered C4; back-reference "the C5 practice..." in the
+%%  Discussion (sec:disc-edge area) updated to "C4". Abstract, Highlights,
+%%  and the Appendix S6 "(C1/C2)" captions do not use the letter numbering
+%%  past C2 and are unaffected. See [[paper-pivot-loco]] in project memory.
+%%  Trailing ", with a bounded downstream footprint" cut from the C2 clause
+%%  same day: it described the operator's limited effect on a downstream
+%%  classifier, not evidence that the pattern generalises across cities, so
+%%  grafted onto the "not a single-city artifact, since..." clause it read as
+%%  a non sequitur. The point itself is intact in sec:disc-loco ("the right
+%%  scale for auditing a label map, not for retraining one").
+%%
 %%  2026-09-10 — readability pass (sentence-level only). Split long
 %%  multi-clause sentences; no claim, number, citation, contribution label
-%%  (C1-C5) or cross-reference changed; every edit information-equivalent.
+%%  (C1-C5, historical at time of that pass) or cross-reference changed;
+%%  every edit information-equivalent.
 %%  Edits: para 1 "whole-map averages" sentence split; para 2 "seldom
 %%  stated ... arbitrate a disputed pixel" split; para 3 "a test that
 %%  separates ..." split; contribution C1 split at "showing that"; Related
@@ -324,7 +341,7 @@ not an estimate of how often the behaviour occurs elsewhere. The middle and
 lower Yangtze is not an easy case---it is one of the harder land-cover settings---but it is
 a region where the monitoring demand is concrete.
 
-This paper makes five contributions. \textbf{C1}, the central one, is a direct
+This paper makes four contributions. \textbf{C1}, the central one, is a direct
 test of an assumption that is widely relied on but seldom examined---that
 agreement among global products is evidence of correctness, so that a second or
 third product can arbitrate a disputed pixel. At the urban built-up/vegetation
@@ -335,13 +352,12 @@ weakly coupled to either, so their agreement is correlated error rather than
 independent corroboration. \textbf{C2}: the WorldCover boundary error is directional, not
 symmetric noise---once WorldCover calls ``built-up'', the expert reads
 non-built about seven times in ten---so an agreement-filtered label set
-systematically under-represents urban vegetation. \textbf{C3}: the
+systematically under-represents urban vegetation; the pattern is not a
+single-city artifact, since a leave-one-city-out check reproduces the same
+signal in a city holding out all of its own labels. \textbf{C3}: the
 boundary-aware sampling step, offered as a practical and reproducible way to
 spend a small photo-interpretation budget on the hard pixels, not as a new
-active-learning method. \textbf{C4}, as supporting evidence, a
-leave-one-city-out correction operator showing the disagreement carries a
-cross-city signal with a bounded downstream footprint---not a correction
-framework. \textbf{C5}: the resulting methodological caution---%
+active-learning method. \textbf{C4}: the resulting methodological caution---%
 cross-product agreement should not be used on its own as a pseudo-reference, a
 high-confidence label source, or a quality filter, because the spectral and
 temporal safeguards in current weak-supervision pipelines are not designed to
@@ -453,7 +469,7 @@ For each city the area of interest is the whole second-level administrative unit
 candidate pool spans the built-up core together with the surrounding rural
 land. All spectral inputs come from a single 2021 Sentinel-2
 surface-reflectance composite per city, built from
-\texttt{COPERNICUS/S2\_SR\_HARMONIZED} over the full calendar year (scenes
+\href{https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2_SR_HARMONIZED}{\path{COPERNICUS/S2_SR_HARMONIZED}} over the full calendar year (scenes
 below 20\% cloud, per-pixel median). From it we take six bands (B2, B3, B4, B8,
 B11, B12) and three indices (NDVI, NDBI, MNDWI), each also summarised over a
 $3 \times 3$ pixel neighbourhood. The same composite is the primary reference
@@ -474,10 +490,10 @@ Three global 10~m land-cover products are compared, all for the 2021 epoch.
   one of the three references in the diagnostic.
 \item \textbf{Dynamic World} \citep{brown2022}---a near-real-time deep
   semantic-segmentation model on Sentinel-2; we take the 2021 annual mode of
-  the class band (\texttt{GOOGLE/DYNAMICWORLD/V1}).
+  the class band (\href{https://developers.google.com/earth-engine/datasets/catalog/GOOGLE_DYNAMICWORLD_V1}{\path{GOOGLE/DYNAMICWORLD/V1}}).
 \item \textbf{Esri\,/\,Impact Observatory Land Cover} \citep{karra2021}---an
   annual deep semantic-segmentation model on Sentinel-2; we take the 2021 layer
-  of the time-series product (\texttt{ESRI\_Global-LULC\_10m\_TS}).
+  of the time-series product (\href{https://gee-community-catalog.org/projects/S2TSLULC/}{\path{ESRI_Global-LULC_10m_TS}}).
 \end{itemize}
 
 Each product's native legend is collapsed to the same three classes used for
@@ -519,8 +535,9 @@ Dynamic World folds urban trees and grass into its ``Built Area'' class,
 whereas WorldCover's ``Built-up'' nominally excludes vegetation
 \citep{venter2022}. This split is taken up again in
 Section~\ref{sec:disc-edge}. WorldCover enters every analysis; Dynamic World
-and Esri enter only the four-way agreement, the independence diagnostic and the
-correction-operator referee (Section~\ref{sec:diagnostic}).
+and Esri enter only the four-way agreement and the independence diagnostic
+(Section~\ref{sec:diagnostic}), and the correction-operator referee
+(Section~\ref{sec:loco}).
 
 \subsection{Annotators}\label{sec:annotators}
 
@@ -578,7 +595,7 @@ Section~\ref{sec:disc-scope}.
 %%
 %%  Cite keys: fao2015gaul zanaga2022 gorelick2017 landis1977 brown2022
 %%             karra2021 wilson1927 yule1900 tong2024pre
-%%  Labels defined: sec:methods sec:sampling sec:diagnostic sec:loco sec:eval
+%%  Labels defined: sec:methods sec:sampling sec:diagnostic sec:loco
 %%                  eq:margin eq:bscore eq:netbuilt eq:condindep eq:be
 %%  2026-09-10: Hangzhou standardised onto the two-stage rule (Eq. hzblend +
 %%  the "five of six / weighted-blend" para removed; 104 points re-labelled).
@@ -609,8 +626,8 @@ disagree with the expert labels, and tests directly whether consulting a second
 and a third product resolves the disagreement. Third, as a supporting analysis,
 a leave-one-city-out (LOCO) correction operator (Section~\ref{sec:loco}) asks
 whether the expert corrections learned on five cities transfer to a sixth city
-that contributes no labels of its own. Section~\ref{sec:eval} states the
-metrics and the leakage controls that apply throughout.
+that contributes no labels of its own, together with the evaluation protocol
+and leakage controls specific to that test.
 
 \begin{figure}[H]
 \includegraphics[width=\linewidth]{figures/Figure2_workflow.pdf}
@@ -654,8 +671,8 @@ not a spatial mask.
 \subsubsection*{Inputs to the sampler}
 
 Feature values come from a single 2021 Sentinel-2 composite, built from
-\texttt{COPERNICUS/S2\_SR\_HARMONIZED} over the full calendar year: scenes with
-\texttt{CLOUDY\_PIXEL\_PERCENTAGE} $<$ 20 are combined by per-pixel median and
+\href{https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2_SR_HARMONIZED}{\path{COPERNICUS/S2_SR_HARMONIZED}} over the full calendar year: scenes with
+\path{CLOUDY_PIXEL_PERCENTAGE} $<$ 20 are combined by per-pixel median and
 clipped to the administrative polygon. From this composite we take six
 surface-reflectance bands (B2, B3, B4, B8, B11, B12) and three spectral indices
 (NDVI, NDBI, MNDWI), each as a point value and as a $3 \times 3$ pixel (30~m)
@@ -667,7 +684,7 @@ Google Earth Engine \citep{gorelick2017}.
 
 Boundary-Aware Margin Sampling (BAMS) combines a classifier-uncertainty signal
 with a local-heterogeneity signal. The exact procedure is reproduced
-deterministically in \texttt{scripts/reproduce\_bams\_selection.py}, which
+deterministically in \path{scripts/reproduce_bams_selection.py}, which
 regenerates the on-disk point sets to which the 900 hand labels are anchored
 (150/150 match, all six cities).
 
@@ -857,22 +874,18 @@ in the Supplementary Material (Tables~S3, S4).
 
 \subsection{LOCO Correction Operator (Supporting Analysis)}\label{sec:loco}
 
-\subsubsection*{Design rationale---why not propagate labels within a city}
-
-A natural way to spend a small boundary-label budget is to propagate the
-labelled points to their spectral neighbours \emph{within the same city}---the
-prototype\,/\,pseudo-label rectification-and-expansion family, of which PRE
-\citep{tong2024pre} is a representative instance. We adapted the same idea to
-a within-city setting (our variant, \emph{Prototype Expansion}) and found it
-leaks under spatial autocorrelation: once the evaluation points were properly
-excluded from the neighbour search, the procedure produced no valid
-expansions, and the apparent gain it showed without that control traced to a
-classifier change, not to propagation (full leakage diagnostic in
-Supplementary S5). We therefore define a correction operator trained on the
-labelled points of $N - 1$ cities and transferred to a held-out city that
-contributes no labels of its own---leave-one-city-out (LOCO)---which removes
-this dependence by construction, and report it as a supporting result, not
-the paper's main claim.
+We first tried propagating the boundary labels to their spectral neighbours
+\emph{within the same city}---our variant of the prototype\,/\,pseudo-label
+rectification-and-expansion family, of which PRE \citep{tong2024pre} is a
+representative instance (\emph{Prototype Expansion}). It leaks under spatial
+autocorrelation: once evaluation points are excluded from the neighbour
+search, the procedure produces no valid expansions, and the apparent gain it
+showed without that control traces to a classifier change, not to propagation
+(full leakage diagnostic in Supplementary S5). We instead define a correction
+operator trained on the labelled points of $N - 1$ cities and transferred to a
+held-out city that contributes no labels of its own---leave-one-city-out
+(LOCO)---which removes this dependence by construction, and report it as a
+supporting result, not the paper's main claim.
 
 \subsubsection*{Operator}
 
@@ -899,18 +912,34 @@ number of confident firings, and their precision against the expert label.
 
 \subsubsection*{Phase 2---downstream map correction}
 
-For each held-out city and each of five spatial-block partition seeds, a
-land-cover random forest is trained on the city's $\approx$ 10,000 non-boundary
-training points. Five labelling schemes are compared: (B0)~raw WC labels;
-(B2)~WC labels corrected by the transferred LOCO operator on boundary-gated,
-confidence-gated points---\emph{the proposed method}; (B1)~a \emph{within-city
-oracle} operator that does see city $c$'s expert labels (optimistic ceiling);
-(B3)~the transferred operator without the boundary gate (ablation); and
-(B4)~the same number of labels flipped to a random class (control). Each
-classifier is scored for overall accuracy and Boundary Error on the held-out
-spatial-block test set (against WC) and on the 150 expert points (against the
-expert). A $\tau \times$ margin-quantile sensitivity sweep is in Supplementary
-Table~S1.
+Every baseline and corrected variant in this phase is scored with the same
+downstream classifier---a random forest, 300 trees, scikit-learn defaults
+otherwise---so no change of classifier architecture can be mistaken for a
+method effect. For each held-out city and each of five spatial-block
+partition seeds, this classifier is trained on the city's $\approx$ 10,000
+non-boundary training points; splits are made by whole spatial cells, not by
+random points (each city gridded into $6 \times 6$ cells on
+latitude/longitude quantiles, whole cells assigned to the test set until
+$\approx$ 30\% of points are held out), so a training point and a test point
+are never near-duplicates across the split. Five labelling schemes are
+compared: (B0)~raw WC labels; (B2)~WC labels corrected by the transferred LOCO
+operator on boundary-gated, confidence-gated points---\emph{the proposed
+method}; (B1)~a \emph{within-city oracle} operator that does see city $c$'s
+expert labels (optimistic ceiling); (B3)~the transferred operator without the
+boundary gate (ablation); and (B4)~the same number of labels flipped to a
+random class (control). The correction operator never sees the held-out city,
+and the downstream classifier never sees the held-out city's expert
+labels---its 150 boundary points are evaluation-only. Each classifier is
+scored for overall accuracy (OA) and Boundary Error (BE), defined as the
+number of built $\leftrightarrow$ non-built confusions,
+%
+\begin{equation}\label{eq:be}
+\mathrm{BE} = cm[\text{built}, \text{non-built}] + cm[\text{non-built}, \text{built}],
+\end{equation}
+%
+on the held-out spatial-block test set (against WC) and on the 150 expert
+points (against the expert). A $\tau \times$ margin-quantile sensitivity sweep
+is in Supplementary Table~S1.
 
 \subsubsection*{Phase 3---multi-reference referee}
 
@@ -922,51 +951,11 @@ moved toward the expert label and the fraction moved toward the DW/Esri
 consensus, with the random-flip control and the within-city oracle ceiling for
 reference.
 
-\subsection{Evaluation Protocol and Leakage Controls}\label{sec:eval}
-
-\subsubsection*{Fixed downstream classifier}
-
-Every baseline and every corrected variant uses the same random forest (300
-trees; scikit-learn defaults otherwise), so no change of classifier
-architecture can be mistaken for a method effect.
-
-\subsubsection*{Spatial-block partitioning}
-
-Downstream train/test splits are made by whole spatial cells, not by random
-points. Each city is gridded into $6 \times 6$ cells on latitude/longitude
-quantiles. Whole cells are assigned to the test set until $\approx$ 30\% of
-points are held out, and five partition seeds are used. This keeps a training
-point and a test point from being near-duplicates across the split.
-
-\subsubsection*{Target-city isolation}
-
-For every LOCO result the correction operator never sees the held-out city, and
-the downstream classifier never sees the held-out city's expert labels---its
-150 boundary points are evaluation-only.
-
-\subsubsection*{Controls and uncertainty}
-
-A random-flip variant that changes the same number of labels to a random wrong
-class accompanies every correction result. Binomial proportions use Wilson
-95\% intervals. The independence statistics (Section~\ref{sec:diagnostic}(e))
-use a 4000-sample point bootstrap and leave-one-city-out ranges.
-
-\subsubsection*{Metrics}
-
-Overall accuracy (OA), Cohen's $\kappa$, and Boundary Error (BE), defined as
-the number of built $\leftrightarrow$ non-built confusions,
-%
-\begin{equation}\label{eq:be}
-\mathrm{BE} = cm[\text{built}, \text{non-built}] + cm[\text{non-built}, \text{built}].
-\end{equation}
-%
-Class codes are 1~$=$~built-up, 2~$=$~non-built, 3~$=$~water.
-
 \subsubsection*{Reproducibility}
 
 All inputs, analysis scripts and frozen result snapshots are listed in the Data
 Availability statement. BAMS point selection is regenerated by
-\texttt{scripts/reproduce\_bams\_selection.py}. The pipeline runs in a fixed
+\path{scripts/reproduce_bams_selection.py}. The pipeline runs in a fixed
 conda environment with a scikit-learn RandomForest throughout (no GPU or
 neural-network components).
 
@@ -1023,7 +1012,7 @@ neural-network components).
 %%                  sec:results-independence sec:results-loco
 %%                  tab:T1 tab:T2 tab:T3 tab:T4 tab:S2 tab:phase3
 %%  Labels expected: fig:independence fig:map_maintext tab:S1
-%%                   sec:sampling sec:diagnostic sec:loco sec:eval
+%%                   sec:sampling sec:diagnostic sec:loco
 %%                   sec:disc-edge sec:disc-mechanism sec:disc-loco
 %%                   sec:disc-scope app:recheck
 %%                   eq:netbuilt eq:be
@@ -1375,7 +1364,7 @@ to recover; we state this as a diagnostic fact, not a corrected failure case.
 
 \paragraph{Phase 2---downstream map correction.}
 Feeding the corrected labels into the fixed land-cover random forest
-(Section~\ref{sec:eval}) moves the six-city mean overall accuracy against the
+(Section~\ref{sec:loco}) moves the six-city mean overall accuracy against the
 150 expert points from 0.375 (raw WC) to 0.389 (proposed gated operator),
 against 0.422 for the within-city oracle ceiling and 0.378 for the random-flip
 control---a $+$1.5-point shift, inside the between-seed standard deviation
@@ -1498,7 +1487,7 @@ base rate). The practical consequence is narrow but concrete. Cross-product
 agreement is the standard convenience where field data are scarce, used both to
 merge consensus products \citep{tuanmu2014} and to harvest training samples
 from the pixels where maps agree \citep{zhangroy2017,wang2024a}. Used at this
-boundary as a high-confidence signal---the C5 practice this paper set out to
+boundary as a high-confidence signal---the C4 practice this paper set out to
 test---it selects a subset no closer to expert judgement than any single
 product, and discards disagreement that is itself informative. The spectral-
 and temporal-consistency safeguards in these pipelines are not designed to
@@ -1657,20 +1646,20 @@ All authors have read and agreed to the published version of the manuscript.}
 
 \dataavailability{The three global land-cover products are publicly available
 through Google Earth Engine: ESA WorldCover 2021 v200
-(\texttt{ESA/WorldCover/v200}), Dynamic World
-(\texttt{GOOGLE/DYNAMICWORLD/V1}), and Esri/Impact Observatory 10~m Land Cover
-(\path{projects/sat-io/open-datasets/landcover/ESRI_Global-LULC_10m_TS}).
+(\href{https://developers.google.com/earth-engine/datasets/catalog/ESA_WorldCover_v200}{\path{ESA/WorldCover/v200}}), Dynamic World
+(\href{https://developers.google.com/earth-engine/datasets/catalog/GOOGLE_DYNAMICWORLD_V1}{\path{GOOGLE/DYNAMICWORLD/V1}}), and Esri/Impact Observatory 10~m Land Cover
+(\href{https://gee-community-catalog.org/projects/S2TSLULC/}{\path{projects/sat-io/open-datasets/landcover/ESRI_Global-LULC_10m_TS}}).
 The Sentinel-2 Level-2A surface-reflectance archive
-(\texttt{COPERNICUS/S2\_SR\_HARMONIZED}) is likewise public. The 900
+(\href{https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2_SR_HARMONIZED}{\path{COPERNICUS/S2_SR_HARMONIZED}}) is likewise public. The 900
 expert-interpreted boundary points, the boundary-aware sampling code, and the
 diagnostic and leave-one-city-out analysis scripts are organised as a single
-code-plus-data repository: analysis code in \texttt{scripts/}; the six
+code-plus-data repository: analysis code in \path{scripts/}; the six
 cities' data (original 15{,}000-point pools through the final corrected
-labels) in \texttt{data/cities/}; cross-city reference data (Dynamic
+labels) in \path{data/cities/}; cross-city reference data (Dynamic
 World/Esri second reference, scene grouping) in
-\texttt{data/shared\_reference/}; script outputs in
-\texttt{data/analysis\_outputs/}; and the inter-annotator blind re-check in
-\texttt{data/interannotator\_recheck/}. This repository will be archived at
+\path{data/shared_reference/}; script outputs in
+\path{data/analysis_outputs/}; and the inter-annotator blind re-check in
+\path{data/interannotator_recheck/}. This repository will be archived at
 \needsedit{\url{https://doi.org/XXXX}} upon publication.} %TODO repository DOI once minted (structure above is now fixed; only the DOI itself is a placeholder)
 
 \acknowledgments{During the preparation of this manuscript, the authors used a
@@ -1807,7 +1796,7 @@ the $\approx$15,000 city labels rewritten.
 
 \begin{table}[H]
 \caption{Gate sensitivity, six-city mean. Source:
-\path{loco_correction_operator/phase2b_sweep_summary.csv}.\label{tab:S1}}
+\protect\path{loco_correction_operator/phase2b_sweep_summary.csv}.\label{tab:S1}}
 \begin{adjustwidth}{-\extralength}{0cm}
 \centering
 \small
@@ -1882,7 +1871,7 @@ DW $=$ Esri $-$ Human $=$ DW gap under three class schemes, six-city pool
 \caption{Collapsing the class ontology leaves DW $=$ Esri at 0.87--0.92 and
 the gap at 0.34--0.48: the coupling is not an artefact of the three-class
 remap. Source:
-\path{independence_diagnostic/S3a_ontology_confound.csv}.\label{tab:S3}}
+\protect\path{independence_diagnostic/S3a_ontology_confound.csv}.\label{tab:S3}}
 \begin{adjustwidth}{-\extralength}{0cm}
 \centering
 \small
@@ -1910,7 +1899,7 @@ mixed / complex 0.96), rather than concentrated in the spectrally stable
 classes. If the coupling came from the two products reading the same single
 acquisition it should peak on the easy, stable classes and break down in the
 transition zones; the observed pattern is the reverse. Source:
-\path{independence_diagnostic/S3c_coupling_by_scene.csv}.\label{tab:S4}}
+\protect\path{independence_diagnostic/S3c_coupling_by_scene.csv}.\label{tab:S4}}
 \begin{adjustwidth}{-\extralength}{0cm}
 \centering
 \small
@@ -1954,7 +1943,7 @@ alone, since non-built is the majority class pooled across cities).
 with the expert label. Confident firings are predictions with
 $p_{\max} \ge 0.85$ and predicted class $\neq$ WC; firing precision is the
 fraction of those firings that match the expert label. Source:
-\path{data/analysis_outputs/loco_correction_operator/phase1_corrector_transfer.csv}
+\protect\path{data/analysis_outputs/loco_correction_operator/phase1_corrector_transfer.csv}
 (live pipeline output, not the frozen snapshot; see note above).\label{tab:S5}}
 \begin{adjustwidth}{-\extralength}{0cm}
 \centering
@@ -1982,7 +1971,7 @@ before/after maps (main text Figure~\ref{fig:map_maintext};
 Figures~\ref{fig:map_s1}--\ref{fig:map_s4} below). ``Operator changes'' is the
 number of the $\approx$15,000 stratified city points the gated operator
 ($\tau=0.85$, lowest-decile within-city margin) overwrites relative to raw
-WorldCover. Source: \path{loco_correction_operator/}.\label{tab:S6}}
+WorldCover. Source: \protect\path{loco_correction_operator/}.\label{tab:S6}}
 \centering
 \small
 \begin{tabularx}{0.75\fulllength}{lCC}
@@ -2134,7 +2123,7 @@ speaking, most committed to---the clearest cases of each pattern, not the
 most ambiguous ones. Points are ranked this way per city per group, ties
 broken by \texttt{Original\_ID} ascending, and the top \texttt{N\_PER\_CITY}
 taken (2 for A, 1 each for B and C)---a rule fixed before any image was
-looked at (\texttt{scripts/c2\_chip\_select.py}). A confidence filter is
+looked at (\path{scripts/c2_chip_select.py}). A confidence filter is
 layered on top: Panels A and B keep points at expert confidence \texttt{high}
 or \texttt{med}; Panel C keeps \texttt{high} only, falling back to
 \texttt{med} for two cities---Nanchang, which has no high-confidence
@@ -2163,8 +2152,8 @@ visual-quality filter on the illustration, not a re-selection of which cases
 count as errors---the counts behind Table~\ref{tab:phase3} and the 159/191
 figure above are unaffected.
 
-\paragraph{Imagery.} \texttt{COPERNICUS/S2\_SR\_HARMONIZED}, 2021,
-\texttt{CLOUDY\_PIXEL\_PERCENTAGE < 20}, median---the same recipe as the
+\paragraph{Imagery.} \href{https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2_SR_HARMONIZED}{\path{COPERNICUS/S2_SR_HARMONIZED}}, 2021,
+\path{CLOUDY_PIXEL_PERCENTAGE < 20}, median---the same recipe as the
 sampling pipeline that produced the 15,000-point candidate pool and the
 WC/DW/Esri class calls being compared. Using any sharper or more recent
 image source here would let a reader attribute the error to poor image
@@ -2342,7 +2331,7 @@ Food and Agriculture Organization of the United Nations.
 \textit{The Global Administrative Unit Layers (GAUL) 2015, Second-Level
 Administrative Units}; FAO: Rome, Italy, 2015. Available online:
 \url{https://data.apps.fao.org/map/catalog/} (accessed on 20 July 2026);
-Google Earth Engine asset \texttt{FAO/GAUL/2015/level2}.
+Google Earth Engine asset \href{https://developers.google.com/earth-engine/datasets/catalog/FAO_GAUL_2015_level2}{\path{FAO/GAUL/2015/level2}}.
 
 \bibitem[Gorelick et al.(2017)]{gorelick2017}
 Gorelick, N.; Hancher, M.; Dixon, M.; Ilyushchenko, S.; Thau, D.; Moore, R.

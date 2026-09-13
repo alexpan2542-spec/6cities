@@ -10,9 +10,38 @@
 > (prefecture) polygon, not a built-up mask; the labelling protocol and the
 > shared-Sentinel-2 defence (plan §7.4) are now written in.
 >
+> **2026-09-13.** Contribution list collapsed from five to four: former C4
+> (the leave-one-city-out check) folded into C2 as a robustness clause —
+> "the pattern is not a single-city artifact, since a leave-one-city-out
+> check reproduces the same signal ... with a bounded downstream footprint"
+> — because as a standalone numbered item it read as a method/process
+> ("a leave-one-city-out correction operator showing...") rather than a
+> finding, even after the earlier "supporting evidence, not a correction
+> framework" hedge. Former C5 renumbered to C4; the back-reference "the C5
+> practice of building consensus products..." in §5.3 updated to "C4". No
+> other section (abstract, §5.4, §5.5, the (i)–(iv) scope list) uses the
+> letter labels, so nothing else changed. See [[paper-pivot-loco]].
+>
+> **2026-09-13 (follow-up).** Trimmed the trailing ", with a bounded
+> downstream footprint" off that same C2 clause: it describes the LOCO
+> operator's limited effect on a downstream classifier, not evidence that
+> the directional-error pattern generalises across cities, so grafted onto
+> "not a single-city artifact, since ..." it read as a non sequitur. The
+> point is preserved intact in §5.3 ("the right scale for auditing a label
+> map, not for retraining one").
+>
+> **2026-09-13 (sync fix).** The abstract here (and its `manuscript_zh.txt`
+> translation) still carried the LOCO sentence ("A leave-one-city-out
+> operator shows the disagreement carries a signal that transfers across
+> cities, but with a bounded downstream effect") that the 2026-09-11
+> word-count trim removed from `submission/manuscript.tex` and
+> `manuscript_for_ai_review.txt`. Dropped it here and in the Chinese
+> translation to restore sync across the four-file group (see
+> [[section-delivery-as-tex-fragments]]); no other wording changed.
+>
 > **Status.** All sections now drafted. Section 1 (Introduction + 1.1 Related
-> work) drafted 2026-09-09; closes with an explicit C1–C5 contribution
-> statement (final paragraph). Section 2 (Study Area & Data) drafted 2026-09-09
+> work) drafted 2026-09-09; closes with an explicit C1–C4 contribution
+> statement (final paragraph, collapsed from C1–C5 2026-09-13). Section 2 (Study Area & Data) drafted 2026-09-09
 > — 2.1 study area + site-selection rationale (monitoring demand, policy
 > citations per `study-area-citations`), 2.2 AOI + Sentinel-2 basis, 2.3 the
 > three products, 2.4 annotators (author-supplied); two placeholders remain
@@ -20,7 +49,7 @@
 > and 4 (Results) drafted 2026-09-07 against the frozen six-city snapshot
 > (`docs/results_snapshot/`, n = 900). Section 5 (Discussion) drafted
 > 2026-09-09. Section 6 (Conclusions) drafted 2026-09-09 (three paragraphs;
-> spine order, existence register, C5 caution). Abstract drafted 2026-09-09
+> spine order, existence register, C4 caution [was C5, renumbered 2026-09-13]). Abstract drafted 2026-09-09
 > (leads with the DW = ESRI coupling; agreement rates last). §4.1 opening
 > reordered to lead with DW = ESRI 0.87 vs Human = DW 0.44; the "Q ≈ 0.97 does
 > not use the expert at all" wording softened to "robust to an imperfect
@@ -83,8 +112,7 @@ against a 0.45 base rate), and all four sources agree on only 18% of points. The
 WorldCover error is directional — a "built-up" call is wrong toward non-built
 about seven times in ten — so an agreement-filtered label set systematically
 under-represents urban
-vegetation. A leave-one-city-out operator shows the disagreement carries a
-signal that transfers across cities, but with a bounded downstream effect. These
+vegetation. These
 results are an existence characterisation for six cities and one sensor, not a
 global prevalence estimate; within that scope, cross-product agreement should
 not be used on its own as a pseudo-reference or a high-confidence label at the
@@ -169,7 +197,7 @@ lower Yangtze is not put forward as an easy case — its paddy, aquaculture and 
 make it one of the harder land-cover settings — but as a region where the
 monitoring demand is concrete.
 
-This paper makes five contributions. **C1**, the central one, is a direct test
+This paper makes four contributions. **C1**, the central one, is a direct test
 of an assumption that is widely relied on but seldom examined — that agreement
 among global products is evidence of correctness, so that a second or third
 product can arbitrate a disputed pixel — showing that at the urban
@@ -183,17 +211,16 @@ rather than independent
 corroboration. **C2**: the WorldCover boundary error is directional, not
 symmetric noise — once WorldCover calls "built-up", the expert reads non-built
 about seven times in ten — so an agreement-filtered label set systematically
-under-represents urban vegetation. **C3**: the boundary-aware sampling step,
-offered as a practical and reproducible way to spend a small photo-interpretation
-budget on the hard pixels, not as a new active-learning method. **C4**, as
-supporting evidence, a leave-one-city-out correction operator showing the
-disagreement carries a signal that transfers across cities, with a bounded
-downstream footprint — not a correction framework. **C5**: the resulting
-methodological caution — cross-product agreement should not be used on its own as
-a pseudo-reference, a high-confidence label source, or a quality filter, because
-the spectral and temporal safeguards in current weak-supervision pipelines are
-not designed to catch error that is correlated across the products being
-combined.
+under-represents urban vegetation; the pattern is not a single-city artifact,
+since a leave-one-city-out check reproduces the same signal in a city holding
+out all of its own labels. **C3**: the
+boundary-aware sampling step, offered as a practical and reproducible way to
+spend a small photo-interpretation budget on the hard pixels, not as a new
+active-learning method. **C4**: the resulting methodological caution —
+cross-product agreement should not be used on its own as a pseudo-reference, a
+high-confidence label source, or a quality filter, because the spectral and
+temporal safeguards in current weak-supervision pipelines are not designed to
+catch error that is correlated across the products being combined.
 
 **Product inter-comparison.** Several studies benchmark the 10 m global
 products against independent ground data. Venter et al. (2022), in this
@@ -319,9 +346,9 @@ The schemas also differ at the boundary in a way that matters for this study:
 Dynamic World folds urban trees and grass into its "Built Area" class, whereas
 WorldCover's "Built-up" nominally excludes vegetation (Venter et al., 2022); this
 split is taken up again in Section 5.3. Which analysis draws on which product is
-stated in Section 3.2 — in outline, WorldCover enters every analysis, while
-Dynamic World and Esri enter only the four-way agreement, the independence
-diagnostic and the correction-operator referee.
+stated in Sections 3.2–3.3 — in outline, WorldCover enters every analysis, while
+Dynamic World and Esri enter only the four-way agreement and the independence
+diagnostic (Section 3.2), and the correction-operator referee (Section 3.3).
 
 ### 2.4. Annotators
 
@@ -357,8 +384,8 @@ with the expert labels, and tests directly whether consulting a second and a
 third product resolves the disagreement. Third, as a supporting analysis, a
 leave-one-city-out (LOCO) correction operator (Section 3.3) asks whether the
 expert corrections learned on five cities transfer to a sixth city that
-contributes no labels of its own. Section 3.4 states the metrics and the
-leakage controls that apply throughout.
+contributes no labels of its own, together with the evaluation protocol and
+leakage controls specific to that test.
 
 Every agreement and disagreement rate in this paper is computed on the
 boundary-candidate points of Section 3.1. Because those points are chosen to
@@ -570,20 +597,18 @@ own reliability (Section 5.5).
 
 ### 3.3. LOCO correction operator (supporting analysis)
 
-**Design rationale — why not propagate labels within a city.** A natural way
-to spend a small boundary-label budget is to propagate the labelled points to
-their spectral neighbours *within the same city* — the prototype / pseudo-label
+We first tried propagating the boundary labels to their spectral neighbours
+*within the same city* — our variant of the prototype / pseudo-label
 rectification-and-expansion family, of which PRE (Tong et al., 2024,
-arXiv:2406.00891; 2025) is a representative instance. We adapted the same idea
-to a within-city setting (our variant, *Prototype Expansion*) and found it
-leaks under spatial autocorrelation: once the evaluation points were properly
-excluded from the neighbour search, the procedure produced no valid expansions,
-and the apparent gain it showed without that control traced to a classifier
-change, not to propagation (full leakage diagnostic in Supplementary S5). We
-therefore define a correction operator trained on the labelled points of
-*N* − 1 cities and transferred to a held-out city that contributes no labels of
-its own — leave-one-city-out (LOCO) — which removes this dependence by
-construction, and report it as a supporting result, not the paper's main claim.
+arXiv:2406.00891; 2025) is a representative instance (*Prototype Expansion*).
+It leaks under spatial autocorrelation: once evaluation points are excluded
+from the neighbour search, the procedure produces no valid expansions, and the
+apparent gain it showed without that control traces to a classifier change,
+not to propagation (full leakage diagnostic in Supplementary S5). We instead
+define a correction operator trained on the labelled points of *N* − 1 cities
+and transferred to a held-out city that contributes no labels of its own —
+leave-one-city-out (LOCO) — which removes this dependence by construction, and
+report it as a supporting result, not the paper's main claim.
 
 **Operator.** For a held-out city *c*, a random forest (300 trees) is trained
 on the pooled 150-point boundary sets of the other five cities, with a
@@ -605,19 +630,32 @@ label, relative to the "do nothing" baseline (the WC = expert rate). We report
 operator accuracy, the number of confident firings, and their precision
 against the expert label.
 
-**Phase 2 — downstream map correction.** For each held-out city and each of
-five spatial-block partition seeds, a land-cover random forest is trained on
-the city's ≈ 10,000 non-boundary training points under five labelling schemes:
-(B0) raw WC labels; (B2) WC labels corrected by the transferred LOCO operator
-on boundary-gated, confidence-gated points — *the proposed method*; (B1) WC
-labels corrected by a *within-city oracle* operator that does see city *c*'s
-expert labels, an optimistic ceiling; (B3) the transferred operator applied
-without the boundary gate (ablation); and (B4) the same number of labels
-flipped to a random other class (control). Each trained classifier is
-evaluated for overall accuracy and Boundary Error on the held-out
-spatial-block test set (against WC) and on the 150 expert points (against the
-expert). A τ × margin-quantile sensitivity sweep is reported in
-Supplementary Table S1.
+**Phase 2 — downstream map correction.** Every baseline and corrected variant
+in this phase is scored with the same downstream classifier — a random
+forest, 300 trees, scikit-learn defaults otherwise — so no change of
+classifier architecture can be mistaken for a method effect; this is a
+deliberate departure from an earlier version of the pipeline, in which part of
+the apparent gain traced to a random-forest → MLP swap rather than to the
+correction step. For each held-out city and each of five spatial-block
+partition seeds, this classifier is trained on the city's ≈ 10,000
+non-boundary training points; splits are made by whole spatial cells, not by
+random points (each city gridded into 6 × 6 cells on latitude/longitude
+quantiles, whole cells assigned to the test set until ≈ 30% of points are held
+out), so a training point and a test point are never near-duplicates across
+the split. Five labelling schemes are compared: (B0) raw WC labels; (B2) WC
+labels corrected by the transferred LOCO operator on boundary-gated,
+confidence-gated points — *the proposed method*; (B1) WC labels corrected by a
+*within-city oracle* operator that does see city *c*'s expert labels, an
+optimistic ceiling; (B3) the transferred operator applied without the
+boundary gate (ablation); and (B4) the same number of labels flipped to a
+random other class (control). The correction operator never sees the held-out
+city, and the downstream classifier never sees the held-out city's expert
+labels — its 150 boundary points are evaluation-only. Each trained classifier
+is evaluated for overall accuracy (OA) and Boundary Error (BE), defined as the
+number of built ↔ non-built confusions, BE = *cm*[built, non-built] +
+*cm*[non-built, built], on the held-out spatial-block test set (against WC)
+and on the 150 expert points (against the expert). A τ × margin-quantile
+sensitivity sweep is reported in Supplementary Table S1.
 
 **Phase 3 — multi-reference referee.** The corrected label map is evaluated
 directly, with no downstream classifier, on the 150 held-out points of each
@@ -626,36 +664,6 @@ city (all six now carry DW and ESRI), against (i) the expert label and
 the points the operator changed, we report the fraction moved toward the
 expert label and the fraction moved toward the DW/ESRI consensus, with the
 random-flip control and the within-city oracle ceiling for reference.
-
-### 3.4. Evaluation protocol and leakage controls
-
-**Fixed downstream classifier.** Every baseline and every corrected variant
-uses the same random forest (300 trees; scikit-learn defaults otherwise). No
-change of classifier architecture can therefore be mistaken for a method
-effect — a deliberate departure from an earlier version of the pipeline, in
-which part of the apparent gain traced to a random-forest → MLP swap rather
-than to the correction step.
-
-**Spatial-block partitioning.** Downstream train/test splits are made by whole
-spatial cells, not by random points. Each city is gridded into 6 × 6 cells on
-latitude/longitude quantiles; whole cells are assigned to the test set until
-≈ 30% of points are held out; five partition seeds are used. This keeps a
-training point and a test point from being near-duplicates across the split.
-
-**Target-city isolation.** For every LOCO result the correction operator never
-sees the held-out city, and the downstream classifier never sees the held-out
-city's expert labels — its 150 boundary points are evaluation-only.
-
-**Controls and uncertainty.** A random-flip variant that changes the same
-number of labels to a random wrong class accompanies every correction result.
-Binomial proportions use Wilson 95% intervals; the independence statistics
-(Section 3.2(e)) use a 4,000-sample point bootstrap and leave-one-city-out
-ranges.
-
-**Metrics.** Overall accuracy (OA), Cohen's κ, and Boundary Error (BE),
-defined as the number of built ↔ non-built confusions,
-BE = *cm*[built, non-built] + *cm*[non-built, built]. Class codes are
-1 = built-up, 2 = non-built, 3 = water.
 
 **Reproducibility.** All inputs, analysis scripts and frozen result snapshots
 are listed in the Data Availability statement; BAMS point selection is
@@ -975,7 +983,7 @@ headroom for the operator to recover — both stated as diagnostic facts, not as
 a corrected failure case.
 
 **Phase 2 — downstream map correction.** Feeding the corrected labels into the
-fixed land-cover random forest (Section 3.4) moves the six-city mean overall
+fixed land-cover random forest (Section 3.3) moves the six-city mean overall
 accuracy against the 150 expert points from 0.375 (raw WC) to only 0.389
 (proposed gated operator), against 0.422 for the within-city oracle ceiling and
 0.378 for the random-flip control — a +1.5-point shift, inside the between-seed
@@ -1051,7 +1059,7 @@ independence by twice the margin of the WorldCover pairs (+0.26 against
 +0.13–0.14), and their consensus predicts the expert label no better than a
 single product does (0.44 against a 0.45 base rate). The practical implication
 is narrow but concrete: at the urban built-up/vegetation boundary, treating
-cross-product agreement as a high-confidence signal — the C5 practice of
+cross-product agreement as a high-confidence signal — the C4 practice of
 building consensus products (Tuanmu and Jetz, 2014) or generating training and
 reference samples from the pixels where existing maps agree (Zhang and Roy,
 2017; Wang et al., 2024a) — selects a subset no closer to expert judgement than

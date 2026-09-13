@@ -3,11 +3,14 @@
 Figure 2 - Three-stage analysis workflow.
 
 Redrawn for the diagnostic-first paper (2026-09-09 pivot). Structure follows
-docs/manuscript_sec3.tex:
+submission/manuscript.tex:
   Stage 1  Boundary-aware candidate sampling            (Sec 3.1)
   Stage 2  Multi-reference agreement diagnostic  [core] (Sec 3.2)
   Stage 3  LOCO correction operator  [supporting]       (Sec 3.3)
-  spanning: Evaluation protocol & leakage controls      (Sec 3.4)
+           -- includes its own evaluation protocol / leakage controls
+           (fixed classifier, spatial-block splits, target-city isolation),
+           folded into Stage 3 since Sec 3.4 was merged into Sec 3.3
+           on 2026-09-13.
   footer:   conditioning caveat
 
 Output : submission/figures/Figure2_workflow.png  (+ .pdf)
@@ -23,7 +26,6 @@ C_S2 = "#fdf3e3"; C_S2E = "#c98a1e"
 C_S3 = "#f0f0ee"; C_S3E = "#8a8a84"
 C_OUT = "#e5f0e6"; C_OUTE = "#4f8f5f"
 C_Q = "#f6e0dd"; C_QE = "#b5402f"
-C_EVAL = "#eef0f4"; C_EVALE = "#7b8494"
 C_CAV = "#f4efe6"; C_CAVE = "#9a7b3f"
 INK = "#1b1b1b"; SUB = "#3c3c3c"
 
@@ -135,7 +137,7 @@ txt(36.35 + we / 2, r2 + 1.6, "Tables S2–S3 · Fig 3", size=6.0, color=C_S2E, 
 
 # ================================================================ STAGE 3
 arrow(50, 43, 37.3, lw=1.5, color=C_S3E, dash=(0, (5, 3)))
-box(4, 15.5, 92, 21, C_S3, C_S3E, lw=1.2)
+box(4, 9, 92, 27.5, C_S3, C_S3E, lw=1.2)
 txt(7, 33.7, "Stage 3", size=9.5, weight="bold", color=C_S3E, ha="left")
 txt(50, 33.7, "LOCO correction operator", size=9.5, weight="bold")
 txt(80, 33.7, "supporting", size=7.3, weight="bold", color="white",
@@ -146,24 +148,21 @@ txt(50, 30.0, "leave-one-city-out: fit expert corrections on 5 cities  →  appl
     "held-out 6th (no labels of its own)", size=7.0, color=SUB)
 txt(50, 27.4, "the operator overwrites the WorldCover label only where it is confident "
     "(gate τ)", size=7.0, color=SUB)
+txt(50, 24.5, "evaluation protocol: same fixed downstream classifier throughout  ·  "
+    "spatial-block train/test splits  ·  target-city isolation", size=6.6,
+    color="#4a5262")
 
 phw = 27.3
 for x, lab in zip([7, 36.35, 65.7],
                   ["Phase 1\noperator transfer",
                    "Phase 2\ndownstream map correction",
                    "Phase 3\nmulti-reference referee"]):
-    box(x, 20.0, phw, 5.4, "white", C_S3E, lw=0.7)
-    txt(x + phw / 2, 22.7, lab, size=6.6)
-txt(50, 17.6, "before / after correction maps:   Fig 4 (main)   ·   Fig S1–S4",
+    box(x, 17.0, phw, 5.4, "white", C_S3E, lw=0.7)
+    txt(x + phw / 2, 19.7, lab, size=6.6)
+txt(50, 14.0, "before / after correction maps:   Fig 4 (main)   ·   Fig S1–S4",
     size=6.4, color=SUB)
 
-# ================================================================ EVAL + CAVEAT
-box(4, 8, 92, 5.6, C_EVAL, C_EVALE, lw=1.0)
-txt(50, 11.9, "Evaluation protocol & leakage controls    §3.4", size=7.5,
-    weight="bold", color="#4a5262")
-txt(50, 9.5, "fixed downstream classifier  ·  spatial-block partitioning  ·  "
-    "target-city isolation  ·  block-bootstrap CIs", size=6.7, color=SUB)
-
+# ================================================================ CAVEAT
 box(4, 1.4, 92, 5.2, C_CAV, C_CAVE, lw=1.3)
 txt(50, 4.9, "All agreement / disagreement rates are conditional on the "
     "boundary-candidate population;", size=6.9, weight="bold", color="#6d5320")
