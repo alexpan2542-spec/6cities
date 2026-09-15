@@ -1,0 +1,6 @@
+method,value_or_mean,seed_std_or_gain_std
+B0_baseline,0.07360243207709129,0.0033701668640228892
+B2_loco_gated,0.06871786953820479,0.005752079602464359
+B2_minus_B0_paired_same_city_seed,0.014666666666666663,0.012912911949640051
+B2_minus_B0_city_level_mean_of_5_seeds,0.014666666666666663,0.009503215829976243
+"city_level_paired_t (n=6, one-sided-positive count=5/6, t-test p=0.013)",,

@@ -72,6 +72,22 @@ EXCLUDE_IDS = {558, 378, 927, 2183, 3557, 4251, 1831, 3173, 4886, 4271, 1537,
                # Group B 2026-09-12 re-pick
                9555}
 
+# 2026-09-14: SRC's Human_Class for 14 Nanchang points was stale (still the
+# WC-placeholder value from before the documented 26-point Nanchang
+# re-annotation, Section 3.2(d)) and has since been corrected in place
+# (scripts/fix_second_ref_nanchang.py). Two of those 14 points (1041, 3553)
+# now satisfy Group A's mask and outrank the currently-published picks
+# (1412, 4546) by margin, so re-running this script today would swap
+# Nanchang's Group A chips. The published Figure S5 predates that fix and
+# still shows 1412/4546 -- both remain valid Group A instances (their labels
+# were never among the 14 corrected points), so the figure was deliberately
+# left as-is rather than re-fetching new Sentinel-2 chips for 1041/3553.
+# The 159/191 summary statistic quoted alongside the figure (Supplementary
+# S6) *was* recomputed against the corrected data and now reads 164/197.
+# If this script is ever re-run to regenerate the figure from scratch, expect
+# Nanchang's Group A slot to change to 1041/3553 and update the S6 text and
+# figure together at that point.
+
 CITY_ORDER = ["Wuhan", "Hefei", "Nanchang", "Nanjing", "Changsha", "Hangzhou"]
 
 # per-group confidence tiers, tried in order per city (a city short on the first

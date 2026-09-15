@@ -78,22 +78,24 @@ txt(27.5, 102.5, "Sentinel-2 2021 composite\n"
     "point value  +  3×3 mean & SD", size=6.9, color=SUB)
 
 box(52, 98, 41, 9, "white", C_S1E, lw=0.8)
-txt(72.5, 104.4, "BAMS score", size=7.2, weight="bold", color=SUB)
-txt(72.5, 102.4, "RF margin  m = p₁ − p₂   +   BoundaryScore", size=6.9, color=SUB)
-txt(72.5, 100.4, "BoundaryScore = Σ σ₃ₓ₃(B2, B3, B4, B8)   →   pick 150 / city",
+txt(72.5, 104.4, "BAMS selection (two steps, not a sum)", size=7.2, weight="bold", color=SUB)
+txt(72.5, 102.4, "1) keep 1,000 lowest-margin (m = p₁ − p₂)", size=6.9, color=SUB)
+txt(72.5, 100.4, "2) of those, top 150 by BoundaryScore = Σ σ₃ₓ₃(B2, B3, B4, B8)",
     size=6.4, color=SUB)
 
 txt(50, 94, "the random forest is a proposal mechanism only — it assigns no class labels",
     size=6.8, color="#7a5a2a")
 
 # ---- output pill
-arrow(50, 91, 87.3)
-box(9, 80.5, 82, 6.4, C_OUT, C_OUTE, lw=1.3, r=3)
-txt(50, 83.7, "900 boundary points  ·  independent expert photo-interpretation  ·  "
-    "QC: 100-pt κ = 0.89 (92.7 %)", size=7.2, weight="bold", color="#2f5d3a")
+arrow(50, 91, 88.4)
+box(9, 79, 82, 9, C_OUT, C_OUTE, lw=1.3, r=3)
+txt(50, 85.3, "900 boundary points  ·  independent expert photo-interpretation",
+    size=6.6, color="#2f5d3a")
+txt(50, 81.7, "QC: 120-pt re-label, Fleiss' κ = 0.89 (116 complete cases), 92.7% mean pairwise",
+    size=6.4, weight="bold", color="#2f5d3a")
 
 # ================================================================ STAGE 2
-arrow(50, 80.5, 76.3)
+arrow(50, 79, 76.3)
 box(4, 43, 92, 32.5, C_S2, C_S2E, lw=1.9)
 txt(7, 72.7, "Stage 2", size=9.5, weight="bold", color=C_S2E, ha="left")
 txt(50, 72.7, "Multi-reference agreement diagnostic", size=9.5, weight="bold")
@@ -155,7 +157,7 @@ txt(50, 24.5, "evaluation protocol: same fixed downstream classifier throughout 
 phw = 27.3
 for x, lab in zip([7, 36.35, 65.7],
                   ["Phase 1\noperator transfer",
-                   "Phase 2\ndownstream map correction",
+                   "Phase 2\ndownstream classifier training",
                    "Phase 3\nmulti-reference referee"]):
     box(x, 17.0, phw, 5.4, "white", C_S3E, lw=0.7)
     txt(x + phw / 2, 19.7, lab, size=6.6)

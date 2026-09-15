@@ -1,4 +1,4 @@
-# Cross-product agreement does not arbitrate reference labels at the urban built-up/vegetation boundary: a six-city diagnostic
+# Cross-product agreement does not arbitrate reference labels at land-cover class boundaries: a six-city diagnostic
 
 > Working manuscript draft for MDPI *Remote Sensing* (research article).
 > Single source of record for framing, decisions and frozen numbers:
@@ -96,8 +96,8 @@ assumption that where independent products agree the agreed label is close to
 correct — so that consulting a second or third product can arbitrate a disputed
 pixel. Rather than ask which product is best, this study tests whether agreement
 among ESA WorldCover, Google/WRI Dynamic World and Esri/Impact Observatory Land
-Cover is independent evidence of correctness at the urban built-up/vegetation
-boundary, the setting where the products are weakest. Using 900
+Cover is independent evidence of correctness at land-cover class boundaries,
+the setting where the products are weakest. Using 900
 expert-interpreted boundary points — 150 in each of six middle- and lower-Yangtze cities
 (China), placed on the most spectrally ambiguous transitions by a boundary-aware
 sampling step and labelled from a 2021 Sentinel-2 composite — we find that the
@@ -106,20 +106,23 @@ only agreement rate that is high everywhere is between Dynamic World and Esri
 (Human = WorldCover 0.47, Human = Dynamic World 0.45, Human = Esri 0.42). That
 mutual agreement is not independent corroboration: the two products' errors move
 almost in lockstep (Yule's *Q* ≈ 0.97 between their error indicators), whereas
-WorldCover's errors are at most weakly coupled to either (*Q* ≤ 0.14). Product
-consensus predicts the expert label no better than a single product (0.44
-against a 0.45 base rate), and all four sources agree on only 18% of points. The
-WorldCover error is directional — a "built-up" call is wrong toward non-built
-about seven times in ten — so an agreement-filtered label set systematically
-under-represents urban
-vegetation. These
-results are an existence characterisation for six cities and one sensor, not a
+WorldCover's errors are at most weakly coupled to either (*Q* ≈ 0.08–0.14). The
+Dynamic World–Esri consensus matches the expert labels on 43% of retained
+points, compared with 45% for Dynamic World alone, and all four sources
+agree on only 18% of points. The
+WorldCover error is directional: once WorldCover calls a point "built-up",
+the expert label is non-built about seven times in ten. Separately, the
+Dynamic World–Esri agreement
+itself, taken at face value as a pseudo-label, also under-represents
+non-built cover among the points it retains. These
+results show the pattern holds across six cities sharing one
+Sentinel-2 basis, not a
 global prevalence estimate; within that scope, cross-product agreement should
-not be used on its own as a pseudo-reference or a high-confidence label at the
-urban boundary.
+not be used on its own as a pseudo-reference or a high-confidence label at
+land-cover class boundaries.
 
 **Keywords:** global land-cover products; ESA WorldCover; Dynamic World; Esri
-Land Cover; map agreement; correlated error; urban vegetation boundary; accuracy
+Land Cover; map agreement; correlated error; land-cover class boundary; accuracy
 assessment; weak supervision; Sentinel-2
 
 ---
@@ -157,7 +160,7 @@ Wang et al., 2024a). The step is convenient and intuitive, and it rests on an
 assumption that is seldom stated, let alone tested: that where independent
 products agree, the agreed label is close to correct — and, by extension, that
 consulting a second or third product can arbitrate a disputed pixel. Whether
-that assumption holds at the urban built-up/vegetation boundary, the very place
+that assumption holds at land-cover class boundaries, the very place
 the products are weakest, has not been examined. The product-comparison
 literature reports how far the maps sit from reference data on average, but not
 whether their mutual agreement is independent corroboration or shared error,
@@ -175,24 +178,31 @@ carry opposite implications for arbitration.
 This paper supplies both, for six cities in the middle and lower reaches of the Yangtze River in China
 (Wuhan, Hefei, Nanchang, Nanjing, Changsha, Hangzhou). A boundary-aware
 sampling step spends a deliberately small photo-interpretation budget — 900
-points, 150 per city — on the most spectrally ambiguous built-up/vegetation
+points, 150 per city — on the most spectrally ambiguous land-cover class
 transitions, each labelled by expert interpretation of a 2021 Sentinel-2
 composite. On these points we (i) quantify how far ESA WorldCover, Dynamic
 World and Esri Land Cover depart from the expert labels and from one another;
 (ii) test directly whether a second and third product arbitrate the
-disagreement, formalising the arbitration assumption as a violation of
-conditional independence and reporting the joint error structure of the three
-products; (iii) characterise the direction of the WorldCover error and the
+disagreement, formalising the test as whether product predictions are
+conditionally independent given the expert label and reporting the joint
+error structure of the three products; (iii) characterise the direction of the WorldCover error and the
 physical scenes in which the disagreement concentrates; and (iv), as a
 supporting analysis, ask with a leave-one-city-out correction operator whether
-the disagreement carries a signal that transfers to a city holding out all of
-its own labels.
+the disagreement carries a signal that transfers to a city whose own labels
+were withheld entirely.
 
-The scope is stated plainly. The six cities are one country, one climate, one
-broad urban-build morphology and one sensor; every rate reported here is
+The scope is stated plainly. The boundary-candidate population spans each
+city's full administrative area and every pairwise transition in the
+three-class scheme. The three classes are built-up, non-built and water;
+non-built includes vegetation, cropland and bare land. The results
+below concentrate on the built-up/non-built pairing because that is where the
+products disagree most and where downstream weak-supervision pipelines are
+most exposed. The six cities are one country, one climate, one
+broad urban-build morphology, and one shared Sentinel-2 information base;
+every rate reported here is
 conditional on a boundary-candidate population and is not a map-wide accuracy
-of any product. The result is an existence characterisation within that domain,
-not an estimate of how often the behaviour occurs elsewhere. The middle and
+of any product. The result shows the behaviour exists within that domain,
+not how often it occurs elsewhere. The middle and
 lower Yangtze is not put forward as an easy case — its paddy, aquaculture and wetland mosaics
 make it one of the harder land-cover settings — but as a region where the
 monitoring demand is concrete.
@@ -200,23 +210,30 @@ monitoring demand is concrete.
 This paper makes four contributions. **C1**, the central one, is a direct test
 of an assumption that is widely relied on but seldom examined — that agreement
 among global products is evidence of correctness, so that a second or third
-product can arbitrate a disputed pixel — showing that at the urban
-built-up/vegetation boundary, in these six cities, it can fail. The failure is
-both operational and mechanistic: product consensus predicts the expert label no
-better than a single product (arbitration PPV 0.44 against a 0.45 base rate),
+product can arbitrate a disputed pixel — showing that at land-cover class
+boundaries, in these six cities, it can fail. The failure is
+both operational and mechanistic: the Dynamic World–Esri consensus does not clearly exceed the
+single-product base rate (arbitration PPV 0.43 against 0.45),
 and Dynamic World and Esri err together (Yule's *Q* ≈ 0.97 between their error
 indicators) while WorldCover's errors are at most weakly coupled to either
-(*Q* ≤ 0.14), so agreement between the two coupled products is correlated error
+(*Q* ≈ 0.08–0.14), so agreement between the two coupled products is correlated error
 rather than independent
-corroboration. **C2**: the WorldCover boundary error is directional, not
-symmetric noise — once WorldCover calls "built-up", the expert reads non-built
-about seven times in ten — so an agreement-filtered label set systematically
-under-represents urban vegetation; the pattern is not a single-city artifact,
-since a leave-one-city-out check reproduces the same signal in a city holding
-out all of its own labels. **C3**: the
+corroboration.
+
+**C2**: two related but distinct findings at the boundary. WorldCover's error
+is directional, not symmetric noise — once WorldCover calls "built-up", the
+expert reads non-built about seven times in ten; the pattern is not a
+single-city artifact, since a leave-one-city-out check reproduces the same
+signal in a city whose own labels were withheld entirely. Separately, taking
+Dynamic World–Esri agreement itself as a pseudo-label systematically
+under-represents non-built cover among the points it retains.
+
+**C3**: the
 boundary-aware sampling step, offered as a practical and reproducible way to
 spend a small photo-interpretation budget on the hard pixels, not as a new
-active-learning method. **C4**: the resulting methodological caution —
+active-learning method.
+
+**C4**: the resulting methodological caution —
 cross-product agreement should not be used on its own as a pseudo-reference, a
 high-confidence label source, or a quality filter, because the spectral and
 temporal safeguards in current weak-supervision pipelines are not designed to
@@ -227,8 +244,9 @@ products against independent ground data. Venter et al. (2022), in this
 journal, compare Dynamic World, WorldCover and Esri Land Cover at a global
 reference sample (overall accuracy on their scheme: Esri ≈ 75%, Dynamic
 World ≈ 72%, WorldCover ≈ 65%) and document systematic per-class biases; they
-also record the definitional split that matters here — Dynamic World folds
-urban vegetation into "Built Area", whereas WorldCover's "Built-up" nominally
+also record the definitional split that matters here — Dynamic World's
+built-area predictions can incorporate urban vegetation and green space in
+practice, whereas WorldCover's nominal Built-up class
 excludes it. Xu et al. (2024) run a comparative independent validation of the
 same three maps, with overall accuracies of 73–83% depending on how
 reference-data uncertainty is handled. Wang et al. (2024b) evaluate six
@@ -256,11 +274,11 @@ target city entirely excluded.
 
 **The gap.** No existing study combines (i) a boundary-pixel focus rather than
 a whole-map average, (ii) active sampling that places a small manual budget
-precisely on built-up/vegetation transitions, and (iii) an explicit test of the
-arbitration assumption, formalised as a testable violation of conditional
-independence and supported by the joint error structure of the three products
-(Section 4.5), with class ontology, shared imagery and acquisition date ruled
-out as cheap explanations. *Why* the two
+precisely on land-cover class transitions, and (iii) an explicit test of
+whether product predictions are conditionally independent given the expert
+label, supported by the joint error structure of the three products
+(Section 4.5), with checks on class ontology, shared imagery and acquisition
+date narrowing but not fully separating the space of explanations. *Why* the two
 products are coupled is left as a hypothesis for the Discussion, not asserted as
 a result. Sections 3–6 present the methods, the diagnostic and correction
 results, their interpretation, and the bounded conclusions.
@@ -288,8 +306,8 @@ basic farmland protection, and shoreline and flood-detention-area controls —
 that all rely on accurate and repeatable land-cover monitoring (Yu et al., 2023;
 Tong et al., 2024). It is not an easy classification setting: paddy, aquaculture
 ponds and wetland interleave finely with the built and vegetated classes, mixed
-pixels are common at 10 m, and the built-up/vegetation transition — the focus of
-this study — is among the boundaries global products place least reliably
+pixels are common at 10 m, and land-cover class transitions — the focus of
+this study — are among the boundaries global products place least reliably
 (Lu et al., 2026; Zhao et al., 2026). The six cities were selected because this
 monitoring demand is concrete; they are not put forward as a globally
 representative sample (Section 5.5).
@@ -343,8 +361,9 @@ is treated as no-data and excluded. The same three-class WorldCover remap define
 the stratified candidate pool (Section 3.1).*
 
 The schemas also differ at the boundary in a way that matters for this study:
-Dynamic World folds urban trees and grass into its "Built Area" class, whereas
-WorldCover's "Built-up" nominally excludes vegetation (Venter et al., 2022); this
+Dynamic World's built-area predictions can incorporate urban vegetation and
+green space in practice, whereas WorldCover's nominal Built-up class excludes
+vegetation (Venter et al., 2022); this
 split is taken up again in Section 5.3. Which analysis draws on which product is
 stated in Sections 3.2–3.3 — in outline, WorldCover enters every analysis, while
 Dynamic World and Esri enter only the four-way agreement and the independence
@@ -491,7 +510,7 @@ almost perfect (Fleiss' κ = 0.89).
 concentrates the labelling budget on the pixels that are hardest to classify,
 so every agreement or disagreement rate in Section 4 is conditional on this
 boundary-candidate population and is not a map-wide accuracy of WorldCover,
-Dynamic World or ESRI Land Cover (see also Sections 4.2 and 5.x).
+Dynamic World or ESRI Land Cover (see also Sections 4.2 and 5.5).
 
 A second point of conditioning deserves statement here. BAMS selects points
 from Sentinel-2 spectra (a WorldCover-trained random forest's margin) and
@@ -531,7 +550,7 @@ high-confidence-only subset, per city and pooled. The purpose is to test
 whether the disagreement is merely annotator noise on ambiguous pixels — if so
 it should shrink on the high-confidence subset. We note the built-in bias of
 this test (an annotator may assign "high" precisely when a WC error is
-obvious) and read the result accordingly (Sections 4.2, 5.x).
+obvious) and read the result accordingly (Sections 4.2, 5.5).
 
 **(c) Direction of the WC error (Table \ref{tab:T3},
 Figure \ref{fig:errordir}).** From the WC → expert confusion matrix on the
@@ -561,33 +580,48 @@ code; 13 of the 26 disagree with WorldCover.
 Figure \ref{fig:independence}).** Multi-reference arbitration implicitly
 assumes the references approach the truth *independently*, so that agreement
 between two of them corroborates a label. We test that assumption on the
-*n* = 900 subset; the central contrast — S2a and S2b, below — does not require
-the expert label to be ground truth. S2c is the exception, since it asks how
-well the expert label is predicted, and is accordingly capped by the expert's
-own reliability (Section 5.5).
+*n* = 900 subset, using the expert label H as the best available stand-in for
+the true class throughout. All three checks below are therefore statements
+about dependence relative to the current expert reference, not about an
+unconditional ground truth. S2c scores a prediction directly against H
+itself; S2a conditions the comparison between products on H's class labels,
+and S2b defines each product's error relative to H before comparing those
+errors. All three remain dependent on H's reliability; we do not have a
+reference-noise model precise enough to rank how tightly each depends on it
+(Section 5.5).
 
 - *S2a — excess agreement.* Observed pairwise agreement is compared with the
   agreement expected if the two products were conditionally independent given
-  the true class,
-  Σ<sub>j</sub> P(Y = j) Σ<sub>c</sub> P(A = c | Y = j) P(B = c | Y = j). The
-  conditional class distributions are estimated in-sample, so they partly
-  absorb the true dependence they are meant to null out; this biases the
-  expectation *toward* the observed agreement, so the reported excess is
-  expected to understate the true value. Uncertainty is a 4,000-sample point bootstrap; a
+  the true class Y, taken operationally as H,
+  Σ<sub>j</sub> P(H = j) Σ<sub>c</sub> P(A = c | H = j) P(B = c | H = j). The
+  conditional class distributions are estimated from the same sample used to
+  compute the observed agreement, stratified by the expert-label class j
+  (stratum sizes n<sub>j</sub> = 231, 516, 153); under within-stratum i.i.d.
+  sampling, same-sample self-pairing shrinks the expected excess (observed
+  minus independence-implied agreement) toward zero within each stratum by a
+  factor of (1 − 1/n<sub>j</sub>) relative to its population value;
+  equivalently, the plug-in null is biased by Δ<sub>j</sub>/n<sub>j</sub> per
+  stratum, where Δ<sub>j</sub> is that stratum's population excess (upward
+  when Δ<sub>j</sub> > 0, as here). Recomputing the DW/Esri excess with this stratum-wise finite-sample
+  correction moves it from 0.2577 to 0.2584 — an increase of less than 0.001, too small
+  at this sample size to treat the raw plug-in value as materially
+  conservative. Uncertainty is a 4,000-sample point bootstrap; a
   leave-one-city-out range is also reported.
 - *S2b — error dependence.* With e<sub>A</sub> = 1{A ≠ expert}, we compute
   Yule's *Q* and Cohen's κ between each pair of product error indicators, and
   the ratio of the observed co-error rate to its marginal-independent value.
-  Whether DW errs when ESRI errs is a statement about the joint error
-  structure of the three products alone.
+  Like S2a, this is the joint error structure of the three products relative
+  to H, not an unconditional statement about the products' own errors.
 - *S2c — arbitration value.* We evaluate P(expert = ℓ | DW = ESRI = ℓ) —
   whether product consensus predicts the expert label better than a single
   product — against the single-product baselines P(expert = DW),
   P(expert = ESRI) and against the consensus of the non-deep-learning pair
   (WC = DW).
 - *S3a–c — confound checks.* (S3a) The ontology is collapsed to two classes
-  (built vs rest) and to built-vs-vegetation (water points dropped), and the
-  test repeated. (S3b) WorldCover is a negative control: it shares the
+  (built vs rest) and to built-vs-non-built (water points dropped, tested
+  under both an any-source and an expert-only exclusion rule for that drop),
+  and the test repeated on both the raw agreement rate and the DW/ESRI
+  error-dependence statistic (Q, κ). (S3b) WorldCover is a negative control: it shares the
   Sentinel-2 input with DW and ESRI but not the deep-segmentation model
   family. (S3c) The DW = ESRI agreement rate is resolved by scene type to check
   whether the coupling is concentrated in the transition zones where a shared
@@ -630,7 +664,7 @@ label, relative to the "do nothing" baseline (the WC = expert rate). We report
 operator accuracy, the number of confident firings, and their precision
 against the expert label.
 
-**Phase 2 — downstream map correction.** Every baseline and corrected variant
+**Phase 2 — downstream classifier training.** Every baseline and corrected variant
 in this phase is scored with the same downstream classifier — a random
 forest, 300 trees, scikit-learn defaults otherwise — so no change of
 classifier architecture can be mistaken for a method effect; this is a
@@ -641,25 +675,39 @@ partition seeds, this classifier is trained on the city's ≈ 10,000
 non-boundary training points; splits are made by whole spatial cells, not by
 random points (each city gridded into 6 × 6 cells on latitude/longitude
 quantiles, whole cells assigned to the test set until ≈ 30% of points are held
-out), so a training point and a test point are never near-duplicates across
-the split. Five labelling schemes are compared: (B0) raw WC labels; (B2) WC
+out), so training and test points are drawn from disjoint spatial blocks,
+which reduces but — at block edges, given the 3 × 3 neighbourhood features —
+does not fully eliminate the chance of near-duplicate neighbours across the
+split. This spatial-block split governs the ≈ 10,000-point WorldCover
+training/test pool only; the 150 expert points are excluded from training in
+every case, but are not themselves partitioned by the same split, so some
+sit geographically inside the training block (checked in Section 4.6). Five
+labelling schemes are compared: (B0) raw WC labels; (B2) WC
 labels corrected by the transferred LOCO operator on boundary-gated,
 confidence-gated points — *the proposed method*; (B1) WC labels corrected by a
 *within-city oracle* operator that does see city *c*'s expert labels, an
-optimistic ceiling; (B3) the transferred operator applied without the
-boundary gate (ablation); and (B4) the same number of labels flipped to a
-random other class (control). The correction operator never sees the held-out
+optimistic ceiling rather than a mathematical upper bound, since it is itself
+an estimated model, not a guarantee; (B3) the transferred operator applied
+without the boundary gate (ablation); and (B4) the same number of labels,
+drawn from the same gated candidate pool as B2, flipped to a uniformly random
+one of the other two classes (control, using the same five spatial-block
+seeds). A flip only has a chance of landing on the correct class when the
+original WorldCover label was itself wrong, so its expected success rate is
+not a fixed one-third baseline; it is reported empirically alongside the
+other variants. The correction operator never sees the held-out
 city, and the downstream classifier never sees the held-out city's expert
 labels — its 150 boundary points are evaluation-only. Each trained classifier
 is evaluated for overall accuracy (OA) and Boundary Error (BE), defined as the
 number of built ↔ non-built confusions, BE = *cm*[built, non-built] +
 *cm*[non-built, built], on the held-out spatial-block test set (against WC)
-and on the 150 expert points (against the expert). A τ × margin-quantile
+and, separately, on the full set of 150 expert points, which are never used
+for training but are not restricted to the test block (against the expert).
+A τ × margin-quantile
 sensitivity sweep is reported in Supplementary Table S1.
 
 **Phase 3 — multi-reference referee.** The corrected label map is evaluated
 directly, with no downstream classifier, on the 150 held-out points of each
-city (all six now carry DW and ESRI), against (i) the expert label and
+city, against (i) the expert label and
 (ii) the strict tri-consensus subset expert = DW = ESRI. Of
 the points the operator changed, we report the fraction moved toward the
 expert label and the fraction moved toward the DW/ESRI consensus, with the
@@ -715,11 +763,15 @@ Human = ESRI 0.42. Substituting one product for another does not help — the
 cross-product rates WC = DW (0.48) and WC = ESRI (0.50) sit barely above the
 product-versus-expert rates and nowhere near a level that would resolve the
 boundary. The four sources coincide unanimously on only 18%
-of boundary candidates; on the remaining ≈ 82% at least one dissents, and the
-largest internally consistent subset — expert, DW and ESRI all agreeing —
-covers just 38%. Consulting a second and a third global product therefore does
-not arbitrate the urban boundary: outside that 38% there is no reference
-majority to appeal to.
+of boundary candidates; on the remaining ≈ 82% at least one dissents. A
+two-product majority is not scarce — DW and ESRI alone agree on 87% of
+points — but that majority is joined by the expert label on only 38% of the
+900 points (the largest internally consistent subset, expert included).
+Consulting a second and a third global product therefore does not arbitrate
+these class boundaries: a product majority exists almost everywhere, but
+the aggregate agreement it commands with the expert label stays low
+regardless — well under 50%, and not clearly above what a single product
+achieves alone once class composition is accounted for (Section 4.5).
 
 The per-city Human = WC rate ranges from 0.32 in Nanjing (the lowest of the
 six) to 0.59 in Hangzhou, with Wuhan at 0.41, Nanchang at 0.46, and Hefei and
@@ -751,19 +803,26 @@ rate of the six. Where the expert is most certain, WorldCover is not closer to
 the expert but further from it.
 
 This test carries a known upward bias (Section 3.2(b)): an annotator may reserve
-the "high" tag precisely for cases where a WC error is visually unambiguous, so
-the high-only rate is better read as an upper bound on how systematic the
-disagreement is than as an unbiased estimate. Even so, two observations do not
-follow from that selection effect alone. First, the result still refutes the
-"noise on ambiguous pixels" reading — noise would not concentrate on the
-confident calls. Second, the magnitude in Nanchang (42/42) and Wuhan (0.88) is
-larger than a labelling-confidence artefact would plausibly produce. The
-sampling-induced conditioning of this subset is examined further in
-Section 5.5.
+the "high" tag precisely for cases where a WC error is visually unambiguous —
+a mechanism that could itself be entangled with awareness of WorldCover's
+call, since the labelling protocol (Section 3.1) does not establish that
+confidence was assigned blind to the product outputs — so the high-only rate
+likely overstates the true rate, though we cannot say by how much. That same
+entanglement limits how far the pattern can be pushed as a test of the
+"noise on ambiguous pixels" reading: it counts against that reading, since
+noise unrelated to the products would not be expected to concentrate on the
+confident calls, but it falls short of ruling that reading out, because
+confidence may not be an independent measure of ambiguity in the first
+place. Nor do we have a labelling-error model precise enough to say how
+large a confidence artefact alone could plausibly produce, so the size of
+the Nanchang (42/42) and Wuhan (0.88) rates is suggestive rather than
+dispositive by itself; Section 5.5 reports an independent blind
+re-classification that checks this subset directly.
 
 A targeted check addresses the same concern from the other side. From the
-high-confidence expert ≠ WorldCover subset (281 points; the count before the
-Hangzhou re-labelling was 293), we drew 30 — five per city, in decreasing BAMS
+high-confidence expert ≠ WorldCover subset (281 points; Appendix
+\ref{app:recheck} records the pre-relabelling count), we drew 30 — five per
+city, in decreasing BAMS
 classifier margin — and had them
 re-classified by an analyst who had taken no part in the original labelling,
 working from sub-metre satellite imagery and the 2021 Sentinel-2 composite,
@@ -804,6 +863,17 @@ of Section 4.6 exploits. Figure S5 in the Supplementary Material shows example
 Sentinel-2 chips illustrating this directional pattern; the quantitative claim
 rests on Table \ref{tab:T3} above, not on the gallery.
 
+This directional error bears directly on the practice of treating cross-product
+agreement as a pseudo-label. Restricting to the points where DW and Esri
+agree, the retained sample's own expert-label composition stays close to
+the full 150-point sample in each city (non-built by the expert: 51–64%
+retained vs. 53–65% in the full sample; pooled 56.2% vs. 57.3%) — but the
+agreed label itself, taken at face value as a pseudo-label, assigns only 2–8%
+of those same points to non-built. Using the agreed product class as a
+pseudo-label under-represents non-built cover among the retained points; the
+bias is in the label given to the retained points, not in which points the
+filter happens to keep.
+
 ### 4.4. Physical scene stratification
 
 Each boundary point carries a free-text scene note recorded during annotation
@@ -817,12 +887,12 @@ Figure \ref{fig:scene}.
 
 | Scene group | n | Expert ≠ WC | Wilson 95% CI |
 |---|---|---|---|
-| Urban green space | 52 | 67.3% | [54, 78] |
-| Built-up edge / urban fabric | 174 | 66.1% | [59, 73] |
-| Road / road edge | 117 | 62.4% | [53, 71] |
-| Vegetation / forest edge | 130 | 52.3% | [44, 61] |
-| Water / water edge | 211 | 50.2% | [44, 57] |
-| Bare land / construction | 88 | 43.2% | [33, 54] |
+| Urban green space | 52 | 71.2% | [58, 82] |
+| Road / road edge | 117 | 64.1% | [55, 72] |
+| Built-up edge / urban fabric | 174 | 62.6% | [55, 69] |
+| Vegetation / forest edge | 130 | 53.1% | [45, 61] |
+| Water / water edge | 211 | 48.3% | [42, 55] |
+| Bare land / construction | 88 | 44.3% | [34, 55] |
 | Rural settlement / surfaces | 41 | 41.5% | [28, 57] |
 | Paddy / cropland / field | 19 | 36.8% | [19, 59] |
 | Cropland / paddy transition | 16 | 31.2% | [14, 56] |
@@ -832,11 +902,12 @@ Figure \ref{fig:scene}.
 over the 891 boundary points with a resolvable scene note, groups with n ≥ 15.*
 
 Disagreement is highest exactly where built-up meets vegetation. Urban green
-space (67.3%) and the built-up edge itself (66.1%) are the two highest groups,
-both well above bare land / construction (43.2%) and rural settlement (41.5%),
-where the cover classes are more spectrally separable. That urban green
+space is the single highest group (71.2%), ahead of road / road edge (64.1%)
+and the built-up edge itself (62.6%), all well above bare land / construction
+(44.3%) and rural settlement (41.5%), where the cover classes are more
+spectrally separable. That urban green
 space — parks, street trees, campus and residential greenery embedded in the
-built matrix — disagrees as often as the built-up edge is consistent with the
+built matrix — disagrees even more than the built-up edge itself is consistent with the
 documented tendency of global products to absorb intra-urban vegetation into the
 built class (Section 5.3; Yuan et al., 2026), and is reported here as a finding
 in its own right, not only a category in the table.
@@ -855,9 +926,12 @@ Multi-reference arbitration assumes the references approach the truth
 Section 4.1 showed DW and ESRI agreeing with each other far more (0.87) than
 either agrees with the expert (≈ 0.43). This section tests whether that mutual
 agreement is independent corroboration. All statistics are on the n = 900
-subset unless noted; the central contrast (S2a–S2b) does not require the
-expert label to be ground truth. The arbitration-value check (S2c) is the
-exception (Section 3.2(e)). Figure \ref{fig:independence} summarises.
+subset unless noted, using the expert label H as the best available stand-in
+for the true class throughout. S2a–S2b are therefore statements about
+dependence relative to H, not about an unconditional ground truth. The
+arbitration-value check (S2c) is bound most directly by H's own reliability,
+since it evaluates prediction directly against the expert
+reference (Section 3.2(e)). Figure \ref{fig:independence} summarises.
 
 **S2a — excess agreement (Table \ref{tab:S2}a).** Observed pairwise agreement
 is compared with the agreement expected if the two products were conditionally
@@ -870,20 +944,21 @@ independent given the true class.
 | WC = ESRI | 0.50 | 0.35 | +0.14 | [0.12, 0.17] | [0.13, 0.15] |
 
 DW and ESRI agree 0.26 more often than conditional independence allows — about
-twice the excess of either WorldCover pair (+0.13, +0.14). Because the
-conditional class distributions are estimated in-sample, the expected value is
-biased *toward* independence, so +0.26 is expected to understate the true
-value (Section 3.2(e)).
+twice the excess of either WorldCover pair (+0.13, +0.14). A finite-sample
+correction for the same-sample self-pairing in this estimate (derived in
+Section 3.2(e)) moves the precise DW/ESRI value from 0.2577 to 0.2584 — both
+rounding to the reported +0.26, an increase of less than 0.001, too small to
+matter at the reported precision.
 
 **S2b — error dependence (Table \ref{tab:S2}b).** With
 e<sub>A</sub> = 1{A ≠ expert}, we compute the co-error rate, Yule's *Q* and
 Cohen's κ between each pair of product error indicators.
 
-| Error pair | Error rate A / B | Co-error obs / indep (ratio) | Yule's *Q* [95% CI] | κ(errors) | Same wrong class \| both wrong |
-|---|---|---|---|---|---|
-| DW, ESRI | 0.55 / 0.58 | 0.51 / 0.32 (× 1.60) | **0.97** [0.96, 0.98] | 0.78 | 0.97 |
-| WC, DW | 0.53 / 0.55 | 0.31 / 0.30 (× 1.03) | **+0.08** [−0.05, 0.21] | 0.04 | 0.87 |
-| WC, ESRI | 0.53 / 0.58 | 0.33 / 0.31 (× 1.06) | **+0.14** [0.01, 0.27] | 0.07 | 0.87 |
+| Error pair | Error rate A / B | Co-error obs / indep (ratio) | Yule's *Q* [point-bootstrap 95% CI] | Yule's *Q* [city-block 95% CI] | κ(errors) | Same wrong class \| both wrong |
+|---|---|---|---|---|---|---|
+| DW, ESRI | 0.55 / 0.58 | 0.51 / 0.32 (× 1.60) | **0.97** [0.96, 0.98] | [0.95, 0.99] | 0.78 | 0.97 |
+| WC, DW | 0.53 / 0.55 | 0.31 / 0.30 (× 1.03) | **+0.08** [−0.05, 0.21] | [−0.14, 0.32] | 0.04 | 0.87 |
+| WC, ESRI | 0.53 / 0.58 | 0.33 / 0.31 (× 1.06) | **+0.14** [0.01, 0.27] | [−0.01, 0.33] | 0.07 | 0.87 |
 
 This is the sharpest result of the diagnostic. DW and ESRI err on 55% and 58%
 of boundary candidates and co-err on 51%, against 32% expected if their errors
@@ -891,14 +966,25 @@ were independent; Yule's *Q* between their error indicators is 0.97
 [0.96, 0.98], and when both err they select the same wrong class 97% of the
 time. For the WorldCover pairs *Q* is an order of magnitude smaller — +0.08
 [−0.05, 0.21] for WC, DW and +0.14 [0.01, 0.27] for WC, ESRI, against 0.97,
-with κ(errors) of 0.04 and 0.07 against 0.78. The WC, DW interval still spans
-zero; WC, ESRI is marginally positive but nowhere near the DW/ESRI coupling.
+with κ(errors) of 0.04 and 0.07 against 0.78. The point-level bootstrap
+treats the 900 points as i.i.d., but the sample is a fixed 150-point block
+per city, so we also report a city-block bootstrap (resampling the six
+cities, not the points, with replacement). Under that wider interval the
+DW/ESRI coupling is still clearly bounded away from zero ([0.95, 0.99]), while
+both WorldCover pairs widen to include zero (WC, DW [−0.14, 0.32]; WC, ESRI
+[−0.01, 0.33]) — so only the DW/ESRI error coupling is robust to city-level
+clustering; the small WorldCover-pair point estimates are not distinguishable
+from zero once that clustering is accounted for.
 WorldCover's errors are at most weakly coupled to the two deep-segmentation
-products; those two err together. This is a
-differential between the product pairs: a noisy or biased expert reference would
-inflate the apparent error correlation of all three pairs alike, not just one,
-so the contrast is robust to an imperfect expert rather than merely independent
-of it. (The "same wrong class | both wrong"
+products; those two err together. This is a large, asymmetric differential
+between the product pairs rather than a shift shared uniformly across all
+three. We do not have a reference-noise model precise enough to say what
+pattern a shared expert-labelling bias would itself produce, so this
+asymmetry does not by itself rule out an expert-dependent explanation — an
+expert error that happens to align specifically with WorldCover's own error
+mode could still leave the WorldCover pairs looking artificially less
+coupled; the blind re-classification check (Section 5.5) bears on this
+possibility more directly. (The "same wrong class | both wrong"
 column is high for the WorldCover pairs too, ≈ 0.87, because with three classes
 two products that both err on a boundary point usually land in the same
 built ↔ non-built confusion; the pairs are separated by *Q* and κ, not by this
@@ -911,43 +997,98 @@ predict the expert label better than a single product?
 |---|---|---|---|
 | Baseline P(expert = DW) | 900 | 0.45 | — |
 | Baseline P(expert = ESRI) | 900 | 0.42 | — |
-| DW = ESRI → | 787 | 0.44 [0.40, 0.47] | 87% of points |
-| DW = ESRI = WC → | 391 | 0.43 [0.38, 0.47] | adding WC does not help |
-| WC = DW → | 436 | 0.45 [0.40, 0.50] | — |
+| DW = ESRI → | 787 | 342/787 = 0.43 [0.40, 0.47] | 87% of points |
+| DW = ESRI = WC → | 391 | 166/391 = 0.42 [0.38, 0.47] | adding WC does not help |
+| WC = DW → | 436 | 196/436 = 0.45 [0.40, 0.50] | — |
 
 On the 787 boundary points (87% of the subset) where DW = ESRI, the expert
-agrees with that shared label 0.44 of the time — indistinguishable from the
-0.45 base rate of simply following DW. Requiring WorldCover to join the
-consensus does not raise it. Product consensus carries essentially no
-additional information about the expert label; the nominal "+0.18 lift" over
-the class prior is just the 0.25 prior probability of the agreed-on class.
+agrees with that shared label 342/787 = 0.43 of the time — indistinguishable
+from the 0.45 base rate of simply following DW. Requiring WorldCover to join the
+consensus does not raise it.
 
-**S3 — confound checks.** *(a) Ontology (Supplementary Table S3).* Collapsing the
-three classes to built-vs-rest, or to built-vs-vegetation with water points
-dropped, leaves DW = ESRI at 0.90–0.92 and the DW = ESRI − Human = DW gap at
-0.34–0.48; the coupling is not an artefact of the three-class remap.
+This pooled comparison mixes two effects, though: whether consensus adds
+information *within* a predicted class, and whether the consensus filter
+changes *which classes* survive to be compared. Stratifying by DW's
+predicted class (Supplementary Table S7) separates them: DW = ESRI's
+per-class accuracy is slightly *higher* than DW-alone's in all three classes
+(built 0.365 → 0.372; non-built 0.787 → 0.814; water 0.520 → 0.535), but the
+filter disproportionately retains built-up predictions — the least accurate
+class — while shrinking the share of non-built, the most accurate one, so
+the raw pooled rate falls (0.446 → 0.435) despite every within-class point
+estimate rising. Reweighting the consensus subset's own per-class accuracies
+to DW-alone's class mix gives a standardised pooled rate of 0.457 — a small
+*rise* over the 0.446 baseline, the opposite sign from the raw comparison. A
+point bootstrap directly on this standardised-minus-raw difference (not just
+on the three per-class comparisons separately) gives +0.011 [95% CI −0.002,
++0.025]: the interval only barely touches zero, so this is better described
+as suggestive of a small positive effect than as a difference confidently
+ruled out. DW-alone and the DW = ESRI consensus subset are nested rather
+than independent samples, so overlapping confidence intervals on those two
+columns are not themselves a valid test; a separate, disjoint-group check
+splits DW-alone's points by whether Esri agrees or not. By that split, DW's
+own accuracy is higher when Esri agrees than when it does not, in all three
+classes (built 0.372 vs. 0.222; non-built 0.814 vs. 0.761; water 0.535 vs.
+0.450), though none of these three individual differences reaches
+significance at these sample sizes (Fisher's exact *p* = 0.15, 0.61, 0.39;
+these three tests bear on the per-class differences, not on the pooled
+bootstrap above). Taken together, a small positive within-class association
+between Esri agreement and DW accuracy cannot be ruled out, and the raw
+pooled 0.43-vs-0.45 comparison is partly a class-composition artefact — it
+should not be read as evidence that consensus *reduces* information. What
+does not depend on how this residual uncertainty resolves is the more basic
+point: even at the more favourable standardised estimate, agreement with the
+expert on the DW = ESRI-consensus points is about 0.457 — far below what a
+usable high-confidence pseudo-label would need — and, independently of the
+arbitration rate entirely, the two products' errors are not independent
+(Yule's *Q* ≈ 0.97, above), so their agreement reflects correlated error
+rather than corroboration regardless of whether consensus carries a small
+residual accuracy edge. Consensus should not be trusted as a high-confidence
+signal on the strength of that mechanism, not on a claim that no possible
+arbitration benefit exists.
+
+**S3 — confound checks.** The coupling survives three simplifications, though
+none of them in isolation separates architecture, shared input, ontology, or
+acquisition timing as the cause. *(a) Ontology (Supplementary Table S3).* Collapsing the
+three classes to built-vs-rest, or to built-vs-non-built with water points
+dropped, leaves DW = ESRI agreement at 0.90–0.92 and the DW = ESRI − Human = DW
+gap at 0.34–0.48. Agreement rate alone does not show whether the *error
+coupling* survives the remap, so we recompute Yule's *Q* and κ on the DW/ESRI
+error indicators under each collapsed scheme directly: Q = 0.97–0.98 and
+κ(errors) = 0.78–0.83 throughout, essentially unchanged from the three-class
+value — the coupling, not just the agreement rate, does not depend on the
+three-class remap. The built-vs-non-built collapse drops a point if any of
+the four sources calls it water (n = 623); restricting the drop to the
+expert's own water label instead (n = 747, so WC/DW/Esri water calls on the
+retained points are remapped to non-built) gives the same range (Q = 0.98,
+κ = 0.81), so the result does not depend on that exclusion-rule choice
+either.
 *(b) Shared imagery.* WorldCover ingests the same
 Sentinel-2 input as DW and ESRI but is architecturally distinct — a
 gradient-boosted-tree classifier against their deep-segmentation models; its
 excess agreement is about half that of
-DW = ESRI and its error *Q* stays an order of magnitude smaller (≤ 0.14 vs
-0.97), so shared imagery alone does not generate the coupling. *(c) Acquisition date (Supplementary Table S4).* The DW = ESRI rate is
+DW = ESRI and its error *Q* stays an order of magnitude smaller (≈ 0.08–0.14 vs
+0.97), even though it draws on the same Sentinel-2 input; because this
+comparison changes architecture and exact input processing together, it
+narrows rather than settles the role of shared input alone.
+*(c) Acquisition date (Supplementary Table S4).* The DW = ESRI rate is
 high in every scene type (0.83–0.98) and is *highest* in the hardest
-transition zones — urban green space ≈ 0.98, mixed / complex ≈ 0.96 — rather than
-concentrated in the spectrally stable classes, which is the reverse of the
-pattern a shared single-scene acquisition would produce.
+transition zones — urban green space ≈ 0.98, mixed / complex ≈ 0.96 — so the
+coupling is not confined to one kind of scene; acquisition timing itself is
+not tested directly here.
 
 Taken together: the independence assumption behind multi-reference arbitration
-fails on urban boundary pixels. DW and ESRI do not supply a second and third
+fails at land-cover class boundary pixels. DW and ESRI do not supply a second and third
 independent opinion; their errors move together (Yule's *Q* ≈ 0.97) while
-WorldCover's error is at most weakly coupled to either (*Q* ≤ 0.14), so their
-agreement is correlated error, and it adds nothing to a single product's ability
-to predict the expert label. Ontology, shared Sentinel-2 input and acquisition
-timing are ruled out as cheap explanations.
-*Why* the two are coupled — a shared deep-segmentation model family is the least
-speculative reading, with a shared training-label lineage a further, less
-testable possibility — is taken up in Section 5.2; the statistical result here
-does not depend on it.
+WorldCover's error is at most weakly coupled to either (*Q* ≈ 0.08–0.14), so their
+agreement is correlated error rather than corroboration. In this sample,
+requiring DW = ESRI agreement did not raise the overall expert-agreement rate
+above the DW-alone baseline (0.43 against 0.45). These checks narrow the
+space of explanations — ontology, shared Sentinel-2 input and acquisition
+timing — without ranking or fully separating them.
+*Why* the two are coupled — a shared deep-segmentation model family, a shared
+training-label lineage, and shared Sentinel-2 input are unranked candidates,
+none excluded by this diagnostic — is taken up in Section 5.2; the
+statistical result here does not depend on which is correct.
 
 ### 4.6. LOCO correction operator (supporting analysis)
 
@@ -973,7 +1114,8 @@ The transferred operator predicts the held-out city's expert labels at 0.67 to
 0.75, against a "do nothing" WC-versus-expert baseline of 0.32 to 0.59 and a
 majority-class (always predict non-built) baseline of 0.53 to 0.65 — a gain
 over both baselines in every city, though the margin over the majority-class
-baseline narrows to 0.05 in Hefei. Confident firings (p<sub>max</sub> ≥ 0.85 and predicted class
+baseline narrows to roughly 0.05 in Hefei (0.67 vs. 0.63 rounded; 4.67
+percentage points, 7/150, on the unrounded values). Confident firings (p<sub>max</sub> ≥ 0.85 and predicted class
 ≠ WC) number from 11 in Nanchang and Hangzhou to 28 in Hefei; their precision
 against the expert ranges from 0.68 (Hefei) to 0.93 (Nanjing), with Nanchang at
 0.82. Nanjing shows the largest transfer
@@ -982,18 +1124,53 @@ city with the lowest raw WC-versus-expert agreement and the one with the most
 headroom for the operator to recover — both stated as diagnostic facts, not as
 a corrected failure case.
 
-**Phase 2 — downstream map correction.** Feeding the corrected labels into the
+**Phase 2 — downstream classifier training.** Feeding the corrected labels into the
 fixed land-cover random forest (Section 3.3) moves the six-city mean overall
-accuracy against the 150 expert points from 0.375 (raw WC) to only 0.389
-(proposed gated operator), against 0.422 for the within-city oracle ceiling and
-0.378 for the random-flip control — a +1.5-point shift, inside the between-seed
-standard deviation (0.07). A gate-sensitivity sweep (Supplementary Table S1)
-shows why: a materially larger downstream gain is available only by loosening
-the confidence threshold and rewriting far more labels, at a real cost to
-WC accuracy, while at the safe threshold used here the effect stays within
-noise. A few dozen boundary-label corrections do not move a random forest
-trained on ≈ 10,000 points — the downstream classifier is the wrong instrument
-for this signal, which is why Phase 3 evaluates the label map directly.
+accuracy against the 150 expert points from 0.375 (raw WC) to 0.389 (proposed
+gated operator), against 0.422 for the within-city oracle ceiling and 0.378
+for the random-flip control — a +1.5-point shift.
+
+The pooled standard
+deviation across all 30 city × seed runs (0.07) mixes between-city spread
+with seed noise and is dominated by the former; decomposed by source, the
+seed-only standard deviation (six-city average held fixed) is 0.003 for the
+baseline and 0.006 for the gated operator — an order of magnitude smaller —
+while the paired same-city-same-seed gain averages +0.015 (sd 0.013 across
+the 30 pairs, which reuse overlapping evaluation points across seeds within a
+city and so are not independent draws). Averaging each city's five seeds
+first, to get one value per city — the closest thing to an independent unit
+here, albeit only n = 6 — the gain is positive in five of six cities (mean
++0.015, sd 0.010; one-sample *t*-test *p* = 0.013, reported descriptively
+given the small n rather than as a preregistered confirmatory test): the
+direction is consistent across cities, even though the sample is small.
+
+The
+150 expert points are always excluded from training, but — unlike the WC
+train/test split — are not themselves partitioned by spatial block, so some
+sit geographically inside the training block for a given city-seed; as a
+check, restricting Human-OA scoring to only the ≈ 50 (of 150) expert points
+per city-seed that do fall in the test block leaves the average B2-over-B0
+gain positive (+0.021, sd 0.035 on the smaller subset, vs. +0.015, sd 0.013
+on the full 150; `scripts/loco_human_oa_testblock_check.py`), supporting
+that the gain is not entirely driven by the training-block evaluation
+points.
+
+A
+gate-sensitivity sweep (Supplementary Table S1) shows why the shift stays
+this size: a materially larger downstream gain is available only by
+loosening the confidence threshold and rewriting far more of the ≈ 10,000-point
+training subset, at a drop in agreement with raw WorldCover (WC-OA) that is a
+shift away from WC, not necessarily an accuracy cost. At the gated operating
+point used here — chosen for high firing precision, not because it guarantees
+calibrated reliability (Hefei's firing precision is only 0.68) — a few dozen
+boundary-label corrections move a random forest trained on ≈ 10,000 points
+only slightly: consistent enough in direction across cities to plausibly be
+a real effect rather than pure noise, though the city-level test (n = 6) is
+not conclusive on its own, and small relative to the unchanged bulk of the
+training set either way. We have not tested whether some other use of a
+downstream classifier would realise more of this signal; what Phase 3 tests
+directly, without going through a downstream classifier at all, is the
+label-map-referee use.
 
 **Phase 3 — multi-reference referee (Table \ref{tab:phase3}).** The corrected
 label map is scored directly on the 150 held-out points of each city, with no
@@ -1009,9 +1186,9 @@ tri-consensus subset (expert = DW = ESRI).
 
 *Table \ref{tab:phase3}. Label-map referee, six-city mean.*
 
-Of the ≈ 17 points per city the operator changes, 83% move toward the expert
-label, against 33% for the same number of random flips — the signal is real,
-not noise. In aggregate the effect is nonetheless modest: +7 points of OA
+Of the ≈ 17 points per city the operator changes, 83% (six-city mean) move
+toward the expert label, against 33% for the same number of random flips.
+In aggregate the effect is nonetheless modest: +7 points of OA
 against the expert, ≈ 3 points against the tri-consensus subset, and BE against
 the expert falls from 58 to 49. That recovers about one-fifth of the
 within-city oracle's OA gain (≈ +7 points out of ≈ +34, on a
@@ -1043,36 +1220,43 @@ disagreement rate there exceeds what random sampling would give.
 > `(Author, year)` placeholders; the bucket-B "agreement-as-label" citations in
 > 5.1 await an authors' decision (see *References to insert (Section 5)*).
 
-### 5.1. Multi-reference agreement does not arbitrate the urban boundary
+### 5.1. Multi-reference agreement does not arbitrate the land-cover class boundary
 
 The three global products examined here reproduce the expert boundary label on
 fewer than half of the candidate points (Human = WC 0.47, Human = DW 0.45,
 Human = ESRI 0.42), and — the central result — consulting a second and a third
-product does not recover the shortfall. All four sources coincide on only 18%
-of boundary candidates; outside the 38% covered by the largest self-consistent
-subset (expert, Dynamic World and ESRI), there is no reference majority to
-appeal to. Where Dynamic World and ESRI do agree with each other (0.87 of
-points), that agreement is not independent corroboration: their error
-indicators move almost in lockstep (Yule's *Q* = 0.97, against ≤ 0.14 for either
-WorldCover pair), they exceed the agreement expected under conditional
-independence by twice the margin of the WorldCover pairs (+0.26 against
-+0.13–0.14), and their consensus predicts the expert label no better than a
-single product does (0.44 against a 0.45 base rate). The practical implication
-is narrow but concrete: at the urban built-up/vegetation boundary, treating
-cross-product agreement as a high-confidence signal — the C4 practice of
+product does not close that gap. All four sources coincide on only 18%
+of boundary candidates. A two-product majority is not scarce — Dynamic World
+and ESRI alone agree on 87% of points — but that majority is joined by the
+expert label on only 38% of the 900 points (43% of the DW/ESRI-agreeing
+subset): whichever way the comparison to a single product's rate is drawn
+(Section 4.5 gives the class-stratified picture, where the sign is not fully
+settled), the absolute rate itself stays too low to serve as a
+high-confidence label.
+Where Dynamic World and ESRI do agree with each other (0.87 of
+points), that agreement is not independent corroboration regardless of how
+the arbitration-rate comparison resolves: their error indicators move almost
+in lockstep (Yule's *Q* = 0.97, against ≈ 0.08–0.14 for either WorldCover
+pair), exceeding the agreement expected under conditional independence by
+twice the margin of the WorldCover pairs (+0.26 against +0.13–0.14). The
+practical implication does not depend on that residual uncertainty either:
+at land-cover class boundaries, treating cross-product agreement as a
+high-confidence signal — the C4 practice of
 building consensus products (Tuanmu and Jetz, 2014) or generating training and
 reference samples from the pixels where existing maps agree (Zhang and Roy,
-2017; Wang et al., 2024a) — selects a subset no closer to expert judgement than
-any single product, and discards disagreements that are themselves informative
-(Section 5.3). The safeguards built into these pipelines are spectral or
-temporal (spectral-outlier rejection, multi-date consistency) and are not
-designed to catch error that is correlated across the products being combined.
+2017; Wang et al., 2024a) — selects a subset whose absolute agreement with
+expert judgement stays low, and whose two most-agreeing products err together
+rather than independently; it also discards disagreements that are themselves
+informative (Section 5.3). The safeguards built into these pipelines are
+spectral or temporal (spectral-outlier rejection, multi-date consistency) and
+are not designed to catch error that is correlated across the products being
+combined.
 
 The scope of this claim is stated carefully. It is an existence result within a
 bounded domain: in six middle- and lower-Yangtze cities, on Sentinel-2-era 10 m products,
 at deliberately hard pixels, the assumption that product agreement implies a
 reliable label fails. We do not claim the failure is pervasive across regions,
-sensors or land-cover regimes, and the design — six cities, one sensor — is not
+sensors or land-cover regimes, and the design — six cities, one shared Sentinel-2 basis — is not
 a prevalence estimate and should not be read as one. But the assumption it
 tests is normally stated without qualification, and a single well-characterised
 counterexample is enough to show it cannot be applied unconditionally.
@@ -1088,19 +1272,33 @@ first can be argued from published documentation.
 - *Model family.* WorldCover is a gradient-boosted-tree classifier with a
   rule-based post-process (Zanaga et al., 2022); Dynamic World and ESRI are
   both deep semantic-segmentation models on Sentinel-2 (Brown et al., 2022;
-  Karra et al., 2021). Two members of one modelling family failing on the same
-  pixels in the same direction is the least speculative reading, and it fits
-  WorldCover — the architectural odd-one-out — whose errors are at most weakly
-  coupled to either (*Q* ≤ 0.14). A further, less testable possibility is that
-  the two share overlapping training-label provenance — deep land-cover models
-  are trained on large human-annotated point sets whose lineage may overlap
-  across products — but the training corpora are not fully public and we
-  cannot document the overlap.
-- *Shared inputs and preprocessing.* All three ingest Sentinel-2 surface
-  reflectance; Dynamic World and ESRI additionally share an annual-composite
-  Sentinel-2 basis. The negative control argues against this being sufficient
-  on its own — WorldCover has the same Sentinel-2 input but does not join the
-  coupling — yet shared inputs may still contribute.
+  Karra et al., 2021), and are the two whose errors move together (WorldCover,
+  the architectural odd-one-out, is at most weakly coupled to either,
+  *Q* ≈ 0.08–0.14). But WorldCover also differs from the other two in exact input
+  processing, not architecture alone, so this comparison does not isolate
+  architecture from shared input. A further, less testable possibility is
+  that the two share overlapping training-label provenance — deep land-cover
+  models are trained on large human-annotated point sets whose lineage may
+  overlap across products — but the training corpora are not fully public
+  and we cannot document the overlap.
+- *Shared inputs and preprocessing.* All three ingest Sentinel-2, but not the
+  same product or the same temporal basis. Dynamic World classifies from
+  Sentinel-2 top-of-atmosphere (L1C) reflectance, scene by scene,
+  near-real-time — not surface reflectance — and only our own pipeline turns
+  its per-scene output into the 2021 annual mode used here (Section 3.1);
+  that aggregation, and the L2A/L1C distinction, are not shared with
+  WorldCover or ESRI, which (on their published descriptions) work from
+  Sentinel-2 surface reflectance (L2A). ESRI's compositing choice beyond that
+  is not documented in the source we cite (Karra et al., 2021), so a shared
+  annual-composite basis between Dynamic World and ESRI specifically is not
+  established and should not be assumed; what is shared, on the public
+  record, is only the sensor family (Sentinel-2) and, for Dynamic World and
+  ESRI, the deep-segmentation model family (above) — not the same processing
+  level or temporal basis. Shared
+  sensor input on its own does not obviously predict the observed asymmetry —
+  WorldCover has the same Sentinel-2 input but does not join the coupling —
+  though, again, WorldCover differs from the other two on more than input
+  alone, so this does not rule shared input out either.
 
 What can be said without product internals is the statistical fact: the two
 deep-segmentation products are not two independent opinions. Establishing which
@@ -1113,18 +1311,23 @@ The WorldCover error at the boundary is not symmetric noise. Once WorldCover
 assigns "built-up" to a boundary candidate, the expert reads non-built roughly
 seven times in ten (P(expert = non-built | WC = built) = 0.71), a rate between
 0.60 and 0.79 in every one of the six cities. The disagreement is largest
-exactly where built-up meets vegetation: intra-urban green space (67.3%) and the
-built-up edge (66.1%) are the two highest groups, well above spectrally more
-separable settings such as bare land or construction ground (43.2%). The
+exactly where built-up meets vegetation: intra-urban green space (71.2%) is the
+single highest group, ahead of road/road edge (64.1%) and the built-up edge
+itself (62.6%), well above spectrally more
+separable settings such as bare land or construction ground (44.3%). The
 urban-green-space result echoes a documented tendency of global products to
 absorb parks, street trees and residential greenery into the built class
 (Yuan et al., 2026; Xu et al., 2024), and it has a definitional component:
-Dynamic World's schema folds urban vegetation into "Built Area", whereas
-WorldCover's "Built-up" nominally excludes it (Venter et al., 2022) — yet
-WorldCover still misses this greenery at the rate observed here. For downstream
-users the consequence is directional: an agreement-filtered label set at the
-urban fringe will systematically under-represent vegetated cover, in the same
-direction across all six cities.
+Dynamic World's built-area predictions can incorporate urban vegetation in
+practice, whereas WorldCover's nominal Built-up class
+excludes it (Venter et al., 2022) — yet
+WorldCover still misses this greenery at the rate observed here. This
+directional error has a specific consequence for downstream users, reported
+in Section 4.3: a DW = ESRI filter retains a sample whose own class
+composition changes little, but the agreed label itself, used as a
+pseudo-label, severely under-counts non-built cover among those same points.
+The bias is mainly in the mislabelling of the retained points, not in a large
+shift in which points agreement happens to retain.
 
 ### 5.4. What the correction operator shows
 
@@ -1132,15 +1335,21 @@ The correction operator answers a question the diagnostic raises: is the
 disagreement structured enough to be corrected automatically, without new
 reference data in the target city? The answer is a qualified yes: transferred
 to a held-out city that contributes no labels of its own, the operator beats
-both the do-nothing and majority-class baselines in every city (Section 4.6)
-and, as a direct label-map referee, moves 83% of the points it changes toward
-the expert against 33% for random flips. The effect is nonetheless modest — it
-recovers about one-fifth of the accuracy gap a within-city oracle closes, and
-is within noise for a downstream classifier at safe operating thresholds. This
-is a diagnostic result in its own right — the disagreement carries a
+both the do-nothing and majority-class baselines in every city (Phase 1,
+Section 4.6) and, as a direct label-map referee with no downstream classifier
+(Phase 3), moves 83% of the points it changes toward
+the expert (six-city mean) against 33% for random flips. The effect is nonetheless modest — it
+recovers about one-fifth of the accuracy gap a within-city oracle closes on
+the same evaluation, and as training labels for a downstream classifier
+(Phase 2), the paired same-city-same-seed gain (+0.015 on average) is
+swamped by the ≈ 10,000 unchanged training points at the gated thresholds
+used here. This is a diagnostic result in its own right — the disagreement carries a
 transferable signal, but its downstream footprint is bounded — not a
-general-purpose correction method. A few dozen boundary corrections are the
-right scale for auditing a label map, not for retraining one.
+general-purpose correction method. A few dozen boundary corrections show a
+clearer, more direct effect when used to audit a label map (Phase 3) than
+when folded into retraining a downstream classifier, where the measured gain
+— plausibly real, but small next to the ≈ 10,000 points the classifier is
+otherwise trained on — is what Section 4.6 reports.
 
 ### 5.5. Scope and limitations
 
@@ -1157,28 +1366,44 @@ classifier, and falls back to a sub-metre basemap; three independent
 interpreters converge on the same labels (Fleiss' κ = 0.89); the disagreement
 concentrates in high-confidence labels and interpretable physical scenes, which
 is not the shape spectral noise would take; and the sharpest result — the
-Dynamic World/ESRI error coupling — is a differential between product pairs
-(*Q* ≈ 0.97 against ≤ 0.14 for the WorldCover pairs) that is robust to an
-imperfect expert reference, which would raise all pairs alike. An
+Dynamic World/ESRI error coupling — is a large, asymmetric differential
+between product pairs (*Q* ≈ 0.97 against ≈ 0.08–0.14 for the WorldCover pairs,
+Section 4.5) rather than a shift shared uniformly across all three; we do not
+have a reference-noise model precise enough to rule out an expert-dependent
+contribution to that asymmetry on this basis alone. An
 independent blind re-classification of 30 high-confidence expert ≠ WorldCover
 points reproduced the expert label on 29 and the WorldCover label on none
-(Appendix \ref{app:recheck}), which further argues the disagreements are not an
-artefact of the original annotator.
+(Appendix \ref{app:recheck}), which bears on that possibility directly and
+argues the disagreements are not an artefact of the original annotator.
 
 *Single-annotator reference.* The reference is one expert's interpretation,
-supported but not replaced by the blind re-labelling exercises. Where a result
-depends on the expert being correct — the confidence stratification, the
-error-direction analysis, the arbitration PPV — its strength is capped by that
-reliability. The independence contrast (Section 4.5) is the exception: it rests
-only on the relationship among the three products' errors.
+supported but not replaced by the blind re-labelling exercises. Results that
+score predictions directly against the expert label — the confidence
+stratification, the error-direction analysis, the arbitration PPV (S2c) — are
+capped by its reliability most directly. The excess-agreement and
+error-dependence checks (S2a, S2b; Section 4.5) condition on, or define
+errors relative to, the expert label rather than scoring a prediction against
+it directly; we do not have a reference-noise model precise enough to rank
+how tightly each check depends on that reliability, so all three remain
+statements about dependence relative to the current expert reference, not an
+unconditional one.
 
 *Confidence-stratum bias.* The rise in the expert ≠ WorldCover rate on
 high-confidence labels (0.53 to 0.67) is subject to a known upward bias — an
 annotator may reserve "high" precisely when a product error is visually
-obvious — so that figure is better read as an upper bound than an unbiased
-estimate. It still refutes the "noise on ambiguous pixels" reading, and the
-magnitude in Nanchang (42/42) and Wuhan (0.88) is larger than a
-labelling-confidence artefact alone would produce.
+obvious, a mechanism that could itself be entangled with awareness of the
+product's call, since the protocol does not establish that confidence was
+assigned blind to the product outputs — so that figure likely overstates the
+true rate, though not by a bound we can state. The same entanglement means
+it counts against, without fully ruling out, the "noise on ambiguous
+pixels" reading: noise unrelated to the products would not be expected to
+concentrate on the confident calls, but confidence itself may not be an
+independent measure of ambiguity. Nor do we have a labelling-error model
+precise enough to independently bound how large a confidence artefact alone
+could produce, so the Nanchang (42/42) and Wuhan (0.88) magnitudes are
+consistent with a real effect but not proof of one on this basis alone — the
+blind re-classification above (29/30 holding the expert label) is the direct
+check on this subset.
 
 *Scene grouping.* The physical-scene rates locate the disagreement; they are
 not a formal stratified sample, and the scene notes are free-text, mapped post
@@ -1187,8 +1412,8 @@ pooled set.
 
 *Geographic and sensor scope.* All six cities lie in the middle and lower
 reaches of the Yangtze River in China — one country, one climate (subtropical
-monsoon), one broad urban-build morphology — and the analysis uses a single
-sensor. No result should be read as a statement about global product behaviour;
+monsoon), one broad urban-build morphology — and selection and reference draw
+on one shared Sentinel-2 basis. No result should be read as a statement about global product behaviour;
 each is framed as holding "in these six cities". This is a bounded
 characterisation, not a prevalence estimate, and the region is not offered as
 an easy or representative case: the middle and lower Yangtze, with its paddy,
@@ -1196,12 +1421,14 @@ aquaculture and wetland mosaics, is
 among the more difficult land-cover settings. Two points nonetheless travel
 beyond the specific numbers. First, the six cities are internally
 heterogeneous — per-city expert = WorldCover agreement ranges from 0.32
-(Nanjing) to 0.53 (Hangzhou), and the high-confidence disagreement reaches
+(Nanjing) to 0.59 (Hangzhou), and the high-confidence disagreement reaches
 42/42 in Nanchang — yet the direction of the effect is the same in all six, so
-it is not a single-city artefact. Second, the Dynamic World/ESRI coupling
-follows from those models being trained once and applied globally; the specific
-coupling strength here (0.87, *Q* = 0.97) will not carry over unchanged, but
-the qualitative mechanism plausibly does. Replicating the boundary-aware
+it is not a single-city artefact. Second, Dynamic World and Esri are each
+trained once and applied globally, so the same coupling could recur wherever
+they are used together elsewhere; the specific coupling strength here (0.87,
+*Q* = 0.97) will not carry over unchanged, and Section 5.2 does not identify
+which candidate mechanism is responsible. That deployment fact, not a claim
+that the mechanism itself transfers, is why replicating the boundary-aware
 sampling and the four-way diagnostic in other climates and urban morphologies
 is the natural next step.
 
@@ -1212,7 +1439,7 @@ is the natural next step.
 Global 10 m land-cover products are increasingly consulted in combination, on
 the assumption that where they agree the agreed label can be trusted — and, by
 extension, that a second or third product can arbitrate a disputed pixel. This
-study tested that assumption directly at the urban built-up/vegetation boundary,
+study tested that assumption directly at land-cover class boundaries,
 using 900 expert-interpreted boundary candidates across six cities of the middle
 and lower Yangtze.
 
@@ -1222,25 +1449,32 @@ three products matches the expert on fewer than half of the boundary
 candidates, and the Dynamic World–Esri agreement is not independent
 corroboration: the two products' errors move almost in lockstep (Yule's
 *Q* ≈ 0.97), whereas WorldCover's errors are at most weakly coupled to either
-(*Q* ≤ 0.14). Product consensus predicts the expert label no better than a
-single product (0.44 against a 0.45 base rate), and all four sources agree on
-only 18% of points, so outside a small self-consistent core there is no
-reference majority to appeal
-to. The WorldCover error is directional rather than random: once WorldCover
-calls "built-up" the expert reads non-built about seven times in ten, so an
-agreement-filtered label set at the urban fringe systematically
-under-represents vegetated cover, in the same direction in every city. A
+(*Q* ≈ 0.08–0.14). The Dynamic World–Esri consensus sits close to, and does not clearly
+exceed, the single-product base rate (0.43 against 0.45; Section 4.5 gives
+the class-stratified picture, where the sign is not fully settled), and all
+four sources agree on only 18% of points. A two-product majority (Dynamic
+World and Esri) is available on 87% of points, but that majority is joined
+by the expert label on only 38% of the 900 points (43% of the
+DW/ESRI-agreeing subset) — an absolute rate too low, whichever way the
+single-product comparison resolves, to serve as a high-confidence label.
+The WorldCover error is directional rather than
+random: once WorldCover calls "built-up" the expert reads non-built about
+seven times in ten. Separately, an agreement-filtered (Dynamic World–Esri)
+label set also under-represents non-built cover, in the same direction in
+every city. A
 leave-one-city-out correction operator shows the disagreement is structured
 enough to carry a signal that transfers to a city contributing no labels of its
 own, but with a bounded downstream footprint — the signal is real, not a
 general-purpose correction.
 
-These results are an existence characterisation for six cities and one sensor,
-not an estimate of how often the behaviour occurs elsewhere; whether the
-specific coupling strengths carry over is open, although the mechanism behind
-the Dynamic World–Esri coupling — two models trained once and applied globally —
-plausibly does. The practical implication is narrow and concrete: at the urban
-built-up/vegetation boundary, cross-product agreement should not be used on its
+These results show the behaviour exists in six cities sharing one
+Sentinel-2 basis,
+not how often it occurs elsewhere; the specific
+coupling strengths need not carry over, and this paper does not identify
+which mechanism drives the coupling (Section 5.2) — but because Dynamic World
+and Esri are each trained once and applied globally, the same diagnostic is
+worth repeating wherever they are used together. The practical implication is narrow and concrete: at
+land-cover class boundaries, cross-product agreement should not be used on its
 own as a pseudo-reference, a high-confidence training label, or a quality
 filter, because the spectral and temporal safeguards in current weak-supervision
 pipelines are not built to catch error that is correlated across the products

@@ -28,15 +28,27 @@
 
 Referenced from main text Section 4.6 (Phase 2). The proposed downstream
 correction (transferred operator, boundary- and confidence-gated) moves the
-six-city mean overall accuracy against the 150 expert points from 0.375 to only
-0.389, inside the between-seed standard deviation (0.07). The sweep below varies
+six-city mean overall accuracy against the 150 expert points from 0.375 to
+0.389 — a +1.5-point shift. The pooled standard deviation across all 30
+city × seed runs (0.07) mixes between-city spread with seed noise and is
+dominated by the former, not a clean "between-seed" figure; decomposed by
+source, the seed-only standard deviation is an order of magnitude smaller
+(0.003 baseline, 0.006 gated), and the paired same-city-same-seed gain
+averages +0.015, positive in five of six cities (main text Section 4.6 gives
+the full decomposition). The sweep below varies
 the confidence threshold τ and the within-city margin quantile *q* that gates
 which candidates are eligible for correction, and reports the six-city mean
 downstream overall accuracy against the expert labels (Human-OA) and against
-WorldCover (WC-OA), together with the mean number of the ≈ 15,000 city labels
-rewritten.
+WorldCover (WC-OA), together with the mean number of labels rewritten within
+the ≈ 10,000-point non-boundary training subset used to retrain the downstream
+classifier (Section 3.3, Phase 2). This is a different, smaller population
+than the ≈ 15,000-point full city map that Table S6 reports changes
+against (Table S5 is scored on the 150 expert points per city, not the full
+map): the margin quantile *q* here is taken over the training subset's own
+margins, not the full city's, so the two point counts are not directly
+comparable even at matching τ and *q*.
 
-| τ | *q* | Points changed (of ≈ 15,000) | Human-OA | WC-OA |
+| τ | *q* | Points changed (of the ≈10,000-pt training subset) | Human-OA | WC-OA |
 |---|---|---|---|---|
 | baseline | — | 0 | 0.375 | 0.929 |
 | 0.90 | 0.05 | 1 | 0.375 | 0.929 |
@@ -54,13 +66,18 @@ rewritten.
 `docs/results_snapshot/loco_correction_operator/phase2b_sweep_summary.csv`.*
 
 Reaching +14 points of downstream Human-OA (0.375 → ≈ 0.516) requires loosening
-to τ = 0.70, *q* = 0.20 and rewriting ≈ 345 of 15,000 labels, at a cost of
-≈ 1.5 points of WC-OA (0.929 → 0.913). At the safe operating thresholds used in
-the main text (τ ≥ 0.85) the downstream effect is within between-seed noise. A
-few dozen boundary-label corrections do not move a random forest trained on
-≈ 10,000 points; this is why the label-map referee (main text Section 4.6,
-Phase 3) evaluates the corrected map directly rather than through a retrained
-classifier.
+to τ = 0.70, *q* = 0.20 and rewriting ≈ 345 of the ≈ 10,000-point training
+subset, at a drop of
+≈ 1.5 points in agreement with raw WorldCover (WC-OA; 0.929 → 0.913) — a shift
+away from WC, not necessarily an accuracy cost. At the gated thresholds used in
+the main text (τ ≥ 0.85, chosen for high firing precision rather than a
+guarantee of calibrated reliability), a few dozen boundary-label corrections
+move a random forest trained on ≈ 10,000 points only slightly: consistent
+enough in direction across cities (main text Section 4.6) to plausibly be a
+real effect, but small relative to the unchanged bulk of the training set.
+This is why the label-map referee (main text Section 4.6, Phase 3) evaluates
+the corrected map directly, rather than through a retrained classifier where
+the same signal is diluted.
 
 ---
 
@@ -89,23 +106,35 @@ Referenced from main text Section 4.5 (S3). The main text states the
 conclusions; the full tables are below. The negative-control comparison (S3b in
 the main text — WorldCover shares the Sentinel-2 input with Dynamic World and
 ESRI but not the deep-segmentation model family, and its excess agreement is
-about half that of DW = ESRI with error *Q* ≤ 0.14) uses quantities already
+about half that of DW = ESRI with error *Q* ≈ 0.08–0.14) uses quantities already
 tabulated in main text Tables S2a/S2b and is not repeated here.
 
 ### S3-1. Ontology (main text S3a)
 
-DW = ESRI agreement and the DW = ESRI − Human = DW gap under three class
-schemes, six-city pool (n = 900; water points dropped for the third scheme,
-n = 623).
+DW = ESRI agreement and the DW = ESRI − Human = DW gap under four class
+schemes, six-city pool (n = 900 for the first two; water-point exclusion
+varies for the built-vs-non-built pair, see below). Also reported: Yule's *Q*
+and κ recomputed on the DW/ESRI error indicators under each scheme directly —
+agreement rate alone does not show whether the *error coupling* survives the
+remap.
 
-| Scheme | DW = ESRI | Human = DW | Human = ESRI | Gap |
-|---|---|---|---|---|
-| Three-class (built / non-built / water) | 0.874 | 0.446 | 0.422 | 0.429 |
-| Two-class (built vs rest) | 0.908 | 0.568 | 0.538 | 0.340 |
-| Built vs vegetation (water points dropped) | 0.917 | 0.440 | 0.417 | 0.477 |
+| Scheme | n | DW = ESRI | Human = DW | Human = ESRI | Gap | *Q*(DW,ESRI errors) | κ(DW,ESRI errors) |
+|---|---|---|---|---|---|---|---|
+| Three-class (built / non-built / water) | 900 | 0.874 | 0.446 | 0.422 | 0.429 | 0.972 | 0.781 |
+| Two-class (built vs rest) | 900 | 0.908 | 0.568 | 0.538 | 0.340 | 0.981 | 0.814 |
+| Built vs non-built, any-source water dropped | 623 | 0.917 | 0.440 | 0.417 | 0.477 | 0.984 | 0.830 |
+| Built vs non-built, expert-only water dropped | 747 | 0.906 | 0.511 | 0.493 | 0.395 | 0.980 | 0.813 |
 
-*Table S3. Collapsing the class ontology leaves DW = ESRI at 0.87–0.92 and the
-gap at 0.34–0.48: the coupling is not an artefact of the three-class remap.
+*Table S3. Collapsing the class ontology leaves DW = ESRI agreement at
+0.87–0.92 and the gap at 0.34–0.48, and — more directly — leaves the DW/ESRI
+error-dependence statistic itself at Q = 0.97–0.98, κ = 0.78–0.83 throughout:
+the coupling is not an artefact of the three-class remap. The
+built-vs-non-built row (previously mislabelled "built vs vegetation": the
+non-built class also contains bare land and other non-vegetated cover,
+Section 3.1) drops a point if any of the four sources calls it water; the
+last row is the same collapse but drops a point only when the expert's own
+label is water (WC/DW/Esri water calls on the retained points are remapped to
+non-built) — the result is unchanged under either exclusion rule.
 Source: `docs/results_snapshot/independence_diagnostic/S3a_ontology_confound.csv`.*
 
 ### S3-2. Acquisition date, by scene type (main text S3c)
@@ -128,10 +157,9 @@ boundary points with a resolvable scene note, groups with n ≥ 15.
 
 *Table S4. The DW = ESRI rate stays in 0.83–0.98 across every scene group and is
 *highest* in the hardest transition zones (urban green space 0.98, mixed /
-complex 0.96), rather than concentrated in the spectrally stable classes. If the
-coupling came from the two products reading the same single acquisition it
-should peak on the easy, stable classes and break down in the transition zones;
-the observed pattern is the reverse. Source:
+complex 0.96) rather than concentrated in the spectrally stable classes; the
+coupling is not confined to one kind of scene, though acquisition timing itself
+is not tested directly here. Source:
 `docs/results_snapshot/independence_diagnostic/S3c_coupling_by_scene.csv`.*
 
 ---
@@ -252,13 +280,14 @@ can be republished; the CSVs above are preserved as the record of that check.*
 
 ## S6. Illustrative example chips: WorldCover boundary error (C1/C2)
 
-Referenced from main text Section 4.6 (Direction of the WorldCover Error).
+Referenced from main text Section 4.3 (Direction of the WorldCover Error).
 Table 3 there establishes the quantitative claim: once WorldCover calls a
 boundary point "built-up", the expert reads non-built about seven times in
 ten ($P(\text{expert}=\text{non-built} \mid \text{WC}=\text{built}) = 0.71$).
 That number says nothing about what the error looks like on the ground.
 Figure S5 puts real Sentinel-2 imagery behind it — 24 boundary points across
-the six cities, chosen by a stated rule rather than eyeballed — so a reader
+the six cities, ranked by a stated margin rule and then narrowed by a
+disclosed visual-review pass (below), not picked freehand — so a reader
 can see the error, not just read its rate. The gallery is illustration only;
 it adds no statistic the main text does not already report, and no claim in
 this paper rests on it.
@@ -267,8 +296,8 @@ this paper rests on it.
 C1 and C2), 12 points, 2 per city — is the figure's core case: WorldCover,
 Dynamic World and Esri all call the point built-up, and the expert reads
 non-built. This is not a rare corner case: it is the common outcome in the
-WC$=$built $\wedge$ expert$=$non-built cell of the reference table (159 of
-191 such points, 83%). It illustrates C2 directly (WorldCover's directional
+WC$=$built $\wedge$ expert$=$non-built cell of the reference table (164 of
+197 such points, 83%). It illustrates C2 directly (WorldCover's directional
 error) and C1 by extension, since all three products land on the same wrong
 answer at once. Panel **B** — coupled-pair error (supports C1), 6 points,
 1 per city — isolates the C1 argument on its own: Dynamic World and Esri, the
@@ -321,17 +350,23 @@ with the selection rule itself left untouched: ids 378, 558, 853, 927, 951,
 3173, 3273, 3382, 3557, 3806, 3900, 3996, 4053, 4251, 4271, 4317, 4440, 4886,
 4904, 4930, 9555. This is a visual-quality filter on the illustration, not a
 re-selection of which cases count as errors — the counts behind Table 3 and
-the 159/191 figure above are unaffected.
+the 164/197 figure above are unaffected. The selected point IDs are frozen
+to this review: a subsequent data correction to 14 Nanchang reference labels
+(`scripts/fix_second_ref_nanchang.py`) means re-running
+`scripts/c2_chip_select.py` today would rank two different Nanchang points
+into Panel A's slots; neither the originally shown points nor the
+correction affects whether either pair illustrates the case, so the figure
+was left as published rather than re-fetched. The exact point IDs behind the
+published figure are recorded in
+`data/analysis_outputs/c2_chip_figure/chip_manifest.csv`.
 
 **Imagery.** `COPERNICUS/S2_SR_HARMONIZED`, 2021,
-`CLOUDY_PIXEL_PERCENTAGE < 20`, median — the same recipe as the sampling
-pipeline that produced the 15,000-point candidate pool and the WC/DW/Esri
-class calls being compared. Using any sharper or more recent image source
-here would let a reader attribute the error to poor image legibility rather
-than to the product classification itself, which is exactly the confound the
-§5 "product error vs. S2 legibility" discussion is written to rule out — so
-the chips deliberately show the same imagery the products themselves were
-scored against, nothing better.
+`CLOUDY_PIXEL_PERCENTAGE < 20`, median — the same composite used to build the
+15,000-point candidate pool and to label the expert reference, but not the
+imagery basis of the WC, DW or Esri class calls themselves: each product is
+classified by its own pipeline from its own Sentinel-1/2 basis, not from this
+annual median composite. The chips show the same 2021 Sentinel-2 composite
+used for the original expert interpretation.
 
 ![Figure S5. Example boundary chips illustrating the WorldCover directional error.](submission/figures/FigureS5_c2_chips.png)
 
@@ -344,8 +379,66 @@ printed in green where it matches the expert and red where it differs, so the
 per-product pattern in each panel is readable at a glance without checking
 the labels one by one. Selection rule, confidence filter and exclusions
 detailed in the text above; illustration only, the quantitative claim rests
-on Table 3 (§4.6).*
+on Table 3 (§4.3).*
 
 *[TODO: selection/fetch/assembly code for this figure will be available at
 the repository DOI given in the Data Availability statement upon
 publication.]*
+
+## S7. Arbitration value by predicted class (main text S2c)
+
+Referenced from main text Section 4.5 (S2c). The pooled comparison there
+(consensus 342/787 = 0.43 vs. the 0.45 DW-alone base rate) mixes two
+distinct effects: whether consensus adds information *within* a predicted
+class, and whether the consensus filter changes *which classes* survive to
+be compared. The two rates that drive this move in opposite directions by
+class: DW's own accuracy against the expert is lowest for built-up (0.365)
+and highest for non-built (0.787), while the DW/ESRI inter-product agreement
+rate is highest for built-up (557/584 = 95.4%) and lowest for non-built
+(43/89 = 48.3%, vs. 187/227 = 82.4% for water) — so the consensus filter
+disproportionately keeps the class DW is least accurate on. Stratifying by
+DW's predicted class separates the two effects.
+
+| DW-predicted class | *n*, accuracy (DW alone) | *n*, accuracy (DW = ESRI consensus) | *n*, accuracy (Esri disagrees) | Fisher's *p* (consensus vs. disagrees) | Share of pool: alone → consensus |
+|---|---|---|---|---|---|
+| Built | 584, 0.365 | 557, 0.372 | 27, 0.222 | 0.152 | 65% → 71% |
+| Non-built | 89, 0.787 | 43, 0.814 | 46, 0.761 | 0.611 | 10% → 5% |
+| Water | 227, 0.520 | 187, 0.535 | 40, 0.450 | 0.385 | 25% → 24% |
+| **Pooled, raw (as reported in Section 4.5)** | 900, **0.446** | 787, **0.435** | — | — | — |
+| **Pooled, consensus standardised to DW-alone's class weights** | — | **0.457** | — | — | — |
+| **Standardised MINUS raw, point bootstrap** | — | **+0.011 [95% CI −0.002, +0.025]** | — | — | — |
+
+*Table S7. DW-alone and the DW = ESRI consensus subset are nested, not
+independent, samples (every consensus point is also a DW-alone point), so
+overlapping confidence intervals on those two columns are not a valid
+difference test. Two separate checks address this. First, a point bootstrap
+computed directly on the standardised-minus-raw difference (not on the three
+per-class comparisons separately) gives +0.011 [95% CI −0.002, +0.025]: the
+interval only barely touches zero, so this is better read as suggestive of a
+small positive effect than as a difference confidently ruled out. Second, the
+two right-hand accuracy columns split DW-alone's points into disjoint
+groups — Esri agrees (= the consensus subset) vs. Esri disagrees — for which
+Fisher's exact test on the underlying 2×2 count table applies directly. By
+that test, DW's own accuracy is higher when Esri agrees than when it
+disagrees in all three classes, but none of the three per-class differences
+is significant at these sample sizes (*p* = 0.15, 0.61, 0.39; the "Esri
+disagrees" groups are small, 27-46 points) — these three tests bear on the
+per-class differences, not on the pooled bootstrap above. Separately, the raw
+pooled rate falls under the consensus filter (0.446 → 0.435) even though
+every class's point estimate rises, because the filter disproportionately
+retains built-up predictions, the least accurate class, while shrinking the
+share of non-built, the most accurate one; reweighting to a fixed class mix
+removes that composition shift and reverses the sign. Read together: the raw
+pooled 0.43-vs-0.45 figure is partly a class-composition artefact and should
+not, by itself, be read as proof that consensus *reduces* information — if
+anything, the evidence leans toward a small positive within-class
+association between Esri agreement and DW accuracy, though it does not clear
+conventional significance thresholds at this sample size. What does not
+depend on how that residual uncertainty resolves: even at the more
+favourable standardised estimate, agreement with the expert on the
+DW = ESRI-consensus points is about 0.457 — far below what a usable
+high-confidence pseudo-label would need — and the two products' error
+indicators are not independent regardless (Yule's *Q* ≈ 0.97, Table
+\ref{tab:S2}), so their agreement is correlated error rather than
+corroboration whichever way the arbitration-rate question resolves. Source:
+`docs/results_snapshot/independence_diagnostic/S2d_arbitration_by_class.csv`.*

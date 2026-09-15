@@ -482,6 +482,53 @@ def main():
         ["B0_baseline", "B1_local_oracle", "B2_loco_gated", "B3_loco_ungated", "B4_random_flip"])
     overall.to_csv(OUT_DIR / "phase2_summary.csv")
 
+    # NOTE: overall.*_std above pools across both cities and seeds in one
+    # std() call, so it is dominated by between-city spread, not seed noise.
+    # This decomposition separates the two and adds the paired
+    # same-city-same-seed gain, which is what "is the correction within
+    # noise" actually needs (flagged by external review, 2026-09-15).
+    var_rows = []
+    for method in ["B0_baseline", "B2_loco_gated"]:
+        sub = p2[p2["method"] == method]
+        seed_means = sub.groupby("seed")["Human_OA"].mean()
+        var_rows.append({
+            "method": method,
+            "pooled_city_seed_std": sub["Human_OA"].std(),
+            "seed_only_std_of_city_mean": seed_means.std(),
+        })
+    b0 = p2[p2["method"] == "B0_baseline"].set_index(["held_out", "seed"])["Human_OA"]
+    b2 = p2[p2["method"] == "B2_loco_gated"].set_index(["held_out", "seed"])["Human_OA"]
+    paired_gain = (b2 - b0).dropna()
+    var_rows.append({
+        "method": "B2_minus_B0_paired_same_city_seed",
+        "pooled_city_seed_std": paired_gain.mean(),
+        "seed_only_std_of_city_mean": paired_gain.std(),
+    })
+    # City-level unit: average the 5 seeds within each city first (seeds
+    # reuse overlapping evaluation points within a city, so they are not
+    # independent draws -- the 6 cities are the closest thing to an
+    # independent unit here). n=6 is small but this is the right level at
+    # which to ask "is the gain consistent," not the pooled 30 city-seed
+    # rows (external review, 2026-09-15).
+    city_gain = paired_gain.groupby(level="held_out").mean()
+    from scipy.stats import ttest_1samp
+    t_res = ttest_1samp(city_gain.to_numpy(), 0.0)
+    var_rows.append({
+        "method": "B2_minus_B0_city_level_mean_of_5_seeds",
+        "pooled_city_seed_std": city_gain.mean(),
+        "seed_only_std_of_city_mean": city_gain.std(),
+    })
+    var_rows.append({
+        "method": (f"city_level_paired_t (n=6, one-sided-positive count="
+                   f"{int((city_gain > 0).sum())}/6, t-test p={t_res.pvalue:.3f})"),
+        "pooled_city_seed_std": np.nan,
+        "seed_only_std_of_city_mean": np.nan,
+    })
+    pd.DataFrame(var_rows).rename(columns={
+        "pooled_city_seed_std": "value_or_mean",
+        "seed_only_std_of_city_mean": "seed_std_or_gain_std",
+    }).to_csv(OUT_DIR / "phase2_variance_decomposition.csv", index=False)
+
     log("=" * 72); log("PHASE 2b  gate sensitivity sweep"); log("=" * 72)
     sweep = []
     for held in CITIES:

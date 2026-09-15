@@ -1,4 +1,4 @@
-INDEPENDENCE DIAGNOSTIC  --  data2/independence_diagnostic/
+INDEPENDENCE DIAGNOSTIC  --  data/independence_diagnostic/
 anchor: BAMS150 boundary points, 6 cities with DW+ESRI, n=900
 classes: 0 built / 1 non-built / 2 water
 
@@ -15,10 +15,10 @@ WC=ESRI           0.497                   0.354   0.143    [0.12,0.17]       [0.
 S2b  dependence between product errors (vs expert)
      co_error_ratio = observed / (marginal-independent); Q,kappa on error indicators
 ==========================================================================
-          pair  err_rate_A  err_rate_B  co_error_obs  co_error_if_indep  co_error_ratio  yules_Q   yules_Q_CI  kappa_err  n_both_wrong  P(same wrong label | both wrong)
-DW,ESRI errors       0.554       0.578         0.512              0.320            1.60    0.972  [0.96,0.98]      0.781           461                             0.965
-  WC,DW errors       0.533       0.554         0.306              0.296            1.03    0.080 [-0.05,0.21]      0.040           275                             0.873
-WC,ESRI errors       0.533       0.578         0.326              0.308            1.06    0.142  [0.01,0.27]      0.070           293                             0.867
+          pair  err_rate_A  err_rate_B  co_error_obs  co_error_if_indep  co_error_ratio  yules_Q   yules_Q_CI yules_Q_cityblock_CI  kappa_err  n_both_wrong  P(same wrong label | both wrong)
+DW,ESRI errors       0.554       0.578         0.512              0.320            1.60    0.972  [0.96,0.98]          [0.95,0.99]      0.781           461                             0.965
+  WC,DW errors       0.533       0.554         0.306              0.296            1.03    0.080 [-0.05,0.21]         [-0.14,0.32]      0.040           275                             0.873
+WC,ESRI errors       0.533       0.578         0.326              0.308            1.06    0.142  [0.01,0.27]         [-0.01,0.33]      0.070           293                             0.867
 
 ==========================================================================
 S2c  does product consensus predict the expert label?
@@ -33,12 +33,26 @@ DW == ESRI == WC -> P(expert == that label) 391 0.425 [0.38,0.47] +0.167  (prior
        WC == DW  -> P(expert == that label) 436 0.450 [0.40,0.50] +0.177  (prior 0.27)
 
 ==========================================================================
+S2d  arbitration value by predicted class, + fixed-class-weight check
+     (does the pooled S2c number move because of a within-class effect
+     or because consensus changes which classes survive?)
+==========================================================================
+                                                          DW_predicted_class  n_DW_alone  acc_DW_alone acc_DW_alone_CI  n_DW=ESRI_consensus  acc_DW=ESRI_consensus acc_consensus_CI  n_Esri_disagrees  acc_Esri_disagrees  fisher_p_consensus_vs_disagree  share_of_DW_alone_pool  share_of_consensus_pool
+                                                                       built       584.0         0.365     [0.33,0.40]                557.0                  0.372      [0.33,0.41]              27.0               0.222                           0.152                   0.649                    0.708
+                                                                   non-built        89.0         0.787     [0.69,0.86]                 43.0                  0.814      [0.67,0.90]              46.0               0.761                           0.611                   0.099                    0.055
+                                                                       water       227.0         0.520     [0.46,0.58]                187.0                  0.535      [0.46,0.60]              40.0               0.450                           0.385                   0.252                    0.238
+                                                   POOLED (raw, as reported)       900.0         0.446             NaN                787.0                  0.435              NaN               NaN                 NaN                             NaN                     NaN                      NaN
+                  POOLED (consensus, standardised to DW-alone class weights)         NaN           NaN             NaN                  NaN                  0.457              NaN               NaN                 NaN                             NaN                     NaN                      NaN
+standardised MINUS raw, point bootstrap 95% CI [-0.002,+0.025], point=+0.011         NaN           NaN             NaN                  NaN                    NaN              NaN               NaN                 NaN                             NaN                     NaN                      NaN
+
+==========================================================================
 S3a  ontology confound: collapse to coarser schemes, re-test
 ==========================================================================
-                                 scheme   n  Human=DW  Human=ESRI  DW=ESRI  WC=DW  WC=ESRI  gap(DW=ESRI  -  Human=DW)
-        3-class (built/non-built/water) 900     0.446       0.422    0.874  0.484    0.497                      0.429
-                2-class (built vs rest) 900     0.568       0.538    0.908  0.574    0.571                      0.340
-built vs vegetation (water pts dropped) 623     0.440       0.417    0.917  0.454    0.467                      0.477
+                                       scheme   n  Human=DW  Human=ESRI  DW=ESRI  WC=DW  WC=ESRI  gap(DW=ESRI  -  Human=DW)  yules_Q(DW,ESRI errors)  kappa(DW,ESRI errors)                                                                                                            exclusion_rule
+              3-class (built/non-built/water) 900     0.446       0.422    0.874  0.484    0.497                      0.429                    0.972                  0.781                                                                                                                          
+                      2-class (built vs rest) 900     0.568       0.538    0.908  0.574    0.571                      0.340                    0.981                  0.814                                                                                                                          
+ built vs non-built, any-source water dropped 623     0.440       0.417    0.917  0.454    0.467                      0.477                    0.984                  0.830                                                                  drops a point if ANY of human/WC/DW/Esri labels it water
+built vs non-built, expert-only water dropped 747     0.511       0.493    0.906  0.519    0.527                      0.395                    0.980                  0.813 drops a point only when the EXPERT label is water; any WC/DW/Esri water call on a retained point is remapped to non-built
 
 ==========================================================================
 S3b  WorldCover as negative control (shared S2 input, different model family)

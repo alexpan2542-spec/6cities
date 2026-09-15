@@ -24,6 +24,7 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
+from scipy.stats import fisher_exact
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
@@ -96,6 +97,23 @@ def boot_ci(fn, *arrays, nboot: int = NBOOT, alpha: float = 0.05):
     for i in range(nboot):
         idx = RNG.integers(0, n, n)
         stats[i] = fn(*[arr[idx] for arr in arrays])
+    lo, hi = np.nanpercentile(stats, [100 * alpha / 2, 100 * (1 - alpha / 2)])
+    return float(lo), float(hi)
+
+
+def city_block_boot_ci(fn, df: pd.DataFrame, *cols, nboot: int = NBOOT, alpha: float = 0.05):
+    """Cluster (city-block) bootstrap CI: resample the 6 cities with
+    replacement, keeping each resampled city's points intact, rather than
+    resampling points i.i.d. Accounts for spatial/city clustering in the
+    fixed-150-per-city sampling design; `boot_ci` above does not (external
+    review, 2026-09-15)."""
+    cities = df["city"].unique()
+    n_c = len(cities)
+    stats = np.empty(nboot)
+    for i in range(nboot):
+        chosen = RNG.choice(cities, size=n_c, replace=True)
+        boot_df = pd.concat([df[df["city"] == c] for c in chosen], ignore_index=True)
+        stats[i] = fn(*[boot_df[col].to_numpy() for col in cols])
     lo, hi = np.nanpercentile(stats, [100 * alpha / 2, 100 * (1 - alpha / 2)])
     return float(lo), float(hi)
 
@@ -176,6 +194,8 @@ def table_error_dependence(d: pd.DataFrame) -> pd.DataFrame:
         indep_co_err = float(np.mean(ea) * np.mean(eb))
         q = yules_q(ea, eb)
         qlo, qhi = boot_ci(yules_q, ea, eb)
+        tmp = pd.DataFrame({"city": d["city"].to_numpy(), "eA": ea, "eB": eb})
+        qlo_cb, qhi_cb = city_block_boot_ci(yules_q, tmp, "eA", "eB")
         rows.append({
             "pair": f"{na},{nb} errors",
             "err_rate_A": round(float(np.mean(ea)), 3),
@@ -185,6 +205,7 @@ def table_error_dependence(d: pd.DataFrame) -> pd.DataFrame:
             "co_error_ratio": round(co_err / indep_co_err, 2) if indep_co_err else np.nan,
             "yules_Q": round(q, 3),
             "yules_Q_CI": f"[{qlo:.2f},{qhi:.2f}]",
+            "yules_Q_cityblock_CI": f"[{qlo_cb:.2f},{qhi_cb:.2f}]",
             "kappa_err": round(cohen_kappa(ea, eb), 3),
             "n_both_wrong": n_bw,
             "P(same wrong label | both wrong)": round(same_when_both_wrong, 3),
@@ -251,13 +272,121 @@ def table_consensus_ppv(d: pd.DataFrame) -> pd.DataFrame:
 
 
 # ---------------------------------------------------------------------------
+# S2-d  arbitration value, by predicted class + a fixed-class-weight check
+#   The pooled DW=ESRI-consensus-vs-DW-alone comparison in S2c can move
+#   because the consensus filter changes which classes survive, not because
+#   consensus adds or removes signal within a class (external review,
+#   2026-09-15). This reports both: the per-class breakdown, and a
+#   standardised pooled accuracy that holds the class mix fixed at DW-alone's
+#   weights so the two numbers are comparable on the same population.
+# ---------------------------------------------------------------------------
+def table_arbitration_by_class(d: pd.DataFrame) -> pd.DataFrame:
+    y = d["human"].to_numpy()
+    dw = d["dw"].to_numpy()
+    esri = d["esri"].to_numpy()
+    con = d[d["dw"] == d["esri"]]
+    con_dw = con["dw"].to_numpy()
+    con_y = con["human"].to_numpy()
+
+    rows = []
+    for c, name in CLASSES.items():
+        alone_mask = dw == c
+        n_alone = int(alone_mask.sum())
+        k_alone = int(np.sum(y[alone_mask] == c))
+        acc_alone = k_alone / n_alone if n_alone else np.nan
+        lo_a, hi_a = wilson(k_alone, n_alone) if n_alone else (np.nan, np.nan)
+
+        cons_mask = con_dw == c
+        n_cons = int(cons_mask.sum())
+        k_cons = int(np.sum(con_y[cons_mask] == c))
+        acc_cons = k_cons / n_cons if n_cons else np.nan
+        lo_c, hi_c = wilson(k_cons, n_cons) if n_cons else (np.nan, np.nan)
+
+        # Esri-agrees vs Esri-disagrees is a clean disjoint split of the
+        # DW-alone pool within this class (unlike DW-alone vs the DW=ESRI
+        # consensus subset, which are nested/overlapping samples that
+        # overlapping-CI comparisons are not a valid test for -- external
+        # review, 2026-09-15). Fisher's exact test applies directly here.
+        dis_mask = alone_mask & (dw != esri)
+        n_dis = int(dis_mask.sum())
+        k_dis = int(np.sum(y[dis_mask] == c))
+        acc_dis = k_dis / n_dis if n_dis else np.nan
+        if n_cons and n_dis:
+            _, fisher_p = fisher_exact([[k_cons, n_cons - k_cons], [k_dis, n_dis - k_dis]])
+        else:
+            fisher_p = np.nan
+
+        rows.append({
+            "DW_predicted_class": name,
+            "n_DW_alone": n_alone,
+            "acc_DW_alone": round(acc_alone, 3),
+            "acc_DW_alone_CI": f"[{lo_a:.2f},{hi_a:.2f}]",
+            "n_DW=ESRI_consensus": n_cons,
+            "acc_DW=ESRI_consensus": round(acc_cons, 3),
+            "acc_consensus_CI": f"[{lo_c:.2f},{hi_c:.2f}]",
+            "n_Esri_disagrees": n_dis,
+            "acc_Esri_disagrees": round(acc_dis, 3) if n_dis else np.nan,
+            "fisher_p_consensus_vs_disagree": round(fisher_p, 3) if not np.isnan(fisher_p) else np.nan,
+            "share_of_DW_alone_pool": round(n_alone / len(d), 3),
+            "share_of_consensus_pool": round(n_cons / len(con), 3),
+        })
+    out = pd.DataFrame(rows)
+
+    w_alone = out["n_DW_alone"] / out["n_DW_alone"].sum()
+    pooled_alone_raw = float(np.mean(y == dw))
+    pooled_cons_raw = float(np.mean(con_y == con_dw))
+    pooled_cons_standardised = float(np.sum(w_alone * out["acc_DW=ESRI_consensus"]))
+
+    # Per-class Fisher tests do not, by themselves, test the *pooled*
+    # standardised-vs-raw difference the text draws from them (external
+    # review, 2026-09-15). Bootstrap that composite statistic directly.
+    def _standardised_minus_raw(dw_, esri_, y_):
+        classes = np.unique(dw_)
+        w = np.array([np.mean(dw_ == c) for c in classes])
+        con_ = dw_ == esri_
+        std_rate = 0.0
+        for wc, c in zip(w, classes):
+            cm = con_ & (dw_ == c)
+            std_rate += wc * (np.mean(y_[cm] == c) if cm.sum() else np.nan)
+        raw_rate = float(np.mean(y_ == dw_))
+        return std_rate - raw_rate
+
+    diff_point = _standardised_minus_raw(dw, esri, y)
+    diff_lo, diff_hi = boot_ci(_standardised_minus_raw, dw, esri, y)
+
+    summary = pd.DataFrame([
+        {"DW_predicted_class": "POOLED (raw, as reported)",
+         "n_DW_alone": len(d), "acc_DW_alone": round(pooled_alone_raw, 3),
+         "n_DW=ESRI_consensus": len(con), "acc_DW=ESRI_consensus": round(pooled_cons_raw, 3)},
+        {"DW_predicted_class": "POOLED (consensus, standardised to DW-alone class weights)",
+         "acc_DW=ESRI_consensus": round(pooled_cons_standardised, 3)},
+        {"DW_predicted_class": (f"standardised MINUS raw, point bootstrap 95% CI "
+                                 f"[{diff_lo:+.3f},{diff_hi:+.3f}], point={diff_point:+.3f}")},
+    ])
+    return pd.concat([out, summary], ignore_index=True)
+
+
+# ---------------------------------------------------------------------------
 # S3-a  ontology confound: collapse to coarser schemes, re-test
 # ---------------------------------------------------------------------------
 def table_ontology_confound(d: pd.DataFrame) -> pd.DataFrame:
+    """Collapse the ontology and re-test. Reports Yule's Q and kappa on the
+    DW/ESRI error indicators under each collapsed scheme, not just the raw
+    agreement rates -- agreement rates alone do not show whether the *error
+    coupling* survives the remap (external review, 2026-09-15). The old
+    "built vs vegetation" label is wrong: the non-built class also contains
+    bare land and other non-vegetated cover (Section 3.1), so it is renamed
+    "built vs non-built" here, and the exclusion rule used to build that
+    subset (drop a point if ANY of the four sources calls it water, not only
+    the expert) is now stated explicitly and given a robustness twin that
+    drops only on the expert's own water label.
+    """
     rows = []
 
-    def block(name, dd, mapper):
+    def block(name, dd, mapper, note=""):
         m = {k: dd[k].map(mapper).to_numpy() for k in ["human", "wc", "dw", "esri"]}
+        err_dw = m["dw"] != m["human"]
+        err_esri = m["esri"] != m["human"]
         return {
             "scheme": name,
             "n": len(dd),
@@ -268,13 +397,24 @@ def table_ontology_confound(d: pd.DataFrame) -> pd.DataFrame:
             "WC=ESRI": round(float(np.mean(m["wc"] == m["esri"])), 3),
             "gap(DW=ESRI  -  Human=DW)": round(
                 float(np.mean(m["dw"] == m["esri"]) - np.mean(m["human"] == m["dw"])), 3),
+            "yules_Q(DW,ESRI errors)": round(float(yules_q(err_dw, err_esri)), 3),
+            "kappa(DW,ESRI errors)": round(float(cohen_kappa(err_dw, err_esri)), 3),
+            "exclusion_rule": note,
         }
 
     rows.append(block("3-class (built/non-built/water)", d, {0: 0, 1: 1, 2: 2}))
     rows.append(block("2-class (built vs rest)", d, {0: 0, 1: 1, 2: 1}))
-    rows.append(block("built vs vegetation (water pts dropped)",
-                      d[(d["human"] != 2) & (d["wc"] != 2) & (d["dw"] != 2) & (d["esri"] != 2)],
-                      {0: 0, 1: 1, 2: 1}))
+    rows.append(block(
+        "built vs non-built, any-source water dropped",
+        d[(d["human"] != 2) & (d["wc"] != 2) & (d["dw"] != 2) & (d["esri"] != 2)],
+        {0: 0, 1: 1, 2: 1},
+        note="drops a point if ANY of human/WC/DW/Esri labels it water"))
+    rows.append(block(
+        "built vs non-built, expert-only water dropped",
+        d[d["human"] != 2],
+        {0: 0, 1: 1, 2: 1},
+        note="drops a point only when the EXPERT label is water; "
+             "any WC/DW/Esri water call on a retained point is remapped to non-built"))
     return pd.DataFrame(rows)
 
 
@@ -371,6 +511,7 @@ def main():
     excess = table_excess_agreement(d)
     dep = table_error_dependence(d)
     ppv = table_consensus_ppv(d)
+    arb_class = table_arbitration_by_class(d)
     onto = table_ontology_confound(d)
     negctl = table_negative_control(excess)
     byscene = table_coupling_by_scene(d)
@@ -378,6 +519,7 @@ def main():
     excess.to_csv(OUT / "S2a_excess_agreement.csv", index=False)
     dep.to_csv(OUT / "S2b_error_dependence.csv", index=False)
     ppv.to_csv(OUT / "S2c_consensus_ppv.csv", index=False)
+    arb_class.to_csv(OUT / "S2d_arbitration_by_class.csv", index=False)
     onto.to_csv(OUT / "S3a_ontology_confound.csv", index=False)
     negctl.to_csv(OUT / "S3b_negative_control.csv", index=False)
     byscene.to_csv(OUT / "S3c_coupling_by_scene.csv", index=False)
@@ -391,6 +533,9 @@ def main():
          "     co_error_ratio = observed / (marginal-independent); Q,kappa on error indicators", dep),
         ("S2c  does product consensus predict the expert label?\n"
          "     lift_vs_prior = P(expert agrees) - prior prob. of the agreed class", ppv),
+        ("S2d  arbitration value by predicted class, + fixed-class-weight check\n"
+         "     (does the pooled S2c number move because of a within-class effect\n"
+         "     or because consensus changes which classes survive?)", arb_class),
         ("S3a  ontology confound: collapse to coarser schemes, re-test", onto),
         ("S3b  WorldCover as negative control (shared S2 input, different model family)", negctl),
         ("S3c  is the DW=ESRI coupling uniform across scene types?", byscene),

@@ -1,4 +1,4 @@
-pair,err_rate_A,err_rate_B,co_error_obs,co_error_if_indep,co_error_ratio,yules_Q,yules_Q_CI,kappa_err,n_both_wrong,P(same wrong label | both wrong)
-"DW,ESRI errors",0.554,0.578,0.512,0.32,1.6,0.972,"[0.96,0.98]",0.781,461,0.965
-"WC,DW errors",0.533,0.554,0.306,0.296,1.03,0.08,"[-0.05,0.21]",0.04,275,0.873
-"WC,ESRI errors",0.533,0.578,0.326,0.308,1.06,0.142,"[0.01,0.27]",0.07,293,0.867
+pair,err_rate_A,err_rate_B,co_error_obs,co_error_if_indep,co_error_ratio,yules_Q,yules_Q_CI,yules_Q_cityblock_CI,kappa_err,n_both_wrong,P(same wrong label | both wrong)
+"DW,ESRI errors",0.554,0.578,0.512,0.32,1.6,0.972,"[0.96,0.98]","[0.95,0.99]",0.781,461,0.965
+"WC,DW errors",0.533,0.554,0.306,0.296,1.03,0.08,"[-0.05,0.21]","[-0.14,0.32]",0.04,275,0.873
+"WC,ESRI errors",0.533,0.578,0.326,0.308,1.06,0.142,"[0.01,0.27]","[-0.01,0.33]",0.07,293,0.867

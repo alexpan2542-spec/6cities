@@ -47,9 +47,9 @@ WRONG = "#c1443c"     # product call differs from the expert
 NEUTRAL = "#555"
 GROUP_HEAD = {
     "A": ("A  —  C1 + C2: product consensus errs together",
-          "WorldCover = Dynamic World = Esri = built-up, expert = non-built "
-          "(vegetation). Agreement is not corroboration; and once WC calls "
-          "“built”, the expert reads vegetation ~7 times in 10."),
+          "WorldCover = Dynamic World = Esri = built-up, expert = non-built. "
+          "Agreement is not corroboration; and once WC calls "
+          "“built”, the expert reads non-built ~7 times in 10."),
     "B": ("B  —  C1: the coupled pair errs, WorldCover dissents and is right",
           "Dynamic World = Esri = built-up (the pair that agrees most), expert = "
           "non-built, and WorldCover — least coupled to either — dissents and is "

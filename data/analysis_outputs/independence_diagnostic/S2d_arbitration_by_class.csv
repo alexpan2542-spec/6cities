@@ -1,0 +1,7 @@
+DW_predicted_class,n_DW_alone,acc_DW_alone,acc_DW_alone_CI,n_DW=ESRI_consensus,acc_DW=ESRI_consensus,acc_consensus_CI,n_Esri_disagrees,acc_Esri_disagrees,fisher_p_consensus_vs_disagree,share_of_DW_alone_pool,share_of_consensus_pool
+built,584.0,0.365,"[0.33,0.40]",557.0,0.372,"[0.33,0.41]",27.0,0.222,0.152,0.649,0.708
+non-built,89.0,0.787,"[0.69,0.86]",43.0,0.814,"[0.67,0.90]",46.0,0.761,0.611,0.099,0.055
+water,227.0,0.52,"[0.46,0.58]",187.0,0.535,"[0.46,0.60]",40.0,0.45,0.385,0.252,0.238
+"POOLED (raw, as reported)",900.0,0.446,,787.0,0.435,,,,,,
+"POOLED (consensus, standardised to DW-alone class weights)",,,,,0.457,,,,,,
+"standardised MINUS raw, point bootstrap 95% CI [-0.002,+0.025], point=+0.011",,,,,,,,,,,
