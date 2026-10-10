@@ -86,6 +86,20 @@
 > `fig:map_*` figures (the `Fig_diag_*` analysis figures and `Fig_diag_map_*`
 > maps already exist and are current; `fig:map_*` just needs the two chosen for
 > the main text wired to the real filenames at typesetting).
+>
+> **2026-09-15 (word-count fix, submission/manuscript.tex only).** The
+> `\abstract{}` cap only applies to `submission/manuscript.tex` — this
+> full-length master is meant to stay complete per
+> [[section-delivery-as-tex-fragments]] and is unchanged. The `.tex` abstract
+> had drifted to 228 words (cap ~200): later edits (the Q rounding fix and
+> the Dynamic-World–Esri-consensus-as-pseudo-label sentence) were added after
+> the 2026-09-11 trim without re-checking length. Retrimmed there to ~200
+> words the same way as the 2026-09-11 pass — compress wording and drop the
+> "consensus matches expert on 43%/45%, all four agree on 18%" sentence as
+> the one candidate that drops a result rather than just compressing it;
+> every remaining number, named product, and the existence-not-prevalence
+> scope claim are unchanged. `manuscript_zh.txt` still needs the same fix on
+> request.
 
 ---
 
@@ -386,7 +400,10 @@ re-check of Appendix A was done by one of the three. This operational and
 research experience is what made a single consistent reference feasible on the
 boundary candidates; it is an enabling condition for the reference, not a
 rationale for the choice of study area (Section 2.1), and the resulting
-single-annotator reference is treated as a limitation in Section 5.5.
+single-annotator reference is treated as a limitation in Section 5.5. The one
+exception to single-author labelling is the 26 Nanchang points re-annotated
+after the initial pass (Section 3.2(d)), which the first author and the
+corresponding author re-labelled jointly.
 
 ---
 

@@ -93,9 +93,8 @@
 %%  \input this file BEFORE \begin{document} (the master docs/manuscript_body.tex
 %%  chains the body sections only, from \maketitle onward).
 %%
-%%  Author names, ORCID, affiliation list beyond the first author, and the
-%%  corresponding-author contact line are %TODO -- only the first author's
-%%  centre is known.
+%%  Authors/affiliations/correspondence filled and confirmed 2026-10-10. No ORCIDs
+%%  (authors have none yet) -- \orcidauthorA left commented out.
 %%
 %%  Abstract trimmed to ~200 words (MDPI cap).
 %%  2026-09-10: numbers refreshed for the Hangzhou two-stage standardisation
@@ -126,21 +125,22 @@ Land-Cover Class Boundaries: A Six-City Diagnostic}
 %% colorbox is more likely to misbehave than plain colored text. If any
 %% line here throws a compile error, that macro nesting is the first
 %% suspect -- drop back to plain text and keep the surrounding % TODO.
-\Author{\needsedit{Firstname Lastname} $^{1,}$*, \needsedit{Firstname Lastname} $^{2}$ and \needsedit{Firstname Lastname} $^{2}$} % TODO
+\Author{Xinyuan Gao $^{1}$, Yu Liu $^{1,}$*, Li Wang $^{2}$ and Ruipeng Wang $^{3}$}
 
-\AuthorNames{\needseditpar{Firstname Lastname, Firstname Lastname and Firstname Lastname}} % TODO
+\AuthorNames{Xinyuan Gao, Yu Liu, Li Wang and Ruipeng Wang}
 
 %% DISABLED 2026-09-12: same undefined-control-sequence error as \TitleCitation
 %% above -- confirmed by user compile log. Class falls back to the "How to
 %% cite" line derived from \Author instead.
-% \AuthorCitation{\needseditpar{Lastname, F.; Lastname, F.; Lastname, F.}} % TODO (needs recent mdpi.cls)
+% \AuthorCitation{Gao, X.; Liu, Y.; Wang, L.; Wang, R.} % (needs recent mdpi.cls)
 
 \address{%
-$^{1}$ \quad \needsedit{Affiliation 1; e-mail@e-mail.com}\\ % TODO
-$^{2}$ \quad \needsedit{Affiliation 2; e-mail@e-mail.com} % TODO
+$^{1}$ \quad Land Satellite Remote Sensing Application Center, Ministry of Natural Resources, Beijing 100048, China; gaoxy@lasac.cn (X.G.); liuy@lasac.cn (Y.L.)\\
+$^{2}$ \quad Institute of Geospatial Information, Information Engineering University, Zhengzhou 450001, China; wangli\_chxy@163.com (L.W.)\\
+$^{3}$ \quad Qingdao Surveying \& Mapping Institute, Qingdao 266032, China; wangrpskd@163.com (R.W.)
 }
 
-\corres{Correspondence: \needsedit{e-mail@e-mail.com}} % TODO
+\corres{Correspondence: liuy@lasac.cn}
 
 % \firstnote{...} % optional
 
@@ -164,26 +164,33 @@ $^{2}$ \quad \needsedit{Affiliation 2; e-mail@e-mail.com} % TODO
 %% non-built" (same overclaim as the 2026-09-11 (1) fix pass below -- Table T3
 %% only supports the merged non-built class, not vegetation specifically);
 %% no word-count change from that fix.
+%%
+%% 2026-09-15 -- third trim: later fix passes (Q-rounding correction, the
+%% Dynamic-World--Esri-consensus-as-pseudo-label finding) had pushed this back
+%% up to ~228 w without re-checking the cap. Cut the "consensus matches expert
+%% on 43%/45%, all four agree on 18%" sentence -- the one candidate that drops
+%% a result rather than compressing wording, same logic as the 2026-09-11 cut
+%% -- and compressed remaining wording (now ~198 w). Every number, threshold
+%% and the existence-not-prevalence scope claim are unchanged.
 \abstract{Global 10~m land-cover products are increasingly combined on the
-assumption that where independent products agree the label is close to correct,
-so one product can arbitrate another's disputed pixels. We test this at
-land-cover class boundaries with 900 expert-labelled points---150 in
-each of six middle- and lower-Yangtze cities, China---placed by boundary-aware sampling on
-the most spectrally ambiguous transitions and labelled from a 2021 Sentinel-2
-composite. Only Dynamic World and Esri agree at a consistently high rate
-(0.87); each matches the expert on fewer than half the points (WorldCover 0.47,
-Dynamic World 0.45, Esri 0.42). That agreement is not independent
-corroboration: the two products' errors move almost in lockstep (Yule's
-$Q \approx 0.97$), whereas WorldCover's are at most weakly coupled to either
-($Q \approx 0.08$--$0.14$). The Dynamic World--Esri consensus matches the
-expert labels on 43\% of retained points, compared with 45\% for Dynamic
-World alone, and all four sources agree on only 18\% of points. The
-WorldCover error is directional: once WorldCover calls a point ``built-up'',
-the expert label is non-built about seven times in ten. Separately, using the class agreed upon by Dynamic World and Esri as a
-pseudo-label under-represents non-built cover among retained points. These
-findings hold across six cities sharing one Sentinel-2 basis; cross-product
-agreement should not serve on its own as a pseudo-reference or
-high-confidence label at land-cover class boundaries.}
+assumption that agreement between them signals a correct label. We test
+whether agreement among ESA WorldCover, Google/WRI Dynamic World and
+Esri/Impact Observatory Land Cover is independent evidence of correctness at
+land-cover class boundaries, where each product is weakest, using 900
+expert-labelled points---150 in each of six middle- and lower-Yangtze cities,
+China---placed on the most ambiguous class transitions. The only agreement
+rate high everywhere is between Dynamic World and Esri (0.87); each still
+matches the expert on fewer than half the points (WorldCover 0.47, Dynamic
+World 0.45, Esri 0.42). That agreement is not independent corroboration:
+Dynamic World's and Esri's errors move almost in lockstep (Yule's
+$Q \approx 0.97$), while WorldCover's are only weakly coupled to either
+($Q \approx 0.08$--$0.14$). WorldCover's error is directional: once it calls
+a point ``built-up'', the expert label is non-built about seven times in
+ten, and even the Dynamic World--Esri consensus, taken as a pseudo-label,
+under-represents non-built cover among retained points. The pattern holds
+across six cities sharing one Sentinel-2 basis, not a global prevalence
+estimate; cross-product agreement should not serve on its own as a
+pseudo-reference or high-confidence label at land-cover class boundaries.}
 
 \keyword{global land-cover products; ESA WorldCover; Dynamic World; Esri Land
 Cover; map agreement; correlated error; land-cover class boundary; accuracy
@@ -583,7 +590,10 @@ research experience is what made a single consistent reference feasible on the
 boundary candidates. It is an enabling condition for the reference, not a
 rationale for the choice of study area (Section~\ref{sec:studyarea}), and the
 resulting single-annotator reference is treated as a limitation in
-Section~\ref{sec:disc-scope}.
+Section~\ref{sec:disc-scope}. The one exception to single-author labelling is the 26
+Nanchang points re-annotated after the initial pass
+(Section~\ref{sec:diagnostic}(d)), which the first author and the
+corresponding author re-labelled jointly.
 
 %% ===================== 3  METHODS ================================
 %% =====================================================================
@@ -1798,20 +1808,17 @@ diagnostic in other climates and urban morphologies is the natural next step.
 %% MDPI order. Initials (X.X.) and the data/funding specifics are %TODO --
 %% they depend on the final author list and repository DOI.
 
-\authorcontributions{Conceptualization, \needsedit{X.X.}; methodology, \needsedit{X.X.};
-software, \needsedit{X.X.} and \needsedit{Y.Y.}; formal analysis, \needsedit{X.X.};
-investigation, \needsedit{Z.Z.}; validation, \needsedit{W.W.};
-writing---original draft preparation, \needsedit{X.X.}; writing---review and editing, \needsedit{W.W.}
-All authors have read and agreed to the published version of the manuscript.}
-%TODO replace initials with real author names (CRediT). Placeholder mapping:
-% X.X. = lead/corresponding author (conceptualization, methodology, software
-%        design, formal analysis, original draft); Y.Y. = code implementation
-%        (software, hands-on scripting); Z.Z. = data collection/annotation
-%        (investigation); W.W. = review role (validation, writing---review
-%        and editing).
+\authorcontributions{Conceptualization, X.G.; methodology, X.G.;
+software, X.G. and L.W.; validation, X.G.; formal analysis, X.G.;
+resources, R.W.;
+writing---original draft preparation, X.G.; writing---review and editing, Y.L.;
+supervision, Y.L. All authors have read and agreed to the published version of the manuscript.}
+% CRediT mapping (2026-10-10): X.G. = Xinyuan Gao (first author; incl. validation
+% = robustness checks); L.W. = Li Wang (software); R.W. = Ruipeng Wang (resources --
+% NOT investigation: §2.4 says X.G. alone labelled all 900 points); Y.L. = Yu Liu
+% (corresponding; review and editing, supervision; NOT validation).
 
-\funding{\needsedit{This research received no external funding.}} %TODO confirm, or replace
-% with ``This research was funded by NAME OF FUNDER grant number XXX''.
+\funding{This research received no external funding.} % confirmed by user 2026-10-10
 
 \institutionalreview{Not applicable.}
 
