@@ -63,7 +63,7 @@ comparable even at matching τ and *q*.
 | 0.70 | 0.20 | 345 | 0.516 | 0.913 |
 
 *Table S1. Gate sensitivity, six-city mean. Source:
-`docs/results_snapshot/loco_correction_operator/phase2b_sweep_summary.csv`.*
+`data/analysis_outputs/loco_correction_operator/phase2b_sweep_summary.csv`.*
 
 Reaching +14 points of downstream Human-OA (0.375 → ≈ 0.516) requires loosening
 to τ = 0.70, *q* = 0.20 and rewriting ≈ 345 of the ≈ 10,000-point training
@@ -95,7 +95,7 @@ indices and all nine neighbourhood standard-deviation terms.
 reflectance bands remain useful for the transfer despite the radiometric
 offsets. The main text reports only the 27-feature operator.
 
-*Source: `docs/results_snapshot/loco_correction_operator/phase1_corrector_transfer.csv`
+*Source: `data/analysis_outputs/loco_correction_operator/phase1_corrector_transfer.csv`
 (`feature_set` column: `all27` vs `transfer15`).*
 
 ---
@@ -135,7 +135,7 @@ Section 3.1) drops a point if any of the four sources calls it water; the
 last row is the same collapse but drops a point only when the expert's own
 label is water (WC/DW/Esri water calls on the retained points are remapped to
 non-built) — the result is unchanged under either exclusion rule.
-Source: `docs/results_snapshot/independence_diagnostic/S3a_ontology_confound.csv`.*
+Source: `data/analysis_outputs/independence_diagnostic/S3a_ontology_confound.csv`.*
 
 ### S3-2. Acquisition date, by scene type (main text S3c)
 
@@ -160,7 +160,7 @@ boundary points with a resolvable scene note, groups with n ≥ 15.
 complex 0.96) rather than concentrated in the spectrally stable classes; the
 coupling is not confined to one kind of scene, though acquisition timing itself
 is not tested directly here. Source:
-`docs/results_snapshot/independence_diagnostic/S3c_coupling_by_scene.csv`.*
+`data/analysis_outputs/independence_diagnostic/S3c_coupling_by_scene.csv`.*
 
 ---
 
@@ -208,7 +208,7 @@ that match the expert label. Source:
 before/after maps (main text Figure 4; Figures S1–S4 below). "Operator changes"
 is the number of the $\approx$15,000 stratified city points the gated operator
 ($\tau=0.85$, lowest-decile within-city margin) overwrites relative to raw
-WorldCover. Source: `docs/results_snapshot/loco_correction_operator/`.*
+WorldCover. Source: `data/analysis_outputs/loco_correction_operator/`.*
 
 ### Figures S1–S4. Before/after correction maps, remaining four cities
 
@@ -270,7 +270,7 @@ rectification-and-expansion family; "Prototype Expansion").
   to the RF→MLP classifier change and to treating the 150 hand labels as
   anchors, not to neighbour propagation.
 
-*Source: `docs/results_snapshot/leak_diagnostic/` (`leak_diagnostic.csv`,
+*Source: `data/leak_diagnostic/` (`leak_diagnostic.csv`,
 `spatial_block_results.csv`, `spatial_block_summary.csv`), the frozen output of
 a one-off diagnostic run. The generating script lived in an earlier,
 non-version-controlled working directory and no longer exists in a form that
@@ -381,9 +381,10 @@ the labels one by one. Selection rule, confidence filter and exclusions
 detailed in the text above; illustration only, the quantitative claim rests
 on Table 3 (§4.3).*
 
-*[TODO: selection/fetch/assembly code for this figure will be available at
-the repository DOI given in the Data Availability statement upon
-publication.]*
+*Code: `scripts/c2_chip_select.py`, `scripts/c2_chip_fetch.py`,
+`scripts/c2_chip_assemble.py` and `scripts/gee_c2_chip_export.js`; point IDs
+in `data/analysis_outputs/c2_chip_figure/chip_manifest.csv` (repository:
+https://doi.org/10.5281/zenodo.23312364).*
 
 ## S7. Arbitration value by predicted class (main text S2c)
 
@@ -441,4 +442,4 @@ high-confidence pseudo-label would need — and the two products' error
 indicators are not independent regardless (Yule's *Q* ≈ 0.97, Table
 \ref{tab:S2}), so their agreement is correlated error rather than
 corroboration whichever way the arbitration-rate question resolves. Source:
-`docs/results_snapshot/independence_diagnostic/S2d_arbitration_by_class.csv`.*
+`data/analysis_outputs/independence_diagnostic/S2d_arbitration_by_class.csv`.*

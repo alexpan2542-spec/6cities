@@ -115,9 +115,9 @@ r2 = 44.5        # bottom of row-2 sub-boxes
 hh = 8.0
 w3 = 27.3
 xs = [7, 36.35, 65.7]
-row1 = [("(a) Four-way agreement", "“how much”", "T1"),
-        ("(b) Confidence stratification", "annotator noise?", "T2"),
-        ("(c) Direction of WC error", "“which way”", "T3")]
+row1 = [("(a) Four-way agreement", "“how much”", "Table 2"),
+        ("(b) Confidence stratification", "annotator noise?", "Table 3"),
+        ("(c) Direction of WC error", "“which way”", "Table 4")]
 for x, (t, m, tag) in zip(xs, row1):
     box(x, r1, w3, hh, "white", C_S2E, lw=0.8)
     txt(x + w3 / 2, r1 + 6.0, t, size=6.9, weight="bold")
@@ -127,7 +127,7 @@ for x, (t, m, tag) in zip(xs, row1):
 box(7, r2, w3, hh, "white", C_S2E, lw=0.8)
 txt(7 + w3 / 2, r2 + 6.0, "(d) Physical scene\nstratification", size=6.9, weight="bold")
 txt(7 + w3 / 2, r2 + 2.9, "“where”", size=6.4, color=SUB)
-txt(7 + w3 / 2, r2 + 1.1, "T4", size=6.0, color=C_S2E, weight="bold")
+txt(7 + w3 / 2, r2 + 1.1, "Table 5", size=6.0, color=C_S2E, weight="bold")
 
 we = 56.65
 box(36.35, r2, we, hh, "white", C_S2E, lw=0.8)
@@ -135,7 +135,7 @@ txt(36.35 + we / 2, r2 + 6.1, "(e) Independence & arbitration test", size=6.9, w
 txt(36.35 + we / 2, r2 + 3.8,
     "excess agreement  ·  error dependence (Yule Q, κ)  ·  arbitration value  ·  confounds",
     size=6.0, color=SUB)
-txt(36.35 + we / 2, r2 + 1.6, "Tables S2–S3 · Fig 3", size=6.0, color=C_S2E, weight="bold")
+txt(36.35 + we / 2, r2 + 1.6, "Table 6 · Fig 3 · Tables S3–S4", size=6.0, color=C_S2E, weight="bold")
 
 # ================================================================ STAGE 3
 arrow(50, 43, 37.3, lw=1.5, color=C_S3E, dash=(0, (5, 3)))

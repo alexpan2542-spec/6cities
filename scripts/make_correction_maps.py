@@ -96,9 +96,9 @@ def make_map(city: str, city_df: dict):
     ax = axes[2]
     ax.scatter(lon, lat, s=2, c="#d9d9d9", alpha=0.5, linewidths=0)
     ax.scatter(bams.loc[agree, "lon"], bams.loc[agree, "lat"], s=26, c="#1a9850",
-               marker="o", label=f"human = WC (n={int(agree.sum())})", edgecolors="black", linewidths=0.3)
+               marker="o", label=f"expert = WC (n={int(agree.sum())})", edgecolors="black", linewidths=0.3)
     ax.scatter(bams.loc[~agree, "lon"], bams.loc[~agree, "lat"], s=26, c="#c1443c",
-               marker="^", label=f"human ≠ WC (n={int((~agree).sum())})", edgecolors="black", linewidths=0.3)
+               marker="^", label=f"expert ≠ WC (n={int((~agree).sum())})", edgecolors="black", linewidths=0.3)
     ax.set_title(f"{city} — 150 hand-labelled boundary points")
     ax.legend(loc="lower left", fontsize=8, frameon=False)
 
